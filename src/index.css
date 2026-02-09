@@ -1,0 +1,152 @@
+@import "tailwindcss";
+@import "@fontsource/jost/400.css";
+@import "@fontsource/jost/500.css";
+@import "@fontsource/jost/600.css";
+@import "@fontsource/jost/700.css";
+
+@theme {
+  --font-jost: "Jost", sans-serif;
+
+  --color-sky-500: #0ea5e9;
+  --color-sky-600: #0284c7;
+  --color-amber-400: #fbbf24;
+  --color-amber-500: #f59e0b;
+  --color-slate-200: #e2e8f0;
+  --color-slate-400: #94a3b8;
+}
+
+@layer base {
+  body {
+    background-color: #f8fafc;
+    color: theme('colors.slate.900');
+    font-family: var(--font-jost);
+  }
+}
+
+@layer components {
+  /* 
+    Strict Mobile Redesign Specs 
+    ----------------------------
+    Glossy, 3D, High Fidelity
+  */
+
+  /* General Button Base */
+  .btn-base {
+    @apply transition-all duration-200 ease-out active:scale-95 cursor-pointer select-none;
+  }
+
+  /* 
+     LEVEL NODE BUTTON (80-100px)
+     The core element of the design.
+  */
+  .level-node-glossy {
+    border-radius: 50%;
+    /* Circular */
+    border: 3px solid rgba(255, 255, 255, 0.4);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .level-node-glossy:active {
+    transform: scale(0.95) translateY(4px);
+  }
+
+  /* State 1: Current / Playable (Blue Gradient) */
+  .node-current {
+    background: linear-gradient(135deg, #4A90E2 0%, #357ABD 50%, #2868A8 100%);
+    box-shadow:
+      0 8px 16px rgba(0, 0, 0, 0.15),
+      0 4px 8px rgba(0, 0, 0, 0.1),
+      inset 0 -4px 8px rgba(0, 0, 0, 0.2),
+      inset 0 4px 8px rgba(255, 255, 255, 0.4);
+  }
+
+  .node-current:active {
+    box-shadow:
+      0 4px 8px rgba(0, 0, 0, 0.1),
+      inset 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  /* State 2: Completed (Gold Gradient) */
+  .node-completed {
+    background: linear-gradient(135deg, #FFD700 0%, #F5A623 50%, #D48806 100%);
+    box-shadow:
+      0 8px 16px rgba(245, 166, 35, 0.25),
+      inset 0 -4px 8px rgba(0, 0, 0, 0.15),
+      inset 0 4px 8px rgba(255, 255, 255, 0.5);
+    border-color: rgba(255, 255, 255, 0.6);
+  }
+
+  /* State 3: Locked (Gray) */
+  .node-locked {
+    background: #e2e8f0;
+    box-shadow:
+      0 4px 0 0 #cbd5e1,
+      inset 0 2px 4px rgba(255, 255, 255, 0.5);
+    opacity: 0.8;
+    filter: grayscale(100%);
+    border: 3px solid transparent;
+  }
+
+  /* 
+     STATUS CAPSULE 
+     Gradient badges for stats
+  */
+  .stat-capsule {
+    @apply rounded-full px-3 py-1.5 flex items-center gap-1.5 border-2 border-white/40 shadow-sm text-white font-bold text-sm;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  /* 
+     BOTTOM NAV 
+     Gradient active state
+  */
+  .nav-item-active {
+    background: linear-gradient(135deg, #4A90E2, #357ABD);
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.4);
+    color: white;
+  }
+
+  /* Pulse Glow Animation */
+  @keyframes pulse-glow {
+
+    0%,
+    100% {
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25),
+        0 0 24px rgba(74, 144, 226, 0.6),
+        inset 0 -4px 8px rgba(0, 0, 0, 0.15),
+        inset 0 4px 8px rgba(255, 255, 255, 0.4);
+    }
+
+    50% {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3),
+        0 0 36px rgba(74, 144, 226, 0.9),
+        inset 0 -4px 8px rgba(0, 0, 0, 0.15),
+        inset 0 4px 8px rgba(255, 255, 255, 0.4);
+    }
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.3s ease-out;
+  }
+}
