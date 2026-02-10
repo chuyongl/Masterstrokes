@@ -4,7 +4,7 @@ import { ArrowLeft, Lock, Star, Circle } from 'lucide-react';
 import { ERAS, ARTWORK_ERA_MAP } from '../config/eras';
 import { getAllArtworks } from '../services/sheetsApi';
 import type { Artwork } from '../data/mockArtwork';
-import { preloadImage } from '../utils/preload';
+// import { preloadImage } from '../utils/preload';
 
 interface LevelNode {
     artwork: Artwork;
