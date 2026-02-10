@@ -36,16 +36,13 @@ export default function LevelRoadmapPage() {
                 });
                 setArtworks(filtered);
 
-                // Preload high-res artwork images for better performance
-                if (filtered.length > 0) {
-                    // Preload the first artwork immediately
-                    preloadImage(filtered[0].imageUrl);
-
-                    // Preload others with a slight delay to prioritize UI rendering
-                    setTimeout(() => {
-                        filtered.slice(1, 3).forEach(art => preloadImage(art.imageUrl));
-                    }, 1000);
-                }
+                // Preload removed to improve initial load performance
+                // if (filtered.length > 0) {
+                //     preloadImage(filtered[0].imageUrl);
+                //     setTimeout(() => {
+                //         filtered.slice(1, 3).forEach(art => preloadImage(art.imageUrl));
+                //     }, 1000);
+                // }
             } catch (error) {
                 console.error('Failed to load artworks from Google Sheets:', error);
                 console.warn('Please check your VITE_APPS_SCRIPT_URL in .env file');
