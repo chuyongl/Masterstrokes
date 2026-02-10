@@ -121,6 +121,37 @@ export function transformSheetDataToArtwork(
         const x = lp ? lp.clickArea.x : 50;
         const y = lp ? lp.clickArea.y : 30 + (index * 20);
 
+        // Generate Distractors (Wrong Answers)
+        // Strategy: Use other learning points first, then random crops
+        const otherLPs = processedLearningPoints.filter(p => p.id !== qq.point_id);
+        const distractors: { x: number; y: number }[] = [];
+
+        // 1. Add other learning points as distractors
+        otherLPs.forEach(other => {
+            if (distractors.length < 3) {
+                distractors.push({ x: other.clickArea.x, y: other.clickArea.y });
+            }
+        });
+
+        // 2. Fill remaining slots with random crops
+        while (distractors.length < 3) {
+            const rx = Math.floor(Math.random() * 80) + 10; // 10% to 90%
+            const ry = Math.floor(Math.random() * 80) + 10;
+
+            // Basic distance check to avoid overlapping with correct answer or existing distractors
+            const isTooClose = [...distractors, { x, y }].some(pt => {
+                const dist = Math.sqrt(Math.pow(pt.x - rx, 2) + Math.pow(pt.y - ry, 2));
+                return dist < 15; // 15% threshold
+            });
+
+            if (!isTooClose) {
+                distractors.push({ x: rx, y: ry });
+            } else {
+                // Failsafe break to prevent infinite loop (rare but possible)
+                if (Math.random() > 0.9) distractors.push({ x: rx, y: ry });
+            }
+        }
+
         return {
             id: qq.point_id,
             learningPointId: qq.point_id,
@@ -139,30 +170,30 @@ export function transformSheetDataToArtwork(
             options: shuffleOptions([
                 {
                     id: 'a',
-                    // Correct answer: Clean image
+                    // Correct answer
                     crop: { x, y, zoom: 300 },
                     filter: 'none',
                     isCorrect: true
                 },
                 {
                     id: 'b',
-                    // Wrong: Grayscale & Contrast (Sketch-like)
-                    crop: { x, y, zoom: 300 },
-                    filter: 'grayscale(100%) contrast(120%)',
+                    // Distractor 1
+                    crop: { x: distractors[0].x, y: distractors[0].y, zoom: 300 },
+                    filter: 'none',
                     isCorrect: false
                 },
                 {
                     id: 'c',
-                    // Wrong: Sepia (Old photo style)
-                    crop: { x, y, zoom: 300 },
-                    filter: 'sepia(100%)',
+                    // Distractor 2
+                    crop: { x: distractors[1].x, y: distractors[1].y, zoom: 300 },
+                    filter: 'none',
                     isCorrect: false
                 },
                 {
                     id: 'd',
-                    // Wrong: Inverted (Negative / X-ray style)
-                    crop: { x, y, zoom: 300 },
-                    filter: 'invert(100%)',
+                    // Distractor 3
+                    crop: { x: distractors[2].x, y: distractors[2].y, zoom: 300 },
+                    filter: 'none',
                     isCorrect: false
                 }
             ])
