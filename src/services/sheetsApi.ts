@@ -169,12 +169,28 @@ export function transformSheetDataToArtwork(
         };
     });
 
+    // Handle relative paths for images (fix for GitHub Pages)
+    let imageUrl = sheetArtwork.image_url;
+    if (imageUrl.startsWith('/') && !imageUrl.startsWith('http')) {
+        // Prepare base URL (remove trailing slash if exists to avoid double slashes)
+        // Actually import.meta.env.BASE_URL usually ends with /.
+        // So we join them carefully.
+        const baseUrl = import.meta.env.BASE_URL;
+        // If baseUrl is '/', we don't need to do anything if path starts with /
+        if (baseUrl !== '/') {
+            // If local path is "/artworks/..." and base is "/Masterstrokes/"
+            // Result should be "/Masterstrokes/artworks/..."
+            // We strip the leading slash from the image path
+            imageUrl = `${baseUrl}${imageUrl.substring(1)}`;
+        }
+    }
+
     // Transform to Artwork format
     return {
         id: sheetArtwork.artwork_id,
         title: sheetArtwork.title,
         artist: sheetArtwork.artist,
-        imageUrl: sheetArtwork.image_url,
+        imageUrl: imageUrl,
 
         learningPoints: processedLearningPoints,
         quizQuestions: processedQuizQuestions
