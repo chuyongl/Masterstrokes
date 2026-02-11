@@ -222,7 +222,7 @@ export function transformSheetDataToArtwork(
         title: sheetArtwork.title,
         artist: sheetArtwork.artist,
         imageUrl: imageUrl,
-
+        era: sheetArtwork.era,
         learningPoints: processedLearningPoints,
         quizQuestions: processedQuizQuestions
     };
@@ -240,20 +240,26 @@ function shuffleOptions<T>(array: T[]): T[] {
     return arr;
 }
 
+import { MOCK_DUTCH_GOLDEN_AGE_ARTWORKS } from '../data/mockArtwork';
+
 export async function getAllArtworks(): Promise<Artwork[]> {
     try {
         const data = await fetchSheetData();
 
-        return data.artworks.map((artwork) =>
+        const transformed = data.artworks.map((artwork) =>
             transformSheetDataToArtwork(
                 artwork,
                 data.learningPoints,
                 data.quizQuestions
             )
         );
+
+        // If sheet is empty or fails to transform, return mock
+        if (transformed.length === 0) return MOCK_DUTCH_GOLDEN_AGE_ARTWORKS;
+        return transformed;
     } catch (error) {
-        console.error('Failed to get artworks:', error);
-        return [];
+        console.warn('Failed to get artworks from sheet, using mock data:', error);
+        return MOCK_DUTCH_GOLDEN_AGE_ARTWORKS;
     }
 }
 

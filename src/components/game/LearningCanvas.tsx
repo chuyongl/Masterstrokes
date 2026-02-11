@@ -100,17 +100,39 @@ export default function LearningCanvas({ artwork, onComplete }: LearningCanvasPr
         setViewMode('exploration');
     };
 
+    // Zoom handler
+    const handleWheel = (e: React.WheelEvent) => {
+        if (activeTooltip) return; // Lock zoom while reading
+
+        const img = imageRef.current;
+        if (!img) return;
+
+        // Prevent default scrolling
+        // e.preventDefault(); // React synthetic events might not support direct preventDefault in all cases, better handled in CSS or standard listeners if needed, but wheel usually OK.
+
+        const zoomSensitivity = 0.001;
+        const delta = -e.deltaY * zoomSensitivity;
+        const newScale = Math.max(0.5, Math.min(scale + delta, 4)); // Clamp zoom 0.5x to 4x
+
+        setScale(newScale);
+    };
+
     // Pan handlers
     const handlePointerDown = (e: React.PointerEvent) => {
         if (viewMode !== 'exploration') return;
+        if (activeTooltip) return; // Lock panning while reading
 
         setIsDragging(true);
         setDragStart({ x: e.clientX - panPosition.x, y: e.clientY - panPosition.y });
         setDragDistance(0);
+
+        // Capture pointer to ensure we keep tracking even if mouse leaves div
+        (e.target as HTMLElement).setPointerCapture(e.pointerId);
     };
 
     const handlePointerMove = (e: React.PointerEvent) => {
         if (!isDragging) return;
+        if (activeTooltip) return;
 
         const newX = e.clientX - dragStart.x;
         const newY = e.clientY - dragStart.y;
@@ -121,15 +143,14 @@ export default function LearningCanvas({ artwork, onComplete }: LearningCanvasPr
         );
         setDragDistance(distance);
 
-        // Clamp pan to prevent showing empty space
+        // Clamping logic...
         if (imageRef.current && containerSize.width > 0 && scale > 0) {
             const scaledWidth = imageRef.current.naturalWidth * scale;
             const scaledHeight = imageRef.current.naturalHeight * scale;
 
-            // Allow details to be moved to center of screen (freer movement)
-            // Logic: Max pan allows the edge of the image to reach the center of the screen
-            const maxPanX = (scaledWidth / 2);
-            const maxPanY = (scaledHeight / 2);
+            // Allow free movement but keep image somewhat in view
+            const maxPanX = scaledWidth * 0.75;
+            const maxPanY = scaledHeight * 0.75;
 
             const clampedX = Math.max(Math.min(newX, maxPanX), -maxPanX);
             const clampedY = Math.max(Math.min(newY, maxPanY), -maxPanY);
@@ -140,13 +161,15 @@ export default function LearningCanvas({ artwork, onComplete }: LearningCanvasPr
         }
     };
 
-    const handlePointerUp = () => {
+    const handlePointerUp = (e: React.PointerEvent) => {
         setIsDragging(false);
+        (e.target as HTMLElement).releasePointerCapture(e.pointerId);
     };
 
     // Hotspot click detection
     const handleImageClick = (e: React.MouseEvent) => {
         if (viewMode !== 'exploration') return;
+        if (activeTooltip) return; // Lock clicking other hotspots while reading
         if (dragDistance > 5) return; // Ignore if dragging
 
         const imageRefRect = imageRef.current?.getBoundingClientRect();
@@ -173,7 +196,6 @@ export default function LearningCanvas({ artwork, onComplete }: LearningCanvasPr
             if (distance <= hotspot.clickArea.radius * hitRadiusMultiplier) {
                 markHotspotFound(hotspot.id);
                 setActiveTooltip(hotspot.id);
-
                 // Manual dismissal only - no timeout
                 break;
             }
@@ -238,6 +260,7 @@ export default function LearningCanvas({ artwork, onComplete }: LearningCanvasPr
                         onPointerMove={handlePointerMove}
                         onPointerUp={handlePointerUp}
                         onPointerLeave={handlePointerUp}
+                        onWheel={handleWheel}
                         onClick={handleImageClick}
                     >
                         <img
@@ -247,7 +270,7 @@ export default function LearningCanvas({ artwork, onComplete }: LearningCanvasPr
                             className="max-w-none select-none pointer-events-none"
                             style={{
                                 transform: `translate(${panPosition.x}px, ${panPosition.y}px) scale(${scale})`,
-                                transition: isDragging ? 'none' : 'transform 0.3s ease-out',
+                                transition: isDragging ? 'none' : 'transform 0.1s ease-out',
                                 willChange: 'transform',
                                 opacity: scale > 0 ? 1 : 0 // Hide until scale is calculated
                             }}
@@ -267,123 +290,145 @@ export default function LearningCanvas({ artwork, onComplete }: LearningCanvasPr
                             transition: isDragging ? 'none' : 'transform 0.3s ease-out',
                             transformOrigin: 'center center'
                         }}>
-                            {/* Yellow Highlight Circles - Graffiti Style */}
-                            {foundHotspots.map((hotspotId) => {
-                                const hotspot = artwork.learningPoints.find((p) => p.id === hotspotId);
-                                if (!hotspot) return null;
-
-                                return (
-                                    <div
-                                        key={hotspot.id}
-                                        className="absolute"
-                                        style={{
-                                            left: `${hotspot.highlightCircle.x}%`,
-                                            top: `${hotspot.highlightCircle.y}%`,
-                                            // 3. Larger visual circle (2.5x radius)
-                                            width: `${hotspot.highlightCircle.radius * 2.5}%`,
-                                            height: `${hotspot.highlightCircle.radius * 2.5}%`,
-                                            transform: 'translate(-50%, -50%)',
-                                            filter: 'drop-shadow(0 0 4px rgba(255, 215, 0, 0.6))'
-                                        }}
-                                    >
-                                        <svg width="100%" height="100%" viewBox="0 0 100 100" className="animate-pulse-subtle">
-                                            {/* Main thick stroke */}
-                                            <circle
-                                                cx="50"
-                                                cy="50"
-                                                r="42"
-                                                fill="none"
-                                                stroke="#FFD700"
-                                                strokeWidth="6"
-                                                strokeLinecap="round"
-                                                strokeDasharray="85 15"
-                                                transform="rotate(-15 50 50)"
-                                            />
-                                            {/* Secondary accent stroke for sloppy/spray look */}
-                                            <circle
-                                                cx="52"
-                                                cy="48"
-                                                r="42"
-                                                fill="none"
-                                                stroke="#FFA000"
-                                                strokeWidth="2"
-                                                strokeLinecap="round"
-                                                strokeDasharray="40 200"
-                                                transform="rotate(160 50 50)"
-                                                opacity="0.7"
-                                            />
-                                        </svg>
-                                    </div>
-                                );
-                            })}
-
-                            {/* Tooltips with Manual Check Button */}
+                            {/* Yellow Highlight Circles - Graffiti Style - Only show for ACTIVE tooltip */}
                             {activeTooltip && (() => {
                                 const hotspot = artwork.learningPoints.find((p) => p.id === activeTooltip);
                                 if (!hotspot) return null;
+
                                 return (
-                                    <div
-                                        className="absolute z-50 pointer-events-auto"
-                                        style={{
-                                            left: `${hotspot.highlightCircle.x}%`,
-                                            top: hotspot.tooltip.position === 'bottom'
-                                                ? `${hotspot.highlightCircle.y + hotspot.highlightCircle.radius * 2}%`
-                                                : `${hotspot.highlightCircle.y - hotspot.highlightCircle.radius * 2}%`,
-                                            transform: `translate(-50%, ${hotspot.tooltip.position === 'bottom' ? '10px' : '-100%'}) scale(${1 / scale})`
-                                        }}
-                                    >
-                                        <div className="bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-2xl w-[260px] text-center border-2 border-slate-100 flex flex-col items-center gap-3 animate-pop-in">
-                                            <p className="text-sm text-slate-800 leading-relaxed font-bold">
-                                                {hotspot.tooltip.text}
-                                            </p>
-
-                                            {/* 2. Manual Dismiss "Check" Button */}
-                                            <button
-                                                onClick={(e) => {
-                                                    e.stopPropagation();
-                                                    setActiveTooltip(null);
-                                                }}
-                                                className="w-10 h-10 flex items-center justify-center bg-green-500 hover:bg-green-600 active:scale-95 text-white rounded-full shadow-lg transition-all border-2 border-white"
-                                            >
-                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                                </svg>
-                                            </button>
+                                    <>
+                                        {/* The Highlight Circle */}
+                                        <div
+                                            key={hotspot.id}
+                                            className="absolute"
+                                            style={{
+                                                left: `${hotspot.highlightCircle.x}%`,
+                                                top: `${hotspot.highlightCircle.y}%`,
+                                                // 3. Larger visual circle (2.5x radius)
+                                                width: `${hotspot.highlightCircle.radius * 2.5}%`,
+                                                height: `${hotspot.highlightCircle.radius * 2.5}%`,
+                                                transform: 'translate(-50%, -50%)',
+                                                filter: 'drop-shadow(0 0 4px rgba(255, 215, 0, 0.6))'
+                                            }}
+                                        >
+                                            <svg width="100%" height="100%" viewBox="0 0 100 100" className="animate-pulse-subtle">
+                                                {/* Main thick stroke */}
+                                                <circle
+                                                    cx="50"
+                                                    cy="50"
+                                                    r="42"
+                                                    fill="none"
+                                                    stroke="#FFD700"
+                                                    strokeWidth="6"
+                                                    strokeLinecap="round"
+                                                    strokeDasharray="85 15"
+                                                    transform="rotate(-15 50 50)"
+                                                />
+                                                {/* Secondary accent stroke for sloppy/spray look */}
+                                                <circle
+                                                    cx="52"
+                                                    cy="48"
+                                                    r="42"
+                                                    fill="none"
+                                                    stroke="#FFA000"
+                                                    strokeWidth="2"
+                                                    strokeLinecap="round"
+                                                    strokeDasharray="40 200"
+                                                    transform="rotate(160 50 50)"
+                                                    opacity="0.7"
+                                                />
+                                            </svg>
                                         </div>
+
+                                        {/* The Tooltip (Smart Positioned) */}
+                                        {(() => {
+                                            // Smart positioning: Ensure tooltip clears the yellow ring
+                                            const visualRadius = hotspot.highlightCircle.radius * 1.1;
+                                            const margin = 2; // % buffer
+                                            
+                                            const topCandidate = hotspot.highlightCircle.y - visualRadius - margin;
+                                            const bottomCandidate = hotspot.highlightCircle.y + visualRadius + margin;
+
+                                            // Check bounds
+                                            const fitsTop = topCandidate > 10; 
+                                            const fitsBottom = bottomCandidate < 85;
+
+                                            let position = 'bottom';
+                                            if (fitsTop) position = 'top';
+                                            else if (fitsBottom) position = 'bottom';
+                                            else position = hotspot.highlightCircle.y > 50 ? 'top' : 'bottom';
+
+                                            const topStyle = position === 'bottom' ? bottomCandidate : topCandidate;
+
+                                            return (
+                                                <div
+                                                    className="absolute z-[100] pointer-events-auto"
+                                                    style={{
+                                                        left: `${hotspot.highlightCircle.x}%`,
+                                                        top: `${topStyle}%`,
+                                                        transform: `translate(-50%, ${position === 'bottom' ? '0' : '-100%'}) scale(${1 / scale})`
+                                                    }}
+                                                >
+                                                    <div className="bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-2xl w-[260px] text-center border-2 border-slate-100 flex flex-col items-center gap-2 animate-pop-in">
+                                                            {/* Label (The Prompt) */}
+                                                            <h4 className="text-sky-600 font-extrabold text-sm uppercase tracking-wide">
+                                                                {hotspot.label}
+                                                            </h4>
+
+                                                            <div className="w-8 h-0.5 bg-slate-200 rounded-full mb-1"></div>
+
+                                                            {/* Description */}
+                                                            <p className="text-sm text-slate-800 leading-relaxed font-medium">
+                                                                {hotspot.tooltip.text}
+                                                            </p>
+
+                                                            {/* Manual Dismiss "Check" Button */}
+                                                            <button
+                                                                onClick={(e) => {
+                                                                    e.stopPropagation();
+                                                                    setActiveTooltip(null);
+                                                                }}
+                                                                className="mt-2 w-10 h-10 flex items-center justify-center bg-green-500 hover:bg-green-600 active:scale-95 text-white rounded-full shadow-lg transition-all border-2 border-white"
+                                                            >
+                                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                                                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                                                </svg>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    );
+                                        })()}
+                                    </div >
+                    </div>
+
+
+                        {/* UI Overlays (Static) */}
+
+                        {/* Progress Bar */}
+                        <div className="absolute top-4 left-4 right-4 bg-slate-700/80 rounded-full h-3 overflow-hidden pointer-events-none z-50">
+                            <div
+                                className="h-full bg-gradient-to-r from-sky-400 to-sky-600 transition-all duration-500"
+                                style={{
+                                    width: `${(foundHotspots.length / artwork.learningPoints.length) * 100}%`
+                                }}
+                            />
+                        </div>
+
+                        {/* Bottom Label Strip */}
+                        {remainingLabels.length > 0 && (
+                            <div className="absolute bottom-0 left-0 right-0 bg-slate-800/90 p-4 flex gap-3 justify-center flex-wrap z-50 pb-8">
+                                {remainingLabels.map((point) => (
+                                    <div
+                                        key={point.id}
+                                        className="px-4 py-2 bg-slate-700 text-white text-xs md:text-sm font-semibold rounded-full border border-slate-600"
+                                    >
+                                        {point.label}
                                     </div>
-                                );
-                            })()}
-                        </div>
-                    </div>
-
-
-                    {/* UI Overlays (Static) */}
-
-                    {/* Progress Bar */}
-                    <div className="absolute top-4 left-4 right-4 bg-slate-700/80 rounded-full h-3 overflow-hidden pointer-events-none z-50">
-                        <div
-                            className="h-full bg-gradient-to-r from-sky-400 to-sky-600 transition-all duration-500"
-                            style={{
-                                width: `${(foundHotspots.length / artwork.learningPoints.length) * 100}%`
-                            }}
-                        />
-                    </div>
-
-                    {/* Bottom Label Strip */}
-                    {remainingLabels.length > 0 && (
-                        <div className="absolute bottom-0 left-0 right-0 bg-slate-800/90 p-4 flex gap-3 justify-center flex-wrap z-50 pb-8">
-                            {remainingLabels.map((point) => (
-                                <div
-                                    key={point.id}
-                                    className="px-4 py-2 bg-slate-700 text-white text-xs md:text-sm font-semibold rounded-full border border-slate-600"
-                                >
-                                    {point.label}
-                                </div>
-                            ))}
-                        </div>
-                    )}
-                </>
+                                ))}
+                            </div>
+                        )}
+                    </>
             )}
-        </div>
-    );
+                </div>
+            );
 }

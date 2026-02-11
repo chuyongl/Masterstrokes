@@ -146,77 +146,100 @@ export default function LevelRoadmapPage() {
                             })}
                         </svg>
 
-                        {/* Level Nodes */}
-                        {levelNodes.map((node, index) => (
-                            <div
-                                key={node.artwork.id}
-                                className="absolute transform -translate-x-1/2 -translate-y-1/2"
-                                style={{
-                                    left: `${node.position.x}%`,
-                                    top: `${node.position.y}%`
-                                }}
-                            >
-                                <button
-                                    onClick={() => {
-                                        if (node.status !== 'locked') {
-                                            navigate(`/play/${node.artwork.id}`);
-                                        }
-                                    }}
-                                    disabled={node.status === 'locked'}
-                                    className={`relative group flex flex-col items-center justify-center transition-all duration-300
-                                        ${node.status === 'locked' ? 'grayscale opacity-80' : 'hover:scale-110'}
-                                    `}
-                                >
-                                    {/* Level Number Badge */}
-                                    <div className={`absolute -top-3 -right-3 z-20 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold shadow-sm border-2 border-white
-                                        ${node.status === 'completed' ? 'bg-yellow-500 text-white' : 'bg-slate-700 text-white'}
-                                    `}>
-                                        {index + 1}
-                                    </div>
+                        {/* Level Nodes with Session Headers */}
+                        {levelNodes.map((node, index) => {
+                            // Determine if we need a session header
+                            // Session 1: Index 0, Session 2: Index 3, Session 3: Index 6, Session 4: Index 9
+                            let sessionTitle = "";
+                            let sessionColor = "";
 
-                                    {/* Main Circle */}
-                                    <div
-                                        className={`w-24 h-24 rounded-full border-4 flex items-center justify-center shadow-lg transition-all duration-500 relative overflow-hidden bg-white
-                                            ${node.status === 'current' ? 'ring-4 ring-offset-4 ring-sky-200 border-sky-500' : ''}
-                                            ${node.status === 'completed' ? 'border-yellow-400' : 'border-slate-200'}
-                                        `}
-                                    >
-                                        {/* Image Background */}
-                                        <div className="absolute inset-0 opacity-90 group-hover:opacity-100 transition-opacity">
-                                            <img
-                                                src={node.artwork.imageUrl}
-                                                alt={node.artwork.title}
-                                                className="w-full h-full object-cover"
-                                            />
-                                            <div className={`absolute inset-0 bg-black/10 ${node.status === 'locked' ? 'bg-slate-100/90' : ''}`} />
-                                        </div>
+                            if (index === 0) { sessionTitle = "Session 1: The Face of the Republic"; sessionColor = "bg-amber-100 text-amber-800 border-amber-200"; }
+                            else if (index === 3) { sessionTitle = "Session 2: Life in Detail"; sessionColor = "bg-sky-100 text-sky-800 border-sky-200"; }
+                            else if (index === 6) { sessionTitle = "Session 3: The World Around Us"; sessionColor = "bg-emerald-100 text-emerald-800 border-emerald-200"; }
+                            else if (index === 9) { sessionTitle = "Session 4: Silent Beauty"; sessionColor = "bg-purple-100 text-purple-800 border-purple-200"; }
 
-                                        {/* Status Icon Overlay */}
-                                        <div className="z-10 bg-white/80 backdrop-blur-sm p-3 rounded-full shadow-sm">
-                                            {node.status === 'locked' ? (
-                                                <Lock className="text-slate-400" size={24} />
-                                            ) : node.status === 'completed' ? (
-                                                <Star className="text-yellow-500 fill-yellow-500" size={24} />
-                                            ) : (
-                                                <Play className="text-sky-600 fill-sky-600 ml-1" size={24} />
-                                            )}
-                                        </div>
-                                    </div>
-
-                                    {/* Artwork Title Label */}
-                                    {node.status !== 'locked' && (
-                                        <div className="absolute top-28 bg-white/90 backdrop-blur-md px-4 py-2 rounded-xl shadow-lg border border-slate-100 w-48 text-center transform scale-95 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all z-30">
-                                            <p className="text-sm font-bold text-slate-800 line-clamp-1">
-                                                {node.artwork.title}
-                                            </p>
-                                            <p className="text-xs text-slate-500">
-                                                {node.artwork.artist}
-                                            </p>
+                            return (
+                                <div key={node.artwork.id}>
+                                    {/* Session Header */}
+                                    {sessionTitle && (
+                                        <div className="absolute left-0 right-0 z-0 flex justify-center pointer-events-none"
+                                            style={{ top: `${node.position.y - 8}%` }}>
+                                            <div className={`px-6 py-2 rounded-full border shadow-sm backdrop-blur-md font-bold text-sm uppercase tracking-wider ${sessionColor}`}>
+                                                {sessionTitle}
+                                            </div>
                                         </div>
                                     )}
-                                </button>
-                            </div>
-                        ))}
+
+                                    <div
+                                        className="absolute transform -translate-x-1/2 -translate-y-1/2"
+                                        style={{
+                                            left: `${node.position.x}%`,
+                                            top: `${node.position.y}%`
+                                        }}
+                                    >
+                                        <button
+                                            onClick={() => {
+                                                if (node.status !== 'locked') {
+                                                    navigate(`/play/${node.artwork.id}`);
+                                                }
+                                            }}
+                                            disabled={node.status === 'locked'}
+                                            className={`relative group flex flex-col items-center justify-center transition-all duration-300
+                                                ${node.status === 'locked' ? 'grayscale opacity-80' : 'hover:scale-110'}
+                                            `}
+                                        >
+                                            {/* Level Number Badge */}
+                                            <div className={`absolute -top-3 -right-3 z-20 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold shadow-sm border-2 border-white
+                                                ${node.status === 'completed' ? 'bg-yellow-500 text-white' : 'bg-slate-700 text-white'}
+                                            `}>
+                                                {index + 1}
+                                            </div>
+
+                                            {/* Main Circle */}
+                                            <div
+                                                className={`w-24 h-24 rounded-full border-4 flex items-center justify-center shadow-lg transition-all duration-500 relative overflow-hidden bg-white
+                                                    ${node.status === 'current' ? 'ring-4 ring-offset-4 ring-sky-200 border-sky-500' : ''}
+                                                    ${node.status === 'completed' ? 'border-yellow-400' : 'border-slate-200'}
+                                                `}
+                                            >
+                                                {/* Image Background */}
+                                                <div className="absolute inset-0 opacity-90 group-hover:opacity-100 transition-opacity">
+                                                    <img
+                                                        src={node.artwork.imageUrl}
+                                                        alt={node.artwork.title}
+                                                        className="w-full h-full object-cover"
+                                                    />
+                                                    <div className={`absolute inset-0 bg-black/10 ${node.status === 'locked' ? 'bg-slate-100/90' : ''}`} />
+                                                </div>
+
+                                                {/* Status Icon Overlay */}
+                                                <div className="z-10 bg-white/80 backdrop-blur-sm p-3 rounded-full shadow-sm">
+                                                    {node.status === 'locked' ? (
+                                                        <Lock className="text-slate-400" size={24} />
+                                                    ) : node.status === 'completed' ? (
+                                                        <Star className="text-yellow-500 fill-yellow-500" size={24} />
+                                                    ) : (
+                                                        <Play className="text-sky-600 fill-sky-600 ml-1" size={24} />
+                                                    )}
+                                                </div>
+                                            </div>
+
+                                            {/* Artwork Title Label */}
+                                            {node.status !== 'locked' && (
+                                                <div className="absolute top-28 bg-white/90 backdrop-blur-md px-4 py-2 rounded-xl shadow-lg border border-slate-100 w-48 text-center transform scale-95 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all z-30">
+                                                    <p className="text-sm font-bold text-slate-800 line-clamp-1">
+                                                        {node.artwork.title}
+                                                    </p>
+                                                    <p className="text-xs text-slate-500">
+                                                        {node.artwork.artist}
+                                                    </p>
+                                                </div>
+                                            )}
+                                        </button>
+                                    </div>
+                                </div>
+                            );
+                        })}
 
                         {/* Bottom Mascot */}
                         <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-center"

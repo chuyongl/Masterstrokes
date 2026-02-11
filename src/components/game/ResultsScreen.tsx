@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import type { Artwork } from '../../data/mockArtwork';
 import { useGameStore } from '../../store/gameStore';
+import { useUserStore } from '../../store/userStore';
 
 interface ResultsScreenProps {
     artwork: Artwork;
@@ -26,8 +27,12 @@ export default function ResultsScreen({ artwork }: ResultsScreenProps) {
     const seconds = timeTaken % 60;
 
     const handleContinue = () => {
+        // Mark level as complete
+        useUserStore.getState().markLevelComplete(artwork.id);
+
         resetGame();
-        navigate('/hub');
+        // Redirect to the Era Roadmap (e.g., /era/dutch-golden-age) instead of Hub
+        navigate(`/era/${artwork.era}`);
     };
 
     return (
