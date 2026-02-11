@@ -9,21 +9,22 @@ interface OnboardingLayoutProps {
 
 export function OnboardingLayout({ children, onBack, showBack = true }: OnboardingLayoutProps) {
     return (
-        <div className="min-h-screen bg-slate-50 flex items-center justify-center p-4">
-            <div className="w-full max-w-md bg-white rounded-3xl shadow-2xl overflow-hidden relative min-h-[600px] flex flex-col">
-                {/* Header / Back Button */}
-                <div className="p-4 h-14 flex items-center">
-                    {showBack && (
-                        <button onClick={onBack} className="text-slate-400 hover:text-slate-600 transition-colors">
-                            <ArrowLeft size={24} />
-                        </button>
-                    )}
-                </div>
+        <div className="min-h-screen bg-slate-50 flex flex-col relative overflow-hidden">
+            {/* Header / Back Button */}
+            <div className="absolute top-0 left-0 p-6 z-10">
+                {showBack && (
+                    <button
+                        onClick={onBack}
+                        className="p-3 text-slate-400 hover:text-slate-800 transition-colors bg-white/50 backdrop-blur-sm rounded-full hover:bg-white hover:shadow-md"
+                    >
+                        <ArrowLeft size={24} />
+                    </button>
+                )}
+            </div>
 
-                {/* Content Content */}
-                <div className="flex-1 flex flex-col px-6 pb-8">
-                    {children}
-                </div>
+            {/* Content Content */}
+            <div className="flex-1 flex flex-col items-center justify-center px-4 w-full h-full">
+                {children}
             </div>
         </div>
     );
@@ -99,7 +100,7 @@ interface StepLoadingProps {
 
 export function StepLoading({ }: StepLoadingProps) {
     return (
-        <div className="flex-1 flex flex-col items-center justify-center text-center -mt-20">
+        <div className="flex-1 flex flex-col items-center justify-center text-center animate-in fade-in duration-700">
             {/* Snail */}
             <div className="w-40 h-40 text-8xl flex items-center justify-center mb-8 animate-bounce">
                 🐌
