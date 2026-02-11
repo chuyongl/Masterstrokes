@@ -395,10 +395,13 @@ export default function LearningCanvas({ artwork, onComplete }: LearningCanvasPr
                                                                 </svg>
                                                             </button>
                                                         </div>
-                                                    </div>
+                                                </div>
                                                     );
                                         })()}
-                                    </div >
+                                    </>
+                                );
+                            })()}
+                                    </div>
                     </div>
 
 
