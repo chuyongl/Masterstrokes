@@ -6,6 +6,7 @@ export const MOCK_ARTWORKS: Artwork[] = [
         id: 'girl-pearl-earring',
         title: 'Girl with a Pearl Earring',
         artist: 'Johannes Vermeer',
+        era: 'dutch-golden-age',
         imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/0/0f/1665_Girl_with_a_Pearl_Earring.jpg',
         learningPoints: [
             {
@@ -85,6 +86,7 @@ export const MOCK_ARTWORKS: Artwork[] = [
         id: 'starry-night',
         title: 'The Starry Night',
         artist: 'Vincent van Gogh',
+        era: 'post-impressionism',
         imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1280px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg',
         learningPoints: [
             {
@@ -164,6 +166,7 @@ export const MOCK_ARTWORKS: Artwork[] = [
         id: 'the-scream',
         title: 'The Scream',
         artist: 'Edvard Munch',
+        era: 'expressionism',
         imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Edvard_Munch%2C_1893%2C_The_Scream%2C_oil%2C_tempera_and_pastel_on_cardboard%2C_91_x_73_cm%2C_National_Gallery_of_Norway.jpg/800px-Edvard_Munch%2C_1893%2C_The_Scream%2C_oil%2C_tempera_and_pastel_on_cardboard%2C_91_x_73_cm%2C_National_Gallery_of_Norway.jpg',
         learningPoints: [
             {
