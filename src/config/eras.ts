@@ -69,5 +69,17 @@ export const ARTWORK_ERA_MAP: Record<string, string> = {
     'american-gothic': 'regionalism',
     'last-supper': 'renaissance',
     'persistence-memory': 'surrealism',
-    'night-watch': 'dutch-golden-age'
+
+    // Dutch Golden Age
+    'night-watch': 'dutch-golden-age',
+    'laughing-cavalier': 'dutch-golden-age',
+    'the-milkmaid': 'dutch-golden-age',
+    'merry-family': 'dutch-golden-age',
+    'courtyard-delft': 'dutch-golden-age',
+    'view-of-delft': 'dutch-golden-age',
+    'windmill-wijk': 'dutch-golden-age',
+    'avenue-middelharnis': 'dutch-golden-age',
+    'still-life-cheeses': 'dutch-golden-age',
+    'vanitas-violin': 'dutch-golden-age',
+    'flowers-glass-vase': 'dutch-golden-age'
 };

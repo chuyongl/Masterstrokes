@@ -3,11 +3,12 @@ import { useState, useEffect } from 'react';
 import { ArrowLeft, Lock, Star, Play } from 'lucide-react';
 import { ERAS, ARTWORK_ERA_MAP } from '../config/eras';
 import { getAllArtworks } from '../services/sheetsApi';
+import { useUserStore } from '../store/userStore';
 import type { Artwork } from '../data/mockArtwork';
 
 interface LevelNode {
     artwork: Artwork;
-    position: { x: number; y: number };
+    position: { x: number; y: number }; // x is %, y is px
     status: 'locked' | 'current' | 'completed';
 }
 
@@ -16,10 +17,13 @@ export default function LevelRoadmapPage() {
     const navigate = useNavigate();
     const [artworks, setArtworks] = useState<Artwork[]>([]);
     const [loading, setLoading] = useState(true);
-    const [completedLevels] = useState<Set<string>>(new Set());
+
+    // Connect to User Store for persistence
+    const completedLevels = useUserStore((state) => state.completedLevels);
 
     const era = ERAS.find((e) => e.id === eraId);
 
+    // Initial Load
     useEffect(() => {
         async function loadArtworks() {
             if (!eraId) return;
@@ -27,10 +31,13 @@ export default function LevelRoadmapPage() {
             setLoading(true);
             try {
                 const data = await getAllArtworks();
+                // console.log('Raw Artworks:', data.length);
                 const filtered = data.filter((artwork) => {
-                    const artworkEra = ARTWORK_ERA_MAP[artwork.id];
+                    const artworkEra = ARTWORK_ERA_MAP[artwork.id] || artwork.era; // Fallback to era prop
+                    // console.log(`Checking ${artwork.id}: Map=${ARTWORK_ERA_MAP[artwork.id]}, Prop=${artwork.era}, Match=${artworkEra === eraId}`);
                     return artworkEra === eraId;
                 });
+                // console.log('Filtered Artworks:', filtered.map(a => a.id));
                 setArtworks(filtered);
             } catch (error) {
                 console.error('Failed to load artworks:', error);
@@ -46,13 +53,19 @@ export default function LevelRoadmapPage() {
     const generateLevelNodes = (): LevelNode[] => {
         return artworks.map((artwork, index) => {
             const isLeft = index % 2 === 0;
-            const x = isLeft ? 25 : 75; // Adjusted for better centering
-            const y = 15 + (index * 20); // Spacing between nodes
+            const x = isLeft ? 25 : 75;
+            const y = 80 + (index * 240); // Pixel based vertical spacing (240px per level)
 
             let status: 'locked' | 'current' | 'completed' = 'locked';
-            if (completedLevels.has(artwork.id)) {
+
+            // Debug check
+            const isCompleted = completedLevels.includes(artwork.id);
+            const prevArtwork = index > 0 ? artworks[index - 1] : null;
+            const isPrevCompleted = prevArtwork ? completedLevels.includes(prevArtwork.id) : true;
+
+            if (isCompleted) {
                 status = 'completed';
-            } else if (index === 0 || completedLevels.has(artworks[index - 1]?.id)) {
+            } else if (isPrevCompleted) {
                 status = 'current';
             }
 
@@ -66,18 +79,23 @@ export default function LevelRoadmapPage() {
 
     const levelNodes = generateLevelNodes();
 
+    // Calculate total height needed
+    const totalHeight = levelNodes.length > 0
+        ? Math.max(800, levelNodes[levelNodes.length - 1].position.y + 300)
+        : '100vh';
+
     if (!era) return null;
 
     return (
-        <div className="min-h-screen flex flex-col bg-slate-50 relative overflow-hidden">
-            {/* Dynamic Background */}
-            <div className="absolute inset-0 pointer-events-none opacity-20"
+        <div className="min-h-screen flex flex-col bg-slate-50 relative">
+            {/* Dynamic Background (Fixed) */}
+            <div className="fixed inset-0 pointer-events-none opacity-20"
                 style={{
                     backgroundImage: `radial-gradient(circle at 50% 50%, ${era.color} 0%, transparent 70%)`
                 }}
             />
 
-            {/* Header */}
+            {/* Header (Sticky) */}
             <div className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/60 shadow-sm px-6 py-4 flex items-center justify-between">
                 <button
                     onClick={() => navigate('/hub')}
@@ -91,31 +109,27 @@ export default function LevelRoadmapPage() {
                     <h1 className="text-xl font-bold text-slate-800">{era.name}</h1>
                 </div>
 
-                <div className="w-10" /> {/* Spacer for centering */}
+                <div className="w-10" />
             </div>
 
-            {/* Level Roadmap */}
-            <div className="flex-1 overflow-y-auto relative w-full scroll-smooth">
+            {/* Scrollable Container */}
+            <div className="flex-1 w-full max-w-lg mx-auto relative" style={{ minHeight: totalHeight }}>
                 {loading ? (
-                    <div className="flex flex-col items-center justify-center h-full gap-4">
+                    <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
                         <div className="w-12 h-12 border-4 border-slate-200 border-t-sky-500 rounded-full animate-spin" />
                         <div className="text-slate-500 font-medium">Loading Journey...</div>
                     </div>
                 ) : levelNodes.length === 0 ? (
-                    <div className="flex flex-col items-center justify-center h-full text-center px-6">
+                    <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
                         <div className="text-6xl mb-4 animate-bounce">🎨</div>
                         <h3 className="text-xl font-bold text-slate-800 mb-2">No levels yet</h3>
-                        <p className="text-slate-500">Add artworks to this era to stat your journey.</p>
+                        <p className="text-slate-500">Coming soon to this era!</p>
                     </div>
                 ) : (
-                    <div className="relative min-h-screen py-20 max-w-lg mx-auto w-full">
-                        {/* SVG Path */}
-                        <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ minHeight: `${levelNodes.length * 20 + 40}%` }}>
+                    <>
+                        {/* Connecting Path (SVG Layer) */}
+                        <svg className="absolute inset-0 w-full pointer-events-none" style={{ height: totalHeight }}>
                             <defs>
-                                <linearGradient id="pathGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                                    <stop offset="0%" stopColor={era.color} stopOpacity="0.4" />
-                                    <stop offset="100%" stopColor={era.color} stopOpacity="0.1" />
-                                </linearGradient>
                                 <filter id="glow">
                                     <feGaussianBlur stdDeviation="4" result="coloredBlur" />
                                     <feMerge>
@@ -124,17 +138,24 @@ export default function LevelRoadmapPage() {
                                     </feMerge>
                                 </filter>
                             </defs>
+                            {/* Render lines between nodes */}
                             {levelNodes.map((node, index) => {
                                 if (index === levelNodes.length - 1) return null;
                                 const nextNode = levelNodes[index + 1];
-                                const y1 = `${node.position.y}%`;
-                                const y2 = `${nextNode.position.y}%`;
-                                const midY = (node.position.y + nextNode.position.y) / 2;
+
+                                // Bezier Curve Logic
+                                const x1 = node.position.x;
+                                const y1 = node.position.y;
+                                const x2 = nextNode.position.x;
+                                const y2 = nextNode.position.y;
+
+                                // Control points for smooth S-curve
+                                const midY = (y1 + y2) / 2;
 
                                 return (
                                     <path
                                         key={`path-${index}`}
-                                        d={`M ${node.position.x}% ${y1} C ${node.position.x}% ${midY}%, ${nextNode.position.x}% ${midY}%, ${nextNode.position.x}% ${y2}`}
+                                        d={`M ${x1}% ${y1} C ${x1}% ${midY}, ${x2}% ${midY}, ${x2}% ${y2}`}
                                         stroke={node.status !== 'locked' ? era.color : '#e2e8f0'}
                                         strokeWidth="6"
                                         fill="none"
@@ -146,7 +167,7 @@ export default function LevelRoadmapPage() {
                             })}
                         </svg>
 
-                        {/* Level Nodes with Session Headers */}
+                        {/* Level Nodes */}
                         {levelNodes.map((node, index) => {
                             // Determine if we need a session header
                             // Session 1: Index 0, Session 2: Index 3, Session 3: Index 6, Session 4: Index 9
@@ -159,23 +180,21 @@ export default function LevelRoadmapPage() {
                             else if (index === 9) { sessionTitle = "Session 4: Silent Beauty"; sessionColor = "bg-purple-100 text-purple-800 border-purple-200"; }
 
                             return (
-                                <div key={node.artwork.id}>
+                                <div key={node.artwork.id} className="absolute w-full" style={{ top: node.position.y }}>
+
                                     {/* Session Header */}
                                     {sessionTitle && (
-                                        <div className="absolute left-0 right-0 z-0 flex justify-center pointer-events-none"
-                                            style={{ top: `${node.position.y - 8}%` }}>
+                                        <div className="absolute left-0 right-0 z-0 flex justify-center pointer-events-none -top-24">
                                             <div className={`px-6 py-2 rounded-full border shadow-sm backdrop-blur-md font-bold text-sm uppercase tracking-wider ${sessionColor}`}>
                                                 {sessionTitle}
                                             </div>
                                         </div>
                                     )}
 
+                                    {/* The Node Position Container */}
                                     <div
                                         className="absolute transform -translate-x-1/2 -translate-y-1/2"
-                                        style={{
-                                            left: `${node.position.x}%`,
-                                            top: `${node.position.y}%`
-                                        }}
+                                        style={{ left: `${node.position.x}%` }}
                                     >
                                         <button
                                             onClick={() => {
@@ -242,13 +261,14 @@ export default function LevelRoadmapPage() {
                         })}
 
                         {/* Bottom Mascot */}
-                        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-center"
-                            style={{ top: `${(levelNodes.length * 20) + 10}%` }}>
+                        <div className="absolute left-0 right-0 text-center pb-20"
+                            style={{ top: levelNodes[levelNodes.length - 1].position.y + 120 }}>
                             <div className="text-6xl animate-bounce" style={{ animationDuration: '3s' }}>
                                 🐌
                             </div>
+                            <p className="text-slate-400 text-sm mt-4">More masterpieces coming soon!</p>
                         </div>
-                    </div>
+                    </>
                 )}
             </div>
         </div>

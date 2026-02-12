@@ -81,9 +81,9 @@ export const MOCK_DUTCH_GOLDEN_AGE_ARTWORKS: Artwork[] = [
             {
                 id: 'lc-sleeve',
                 label: 'Embroidered Sleeve',
-                clickArea: { x: 50, y: 50, radius: 15 },
-                highlightCircle: { x: 50, y: 50, radius: 15 },
-                tooltip: { text: 'Symbols of love and fortune (bees, arrows, flames).', position: 'bottom' }
+                clickArea: { x: 70, y: 65, radius: 15 },
+                highlightCircle: { x: 70, y: 65, radius: 15 },
+                tooltip: { text: 'Symbols of love and fortune (bees, arrows, flames).', position: 'left' }
             }
         ],
         quizQuestions: [
