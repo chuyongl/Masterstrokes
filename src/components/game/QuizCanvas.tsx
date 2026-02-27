@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { cropImage } from '../../utils/imageUtils';
 import type { Artwork } from '../../data/mockArtwork';
 import { useGameStore } from '../../store/gameStore';
+import Picture from '../ui/Picture';
+import { urlToSlug } from '../../utils/imageUtils';
 
 interface QuizCanvasProps {
     artwork: Artwork;
@@ -96,10 +98,11 @@ export default function QuizCanvas({ artwork, onComplete }: QuizCanvasProps) {
             <div className="flex-1 relative flex items-center justify-center p-4">
                 {/* Base Artwork */}
                 <div className="relative max-w-full max-h-full">
-                    <img
-                        src={artwork.imageUrl}
+                    <Picture
+                        slug={urlToSlug(artwork.imageUrl)}
                         alt={artwork.title}
-                        className="max-w-full max-h-[60vh] object-contain rounded-lg"
+                        imgClassName="max-w-full max-h-[60vh] object-contain rounded-lg"
+                        priority
                     />
 
                     {/* White Circle Masks - ALL visible from start */}

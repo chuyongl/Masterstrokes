@@ -1,6 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
 import type { Artwork } from '../../data/mockArtwork';
 import { useGameStore } from '../../store/gameStore';
+import Picture from '../ui/Picture';
+import { urlToSlug } from '../../utils/imageUtils';
 
 interface LearningCanvasProps {
     artwork: Artwork;
@@ -75,7 +77,6 @@ export default function LearningCanvas({ artwork, onComplete }: LearningCanvasPr
                 // Apply zoom level relative to fit scale
                 const targetScale = fitScale * ZOOM_LEVEL;
 
-                // console.log('Calculated Scale:', { naturalWidth, containerWidth: containerSize.width, fitScale, targetScale });
                 setScale(targetScale);
             }
         }
@@ -106,9 +107,6 @@ export default function LearningCanvas({ artwork, onComplete }: LearningCanvasPr
 
         const img = imageRef.current;
         if (!img) return;
-
-        // Prevent default scrolling
-        // e.preventDefault(); // React synthetic events might not support direct preventDefault in all cases, better handled in CSS or standard listeners if needed, but wheel usually OK.
 
         const zoomSensitivity = 0.001;
         const delta = -e.deltaY * zoomSensitivity;
@@ -207,6 +205,8 @@ export default function LearningCanvas({ artwork, onComplete }: LearningCanvasPr
         (point) => !foundHotspots.includes(point.id)
     );
 
+    const slug = urlToSlug(artwork.imageUrl);
+
     // Loading State
     if (!imageLoaded && !artwork.imageUrl) {
         return <div className="w-full h-full bg-slate-900 flex items-center justify-center text-white">Loading...</div>;
@@ -215,11 +215,13 @@ export default function LearningCanvas({ artwork, onComplete }: LearningCanvasPr
     return (
         <div ref={containerRef} className="relative w-full h-full bg-slate-900 overflow-hidden select-none touch-none">
             {/* Hidden Image Preloader to get dimensions and load state */}
-            <img
-                src={artwork.imageUrl}
-                onLoad={() => setImageLoaded(true)}
-                className="hidden"
+            <Picture
+                slug={slug}
                 alt="preload"
+                className="hidden"
+                ref={imageRef}
+                onLoad={() => setImageLoaded(true)}
+                priority
             />
 
             {!imageLoaded && (
@@ -231,10 +233,11 @@ export default function LearningCanvas({ artwork, onComplete }: LearningCanvasPr
             {/* Overview State */}
             {viewMode === 'overview' && imageLoaded && (
                 <div className="w-full h-full flex flex-col items-center justify-center p-8 animate-fade-in">
-                    <img
-                        src={artwork.imageUrl}
+                    <Picture
+                        slug={slug}
                         alt={artwork.title}
-                        className="max-w-full max-h-[70vh] object-contain rounded-lg shadow-2xl"
+                        imgClassName="max-w-full max-h-[70vh] object-contain rounded-lg shadow-2xl"
+                        priority
                     />
                     <button
                         onClick={handleExplore}
@@ -263,17 +266,18 @@ export default function LearningCanvas({ artwork, onComplete }: LearningCanvasPr
                         onWheel={handleWheel}
                         onClick={handleImageClick}
                     >
-                        <img
+                        <Picture
                             ref={imageRef}
-                            src={artwork.imageUrl}
+                            slug={slug}
                             alt={artwork.title}
-                            className="max-w-none select-none pointer-events-none"
+                            imgClassName="max-w-none select-none pointer-events-none"
                             style={{
                                 transform: `translate(${panPosition.x}px, ${panPosition.y}px) scale(${scale})`,
                                 transition: isDragging ? 'none' : 'transform 0.1s ease-out',
                                 willChange: 'transform',
-                                opacity: scale > 0 ? 1 : 0 // Hide until scale is calculated
+                                opacity: scale > 0 ? 1 : 0
                             }}
+                            priority
                             draggable={false}
                         />
                     </div>
@@ -345,12 +349,12 @@ export default function LearningCanvas({ artwork, onComplete }: LearningCanvasPr
                                             // Smart positioning: Ensure tooltip clears the yellow ring
                                             const visualRadius = hotspot.highlightCircle.radius * 1.1;
                                             const margin = 2; // % buffer
-                                            
+
                                             const topCandidate = hotspot.highlightCircle.y - visualRadius - margin;
                                             const bottomCandidate = hotspot.highlightCircle.y + visualRadius + margin;
 
                                             // Check bounds
-                                            const fitsTop = topCandidate > 10; 
+                                            const fitsTop = topCandidate > 10;
                                             const fitsBottom = bottomCandidate < 85;
 
                                             let position = 'bottom';
@@ -370,68 +374,68 @@ export default function LearningCanvas({ artwork, onComplete }: LearningCanvasPr
                                                     }}
                                                 >
                                                     <div className="bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-2xl w-[260px] text-center border-2 border-slate-100 flex flex-col items-center gap-2 animate-pop-in">
-                                                            {/* Label (The Prompt) */}
-                                                            <h4 className="text-sky-600 font-extrabold text-sm uppercase tracking-wide">
-                                                                {hotspot.label}
-                                                            </h4>
+                                                        {/* Label (The Prompt) */}
+                                                        <h4 className="text-sky-600 font-extrabold text-sm uppercase tracking-wide">
+                                                            {hotspot.label}
+                                                        </h4>
 
-                                                            <div className="w-8 h-0.5 bg-slate-200 rounded-full mb-1"></div>
+                                                        <div className="w-8 h-0.5 bg-slate-200 rounded-full mb-1"></div>
 
-                                                            {/* Description */}
-                                                            <p className="text-sm text-slate-800 leading-relaxed font-medium">
-                                                                {hotspot.tooltip.text}
-                                                            </p>
+                                                        {/* Description */}
+                                                        <p className="text-sm text-slate-800 leading-relaxed font-medium">
+                                                            {hotspot.tooltip.text}
+                                                        </p>
 
-                                                            {/* Manual Dismiss "Check" Button */}
-                                                            <button
-                                                                onClick={(e) => {
-                                                                    e.stopPropagation();
-                                                                    setActiveTooltip(null);
-                                                                }}
-                                                                className="mt-2 w-10 h-10 flex items-center justify-center bg-green-500 hover:bg-green-600 active:scale-95 text-white rounded-full shadow-lg transition-all border-2 border-white"
-                                                            >
-                                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                                                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                                                </svg>
-                                                            </button>
-                                                        </div>
+                                                        {/* Manual Dismiss "Check" Button */}
+                                                        <button
+                                                            onClick={(e) => {
+                                                                e.stopPropagation();
+                                                                setActiveTooltip(null);
+                                                            }}
+                                                            className="mt-2 w-10 h-10 flex items-center justify-center bg-green-500 hover:bg-green-600 active:scale-95 text-white rounded-full shadow-lg transition-all border-2 border-white"
+                                                        >
+                                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                                                                <polyline points="20 6 9 17 4 12"></polyline>
+                                                            </svg>
+                                                        </button>
+                                                    </div>
                                                 </div>
-                                                    );
+                                            );
                                         })()}
                                     </>
                                 );
                             })()}
-                                    </div>
+                        </div>
                     </div>
 
 
-                        {/* UI Overlays (Static) */}
+                    {/* UI Overlays (Static) */}
 
-                        {/* Progress Bar */}
-                        <div className="absolute top-4 left-4 right-4 bg-slate-700/80 rounded-full h-3 overflow-hidden pointer-events-none z-50">
-                            <div
-                                className="h-full bg-gradient-to-r from-sky-400 to-sky-600 transition-all duration-500"
-                                style={{
-                                    width: `${(foundHotspots.length / artwork.learningPoints.length) * 100}%`
-                                }}
-                            />
+                    {/* Progress Bar */}
+                    <div className="absolute top-4 left-4 right-4 bg-slate-700/80 rounded-full h-3 overflow-hidden pointer-events-none z-50">
+                        <div
+                            className="h-full bg-gradient-to-r from-sky-400 to-sky-600 transition-all duration-500"
+                            style={{
+                                width: `${(foundHotspots.length / artwork.learningPoints.length) * 100}%`
+                            }}
+                        />
+                    </div>
+
+                    {/* Bottom Label Strip */}
+                    {remainingLabels.length > 0 && (
+                        <div className="absolute bottom-0 left-0 right-0 bg-slate-800/90 p-4 flex gap-3 justify-center flex-wrap z-50 pb-8">
+                            {remainingLabels.map((point) => (
+                                <div
+                                    key={point.id}
+                                    className="px-4 py-2 bg-slate-700 text-white text-xs md:text-sm font-semibold rounded-full border border-slate-600"
+                                >
+                                    {point.label}
+                                </div>
+                            ))}
                         </div>
-
-                        {/* Bottom Label Strip */}
-                        {remainingLabels.length > 0 && (
-                            <div className="absolute bottom-0 left-0 right-0 bg-slate-800/90 p-4 flex gap-3 justify-center flex-wrap z-50 pb-8">
-                                {remainingLabels.map((point) => (
-                                    <div
-                                        key={point.id}
-                                        className="px-4 py-2 bg-slate-700 text-white text-xs md:text-sm font-semibold rounded-full border border-slate-600"
-                                    >
-                                        {point.label}
-                                    </div>
-                                ))}
-                            </div>
-                        )}
-                    </>
+                    )}
+                </>
             )}
-                </div>
-            );
+        </div>
+    );
 }

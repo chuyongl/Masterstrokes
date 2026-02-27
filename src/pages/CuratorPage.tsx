@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { MOCK_ARTWORKS } from '../data/allArtworks';
 import { ArrowLeft, Copy, Check } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import Picture from '../components/ui/Picture';
+import { urlToSlug } from '../utils/imageUtils';
 
 export default function CuratorPage() {
     const navigate = useNavigate();
@@ -68,12 +70,12 @@ export default function CuratorPage() {
                 {/* Image Area */}
                 <div className="flex-1 bg-black relative overflow-hidden flex items-center justify-center p-8">
                     {selectedArtwork ? (
-                        <div className="relative inline-block shadow-2xl">
-                            <img
-                                src={selectedArtwork.imageUrl}
+                        <div className="relative inline-block shadow-2xl" onClick={handleImageClick}>
+                            <Picture
+                                slug={urlToSlug(selectedArtwork.imageUrl)}
                                 alt={selectedArtwork.title}
-                                className="max-h-[80vh] max-w-full object-contain cursor-crosshair border border-slate-700"
-                                onClick={handleImageClick}
+                                imgClassName="max-h-[80vh] max-w-full object-contain cursor-crosshair border border-slate-700"
+                                priority
                             />
 
                             {/* Existing Learning Points (Visual Reference) */}

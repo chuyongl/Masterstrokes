@@ -2,6 +2,8 @@ import { useNavigate } from 'react-router-dom';
 import type { Artwork } from '../../data/mockArtwork';
 import { useGameStore } from '../../store/gameStore';
 import { useUserStore } from '../../store/userStore';
+import Picture from '../ui/Picture';
+import { urlToSlug } from '../../utils/imageUtils';
 
 interface ResultsScreenProps {
     artwork: Artwork;
@@ -53,10 +55,11 @@ export default function ResultsScreen({ artwork }: ResultsScreenProps) {
 
                 {/* Final Artwork with Overlays */}
                 <div className="relative mb-8 rounded-xl overflow-hidden shadow-2xl">
-                    <img
-                        src={artwork.imageUrl}
+                    <Picture
+                        slug={urlToSlug(artwork.imageUrl)}
                         alt={artwork.title}
-                        className="max-w-full max-h-[40vh] object-contain"
+                        imgClassName="max-w-full max-h-[40vh] object-contain"
+                        priority
                     />
 
                     {/* Show all overlaid images */}

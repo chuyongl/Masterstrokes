@@ -3,6 +3,8 @@ import { useGameStore } from '../../store/useGameStore';
 import type { Hotspot } from '../../services/api';
 import clsx from 'clsx';
 import { Info } from 'lucide-react';
+import Picture from '../ui/Picture';
+import { urlToSlug } from '../../utils/imageUtils';
 
 interface ArtworkCanvasProps {
     artworkUrl: string;
@@ -20,13 +22,17 @@ export default function ArtworkCanvas({ artworkUrl, hotspots, onHotspotClick }: 
         }
     };
 
+    const slug = urlToSlug(artworkUrl);
+
     return (
         <div className="relative w-full aspect-square bg-slate-100 rounded-lg overflow-hidden shadow-inner">
             {/* Base Artwork */}
-            <img
-                src={artworkUrl}
+            <Picture
+                slug={slug}
                 alt="Artwork"
-                className="w-full h-full object-cover"
+                className="absolute inset-0"
+                imgClassName="w-full h-full object-cover"
+                priority
             />
 
             {/* Learning Phase: Hotspots */}

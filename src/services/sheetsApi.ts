@@ -72,6 +72,16 @@ export async function fetchSheetData(forceRefresh = false): Promise<SheetData> {
     }
 }
 
+const ANCIENT_ERAS = [
+    'Prehistoric',
+    'Mesopotamian',
+    'Ancient-Egyptian',
+    'Ancient-Greco-Roman',
+    'Ancient-Indian',
+    'Ancient-Chinese',
+    'Medieval'
+];
+
 export function transformSheetDataToArtwork(
     sheetArtwork: SheetArtwork,
     learningPoints: SheetLearningPoint[],
@@ -201,7 +211,7 @@ export function transformSheetDataToArtwork(
     });
 
     // Handle relative paths for images (fix for GitHub Pages)
-    let imageUrl = sheetArtwork.image_url;
+    let imageUrl = sheetArtwork.image_url || `/artworks/${sheetArtwork.artwork_id}.jpg`;
     if (imageUrl.startsWith('/') && !imageUrl.startsWith('http')) {
         // Prepare base URL (remove trailing slash if exists to avoid double slashes)
         // Actually import.meta.env.BASE_URL usually ends with /.
@@ -216,13 +226,18 @@ export function transformSheetDataToArtwork(
         }
     }
 
+    let mappedEra = sheetArtwork.era;
+    if (ANCIENT_ERAS.includes(mappedEra)) {
+        mappedEra = 'ancient-art';
+    }
+
     // Transform to Artwork format
     return {
         id: sheetArtwork.artwork_id,
         title: sheetArtwork.title,
         artist: sheetArtwork.artist,
         imageUrl: imageUrl,
-        era: sheetArtwork.era,
+        era: mappedEra,
         learningPoints: processedLearningPoints,
         quizQuestions: processedQuizQuestions
     };

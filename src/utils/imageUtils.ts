@@ -46,3 +46,27 @@ export async function cropImage(
         img.onerror = (e) => reject(e);
     });
 }
+
+/**
+ * Converts an image URL or path to an imageManifest slug.
+ * Strips extension and non-alphanumeric chars, matching the slugify logic
+ * used in process-images.mjs.
+ *
+ * Examples:
+ *   "https://.../giotto-lamentation.jpg" → "giotto-lamentation"
+ *   "/images/giotto-lamentation/800.avif" → "giotto-lamentation"  (won't match, skip)
+ *   "bayeux-tapestry-battle" → "bayeux-tapestry-battle"
+ */
+export function urlToSlug(url: string): string {
+    // Strip query params and hash
+    const clean = url.split('?')[0].split('#')[0];
+    // Get the last path segment
+    const filename = clean.split('/').pop() ?? '';
+    // Remove extension
+    const noExt = filename.replace(/\.[^.]+$/, '');
+    // Apply same slug rules as process-images.mjs
+    return noExt
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-|-$/g, '');
+}

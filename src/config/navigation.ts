@@ -1,8 +1,8 @@
-import { Home, Calendar, Trophy, User } from 'lucide-react';
+import { Home, Compass, Image as ImageIcon, User } from 'lucide-react';
 
 export const NAV_ITEMS = [
-    { id: 'hub', icon: Home, label: 'HOME', path: '/hub' },
-    { id: 'daily', icon: Calendar, label: 'DAILY', path: '/hub' }, // mocked paths
-    { id: 'rank', icon: Trophy, label: 'RANK', path: '/hub' },
-    { id: 'profile', icon: User, label: 'PROFILE', path: '/hub' },
+    { id: 'hub', icon: Home, label: 'MUSEUM', path: '/hub' },
+    { id: 'map', icon: Compass, label: 'MAP', path: '/map' },
+    { id: 'collection', icon: ImageIcon, label: 'COLLECTION', path: '/collection' },
+    { id: 'profile', icon: User, label: 'PROFILE', path: '/profile' },
 ];

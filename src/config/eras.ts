@@ -8,6 +8,13 @@ export interface Era {
 
 export const ERAS: Era[] = [
     {
+        id: 'ancient-art',
+        name: 'Ancient Art',
+        period: 'Prehistoric - 1400 CE',
+        color: '#b45309', // Amber/Bronze
+        icon: '🏺'
+    },
+    {
         id: 'renaissance',
         name: 'Renaissance',
         period: '14th-17th Century',
