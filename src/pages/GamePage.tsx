@@ -5,6 +5,7 @@ import { getArtworkById } from '../services/sheetsApi';
 import type { Artwork } from '../data/mockArtwork';
 import LearningCanvas from '../components/game/LearningCanvas';
 import QuizCanvas from '../components/game/QuizCanvas';
+import ImageSwapCanvas from '../components/game/ImageSwapCanvas';
 import ResultsScreen from '../components/game/ResultsScreen';
 
 export default function GamePage() {
@@ -50,7 +51,22 @@ export default function GamePage() {
     }, [artwork, startGame]);
 
     const handleLearningComplete = () => {
-        setGamePhase('quiz');
+        if (artwork?.quizRegions && artwork.quizRegions.length > 0) {
+            setGamePhase('image-swap-quiz');
+        } else if (artwork?.quizQuestions && artwork.quizQuestions.length > 0) {
+            setGamePhase('quiz');
+        } else {
+            setGamePhase('results');
+        }
+    };
+
+    const handleImageSwapComplete = () => {
+        if (artwork?.quizQuestions && artwork.quizQuestions.length > 0) {
+            setGamePhase('quiz');
+        } else {
+            setGamePhase('results');
+            useGameStore.setState({ endTime: Date.now() });
+        }
     };
 
     const handleQuizComplete = () => {
@@ -80,6 +96,13 @@ export default function GamePage() {
                 <LearningCanvas
                     artwork={artwork}
                     onComplete={handleLearningComplete}
+                />
+            )}
+
+            {gamePhase === 'image-swap-quiz' && (
+                <ImageSwapCanvas
+                    artwork={artwork}
+                    onComplete={handleImageSwapComplete}
                 />
             )}
 

@@ -24,8 +24,12 @@ interface GameStore {
     userAnswers: Map<string, string>; // questionId -> optionId
     overlaidImages: OverlaidImage[];
 
+    // Image Swap Quiz phase
+    currentRegionIndex: number;
+    regionAnswers: Map<string, string>; // regionId -> optionId
+
     // Game phase
-    gamePhase: 'learning' | 'quiz' | 'results';
+    gamePhase: 'learning' | 'image-swap-quiz' | 'quiz' | 'results';
     startTime: number | null;
     endTime: number | null;
 
@@ -44,7 +48,10 @@ interface GameStore {
     ) => void;
     nextQuestion: () => void;
 
-    setGamePhase: (phase: 'learning' | 'quiz' | 'results') => void;
+    submitRegionAnswer: (regionId: string, optionId: string) => void;
+    nextRegion: () => void;
+
+    setGamePhase: (phase: 'learning' | 'image-swap-quiz' | 'quiz' | 'results') => void;
     startGame: () => void;
     resetGame: () => void;
 }
@@ -59,6 +66,9 @@ export const useGameStore = create<GameStore>((set) => ({
     currentQuestionIndex: 0,
     userAnswers: new Map(),
     overlaidImages: [],
+
+    currentRegionIndex: 0,
+    regionAnswers: new Map(),
 
     gamePhase: 'learning',
     startTime: null,
@@ -92,6 +102,16 @@ export const useGameStore = create<GameStore>((set) => ({
         currentQuestionIndex: state.currentQuestionIndex + 1
     })),
 
+    submitRegionAnswer: (regionId, optionId) => set((state) => {
+        const newAnswers = new Map(state.regionAnswers);
+        newAnswers.set(regionId, optionId);
+        return { regionAnswers: newAnswers };
+    }),
+
+    nextRegion: () => set((state) => ({
+        currentRegionIndex: state.currentRegionIndex + 1
+    })),
+
     setGamePhase: (phase) => set({ gamePhase: phase }),
 
     startGame: () => set({
@@ -107,6 +127,8 @@ export const useGameStore = create<GameStore>((set) => ({
         currentQuestionIndex: 0,
         userAnswers: new Map(),
         overlaidImages: [],
+        currentRegionIndex: 0,
+        regionAnswers: new Map(),
         gamePhase: 'learning',
         startTime: null,
         endTime: null

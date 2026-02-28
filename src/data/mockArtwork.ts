@@ -1,8 +1,8 @@
 export interface Hotspot {
     id: string;
     label: string;
-    clickArea: { x: number; y: number; radius: number }; // % coordinates
-    highlightCircle: { x: number; y: number; radius: number }; // % coordinates
+    clickArea: { x: number; y: number; radius: number, rect?: { x: number, y: number, w: number, h: number } }; // % coordinates
+    highlightCircle: { x: number; y: number; radius: number, rect?: { x: number, y: number, w: number, h: number } }; // % coordinates
     tooltip: {
         text: string;
         position: 'top' | 'bottom' | 'left' | 'right';
@@ -26,6 +26,16 @@ export interface QuizQuestion {
     options: QuizOption[];
 }
 
+export interface QuizRegion {
+    id: string;
+    point_id: string;
+    label: string;
+    x: number;
+    y: number;
+    w: number;
+    h: number;
+}
+
 export interface Artwork {
     id: string;
     title: string;
@@ -34,6 +44,7 @@ export interface Artwork {
     era: string;
     learningPoints: Hotspot[];
     quizQuestions: QuizQuestion[];
+    quizRegions?: QuizRegion[];
 }
 
 // Mock Data for Dutch Golden Age Curriculum

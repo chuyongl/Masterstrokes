@@ -1,4 +1,5 @@
-import type { Artwork } from '../data/mockArtwork';
+import type { Artwork, QuizRegion } from '../data/mockArtwork';
+import annotationsData from '../data/annotations.json';
 
 interface SheetArtwork {
     artwork_id: string;
@@ -87,9 +88,12 @@ export function transformSheetDataToArtwork(
     learningPoints: SheetLearningPoint[],
     quizQuestions: SheetQuizQuestion[]
 ): Artwork {
-    // Filter learning points for this artwork
+    // Filter learning points for this artwork and exclude Chinese
+    // Simple heuristic: if description contains Chinese characters, skip it
+    const hasChinese = (text: string) => /[\u4e00-\u9fa5]/.test(text || '');
+
     const artworkLearningPoints = learningPoints.filter(
-        (lp) => lp.artwork_id === sheetArtwork.artwork_id
+        (lp) => lp.artwork_id === sheetArtwork.artwork_id && !hasChinese(lp.description)
     );
 
     // Filter quiz questions for this artwork
@@ -97,26 +101,47 @@ export function transformSheetDataToArtwork(
         (qq) => qq.artwork_id === sheetArtwork.artwork_id
     );
 
+    const annotation = (annotationsData as any)[sheetArtwork.artwork_id];
+    const regions = annotation?.quiz_regions || [];
+
+    // Flatten all regions from all annotation files to bypass artwork_id mismatches
+    const allRegions = Object.values(annotationsData).flatMap((a: any) => a.quiz_regions || []);
+
+    console.log(`Processing artwork ${sheetArtwork.artwork_id}, found regions:`, regions.length, 'Available annotations:', Object.keys(annotationsData));
+
     // Process Learning Points first to get coordinates
     const processedLearningPoints = artworkLearningPoints.map((lp, index) => {
-        // Parse coordinates from Sheet, defaulting to calculated layout if missing
-        const x = lp.x ? Number(lp.x) : 50;
-        const y = lp.y ? Number(lp.y) : 30 + (index * 20);
-        const radius = lp.radius ? Number(lp.radius) : 10;
+        // Try to find a matching region first by point_id anywhere in our annotations
+        const r = allRegions.find((reg: any) => reg.point_id === lp.point_id);
+
+        let clickArea: any = {};
+        let highlightCircle: any = {};
+
+        if (r) {
+            // It's a region! Calculate center point for click/highlight backwards compatibility, 
+            // but store the actual rect dimensions to rendering code can use it
+            clickArea = {
+                x: (r.x + r.w / 2) * 100,
+                y: (r.y + r.h / 2) * 100,
+                radius: 10, // fallback
+                rect: { x: r.x * 100, y: r.y * 100, w: r.w * 100, h: r.h * 100 }
+            };
+            highlightCircle = { ...clickArea };
+        } else {
+            // Parse coordinates from Sheet, defaulting to calculated layout if missing
+            const x = lp.x ? Number(lp.x) : 50;
+            const y = lp.y ? Number(lp.y) : 30 + (index * 20);
+            const radius = lp.radius ? Number(lp.radius) : 10;
+
+            clickArea = { x, y, radius };
+            highlightCircle = { x, y, radius };
+        }
 
         return {
             id: lp.point_id,
             label: lp.label,
-            clickArea: {
-                x,
-                y,
-                radius
-            },
-            highlightCircle: {
-                x,
-                y,
-                radius
-            },
+            clickArea,
+            highlightCircle,
             tooltip: {
                 text: lp.description,
                 position: 'bottom' as const
@@ -124,90 +149,102 @@ export function transformSheetDataToArtwork(
         };
     });
 
+    const finalQuizQuestions: any[] = [];
+    const finalQuizRegions: QuizRegion[] = [];
+
     // Process Quiz Questions using coordinates from LPs
-    const processedQuizQuestions = artworkQuizQuestions.map((qq, index) => {
-        // Find corresponding Learning Point to get coordinates
-        const lp = processedLearningPoints.find(p => p.id === qq.point_id);
-        const x = lp ? lp.clickArea.x : 50;
-        const y = lp ? lp.clickArea.y : 30 + (index * 20);
+    artworkQuizQuestions.forEach((qq, index) => {
+        // Check if there's a corresponding region definition
+        const matchingRegion = allRegions.find((r: any) => r.point_id === qq.point_id);
 
-        // Generate Distractors (Wrong Answers)
-        // Strategy: Use other learning points first, then random crops
-        const otherLPs = processedLearningPoints.filter(p => p.id !== qq.point_id);
-        const distractors: { x: number; y: number }[] = [];
+        if (matchingRegion && matchingRegion.w < 0.8 && matchingRegion.h < 0.8) {
+            // Image-swap quiz applies
+            finalQuizRegions.push({
+                id: matchingRegion.id,
+                point_id: matchingRegion.point_id,
+                label: matchingRegion.label,
+                x: matchingRegion.x,
+                y: matchingRegion.y,
+                w: matchingRegion.w,
+                h: matchingRegion.h
+            });
+        } else {
+            // Find corresponding Learning Point to get coordinates
+            const lp = processedLearningPoints.find(p => p.id === qq.point_id);
+            const x = lp ? lp.clickArea.x : 50;
+            const y = lp ? lp.clickArea.y : 30 + (index * 20);
 
-        // 1. Add other learning points as distractors
-        otherLPs.forEach(other => {
-            if (distractors.length < 3) {
-                distractors.push({ x: other.clickArea.x, y: other.clickArea.y });
-            }
-        });
+            // Generate Distractors (Wrong Answers)
+            const otherLPs = processedLearningPoints.filter(p => p.id !== qq.point_id);
+            const distractors: { x: number; y: number }[] = [];
 
-        // 2. Fill remaining slots with random crops
-        while (distractors.length < 3) {
-            const rx = Math.floor(Math.random() * 80) + 10; // 10% to 90%
-            const ry = Math.floor(Math.random() * 80) + 10;
-
-            // Basic distance check to avoid overlapping with correct answer or existing distractors
-            const isTooClose = [...distractors, { x, y }].some(pt => {
-                const dist = Math.sqrt(Math.pow(pt.x - rx, 2) + Math.pow(pt.y - ry, 2));
-                return dist < 15; // 15% threshold
+            // 1. Add other learning points as distractors
+            otherLPs.forEach(other => {
+                if (distractors.length < 3) {
+                    distractors.push({ x: other.clickArea.x, y: other.clickArea.y });
+                }
             });
 
-            if (!isTooClose) {
-                distractors.push({ x: rx, y: ry });
-            } else {
-                // Failsafe break to prevent infinite loop (rare but possible)
-                if (Math.random() > 0.9) distractors.push({ x: rx, y: ry });
-            }
-        }
+            // 2. Fill remaining slots with random crops
+            while (distractors.length < 3) {
+                const rx = Math.floor(Math.random() * 80) + 10;
+                const ry = Math.floor(Math.random() * 80) + 10;
 
-        return {
-            id: qq.point_id,
-            learningPointId: qq.point_id,
-            questionText: qq.question_text,
-            whiteCircle: {
-                x: x,
-                y: y,
-                radius: lp ? lp.clickArea.radius : 8
-            },
-            overlayPosition: {
-                x: x - 4,
-                y: y - 4,
-                width: 8,
-                height: 8
-            },
-            options: shuffleOptions([
-                {
-                    id: 'a',
-                    // Correct answer
-                    crop: { x, y, zoom: 300 },
-                    filter: 'none',
-                    isCorrect: true
-                },
-                {
-                    id: 'b',
-                    // Distractor 1
-                    crop: { x: distractors[0].x, y: distractors[0].y, zoom: 300 },
-                    filter: 'none',
-                    isCorrect: false
-                },
-                {
-                    id: 'c',
-                    // Distractor 2
-                    crop: { x: distractors[1].x, y: distractors[1].y, zoom: 300 },
-                    filter: 'none',
-                    isCorrect: false
-                },
-                {
-                    id: 'd',
-                    // Distractor 3
-                    crop: { x: distractors[2].x, y: distractors[2].y, zoom: 300 },
-                    filter: 'none',
-                    isCorrect: false
+                const isTooClose = [...distractors, { x, y }].some(pt => {
+                    const dist = Math.sqrt(Math.pow(pt.x - rx, 2) + Math.pow(pt.y - ry, 2));
+                    return dist < 15;
+                });
+
+                if (!isTooClose) {
+                    distractors.push({ x: rx, y: ry });
+                } else {
+                    if (Math.random() > 0.9) distractors.push({ x: rx, y: ry });
                 }
-            ])
-        };
+            }
+
+            finalQuizQuestions.push({
+                id: qq.point_id,
+                learningPointId: qq.point_id,
+                questionText: qq.question_text,
+                whiteCircle: {
+                    x: x,
+                    y: y,
+                    radius: lp ? lp.clickArea.radius : 8
+                },
+                overlayPosition: {
+                    x: x - 4,
+                    y: y - 4,
+                    width: 8,
+                    height: 8
+                },
+                options: shuffleOptions([
+                    {
+                        id: 'a',
+                        crop: { x, y, zoom: 300 },
+                        filter: 'none',
+                        isCorrect: true
+                    },
+                    {
+                        id: 'b',
+                        crop: { x: distractors[0].x, y: distractors[0].y, zoom: 300 },
+                        filter: 'none',
+                        isCorrect: false
+                    },
+                    {
+                        id: 'c',
+                        crop: { x: distractors[1].x, y: distractors[1].y, zoom: 300 },
+                        filter: 'none',
+                        isCorrect: false
+                    },
+                    {
+                        id: 'd',
+                        crop: { x: distractors[2].x, y: distractors[2].y, zoom: 300 },
+                        filter: 'none',
+                        isCorrect: false
+                    }
+                ])
+            });
+        }
     });
 
     // Handle relative paths for images (fix for GitHub Pages)
@@ -239,7 +276,8 @@ export function transformSheetDataToArtwork(
         imageUrl: imageUrl,
         era: mappedEra,
         learningPoints: processedLearningPoints,
-        quizQuestions: processedQuizQuestions
+        quizQuestions: finalQuizQuestions,
+        quizRegions: finalQuizRegions
     };
 }
 
