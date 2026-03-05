@@ -1,0 +1,99 @@
+{
+  "artwork_id": "altamira-ceiling",
+  "title": "",
+  "date": "",
+  "era": "",
+  "image_filename": "altamira-ceiling.jpg",
+  "quiz_regions": [
+    {
+      "id": "region_1772558309642",
+      "point_id": "ac-1",
+      "label": "The Prehistoric Sistine Chapel",
+      "x": 0.0149,
+      "y": 0.006,
+      "w": 0.9642,
+      "h": 0.1392
+    },
+    {
+      "id": "region_1772558336402",
+      "point_id": "ac-2",
+      "label": "Natural Contours as Sculpture",
+      "x": 0.5298,
+      "y": 0.5109,
+      "w": 0.2783,
+      "h": 0.2724
+    },
+    {
+      "id": "region_1772558366179",
+      "point_id": "ac-6",
+      "label": "The Sophistication of Bison Shading",
+      "x": 0.331,
+      "y": 0.2326,
+      "w": 0.2505,
+      "h": 0.161
+    },
+    {
+      "id": "region_1772558389218",
+      "point_id": "ac-3",
+      "label": "Refused, Then Accepted",
+      "x": 0.2535,
+      "y": 0.4891,
+      "w": 0.2306,
+      "h": 0.3022
+    },
+    {
+      "id": "region_1772558413474",
+      "point_id": "ac-5",
+      "label": "A Girl Named Maria",
+      "x": 0.6968,
+      "y": 0.4274,
+      "w": 0.2922,
+      "h": 0.2803
+    },
+    {
+      "id": "region_1772558476186",
+      "point_id": "ac-4",
+      "label": "Painted Over Millennia",
+      "x": 0.0527,
+      "y": 0.6779,
+      "w": 0.2724,
+      "h": 0.2306
+    },
+    {
+      "id": "region_1772558510602",
+      "point_id": "ac-7",
+      "label": "Every Bison in a Different Pose",
+      "x": 0.6869,
+      "y": 0.7276,
+      "w": 0.2644,
+      "h": 0.2525
+    },
+    {
+      "id": "region_1772558735954",
+      "point_id": "ac-8",
+      "label": "No ground line",
+      "x": 0.1938,
+      "y": 0.2565,
+      "w": 0.6262,
+      "h": 0.5567
+    },
+    {
+      "id": "region_1772558893810",
+      "point_id": "ac-9",
+      "label": "Engraved first",
+      "x": 0.0089,
+      "y": 0.2306,
+      "w": 0.161,
+      "h": 0.3479
+    },
+    {
+      "id": "region_1772558908138",
+      "point_id": "ac-10",
+      "label": "Closed to Protect the Art",
+      "x": 0.005,
+      "y": 0.0159,
+      "w": 0.9781,
+      "h": 0.9662
+    }
+  ]
+}

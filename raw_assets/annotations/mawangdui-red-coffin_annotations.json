@@ -1,0 +1,99 @@
+{
+  "artwork_id": "mawangdui-red-coffin",
+  "title": "",
+  "date": "",
+  "era": "",
+  "image_filename": "mawangdui-red-coffin.jpg",
+  "quiz_regions": [
+    {
+      "id": "region_1772607279546",
+      "point_id": "md-1",
+      "label": "Red Ground",
+      "x": 0.3171,
+      "y": 0.6601,
+      "w": 0.3868,
+      "h": 0.1392
+    },
+    {
+      "id": "region_1772607291233",
+      "point_id": "md-2",
+      "label": "Mount Kunlun",
+      "x": 0.3609,
+      "y": 0.2147,
+      "w": 0.2858,
+      "h": 0.664
+    },
+    {
+      "id": "region_1772607310425",
+      "point_id": "md-3",
+      "label": "Two Creatures Flanking the Mountain",
+      "x": 0.1513,
+      "y": 0.2465,
+      "w": 0.6973,
+      "h": 0.2982
+    },
+    {
+      "id": "region_1772607380313",
+      "point_id": "md-4",
+      "label": "Winged Figure",
+      "x": 0.1266,
+      "y": 0.2624,
+      "w": 0.3239,
+      "h": 0.5547
+    },
+    {
+      "id": "region_1772607391921",
+      "point_id": "md-5",
+      "label": "Leaping Deer",
+      "x": 0.5915,
+      "y": 0.2048,
+      "w": 0.3201,
+      "h": 0.4891
+    },
+    {
+      "id": "region_1772607461298",
+      "point_id": "md-6",
+      "label": "Cloud Scrolls",
+      "x": 0.4657,
+      "y": 0.4215,
+      "w": 0.4554,
+      "h": 0.1531
+    },
+    {
+      "id": "region_1772607490561",
+      "point_id": "md-7",
+      "label": "Geometric Border",
+      "x": 0.0351,
+      "y": 0.0179,
+      "w": 0.9469,
+      "h": 0.1233
+    },
+    {
+      "id": "region_1772607507993",
+      "point_id": "md-8",
+      "label": "Black Lacquer Frame",
+      "x": 0.0161,
+      "y": 0.8449,
+      "w": 0.9736,
+      "h": 0.1471
+    },
+    {
+      "id": "region_1772607550529",
+      "point_id": "md-9",
+      "label": "Lacquer as Wealth",
+      "x": 0.0142,
+      "y": 0.0099,
+      "w": 0.9602,
+      "h": 0.9682
+    },
+    {
+      "id": "region_1772607563561",
+      "point_id": "md-10",
+      "label": "Images for the Dead",
+      "x": 0.0237,
+      "y": 0.006,
+      "w": 0.9602,
+      "h": 0.9622
+    }
+  ]
+}

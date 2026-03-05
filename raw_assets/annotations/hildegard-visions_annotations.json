@@ -1,0 +1,99 @@
+{
+  "artwork_id": "hildegard-visions",
+  "title": "",
+  "date": "",
+  "era": "",
+  "image_filename": "hildegard-visions.jpg",
+  "quiz_regions": [
+    {
+      "id": "region_1772646260981",
+      "point_id": "hv-2",
+      "label": "Ring of Fire",
+      "x": 0.1448,
+      "y": 0.1968,
+      "w": 0.1605,
+      "h": 0.1769
+    },
+    {
+      "id": "region_1772646287685",
+      "point_id": "hv-3",
+      "label": "Blue Starfield",
+      "x": 0.3264,
+      "y": 0.6084,
+      "w": 0.25,
+      "h": 0.0974
+    },
+    {
+      "id": "region_1772646297462",
+      "point_id": "hv-4",
+      "label": "Sun and Moon",
+      "x": 0.3948,
+      "y": 0.3002,
+      "w": 0.171,
+      "h": 0.1332
+    },
+    {
+      "id": "region_1772646323677",
+      "point_id": "hv-5",
+      "label": "Earth at Center",
+      "x": 0.3316,
+      "y": 0.4076,
+      "w": 0.3105,
+      "h": 0.2386
+    },
+    {
+      "id": "region_1772646375269",
+      "point_id": "hv-6",
+      "label": "Wind Figures",
+      "x": 0.7684,
+      "y": 0.3956,
+      "w": 0.1815,
+      "h": 0.2266
+    },
+    {
+      "id": "region_1772646394286",
+      "point_id": "hv-7",
+      "label": "Nested Frames",
+      "x": 0.6658,
+      "y": 0.0795,
+      "w": 0.2973,
+      "h": 0.2346
+    },
+    {
+      "id": "region_1772646419462",
+      "point_id": "hv-1",
+      "label": "Cosmic Egg",
+      "x": 0.1501,
+      "y": 0.1551,
+      "w": 0.7209,
+      "h": 0.7455
+    },
+    {
+      "id": "region_1772646431422",
+      "point_id": "hv-8",
+      "label": "A Copy",
+      "x": 0.0448,
+      "y": 0.0795,
+      "w": 0.913,
+      "h": 0.8867
+    },
+    {
+      "id": "region_1772646455830",
+      "point_id": "hv-9",
+      "label": "Diagram",
+      "x": 0.0185,
+      "y": 0.0219,
+      "w": 0.9551,
+      "h": 0.9622
+    },
+    {
+      "id": "region_1772646475478",
+      "point_id": "hv-10",
+      "label": "Migraine or Vision",
+      "x": 0.0369,
+      "y": 0.0099,
+      "w": 0.9525,
+      "h": 0.9642
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "artwork_id": "alexander-mosaic",
+  "title": "",
+  "date": "",
+  "era": "",
+  "image_filename": "alexander-mosaic.jpg",
+  "quiz_regions": [
+    {
+      "id": "region_1772579892003",
+      "point_id": "am-3",
+      "label": "No Helmet",
+      "x": 0.2226,
+      "y": 0.3151,
+      "w": 0.0698,
+      "h": 0.1776
+    },
+    {
+      "id": "region_1772579909499",
+      "point_id": "am-4",
+      "label": "Darius Reaches Out",
+      "x": 0.5166,
+      "y": 0.2576,
+      "w": 0.1793,
+      "h": 0.195
+    },
+    {
+      "id": "region_1772579928212",
+      "point_id": "am-5",
+      "label": "Shield Reflection",
+      "x": 0.6229,
+      "y": 0.5414,
+      "w": 0.098,
+      "h": 0.2211
+    },
+    {
+      "id": "region_1772579966843",
+      "point_id": "am-6",
+      "label": "Horse from Behind",
+      "x": 0.5082,
+      "y": 0.4195,
+      "w": 0.147,
+      "h": 0.3638
+    },
+    {
+      "id": "region_1772580006364",
+      "point_id": "am-8",
+      "label": "Dead Tree",
+      "x": 0.2643,
+      "y": 0.1776,
+      "w": 0.1585,
+      "h": 0.4422
+    },
+    {
+      "id": "region_1772580034027",
+      "point_id": "am-10",
+      "label": "Missing Section",
+      "x": 0.0631,
+      "y": 0.1602,
+      "w": 0.3117,
+      "h": 0.6929
+    },
+    {
+      "id": "region_1772580045299",
+      "point_id": "am-9",
+      "label": "Preserved by Vesuvius",
+      "x": 0.0308,
+      "y": 0.0348,
+      "w": 0.8715,
+      "h": 0.8669
+    },
+    {
+      "id": "region_1772580055707",
+      "point_id": "am-7",
+      "label": "Copy of a Lost Painting",
+      "x": 0.1173,
+      "y": 0.2106,
+      "w": 0.8433,
+      "h": 0.7555
+    },
+    {
+      "id": "region_1772580068203",
+      "point_id": "am-2",
+      "label": "Two Million Tesserae",
+      "x": 0.011,
+      "y": 0.0139,
+      "w": 0.959,
+      "h": 0.9488
+    },
+    {
+      "id": "region_1772580078715",
+      "point_id": "am-1",
+      "label": "Living Room Floor",
+      "x": 0.0079,
+      "y": 0.0139,
+      "w": 0.9861,
+      "h": 0.9627
+    }
+  ]
+}

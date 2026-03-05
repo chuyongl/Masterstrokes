@@ -1,0 +1,99 @@
+{
+  "artwork_id": "book-of-dead-hunefer",
+  "title": "",
+  "date": "",
+  "era": "",
+  "image_filename": "book-of-dead-hunefer.jpg",
+  "quiz_regions": [
+    {
+      "id": "region_1772572965563",
+      "point_id": "bodh-2",
+      "label": "Comic Strip",
+      "x": 0.0225,
+      "y": 0.3919,
+      "w": 0.4255,
+      "h": 0.4433
+    },
+    {
+      "id": "region_1772572985402",
+      "point_id": "bodh-3",
+      "label": "Heart vs Feather",
+      "x": 0.1389,
+      "y": 0.7255,
+      "w": 0.27,
+      "h": 0.1205
+    },
+    {
+      "id": "region_1772573018626",
+      "point_id": "bodh-4",
+      "label": "Anubis Twice",
+      "x": 0.1017,
+      "y": 0.3704,
+      "w": 0.1624,
+      "h": 0.2625
+    },
+    {
+      "id": "region_1772573037146",
+      "point_id": "bodh-5",
+      "label": "Ammit",
+      "x": 0.2915,
+      "y": 0.5791,
+      "w": 0.0851,
+      "h": 0.2905
+    },
+    {
+      "id": "region_1772573068042",
+      "point_id": "bodh-6",
+      "label": "Fixed Outcome",
+      "x": 0.7073,
+      "y": 0.2779,
+      "w": 0.2534,
+      "h": 0.5466
+    },
+    {
+      "id": "region_1772573095867",
+      "point_id": "bodh-7",
+      "label": "Thoth Writing",
+      "x": 0.4109,
+      "y": 0.3898,
+      "w": 0.1017,
+      "h": 0.4777
+    },
+    {
+      "id": "region_1772573110019",
+      "point_id": "bodh-8",
+      "label": "Fourteen Witnesses",
+      "x": 0.0264,
+      "y": 0.1165,
+      "w": 0.6584,
+      "h": 0.1937
+    },
+    {
+      "id": "region_1772573141546",
+      "point_id": "bodh-9",
+      "label": "Osiris Enthroned",
+      "x": 0.7679,
+      "y": 0.2392,
+      "w": 0.1291,
+      "h": 0.5788
+    },
+    {
+      "id": "region_1772573157955",
+      "point_id": "bodh-10",
+      "label": "Hieroglyphic Band",
+      "x": 0.0372,
+      "y": 0.3037,
+      "w": 0.6486,
+      "h": 0.1721
+    },
+    {
+      "id": "region_1772573173634",
+      "point_id": "bodh-1",
+      "label": "Royal Scribe",
+      "x": 0.0127,
+      "y": 0.0111,
+      "w": 0.9675,
+      "h": 0.9597
+    }
+  ]
+}

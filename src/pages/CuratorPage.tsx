@@ -1,5 +1,6 @@
-import { useState } from 'react';
-import { MOCK_ARTWORKS } from '../data/allArtworks';
+import { useState, useEffect } from 'react';
+import { getAllArtworks } from '../services/sheetsApi';
+import type { Artwork } from '../data/mockArtwork';
 import { ArrowLeft, Copy, Check } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import Picture from '../components/ui/Picture';
@@ -7,11 +8,21 @@ import { urlToSlug } from '../utils/imageUtils';
 
 export default function CuratorPage() {
     const navigate = useNavigate();
-    const [selectedArtworkId, setSelectedArtworkId] = useState<string>(MOCK_ARTWORKS[0].id);
+    const [artworks, setArtworks] = useState<Artwork[]>([]);
+    const [selectedArtworkId, setSelectedArtworkId] = useState<string>('');
     const [clickCoords, setClickCoords] = useState<{ x: number; y: number } | null>(null);
     const [copied, setCopied] = useState(false);
 
-    const selectedArtwork = MOCK_ARTWORKS.find((a) => a.id === selectedArtworkId);
+    useEffect(() => {
+        getAllArtworks().then(data => {
+            setArtworks(data);
+            if (data.length > 0) {
+                setSelectedArtworkId(data[0].id);
+            }
+        });
+    }, []);
+
+    const selectedArtwork = artworks.find((a) => a.id === selectedArtworkId);
 
     const handleImageClick = (e: React.MouseEvent<HTMLDivElement>) => {
         const rect = e.currentTarget.getBoundingClientRect();
@@ -46,7 +57,7 @@ export default function CuratorPage() {
                 </div>
 
                 <div className="flex-1 overflow-y-auto p-2 space-y-1">
-                    {MOCK_ARTWORKS.map((artwork) => (
+                    {artworks.map((artwork) => (
                         <button
                             key={artwork.id}
                             onClick={() => {

@@ -1,0 +1,99 @@
+{
+  "artwork_id": "narmer-palette",
+  "title": "",
+  "date": "",
+  "era": "",
+  "image_filename": "narmer-palette.jpg",
+  "quiz_regions": [
+    {
+      "id": "region_1772564292626",
+      "point_id": "np-2",
+      "label": "Two Crowns",
+      "x": 0.1637,
+      "y": 0.1497,
+      "w": 0.1129,
+      "h": 0.1932
+    },
+    {
+      "id": "region_1772564329011",
+      "point_id": "np-3",
+      "label": "Smiting Pose",
+      "x": 0.0987,
+      "y": 0.1758,
+      "w": 0.2785,
+      "h": 0.4074
+    },
+    {
+      "id": "region_1772564355050",
+      "point_id": "np-4",
+      "label": "Hierarchic Scale",
+      "x": 0.5955,
+      "y": 0.1776,
+      "w": 0.2319,
+      "h": 0.2228
+    },
+    {
+      "id": "region_1772564401594",
+      "point_id": "np-5",
+      "label": "Composite Body",
+      "x": 0.1453,
+      "y": 0.235,
+      "w": 0.1595,
+      "h": 0.5257
+    },
+    {
+      "id": "region_1772564430402",
+      "point_id": "np-6",
+      "label": "Serpopards",
+      "x": 0.6876,
+      "y": 0.4213,
+      "w": 0.1533,
+      "h": 0.2594
+    },
+    {
+      "id": "region_1772564447419",
+      "point_id": "np-7",
+      "label": "Horus Falcon",
+      "x": 0.2925,
+      "y": 0.1149,
+      "w": 0.1509,
+      "h": 0.242
+    },
+    {
+      "id": "region_1772564513154",
+      "point_id": "np-8",
+      "label": "Serekh",
+      "x": 0.6986,
+      "y": 0.0522,
+      "w": 0.1264,
+      "h": 0.1271
+    },
+    {
+      "id": "region_1772564541682",
+      "point_id": "np-9",
+      "label": "Ceremonial Object",
+      "x": 0.1993,
+      "y": 0.0366,
+      "w": 0.7459,
+      "h": 0.9261
+    },
+    {
+      "id": "region_1772564551266",
+      "point_id": "np-10",
+      "label": "Never Left Egypt",
+      "x": 0.0337,
+      "y": 0.0348,
+      "w": 0.898,
+      "h": 0.8913
+    },
+    {
+      "id": "region_1772564562674",
+      "point_id": "np-1",
+      "label": "Oldest Document",
+      "x": 0.0165,
+      "y": 0.0122,
+      "w": 0.9728,
+      "h": 0.9731
+    }
+  ]
+}

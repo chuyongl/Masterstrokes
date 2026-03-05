@@ -1,4 +1,994 @@
 {
+  "achilles-painter-lekythos": {
+    "artwork_id": "achilles-painter-lekythos",
+    "title": "",
+    "date": "",
+    "era": "",
+    "image_filename": "achilles-painter-lekythos.png",
+    "quiz_regions": [
+      {
+        "id": "region_1772579565371",
+        "point_id": "apl-1",
+        "label": "White Ground",
+        "x": 0.0345,
+        "y": 0.383,
+        "w": 0.1883,
+        "h": 0.3847
+      },
+      {
+        "id": "region_1772579584691",
+        "point_id": "apl-2",
+        "label": "Funerary Oil Flask",
+        "x": 0.0249,
+        "y": 0.0226,
+        "w": 0.2063,
+        "h": 0.947
+      },
+      {
+        "id": "region_1772579630099",
+        "point_id": "apl-3",
+        "label": "Economy of Line",
+        "x": 0.3751,
+        "y": 0.5797,
+        "w": 0.2603,
+        "h": 0.2629
+      },
+      {
+        "id": "region_1772579649835",
+        "point_id": "apl-4",
+        "label": "Warrior Farewell",
+        "x": 0.4411,
+        "y": 0.2751,
+        "w": 0.2975,
+        "h": 0.2959
+      },
+      {
+        "id": "region_1772579663115",
+        "point_id": "apl-5",
+        "label": "Klismos Chair",
+        "x": 0.3343,
+        "y": 0.3917,
+        "w": 0.3023,
+        "h": 0.5954
+      },
+      {
+        "id": "region_1772579682323",
+        "point_id": "apl-6",
+        "label": "Shield Device",
+        "x": 0.8417,
+        "y": 0.134,
+        "w": 0.1439,
+        "h": 0.5571
+      },
+      {
+        "id": "region_1772579704940",
+        "point_id": "apl-7",
+        "label": "Hanging Objects",
+        "x": 0.3319,
+        "y": 0.0226,
+        "w": 0.2927,
+        "h": 0.2559
+      },
+      {
+        "id": "region_1772579727571",
+        "point_id": "apl-8",
+        "label": "Greek Key Border",
+        "x": 0.2528,
+        "y": 0.0052,
+        "w": 0.7365,
+        "h": 0.1027
+      },
+      {
+        "id": "region_1772579750819",
+        "point_id": "apl-9",
+        "label": "Named for Achilles",
+        "x": 0.0117,
+        "y": 0.0122,
+        "w": 0.8973,
+        "h": 0.9609
+      },
+      {
+        "id": "region_1772579762643",
+        "point_id": "apl-10",
+        "label": "Made for the Grave",
+        "x": 0.0273,
+        "y": 0.0017,
+        "w": 0.9608,
+        "h": 0.9784
+      }
+    ]
+  },
+  "adoration-buddha-cave17": {
+    "artwork_id": "adoration-buddha-cave17",
+    "title": "",
+    "date": "",
+    "era": "",
+    "image_filename": "adoration-buddha-cave17.jpg",
+    "quiz_regions": [
+      {
+        "id": "region_1772583105755",
+        "point_id": "ab-1",
+        "label": "Buddha at Center",
+        "x": 0.4068,
+        "y": 0.5135,
+        "w": 0.1245,
+        "h": 0.3604
+      },
+      {
+        "id": "region_1772583143499",
+        "point_id": "ab-2",
+        "label": "Foreign Riders",
+        "x": 0.0875,
+        "y": 0.6441,
+        "w": 0.1145,
+        "h": 0.3464
+      },
+      {
+        "id": "region_1772583155795",
+        "point_id": "ab-3",
+        "label": "Varied Skin Tones",
+        "x": 0.7289,
+        "y": 0.6267,
+        "w": 0.2634,
+        "h": 0.2768
+      },
+      {
+        "id": "region_1772583164955",
+        "point_id": "ab-4",
+        "label": "Two Elephants",
+        "x": 0.1133,
+        "y": 0.3029,
+        "w": 0.1704,
+        "h": 0.2559
+      },
+      {
+        "id": "region_1772583182923",
+        "point_id": "ab-5",
+        "label": "The Descent Group",
+        "x": 0.3338,
+        "y": 0.0644,
+        "w": 0.3794,
+        "h": 0.4526
+      },
+      {
+        "id": "region_1772583197755",
+        "point_id": "ab-6",
+        "label": "Dense Crowd",
+        "x": 0.1047,
+        "y": 0.2002,
+        "w": 0.8103,
+        "h": 0.766
+      },
+      {
+        "id": "region_1772583218796",
+        "point_id": "ab-7",
+        "label": "Anjali Mudra",
+        "x": 0.6444,
+        "y": 0.759,
+        "w": 0.1804,
+        "h": 0.2246
+      },
+      {
+        "id": "region_1772583259923",
+        "point_id": "ab-8",
+        "label": "Monks at Right",
+        "x": 0.5929,
+        "y": 0.6215,
+        "w": 0.3923,
+        "h": 0.3395
+      },
+      {
+        "id": "region_1772583272404",
+        "point_id": "ab-9",
+        "label": "Hierarchic Scale",
+        "x": 0.4283,
+        "y": 0.0279,
+        "w": 0.1618,
+        "h": 0.4335
+      },
+      {
+        "id": "region_1772583287107",
+        "point_id": "ab-10",
+        "label": "Modern Reproduction",
+        "x": 0.0102,
+        "y": 0.0035,
+        "w": 0.9892,
+        "h": 0.9871
+      }
+    ]
+  },
+  "alexander-mosaic": {
+    "artwork_id": "alexander-mosaic",
+    "title": "",
+    "date": "",
+    "era": "",
+    "image_filename": "alexander-mosaic.jpg",
+    "quiz_regions": [
+      {
+        "id": "region_1772579892003",
+        "point_id": "am-3",
+        "label": "No Helmet",
+        "x": 0.2226,
+        "y": 0.3151,
+        "w": 0.0698,
+        "h": 0.1776
+      },
+      {
+        "id": "region_1772579909499",
+        "point_id": "am-4",
+        "label": "Darius Reaches Out",
+        "x": 0.5166,
+        "y": 0.2576,
+        "w": 0.1793,
+        "h": 0.195
+      },
+      {
+        "id": "region_1772579928212",
+        "point_id": "am-5",
+        "label": "Shield Reflection",
+        "x": 0.6229,
+        "y": 0.5414,
+        "w": 0.098,
+        "h": 0.2211
+      },
+      {
+        "id": "region_1772579966843",
+        "point_id": "am-6",
+        "label": "Horse from Behind",
+        "x": 0.5082,
+        "y": 0.4195,
+        "w": 0.147,
+        "h": 0.3638
+      },
+      {
+        "id": "region_1772580006364",
+        "point_id": "am-8",
+        "label": "Dead Tree",
+        "x": 0.2643,
+        "y": 0.1776,
+        "w": 0.1585,
+        "h": 0.4422
+      },
+      {
+        "id": "region_1772580034027",
+        "point_id": "am-10",
+        "label": "Missing Section",
+        "x": 0.0631,
+        "y": 0.1602,
+        "w": 0.3117,
+        "h": 0.6929
+      },
+      {
+        "id": "region_1772580045299",
+        "point_id": "am-9",
+        "label": "Preserved by Vesuvius",
+        "x": 0.0308,
+        "y": 0.0348,
+        "w": 0.8715,
+        "h": 0.8669
+      },
+      {
+        "id": "region_1772580055707",
+        "point_id": "am-7",
+        "label": "Copy of a Lost Painting",
+        "x": 0.1173,
+        "y": 0.2106,
+        "w": 0.8433,
+        "h": 0.7555
+      },
+      {
+        "id": "region_1772580068203",
+        "point_id": "am-2",
+        "label": "Two Million Tesserae",
+        "x": 0.011,
+        "y": 0.0139,
+        "w": 0.959,
+        "h": 0.9488
+      },
+      {
+        "id": "region_1772580078715",
+        "point_id": "am-1",
+        "label": "Living Room Floor",
+        "x": 0.0079,
+        "y": 0.0139,
+        "w": 0.9861,
+        "h": 0.9627
+      }
+    ]
+  },
+  "altamira-ceiling": {
+    "artwork_id": "altamira-ceiling",
+    "title": "",
+    "date": "",
+    "era": "",
+    "image_filename": "altamira-ceiling.jpg",
+    "quiz_regions": [
+      {
+        "id": "region_1772558309642",
+        "point_id": "ac-1",
+        "label": "The Prehistoric Sistine Chapel",
+        "x": 0.0149,
+        "y": 0.006,
+        "w": 0.9642,
+        "h": 0.1392
+      },
+      {
+        "id": "region_1772558336402",
+        "point_id": "ac-2",
+        "label": "Natural Contours as Sculpture",
+        "x": 0.5298,
+        "y": 0.5109,
+        "w": 0.2783,
+        "h": 0.2724
+      },
+      {
+        "id": "region_1772558366179",
+        "point_id": "ac-6",
+        "label": "The Sophistication of Bison Shading",
+        "x": 0.331,
+        "y": 0.2326,
+        "w": 0.2505,
+        "h": 0.161
+      },
+      {
+        "id": "region_1772558389218",
+        "point_id": "ac-3",
+        "label": "Refused, Then Accepted",
+        "x": 0.2535,
+        "y": 0.4891,
+        "w": 0.2306,
+        "h": 0.3022
+      },
+      {
+        "id": "region_1772558413474",
+        "point_id": "ac-5",
+        "label": "A Girl Named Maria",
+        "x": 0.6968,
+        "y": 0.4274,
+        "w": 0.2922,
+        "h": 0.2803
+      },
+      {
+        "id": "region_1772558476186",
+        "point_id": "ac-4",
+        "label": "Painted Over Millennia",
+        "x": 0.0527,
+        "y": 0.6779,
+        "w": 0.2724,
+        "h": 0.2306
+      },
+      {
+        "id": "region_1772558510602",
+        "point_id": "ac-7",
+        "label": "Every Bison in a Different Pose",
+        "x": 0.6869,
+        "y": 0.7276,
+        "w": 0.2644,
+        "h": 0.2525
+      },
+      {
+        "id": "region_1772558735954",
+        "point_id": "ac-8",
+        "label": "No ground line",
+        "x": 0.1938,
+        "y": 0.2565,
+        "w": 0.6262,
+        "h": 0.5567
+      },
+      {
+        "id": "region_1772558893810",
+        "point_id": "ac-9",
+        "label": "Engraved first",
+        "x": 0.0089,
+        "y": 0.2306,
+        "w": 0.161,
+        "h": 0.3479
+      },
+      {
+        "id": "region_1772558908138",
+        "point_id": "ac-10",
+        "label": "Closed to Protect the Art",
+        "x": 0.005,
+        "y": 0.0159,
+        "w": 0.9781,
+        "h": 0.9662
+      }
+    ]
+  },
+  "amarna-princess-fresco": {
+    "artwork_id": "amarna-princess-fresco",
+    "title": "",
+    "date": "",
+    "era": "",
+    "image_filename": "Princess Fresco from Amarna.jpg",
+    "quiz_regions": [
+      {
+        "id": "region_1772578598507",
+        "point_id": "apf-3",
+        "label": "Chin Chuck",
+        "x": 0.3805,
+        "y": 0.4519,
+        "w": 0.1653,
+        "h": 0.2963
+      },
+      {
+        "id": "region_1772578638355",
+        "point_id": "apf-4",
+        "label": "Light and Shadow",
+        "x": 0.3571,
+        "y": 0.5534,
+        "w": 0.2035,
+        "h": 0.1741
+      },
+      {
+        "id": "region_1772578657123",
+        "point_id": "apf-5",
+        "label": "Elongated Skulls",
+        "x": 0.3668,
+        "y": 0.4146,
+        "w": 0.1389,
+        "h": 0.1015
+      },
+      {
+        "id": "region_1772578677411",
+        "point_id": "apf-6",
+        "label": "Red-Brown Skin",
+        "x": 0.358,
+        "y": 0.4021,
+        "w": 0.2152,
+        "h": 0.3668
+      },
+      {
+        "id": "region_1772578693939",
+        "point_id": "apf-7",
+        "label": "Naked Royalty",
+        "x": 0.3414,
+        "y": 0.5306,
+        "w": 0.2524,
+        "h": 0.2134
+      },
+      {
+        "id": "region_1772578718683",
+        "point_id": "apf-8",
+        "label": "Decorated Cushion",
+        "x": 0.3375,
+        "y": 0.6467,
+        "w": 0.2534,
+        "h": 0.1015
+      },
+      {
+        "id": "region_1772578756659",
+        "point_id": "apf-9",
+        "label": "Ant Survival",
+        "x": 0.0264,
+        "y": 0.1493,
+        "w": 0.808,
+        "h": 0.744
+      },
+      {
+        "id": "region_1772578767115",
+        "point_id": "apf-10",
+        "label": "Most Intimate Royal Image",
+        "x": 0.3042,
+        "y": 0.0436,
+        "w": 0.6652,
+        "h": 0.8579
+      },
+      {
+        "id": "region_1772578780755",
+        "point_id": "apf-1",
+        "label": "Fragment Only",
+        "x": 0.0098,
+        "y": 0.0229,
+        "w": 0.9714,
+        "h": 0.9346
+      },
+      {
+        "id": "region_1772578799371",
+        "point_id": "apf-2",
+        "label": "No Pharaoh Before",
+        "x": 0.5596,
+        "y": 0.0954,
+        "w": 0.4207,
+        "h": 0.8911
+      }
+    ]
+  },
+  "bayeux-tapestry-battle": {
+    "artwork_id": "bayeux-tapestry-battle",
+    "title": "",
+    "date": "",
+    "era": "",
+    "image_filename": "bayeux-tapestry-battle.jpg",
+    "quiz_regions": [
+      {
+        "id": "region_1772609408513",
+        "point_id": "bt-2",
+        "label": "Harold Rex",
+        "x": 0.1433,
+        "y": 0.169,
+        "w": 0.7845,
+        "h": 0.1074
+      },
+      {
+        "id": "region_1772609442954",
+        "point_id": "bt-3",
+        "label": "The Arrow Figure",
+        "x": 0.1987,
+        "y": 0.1829,
+        "w": 0.2147,
+        "h": 0.2962
+      },
+      {
+        "id": "region_1772609457401",
+        "point_id": "bt-4",
+        "label": "The Mounted Strike",
+        "x": 0.5433,
+        "y": 0.2962,
+        "w": 0.2338,
+        "h": 0.4811
+      },
+      {
+        "id": "region_1772609476449",
+        "point_id": "bt-5",
+        "label": "Flat Color",
+        "x": 0.3338,
+        "y": 0.4175,
+        "w": 0.1974,
+        "h": 0.2982
+      },
+      {
+        "id": "region_1772609497169",
+        "point_id": "bt-6",
+        "label": "Dead in the Border",
+        "x": 0.0116,
+        "y": 0.8032,
+        "w": 0.8711,
+        "h": 0.1869
+      },
+      {
+        "id": "region_1772609511849",
+        "point_id": "bt-7",
+        "label": "Border Animals",
+        "x": 0.0238,
+        "y": 0.0179,
+        "w": 0.8572,
+        "h": 0.165
+      },
+      {
+        "id": "region_1772609561665",
+        "point_id": "bt-8",
+        "label": "Cavalry vs Infantry",
+        "x": 0.6472,
+        "y": 0.493,
+        "w": 0.2823,
+        "h": 0.3161
+      },
+      {
+        "id": "region_1772609574193",
+        "point_id": "bt-9",
+        "label": "Made in England",
+        "x": 0.0116,
+        "y": 0.0099,
+        "w": 0.9386,
+        "h": 0.9324
+      },
+      {
+        "id": "region_1772609584850",
+        "point_id": "bt-10",
+        "label": "Propaganda",
+        "x": 0.0151,
+        "y": 0.0497,
+        "w": 0.975,
+        "h": 0.9205
+      },
+      {
+        "id": "region_1772609596026",
+        "point_id": "bt-1",
+        "label": "Embroidery",
+        "x": 0.0134,
+        "y": 0.008,
+        "w": 0.9819,
+        "h": 0.9642
+      }
+    ]
+  },
+  "book-of-dead-ani": {
+    "artwork_id": "book-of-dead-ani",
+    "title": "",
+    "date": "",
+    "era": "",
+    "image_filename": "book-of-dead-ani.jpg",
+    "quiz_regions": [
+      {
+        "id": "region_1772574562210",
+        "point_id": "boda-3",
+        "label": "Cut in 37",
+        "x": 0.9,
+        "y": 0.0056,
+        "w": 0.089,
+        "h": 0.9842
+      },
+      {
+        "id": "region_1772574621362",
+        "point_id": "boda-6",
+        "label": "Thoth Twice",
+        "x": 0.452,
+        "y": 0.3514,
+        "w": 0.0646,
+        "h": 0.1387
+      },
+      {
+        "id": "region_1772574659762",
+        "point_id": "boda-5",
+        "label": "Wife Tutu",
+        "x": 0.0068,
+        "y": 0.4065,
+        "w": 0.0968,
+        "h": 0.513
+      },
+      {
+        "id": "region_1772574682610",
+        "point_id": "boda-4",
+        "label": "Name Added Later",
+        "x": 0.7513,
+        "y": 0.0113,
+        "w": 0.1487,
+        "h": 0.5719
+      },
+      {
+        "id": "region_1772574695706",
+        "point_id": "boda-7",
+        "label": "Heart vs Feather",
+        "x": 0.3316,
+        "y": 0.682,
+        "w": 0.3316,
+        "h": 0.1672
+      },
+      {
+        "id": "region_1772574717411",
+        "point_id": "boda-8",
+        "label": "Ammit Waiting",
+        "x": 0.7288,
+        "y": 0.5851,
+        "w": 0.2661,
+        "h": 0.3059
+      },
+      {
+        "id": "region_1772574743931",
+        "point_id": "boda-10",
+        "label": "Seated Judges",
+        "x": 0.0166,
+        "y": 0.0835,
+        "w": 0.8061,
+        "h": 0.2964
+      },
+      {
+        "id": "region_1772574755266",
+        "point_id": "boda-9",
+        "label": "Fixed Outcome",
+        "x": 0.1037,
+        "y": 0.0246,
+        "w": 0.8922,
+        "h": 0.9633
+      },
+      {
+        "id": "region_1772574771706",
+        "point_id": "boda-1",
+        "label": "24 Metres",
+        "x": 0.0029,
+        "y": 0.0151,
+        "w": 0.992,
+        "h": 0.8949
+      },
+      {
+        "id": "region_1772574786011",
+        "point_id": "boda-2",
+        "label": "Smuggled Out",
+        "x": 0.0078,
+        "y": 0.0094,
+        "w": 0.8951,
+        "h": 0.9823
+      }
+    ]
+  },
+  "book-of-dead-hunefer": {
+    "artwork_id": "book-of-dead-hunefer",
+    "title": "",
+    "date": "",
+    "era": "",
+    "image_filename": "book-of-dead-hunefer.jpg",
+    "quiz_regions": [
+      {
+        "id": "region_1772572965563",
+        "point_id": "bodh-2",
+        "label": "Comic Strip",
+        "x": 0.0225,
+        "y": 0.3919,
+        "w": 0.4255,
+        "h": 0.4433
+      },
+      {
+        "id": "region_1772572985402",
+        "point_id": "bodh-3",
+        "label": "Heart vs Feather",
+        "x": 0.1389,
+        "y": 0.7255,
+        "w": 0.27,
+        "h": 0.1205
+      },
+      {
+        "id": "region_1772573018626",
+        "point_id": "bodh-4",
+        "label": "Anubis Twice",
+        "x": 0.1017,
+        "y": 0.3704,
+        "w": 0.1624,
+        "h": 0.2625
+      },
+      {
+        "id": "region_1772573037146",
+        "point_id": "bodh-5",
+        "label": "Ammit",
+        "x": 0.2915,
+        "y": 0.5791,
+        "w": 0.0851,
+        "h": 0.2905
+      },
+      {
+        "id": "region_1772573068042",
+        "point_id": "bodh-6",
+        "label": "Fixed Outcome",
+        "x": 0.7073,
+        "y": 0.2779,
+        "w": 0.2534,
+        "h": 0.5466
+      },
+      {
+        "id": "region_1772573095867",
+        "point_id": "bodh-7",
+        "label": "Thoth Writing",
+        "x": 0.4109,
+        "y": 0.3898,
+        "w": 0.1017,
+        "h": 0.4777
+      },
+      {
+        "id": "region_1772573110019",
+        "point_id": "bodh-8",
+        "label": "Fourteen Witnesses",
+        "x": 0.0264,
+        "y": 0.1165,
+        "w": 0.6584,
+        "h": 0.1937
+      },
+      {
+        "id": "region_1772573141546",
+        "point_id": "bodh-9",
+        "label": "Osiris Enthroned",
+        "x": 0.7679,
+        "y": 0.2392,
+        "w": 0.1291,
+        "h": 0.5788
+      },
+      {
+        "id": "region_1772573157955",
+        "point_id": "bodh-10",
+        "label": "Hieroglyphic Band",
+        "x": 0.0372,
+        "y": 0.3037,
+        "w": 0.6486,
+        "h": 0.1721
+      },
+      {
+        "id": "region_1772573173634",
+        "point_id": "bodh-1",
+        "label": "Royal Scribe",
+        "x": 0.0127,
+        "y": 0.0111,
+        "w": 0.9675,
+        "h": 0.9597
+      }
+    ]
+  },
+  "book_of_kells_chi_rho": {
+    "artwork_id": "book_of_kells_chi_rho",
+    "title": "",
+    "date": "",
+    "era": "",
+    "image_filename": "book-of-kells-chi-rho.jpg",
+    "quiz_regions": [
+      {
+        "id": "region_1772608454945",
+        "point_id": "ck-4",
+        "label": "Hidden Angels",
+        "x": 0.307,
+        "y": 0.326,
+        "w": 0.0952,
+        "h": 0.0775
+      },
+      {
+        "id": "region_1772608592041",
+        "point_id": "ck-5",
+        "label": "Cats and Mice",
+        "x": 0.3276,
+        "y": 0.7376,
+        "w": 0.1853,
+        "h": 0.0954
+      },
+      {
+        "id": "region_1772608608345",
+        "point_id": "ck-6",
+        "label": "h·generatio",
+        "x": 0.6055,
+        "y": 0.8012,
+        "w": 0.1982,
+        "h": 0.0696
+      },
+      {
+        "id": "region_1772608649994",
+        "point_id": "ck-7",
+        "label": "Circular Medallions",
+        "x": 0.5978,
+        "y": 0.1988,
+        "w": 0.2188,
+        "h": 0.175
+      },
+      {
+        "id": "region_1772608690578",
+        "point_id": "ck-8",
+        "label": "Insular Interlace",
+        "x": 0.554,
+        "y": 0.3758,
+        "w": 0.2136,
+        "h": 0.0815
+      },
+      {
+        "id": "region_1772608713081",
+        "point_id": "ck-3",
+        "label": "Diamond at the Crossing",
+        "x": 0.4022,
+        "y": 0.2147,
+        "w": 0.139,
+        "h": 0.169
+      },
+      {
+        "id": "region_1772608723761",
+        "point_id": "ck-2",
+        "label": "Chi Sweeps the Page",
+        "x": 0.186,
+        "y": 0.1193,
+        "w": 0.4607,
+        "h": 0.664
+      },
+      {
+        "id": "region_1772608734161",
+        "point_id": "ck-1",
+        "label": "Three Letters, Whole Page",
+        "x": 0.1577,
+        "y": 0.1113,
+        "w": 0.7206,
+        "h": 0.7674
+      },
+      {
+        "id": "region_1772608751961",
+        "point_id": "ck-9",
+        "label": "Made for Display",
+        "x": 0.0856,
+        "y": 0.0636,
+        "w": 0.8854,
+        "h": 0.8549
+      },
+      {
+        "id": "region_1772608763193",
+        "point_id": "ck-10",
+        "label": "The Goldsmith Artist",
+        "x": 0.0419,
+        "y": 0.0557,
+        "w": 0.9162,
+        "h": 0.8708
+      }
+    ]
+  },
+  "chaddanta-jataka-cave17": {
+    "artwork_id": "chaddanta-jataka-cave17",
+    "title": "",
+    "date": "",
+    "era": "",
+    "image_filename": "chaddanta-jataka-cave17.jpg",
+    "quiz_regions": [
+      {
+        "id": "region_1772583860843",
+        "point_id": "cj-1",
+        "label": "White Elephant",
+        "x": 0.6685,
+        "y": 0.3012,
+        "w": 0.3228,
+        "h": 0.6685
+      },
+      {
+        "id": "region_1772583875395",
+        "point_id": "cj-2",
+        "label": "Six Tusks",
+        "x": 0.3299,
+        "y": 0.2089,
+        "w": 0.3755,
+        "h": 0.4805
+      },
+      {
+        "id": "region_1772583888547",
+        "point_id": "cj-3",
+        "label": "Second Elephant",
+        "x": 0.4063,
+        "y": 0.524,
+        "w": 0.2121,
+        "h": 0.1758
+      },
+      {
+        "id": "region_1772583916067",
+        "point_id": "cj-4",
+        "label": "Pavilion Scene",
+        "x": 0.0479,
+        "y": 0.3308,
+        "w": 0.1858,
+        "h": 0.4909
+      },
+      {
+        "id": "region_1772583934987",
+        "point_id": "cj-5",
+        "label": "Two Human Figures",
+        "x": 0.3404,
+        "y": 0.7016,
+        "w": 0.3531,
+        "h": 0.2594
+      },
+      {
+        "id": "region_1772584007715",
+        "point_id": "cj-6",
+        "label": "Golden Border",
+        "x": 0.0137,
+        "y": 0.0435,
+        "w": 0.9829,
+        "h": 0.2611
+      },
+      {
+        "id": "region_1772584033819",
+        "point_id": "cj-9",
+        "label": "Severe Damage",
+        "x": 0.235,
+        "y": 0.2594,
+        "w": 0.7391,
+        "h": 0.6163
+      },
+      {
+        "id": "region_1772584050243",
+        "point_id": "cj-10",
+        "label": "Dense Foliage",
+        "x": 0.434,
+        "y": 0.8408,
+        "w": 0.5613,
+        "h": 0.1497
+      },
+      {
+        "id": "region_1772584061459",
+        "point_id": "cj-7",
+        "label": "Continuous Narrative",
+        "x": 0.0111,
+        "y": 0.0087,
+        "w": 0.9802,
+        "h": 0.9261
+      },
+      {
+        "id": "region_1772584075067",
+        "point_id": "cj-8",
+        "label": "Generosity Theme",
+        "x": 0.0097,
+        "y": 0.0261,
+        "w": 0.9644,
+        "h": 0.9662
+      }
+    ]
+  },
   "chauvet_panel_horses": {
     "artwork_id": "chauvet_panel_horses",
     "title": "",
@@ -203,6 +1193,3246 @@
         "y": 0.0147,
         "w": 0.9795,
         "h": 0.9663
+      }
+    ]
+  },
+  "duccio-maesta": {
+    "artwork_id": "duccio-maesta",
+    "title": "",
+    "date": "",
+    "era": "",
+    "image_filename": "duccio-maesta.jpg",
+    "quiz_regions": [
+      {
+        "id": "region_1772648352921",
+        "point_id": "dm-1",
+        "label": "Throne Base",
+        "x": 0.3659,
+        "y": 0.8655,
+        "w": 0.2716,
+        "h": 0.1314
+      },
+      {
+        "id": "region_1772648421961",
+        "point_id": "dm-3",
+        "label": "Kneeling Saints",
+        "x": 0.6795,
+        "y": 0.485,
+        "w": 0.2693,
+        "h": 0.5026
+      },
+      {
+        "id": "region_1772648443457",
+        "point_id": "dm-4",
+        "label": "Figures Turn",
+        "x": 0.5602,
+        "y": 0.0562,
+        "w": 0.1136,
+        "h": 0.1406
+      },
+      {
+        "id": "region_1772648461154",
+        "point_id": "dm-5",
+        "label": "Shaded Drapery",
+        "x": 0.4568,
+        "y": 0.5288,
+        "w": 0.0932,
+        "h": 0.2905
+      },
+      {
+        "id": "region_1772650355304",
+        "point_id": "dm-9",
+        "label": "Apostles Above",
+        "x": 0.0091,
+        "y": 0.0031,
+        "w": 0.3,
+        "h": 0.1845
+      },
+      {
+        "id": "region_1772650371668",
+        "point_id": "dm-6",
+        "label": "The Procession",
+        "x": 0.0011,
+        "y": 0.0008,
+        "w": 0.9648,
+        "h": 0.9499
+      },
+      {
+        "id": "region_1772650381692",
+        "point_id": "dm-7",
+        "label": "Sawed Apart",
+        "x": 0.017,
+        "y": 0.017,
+        "w": 0.9807,
+        "h": 0.92
+      },
+      {
+        "id": "region_1772650394237",
+        "point_id": "dm-8",
+        "label": "Duccio vs Giotto",
+        "x": 0.0909,
+        "y": 0.0054,
+        "w": 0.908,
+        "h": 0.9684
+      },
+      {
+        "id": "region_1772650410229",
+        "point_id": "dm-10",
+        "label": "Mary Won Their War",
+        "x": 0.0068,
+        "y": 0.2176,
+        "w": 0.9068,
+        "h": 0.7655
+      },
+      {
+        "id": "region_1772650440860",
+        "point_id": "dm-2",
+        "label": "Double-Sided",
+        "x": 0.017,
+        "y": 0.017,
+        "w": 0.9727,
+        "h": 0.9707
+      }
+    ]
+  },
+  "el-castillo-hands": {
+    "artwork_id": "el-castillo-hands",
+    "title": "",
+    "date": "",
+    "era": "",
+    "image_filename": "el-castillo-hands.jpg",
+    "quiz_regions": [
+      {
+        "id": "region_1772559161426",
+        "point_id": "ech-1",
+        "label": "Red Disc",
+        "x": 0.7737,
+        "y": 0.0159,
+        "w": 0.2175,
+        "h": 0.332
+      },
+      {
+        "id": "region_1772559208011",
+        "point_id": "ech-2",
+        "label": "Hand Stencil",
+        "x": 0.2033,
+        "y": 0.5885,
+        "w": 0.1483,
+        "h": 0.2763
+      },
+      {
+        "id": "region_1772559226162",
+        "point_id": "ech-3",
+        "label": "Finger Proportions",
+        "x": 0.6916,
+        "y": 0.4314,
+        "w": 0.1368,
+        "h": 0.2346
+      },
+      {
+        "id": "region_1772559246995",
+        "point_id": "ech-9",
+        "label": "Pale Hand",
+        "x": 0.8673,
+        "y": 0.5527,
+        "w": 0.1152,
+        "h": 0.2545
+      },
+      {
+        "id": "region_1772559269042",
+        "point_id": "ech-5",
+        "label": "Rock Cracks",
+        "x": 0.6844,
+        "y": 0.2227,
+        "w": 0.3068,
+        "h": 0.2127
+      },
+      {
+        "id": "region_1772559280282",
+        "point_id": "ech-6",
+        "label": "Yellow Bison",
+        "x": 0.1644,
+        "y": 0.0736,
+        "w": 0.4522,
+        "h": 0.4215
+      },
+      {
+        "id": "region_1772559301634",
+        "point_id": "ech-7",
+        "label": "Dot Cluster",
+        "x": 0.5778,
+        "y": 0.6342,
+        "w": 0.0677,
+        "h": 0.1471
+      },
+      {
+        "id": "region_1772559402026",
+        "point_id": "ech-4",
+        "label": "Layered Hands",
+        "x": 0.4266,
+        "y": 0.3718,
+        "w": 0.2276,
+        "h": 0.2803
+      },
+      {
+        "id": "region_1772559497299",
+        "point_id": "ech-8",
+        "label": "Bison Template",
+        "x": 0.0218,
+        "y": 0.1292,
+        "w": 0.4551,
+        "h": 0.5865
+      }
+    ]
+  },
+  "exekias-dionysus-cup": {
+    "artwork_id": "exekias-dionysus-cup",
+    "title": "",
+    "date": "",
+    "era": "",
+    "image_filename": "exekias-dionysus-cup.jpg",
+    "quiz_regions": [
+      {
+        "id": "region_1772578931460",
+        "point_id": "edc-3",
+        "label": "Divine Calm",
+        "x": 0.5426,
+        "y": 0.4561,
+        "w": 0.1251,
+        "h": 0.1758
+      },
+      {
+        "id": "region_1772578949003",
+        "point_id": "edc-4",
+        "label": "Seven Clusters",
+        "x": 0.2744,
+        "y": 0.1532,
+        "w": 0.4838,
+        "h": 0.2002
+      },
+      {
+        "id": "region_1772578971236",
+        "point_id": "edc-5",
+        "label": "Former Pirates",
+        "x": 0.1493,
+        "y": 0.618,
+        "w": 0.6813,
+        "h": 0.2159
+      },
+      {
+        "id": "region_1772578988419",
+        "point_id": "edc-6",
+        "label": "Red Ground",
+        "x": 0.1213,
+        "y": 0.3656,
+        "w": 0.7422,
+        "h": 0.2472
+      },
+      {
+        "id": "region_1772579006011",
+        "point_id": "edc-7",
+        "label": "White Sail",
+        "x": 0.2563,
+        "y": 0.3081,
+        "w": 0.4904,
+        "h": 0.242
+      },
+      {
+        "id": "region_1772579079451",
+        "point_id": "edc-1",
+        "label": "Hidden in Wine",
+        "x": 0.1477,
+        "y": 0.1375,
+        "w": 0.6763,
+        "h": 0.6963
+      },
+      {
+        "id": "region_1772579164251",
+        "point_id": "edc-2",
+        "label": "Homeric Hymn",
+        "x": 0.2316,
+        "y": 0.0714,
+        "w": 0.6303,
+        "h": 0.7677
+      },
+      {
+        "id": "region_1772579183611",
+        "point_id": "edc-9",
+        "label": "Cup Type A",
+        "x": 0.0588,
+        "y": 0.0052,
+        "w": 0.91,
+        "h": 0.9696
+      },
+      {
+        "id": "region_1772579193659",
+        "point_id": "edc-10",
+        "label": "Made in Athens, Found in Italy",
+        "x": 0.0177,
+        "y": 0.0104,
+        "w": 0.966,
+        "h": 0.9766
+      }
+    ]
+  },
+  "fayum-mummy-portraits": {
+    "artwork_id": "fayum-mummy-portraits",
+    "title": "",
+    "date": "",
+    "era": "",
+    "image_filename": "fayum-mummy-portraits.jpg",
+    "quiz_regions": [
+      {
+        "id": "region_1772582080147",
+        "point_id": "fm-1",
+        "label": "Direct Gaze",
+        "x": 0.3512,
+        "y": 0.3934,
+        "w": 0.3036,
+        "h": 0.094
+      },
+      {
+        "id": "region_1772582106739",
+        "point_id": "fm-2",
+        "label": "Encaustic Texture",
+        "x": 0.3294,
+        "y": 0.4491,
+        "w": 0.2818,
+        "h": 0.1654
+      },
+      {
+        "id": "region_1772582119603",
+        "point_id": "fm-3",
+        "label": "Gold Wreath",
+        "x": 0.1896,
+        "y": 0.2037,
+        "w": 0.5329,
+        "h": 0.2072
+      },
+      {
+        "id": "region_1772582137188",
+        "point_id": "fm-4",
+        "label": "Young Face",
+        "x": 0.2682,
+        "y": 0.3116,
+        "w": 0.4106,
+        "h": 0.3325
+      },
+      {
+        "id": "region_1772582153603",
+        "point_id": "fm-5",
+        "label": "Large Eyes",
+        "x": 0.3032,
+        "y": 0.3795,
+        "w": 0.3866,
+        "h": 0.1184
+      },
+      {
+        "id": "region_1772582222812",
+        "point_id": "fm-7",
+        "label": "Flaking Damage",
+        "x": 0.4539,
+        "y": 0.5397,
+        "w": 0.2141,
+        "h": 0.2838
+      },
+      {
+        "id": "region_1772582259219",
+        "point_id": "fm-9",
+        "label": "Short Dark Hair",
+        "x": 0.2617,
+        "y": 0.2072,
+        "w": 0.4434,
+        "h": 0.228
+      },
+      {
+        "id": "region_1772582270060",
+        "point_id": "fm-10",
+        "label": "No Background",
+        "x": 0.0498,
+        "y": 0.0157,
+        "w": 0.9086,
+        "h": 0.484
+      },
+      {
+        "id": "region_1772582282083",
+        "point_id": "fm-6",
+        "label": "Linen Frame",
+        "x": 0.0476,
+        "y": 0.4944,
+        "w": 0.9261,
+        "h": 0.4961
+      },
+      {
+        "id": "region_1772582291460",
+        "point_id": "fm-8",
+        "label": "Three Cultures",
+        "x": 0.0302,
+        "y": 0.0052,
+        "w": 0.9458,
+        "h": 0.9696
+      }
+    ]
+  },
+  "flying-apsara-cave17": {
+    "artwork_id": "flying-apsara-cave17",
+    "title": "",
+    "date": "",
+    "era": "",
+    "image_filename": "flying-apsara-cave17.jpg",
+    "quiz_regions": [
+      {
+        "id": "region_1772583529843",
+        "point_id": "fa-2",
+        "label": "Dark Outline",
+        "x": 0.6474,
+        "y": 0.1741,
+        "w": 0.1984,
+        "h": 0.3917
+      },
+      {
+        "id": "region_1772583542443",
+        "point_id": "fa-3",
+        "label": "White Highlights",
+        "x": 0.4398,
+        "y": 0.3516,
+        "w": 0.2468,
+        "h": 0.0766
+      },
+      {
+        "id": "region_1772583558723",
+        "point_id": "fa-4",
+        "label": "Jewelry Intact",
+        "x": 0.3175,
+        "y": 0.4091,
+        "w": 0.5444,
+        "h": 0.3725
+      },
+      {
+        "id": "region_1772583576091",
+        "point_id": "fa-5",
+        "label": "Three-Quarter Face",
+        "x": 0.4328,
+        "y": 0.2193,
+        "w": 0.3345,
+        "h": 0.3203
+      },
+      {
+        "id": "region_1772583587251",
+        "point_id": "fa-6",
+        "label": "Nearly Closed Eyes",
+        "x": 0.3982,
+        "y": 0.2994,
+        "w": 0.4222,
+        "h": 0.0801
+      },
+      {
+        "id": "region_1772583597507",
+        "point_id": "fa-7",
+        "label": "Dark Skin",
+        "x": 0.2275,
+        "y": 0.5449,
+        "w": 0.7267,
+        "h": 0.4265
+      },
+      {
+        "id": "region_1772583619043",
+        "point_id": "fa-8",
+        "label": "Elaborate Headdress",
+        "x": 0.1399,
+        "y": 0.04,
+        "w": 0.353,
+        "h": 0.3012
+      },
+      {
+        "id": "region_1772583640491",
+        "point_id": "fa-9",
+        "label": "Flaking Damage",
+        "x": 0.6243,
+        "y": 0.0226,
+        "w": 0.3714,
+        "h": 0.3168
+      },
+      {
+        "id": "region_1772583657859",
+        "point_id": "fa-10",
+        "label": "Celestial Attendant",
+        "x": 0.013,
+        "y": 0.0279,
+        "w": 0.9228,
+        "h": 0.9383
+      },
+      {
+        "id": "region_1772583669508",
+        "point_id": "fa-1",
+        "label": "Diagonal Body",
+        "x": 0.0753,
+        "y": 0.0853,
+        "w": 0.9112,
+        "h": 0.9035
+      }
+    ]
+  },
+  "giotto-lamentation": {
+    "artwork_id": "giotto-lamentation",
+    "title": "",
+    "date": "",
+    "era": "",
+    "image_filename": "giotto-lamentation.jpg",
+    "quiz_regions": [
+      {
+        "id": "region_1772647934151",
+        "point_id": "gl-1",
+        "label": "Off-Center Focus",
+        "x": 0.1466,
+        "y": 0.6183,
+        "w": 0.2244,
+        "h": 0.2366
+      },
+      {
+        "id": "region_1772647956895",
+        "point_id": "gl-2",
+        "label": "Diagonal Rock",
+        "x": 0.6552,
+        "y": 0.3082,
+        "w": 0.2805,
+        "h": 0.2684
+      },
+      {
+        "id": "region_1772647979350",
+        "point_id": "gl-3",
+        "label": "Grief",
+        "x": 0.2176,
+        "y": 0.4274,
+        "w": 0.1253,
+        "h": 0.1809
+      },
+      {
+        "id": "region_1772647999055",
+        "point_id": "gl-4",
+        "label": "Face to Face",
+        "x": 0.1372,
+        "y": 0.6561,
+        "w": 0.1664,
+        "h": 0.1213
+      },
+      {
+        "id": "region_1772648035871",
+        "point_id": "gl-5",
+        "label": "St. John's Raised Arm",
+        "x": 0.4476,
+        "y": 0.4374,
+        "w": 0.2693,
+        "h": 0.1849
+      },
+      {
+        "id": "region_1772648051663",
+        "point_id": "gl-6",
+        "label": "Angels in Grief",
+        "x": 0.0736,
+        "y": 0.0517,
+        "w": 0.3946,
+        "h": 0.2883
+      },
+      {
+        "id": "region_1772648067655",
+        "point_id": "gl-7",
+        "label": "Barren Tree",
+        "x": 0.745,
+        "y": 0.0497,
+        "w": 0.2151,
+        "h": 0.3539
+      },
+      {
+        "id": "region_1772648095327",
+        "point_id": "gl-8",
+        "label": "Mary Magdalene at the Feet",
+        "x": 0.6066,
+        "y": 0.6422,
+        "w": 0.2319,
+        "h": 0.2585
+      },
+      {
+        "id": "region_1772648178512",
+        "point_id": "gl-9",
+        "label": "Blue Sky",
+        "x": 0.3616,
+        "y": 0.3598,
+        "w": 0.172,
+        "h": 0.0716
+      },
+      {
+        "id": "region_1772648220624",
+        "point_id": "gl-10",
+        "label": "Narrative Sequence",
+        "x": 0.0325,
+        "y": 0.0795,
+        "w": 0.9126,
+        "h": 0.8728
+      }
+    ]
+  },
+  "hildegard-visions": {
+    "artwork_id": "hildegard-visions",
+    "title": "",
+    "date": "",
+    "era": "",
+    "image_filename": "hildegard-visions.jpg",
+    "quiz_regions": [
+      {
+        "id": "region_1772646260981",
+        "point_id": "hv-2",
+        "label": "Ring of Fire",
+        "x": 0.1448,
+        "y": 0.1968,
+        "w": 0.1605,
+        "h": 0.1769
+      },
+      {
+        "id": "region_1772646287685",
+        "point_id": "hv-3",
+        "label": "Blue Starfield",
+        "x": 0.3264,
+        "y": 0.6084,
+        "w": 0.25,
+        "h": 0.0974
+      },
+      {
+        "id": "region_1772646297462",
+        "point_id": "hv-4",
+        "label": "Sun and Moon",
+        "x": 0.3948,
+        "y": 0.3002,
+        "w": 0.171,
+        "h": 0.1332
+      },
+      {
+        "id": "region_1772646323677",
+        "point_id": "hv-5",
+        "label": "Earth at Center",
+        "x": 0.3316,
+        "y": 0.4076,
+        "w": 0.3105,
+        "h": 0.2386
+      },
+      {
+        "id": "region_1772646375269",
+        "point_id": "hv-6",
+        "label": "Wind Figures",
+        "x": 0.7684,
+        "y": 0.3956,
+        "w": 0.1815,
+        "h": 0.2266
+      },
+      {
+        "id": "region_1772646394286",
+        "point_id": "hv-7",
+        "label": "Nested Frames",
+        "x": 0.6658,
+        "y": 0.0795,
+        "w": 0.2973,
+        "h": 0.2346
+      },
+      {
+        "id": "region_1772646419462",
+        "point_id": "hv-1",
+        "label": "Cosmic Egg",
+        "x": 0.1501,
+        "y": 0.1551,
+        "w": 0.7209,
+        "h": 0.7455
+      },
+      {
+        "id": "region_1772646431422",
+        "point_id": "hv-8",
+        "label": "A Copy",
+        "x": 0.0448,
+        "y": 0.0795,
+        "w": 0.913,
+        "h": 0.8867
+      },
+      {
+        "id": "region_1772646455830",
+        "point_id": "hv-9",
+        "label": "Diagram",
+        "x": 0.0185,
+        "y": 0.0219,
+        "w": 0.9551,
+        "h": 0.9622
+      },
+      {
+        "id": "region_1772646475478",
+        "point_id": "hv-10",
+        "label": "Migraine or Vision",
+        "x": 0.0369,
+        "y": 0.0099,
+        "w": 0.9525,
+        "h": 0.9642
+      }
+    ]
+  },
+  "investiture-zimri-lim": {
+    "artwork_id": "investiture-zimri-lim",
+    "title": "",
+    "date": "",
+    "era": "",
+    "image_filename": "investiture-zimri-lim.jpg",
+    "quiz_regions": [
+      {
+        "id": "region_1772559778682",
+        "point_id": "izl-1",
+        "label": "Rod and Ring",
+        "x": 0.3618,
+        "y": 0.4718,
+        "w": 0.0905,
+        "h": 0.1236
+      },
+      {
+        "id": "region_1772559802778",
+        "point_id": "izl-2",
+        "label": "Measuring Tools",
+        "x": 0.3885,
+        "y": 0.4909,
+        "w": 0.0812,
+        "h": 0.1462
+      },
+      {
+        "id": "region_1772559855354",
+        "point_id": "izl-3",
+        "label": "Weapons on Shoulders",
+        "x": 0.4082,
+        "y": 0.3934,
+        "w": 0.0952,
+        "h": 0.3238
+      },
+      {
+        "id": "region_1772559879490",
+        "point_id": "izl-4",
+        "label": "Hand to Mouth",
+        "x": 0.3386,
+        "y": 0.4422,
+        "w": 0.0754,
+        "h": 0.2472
+      },
+      {
+        "id": "region_1772559924306",
+        "point_id": "izl-5",
+        "label": "Lion and Dove",
+        "x": 0.1181,
+        "y": 0.4683,
+        "w": 0.1718,
+        "h": 0.3168
+      },
+      {
+        "id": "region_1772559959554",
+        "point_id": "izl-6",
+        "label": "Flowing Water",
+        "x": 0.3014,
+        "y": 0.6824,
+        "w": 0.2774,
+        "h": 0.2646
+      },
+      {
+        "id": "region_1772560069995",
+        "point_id": "izl-8",
+        "label": "Blue Added Last",
+        "x": 0.7076,
+        "y": 0.1776,
+        "w": 0.1451,
+        "h": 0.275
+      },
+      {
+        "id": "region_1772560090026",
+        "point_id": "izl-9",
+        "label": "Buried by Fire",
+        "x": 0.2179,
+        "y": 0.0627,
+        "w": 0.4631,
+        "h": 0.2611
+      },
+      {
+        "id": "region_1772560127626",
+        "point_id": "izl-10",
+        "label": "Hidden Fish",
+        "x": 0.0229,
+        "y": 0.8617,
+        "w": 0.9691,
+        "h": 0.1062
+      },
+      {
+        "id": "region_1772560193322",
+        "point_id": "izl-7",
+        "label": "Mirror Symmetry",
+        "x": 0.183,
+        "y": 0.3691,
+        "w": 0.5466,
+        "h": 0.4665
+      }
+    ]
+  },
+  "lascaux-hall-bulls": {
+    "artwork_id": "lascaux-hall-bulls",
+    "title": "",
+    "date": "",
+    "era": "",
+    "image_filename": "lascaux-hall-bulls.jpg",
+    "quiz_regions": [
+      {
+        "id": "region_1772660490160",
+        "point_id": "lhb-2",
+        "label": "Scale Contrast",
+        "x": 0.3431,
+        "y": 0.6028,
+        "w": 0.1986,
+        "h": 0.2542
+      },
+      {
+        "id": "region_1772660508184",
+        "point_id": "lhb-3",
+        "label": "Twisted Perspective",
+        "x": 0.5736,
+        "y": 0.0837,
+        "w": 0.2292,
+        "h": 0.2479
+      },
+      {
+        "id": "region_1772660532832",
+        "point_id": "lhb-4",
+        "label": "Rock Wall as Volume",
+        "x": 0.6389,
+        "y": 0.7447,
+        "w": 0.0917,
+        "h": 0.1208
+      },
+      {
+        "id": "region_1772660550688",
+        "point_id": "lhb-5",
+        "label": "Overlapping Figures",
+        "x": 0.1139,
+        "y": 0.6303,
+        "w": 0.2292,
+        "h": 0.2797
+      },
+      {
+        "id": "region_1772660561329",
+        "point_id": "lhb-6",
+        "label": "Spots on the Bull",
+        "x": 0.8778,
+        "y": 0.4629,
+        "w": 0.1181,
+        "h": 0.1928
+      },
+      {
+        "id": "region_1772660582497",
+        "point_id": "lhb-7",
+        "label": "Abstract Red Marks",
+        "x": 0.2861,
+        "y": 0.3761,
+        "w": 0.1208,
+        "h": 0.1483
+      },
+      {
+        "id": "region_1772660637042",
+        "point_id": "lhb-1",
+        "label": "Largest Animal",
+        "x": 0.5542,
+        "y": 0.0456,
+        "w": 0.4389,
+        "h": 0.9089
+      },
+      {
+        "id": "region_1772660654003",
+        "point_id": "lhb-8",
+        "label": "Mineral Pigments",
+        "x": 0.0111,
+        "y": 0.0201,
+        "w": 0.9639,
+        "h": 0.9513
+      },
+      {
+        "id": "region_1772660664722",
+        "point_id": "lhb-9",
+        "label": "Discovered in 1940",
+        "x": 0.0139,
+        "y": 0.0053,
+        "w": 0.9528,
+        "h": 0.9153
+      },
+      {
+        "id": "region_1772660675610",
+        "point_id": "lhb-10",
+        "label": "Sealed in 1963",
+        "x": 0.0056,
+        "y": 0.0138,
+        "w": 0.9764,
+        "h": 0.9703
+      }
+    ]
+  },
+  "lascaux-shaft-scene": {
+    "artwork_id": "lascaux-shaft-scene",
+    "title": "",
+    "date": "",
+    "era": "",
+    "image_filename": "lascaux-shaft-scene.jpg",
+    "quiz_regions": [
+      {
+        "id": "region_1772557299890",
+        "point_id": "lss-1",
+        "label": "The Only Human in Lascaux",
+        "x": 0.0587,
+        "y": 0.4069,
+        "w": 0.3175,
+        "h": 0.2035
+      },
+      {
+        "id": "region_1772557316994",
+        "point_id": "lss-2",
+        "label": "Why a Bird Head?",
+        "x": 0.0968,
+        "y": 0.2165,
+        "w": 0.1556,
+        "h": 0.1861
+      },
+      {
+        "id": "region_1772557351562",
+        "point_id": "lss-3",
+        "label": "A Story Frozen Mid-Action",
+        "x": 0.5921,
+        "y": 0.4026,
+        "w": 0.2413,
+        "h": 0.4156
+      },
+      {
+        "id": "region_1772557377931",
+        "point_id": "lss-4",
+        "label": "The Bison Fights Back",
+        "x": 0.2016,
+        "y": 0.0563,
+        "w": 0.3778,
+        "h": 0.3636
+      },
+      {
+        "id": "region_1772557398203",
+        "point_id": "lss-5",
+        "label": "The Bird on a Stick",
+        "x": 0.1159,
+        "y": 0.5671,
+        "w": 0.0889,
+        "h": 0.3939
+      },
+      {
+        "id": "region_1772557459850",
+        "point_id": "lss-6",
+        "label": "Hidden at the Bottom of the Cave",
+        "x": 0.0079,
+        "y": 0.8182,
+        "w": 0.9841,
+        "h": 0.1515
+      },
+      {
+        "id": "region_1772557489939",
+        "point_id": "lss-7",
+        "label": "The Rhino Walks Away",
+        "x": 0.0206,
+        "y": 0.0087,
+        "w": 0.2794,
+        "h": 0.9567
+      },
+      {
+        "id": "region_1772557509746",
+        "point_id": "lss-8",
+        "label": "A Possible Sky Map",
+        "x": 0.0714,
+        "y": 0.0433,
+        "w": 0.5778,
+        "h": 0.9004
+      },
+      {
+        "id": "region_1772557528229",
+        "point_id": "lss-9",
+        "label": "A Lamp Was Found Right Below It",
+        "x": 0.0302,
+        "y": 0.5584,
+        "w": 0.9302,
+        "h": 0.4069
+      },
+      {
+        "id": "region_1772557547058",
+        "point_id": "lss-10",
+        "label": "The Most Debated Image in Prehistory",
+        "x": 0.3603,
+        "y": 0.0216,
+        "w": 0.6127,
+        "h": 0.9697
+      }
+    ]
+  },
+  "livia-garden-fresco": {
+    "artwork_id": "livia-garden-fresco",
+    "title": "",
+    "date": "",
+    "era": "",
+    "image_filename": "livia-garden-fresco.jpg",
+    "quiz_regions": [
+      {
+        "id": "region_1772580818915",
+        "point_id": "lg-1",
+        "label": "Two Fences",
+        "x": 0.046,
+        "y": 0.7396,
+        "w": 0.9049,
+        "h": 0.0919
+      },
+      {
+        "id": "region_1772580854979",
+        "point_id": "lg-2",
+        "label": "Atmospheric Depth",
+        "x": 0.2309,
+        "y": 0.1259,
+        "w": 0.1937,
+        "h": 0.2923
+      },
+      {
+        "id": "region_1772580877571",
+        "point_id": "lg-3",
+        "label": "Impossible Season",
+        "x": 0.6809,
+        "y": 0.2323,
+        "w": 0.2025,
+        "h": 0.3946
+      },
+      {
+        "id": "region_1772580891819",
+        "point_id": "lg-4",
+        "label": "No People",
+        "x": 0.0685,
+        "y": 0.3075,
+        "w": 0.8755,
+        "h": 0.3653
+      },
+      {
+        "id": "region_1772581003227",
+        "point_id": "lg-6",
+        "label": "Identifiable Birds",
+        "x": 0.1438,
+        "y": 0.1321,
+        "w": 0.089,
+        "h": 0.2693
+      },
+      {
+        "id": "region_1772581015219",
+        "point_id": "lg-7",
+        "label": "Blue Sky",
+        "x": 0.0743,
+        "y": 0.0486,
+        "w": 0.8824,
+        "h": 0.2275
+      },
+      {
+        "id": "region_1772581104435",
+        "point_id": "lg-8",
+        "label": "Pomegranates",
+        "x": 0.6926,
+        "y": 0.1363,
+        "w": 0.1497,
+        "h": 0.547
+      },
+      {
+        "id": "region_1772581124796",
+        "point_id": "lg-9",
+        "label": "Underground Room",
+        "x": 0.0137,
+        "y": 0.0465,
+        "w": 0.9675,
+        "h": 0.9144
+      },
+      {
+        "id": "region_1772581135683",
+        "point_id": "lg-10",
+        "label": "Now in a Museum",
+        "x": 0.0068,
+        "y": 0.0257,
+        "w": 0.9832,
+        "h": 0.954
+      },
+      {
+        "id": "region_1772581219331",
+        "point_id": "lg-5",
+        "label": "Laurel Trees",
+        "x": 0.4363,
+        "y": 0.0048,
+        "w": 0.2495,
+        "h": 0.7286
+      }
+    ]
+  },
+  "mari-sacrificial-procession": {
+    "artwork_id": "mari-sacrificial-procession",
+    "title": "",
+    "date": "",
+    "era": "",
+    "image_filename": "mari-sacrificial-procession.jpg",
+    "quiz_regions": [
+      {
+        "id": "region_1772560932338",
+        "point_id": "msp-2",
+        "label": "Hierarchic Scale",
+        "x": 0.6403,
+        "y": 0.0296,
+        "w": 0.318,
+        "h": 0.9313
+      },
+      {
+        "id": "region_1772560964202",
+        "point_id": "msp-3",
+        "label": "Ranked Procession",
+        "x": 0.1581,
+        "y": 0.3673,
+        "w": 0.4399,
+        "h": 0.5588
+      },
+      {
+        "id": "region_1772561000107",
+        "point_id": "msp-4",
+        "label": "Adorned Bull",
+        "x": 0.0218,
+        "y": 0.4961,
+        "w": 0.1322,
+        "h": 0.2907
+      },
+      {
+        "id": "region_1772561024546",
+        "point_id": "msp-1",
+        "label": "Orange Bull",
+        "x": 0.121,
+        "y": 0.376,
+        "w": 0.192,
+        "h": 0.4404
+      },
+      {
+        "id": "region_1772561049322",
+        "point_id": "msp-6",
+        "label": "Stacked Registers",
+        "x": 0.2376,
+        "y": 0.2489,
+        "w": 0.318,
+        "h": 0.3691
+      },
+      {
+        "id": "region_1772561086834",
+        "point_id": "msp-5",
+        "label": "Five Colors Only",
+        "x": 0.3853,
+        "y": 0.4126,
+        "w": 0.2385,
+        "h": 0.4927
+      },
+      {
+        "id": "region_1772561118522",
+        "point_id": "msp-7",
+        "label": "Scored Mud Base",
+        "x": 0.3306,
+        "y": 0.0279,
+        "w": 0.2953,
+        "h": 0.3934
+      },
+      {
+        "id": "region_1772561158419",
+        "point_id": "msp-8",
+        "label": "East of the Doorway",
+        "x": 0.0125,
+        "y": 0.0157,
+        "w": 0.7414,
+        "h": 0.9679
+      },
+      {
+        "id": "region_1772561169938",
+        "point_id": "msp-9",
+        "label": "King Without Gods",
+        "x": 0.3264,
+        "y": 0.0226,
+        "w": 0.6629,
+        "h": 0.9662
+      },
+      {
+        "id": "region_1772561188714",
+        "point_id": "msp-10",
+        "label": "Reassembled Fragments",
+        "x": 0.0301,
+        "y": 0.0035,
+        "w": 0.9592,
+        "h": 0.9818
+      }
+    ]
+  },
+  "mawangdui-banner-t1": {
+    "artwork_id": "mawangdui-banner-t1",
+    "title": "",
+    "date": "",
+    "era": "",
+    "image_filename": "mawangdui-banner-t1.jpg",
+    "quiz_regions": [
+      {
+        "id": "region_1772606955090",
+        "point_id": "md-3",
+        "label": "Sun and Crow",
+        "x": 0.6818,
+        "y": 0.1233,
+        "w": 0.2098,
+        "h": 0.0934
+      },
+      {
+        "id": "region_1772606981289",
+        "point_id": "md-4",
+        "label": "Moon and Toad",
+        "x": 0.127,
+        "y": 0.1253,
+        "w": 0.2145,
+        "h": 0.0915
+      },
+      {
+        "id": "region_1772607002865",
+        "point_id": "md-5",
+        "label": "Heavenly Gate Guardians",
+        "x": 0.3508,
+        "y": 0.2823,
+        "w": 0.2704,
+        "h": 0.1113
+      },
+      {
+        "id": "region_1772607018897",
+        "point_id": "md-6",
+        "label": "Dragons Throughout",
+        "x": 0.1317,
+        "y": 0.2326,
+        "w": 0.2238,
+        "h": 0.1054
+      },
+      {
+        "id": "region_1772607118681",
+        "point_id": "md-7",
+        "label": "Jade Bi Disc",
+        "x": 0.3788,
+        "y": 0.5606,
+        "w": 0.2378,
+        "h": 0.1034
+      },
+      {
+        "id": "region_1772607128346",
+        "point_id": "md-8",
+        "label": "Deep Red Ground",
+        "x": 0.3322,
+        "y": 0.4274,
+        "w": 0.3077,
+        "h": 0.1014
+      },
+      {
+        "id": "region_1772607159674",
+        "point_id": "md-9",
+        "label": "Lady Dai's Portrait",
+        "x": 0.4161,
+        "y": 0.1233,
+        "w": 0.2051,
+        "h": 0.0895
+      },
+      {
+        "id": "region_1772607182753",
+        "point_id": "md-10",
+        "label": "Mercury and Immortality",
+        "x": 0.0245,
+        "y": 0.008,
+        "w": 0.9138,
+        "h": 0.9583
+      },
+      {
+        "id": "region_1772607196409",
+        "point_id": "md-1",
+        "label": "T-Shape Cosmology",
+        "x": 0.1783,
+        "y": 0.0099,
+        "w": 0.6714,
+        "h": 0.9722
+      },
+      {
+        "id": "region_1772607206209",
+        "point_id": "md-2",
+        "label": "Funeral Banner",
+        "x": 0.0431,
+        "y": 0.0179,
+        "w": 0.9464,
+        "h": 0.9742
+      }
+    ]
+  },
+  "mawangdui-red-coffin": {
+    "artwork_id": "mawangdui-red-coffin",
+    "title": "",
+    "date": "",
+    "era": "",
+    "image_filename": "mawangdui-red-coffin.jpg",
+    "quiz_regions": [
+      {
+        "id": "region_1772607279546",
+        "point_id": "md-1",
+        "label": "Red Ground",
+        "x": 0.3171,
+        "y": 0.6601,
+        "w": 0.3868,
+        "h": 0.1392
+      },
+      {
+        "id": "region_1772607291233",
+        "point_id": "md-2",
+        "label": "Mount Kunlun",
+        "x": 0.3609,
+        "y": 0.2147,
+        "w": 0.2858,
+        "h": 0.664
+      },
+      {
+        "id": "region_1772607310425",
+        "point_id": "md-3",
+        "label": "Two Creatures Flanking the Mountain",
+        "x": 0.1513,
+        "y": 0.2465,
+        "w": 0.6973,
+        "h": 0.2982
+      },
+      {
+        "id": "region_1772607380313",
+        "point_id": "md-4",
+        "label": "Winged Figure",
+        "x": 0.1266,
+        "y": 0.2624,
+        "w": 0.3239,
+        "h": 0.5547
+      },
+      {
+        "id": "region_1772607391921",
+        "point_id": "md-5",
+        "label": "Leaping Deer",
+        "x": 0.5915,
+        "y": 0.2048,
+        "w": 0.3201,
+        "h": 0.4891
+      },
+      {
+        "id": "region_1772607461298",
+        "point_id": "md-6",
+        "label": "Cloud Scrolls",
+        "x": 0.4657,
+        "y": 0.4215,
+        "w": 0.4554,
+        "h": 0.1531
+      },
+      {
+        "id": "region_1772607490561",
+        "point_id": "md-7",
+        "label": "Geometric Border",
+        "x": 0.0351,
+        "y": 0.0179,
+        "w": 0.9469,
+        "h": 0.1233
+      },
+      {
+        "id": "region_1772607507993",
+        "point_id": "md-8",
+        "label": "Black Lacquer Frame",
+        "x": 0.0161,
+        "y": 0.8449,
+        "w": 0.9736,
+        "h": 0.1471
+      },
+      {
+        "id": "region_1772607550529",
+        "point_id": "md-9",
+        "label": "Lacquer as Wealth",
+        "x": 0.0142,
+        "y": 0.0099,
+        "w": 0.9602,
+        "h": 0.9682
+      },
+      {
+        "id": "region_1772607563561",
+        "point_id": "md-10",
+        "label": "Images for the Dead",
+        "x": 0.0237,
+        "y": 0.006,
+        "w": 0.9602,
+        "h": 0.9622
+      }
+    ]
+  },
+  "narmer-palette": {
+    "artwork_id": "narmer-palette",
+    "title": "",
+    "date": "",
+    "era": "",
+    "image_filename": "narmer-palette.jpg",
+    "quiz_regions": [
+      {
+        "id": "region_1772564292626",
+        "point_id": "np-2",
+        "label": "Two Crowns",
+        "x": 0.1637,
+        "y": 0.1497,
+        "w": 0.1129,
+        "h": 0.1932
+      },
+      {
+        "id": "region_1772564329011",
+        "point_id": "np-3",
+        "label": "Smiting Pose",
+        "x": 0.0987,
+        "y": 0.1758,
+        "w": 0.2785,
+        "h": 0.4074
+      },
+      {
+        "id": "region_1772564355050",
+        "point_id": "np-4",
+        "label": "Hierarchic Scale",
+        "x": 0.5955,
+        "y": 0.1776,
+        "w": 0.2319,
+        "h": 0.2228
+      },
+      {
+        "id": "region_1772564401594",
+        "point_id": "np-5",
+        "label": "Composite Body",
+        "x": 0.1453,
+        "y": 0.235,
+        "w": 0.1595,
+        "h": 0.5257
+      },
+      {
+        "id": "region_1772564430402",
+        "point_id": "np-6",
+        "label": "Serpopards",
+        "x": 0.6876,
+        "y": 0.4213,
+        "w": 0.1533,
+        "h": 0.2594
+      },
+      {
+        "id": "region_1772564447419",
+        "point_id": "np-7",
+        "label": "Horus Falcon",
+        "x": 0.2925,
+        "y": 0.1149,
+        "w": 0.1509,
+        "h": 0.242
+      },
+      {
+        "id": "region_1772564513154",
+        "point_id": "np-8",
+        "label": "Serekh",
+        "x": 0.6986,
+        "y": 0.0522,
+        "w": 0.1264,
+        "h": 0.1271
+      },
+      {
+        "id": "region_1772564541682",
+        "point_id": "np-9",
+        "label": "Ceremonial Object",
+        "x": 0.1993,
+        "y": 0.0366,
+        "w": 0.7459,
+        "h": 0.9261
+      },
+      {
+        "id": "region_1772564551266",
+        "point_id": "np-10",
+        "label": "Never Left Egypt",
+        "x": 0.0337,
+        "y": 0.0348,
+        "w": 0.898,
+        "h": 0.8913
+      },
+      {
+        "id": "region_1772564562674",
+        "point_id": "np-1",
+        "label": "Oldest Document",
+        "x": 0.0165,
+        "y": 0.0122,
+        "w": 0.9728,
+        "h": 0.9731
+      }
+    ]
+  },
+  "nebamun-tomb-paintings": {
+    "artwork_id": "nebamun-tomb-paintings",
+    "title": "",
+    "date": "",
+    "era": "",
+    "image_filename": "nebamun-tomb-paintings.jpg",
+    "quiz_regions": [
+      {
+        "id": "region_1772564788890",
+        "point_id": "ntp-10",
+        "label": "Hieroglyphic Column",
+        "x": 0.6199,
+        "y": 0.0749,
+        "w": 0.2791,
+        "h": 0.2437
+      },
+      {
+        "id": "region_1772564800002",
+        "point_id": "ntp-2",
+        "label": "Ritual Hunt",
+        "x": 0.3408,
+        "y": 0.1863,
+        "w": 0.4251,
+        "h": 0.6163
+      },
+      {
+        "id": "region_1772564855971",
+        "point_id": "ntp-3",
+        "label": "Golden-Eyed Cat",
+        "x": 0.2711,
+        "y": 0.4317,
+        "w": 0.2272,
+        "h": 0.282
+      },
+      {
+        "id": "region_1772564874242",
+        "point_id": "ntp-4",
+        "label": "Bird Species",
+        "x": 0.1023,
+        "y": 0.0609,
+        "w": 0.2174,
+        "h": 0.3255
+      },
+      {
+        "id": "region_1772564884458",
+        "point_id": "ntp-5",
+        "label": "Fish Below",
+        "x": 0.1185,
+        "y": 0.8147,
+        "w": 0.4722,
+        "h": 0.148
+      },
+      {
+        "id": "region_1772564944731",
+        "point_id": "ntp-6",
+        "label": "Amun Hacked Out",
+        "x": 0.7789,
+        "y": 0.4056,
+        "w": 0.1931,
+        "h": 0.289
+      },
+      {
+        "id": "region_1772564982362",
+        "point_id": "ntp-7",
+        "label": "Composite Body",
+        "x": 0.4658,
+        "y": 0.141,
+        "w": 0.2628,
+        "h": 0.6406
+      },
+      {
+        "id": "region_1772565018546",
+        "point_id": "ntp-9",
+        "label": "Daughter's Scale",
+        "x": 0.4495,
+        "y": 0.578,
+        "w": 0.3586,
+        "h": 0.1898
+      },
+      {
+        "id": "region_1772565033394",
+        "point_id": "ntp-8",
+        "label": "Tomb Never Found",
+        "x": 0.0244,
+        "y": 0.0174,
+        "w": 0.8486,
+        "h": 0.9662
+      },
+      {
+        "id": "region_1772565044098",
+        "point_id": "ntp-1",
+        "label": "Grain Counter",
+        "x": 0.0407,
+        "y": 0.0261,
+        "w": 0.9329,
+        "h": 0.9488
+      }
+    ]
+  },
+  "nefertari-tomb-paintings": {
+    "artwork_id": "nefertari-tomb-paintings",
+    "title": "",
+    "date": "",
+    "era": "",
+    "image_filename": "nefertari-tomb-paintings.jpg",
+    "quiz_regions": [
+      {
+        "id": "region_1772575126802",
+        "point_id": "ntp-2",
+        "label": "Senet Game",
+        "x": 0.4836,
+        "y": 0.4909,
+        "w": 0.3946,
+        "h": 0.1793
+      },
+      {
+        "id": "region_1772575161994",
+        "point_id": "ntp-3",
+        "label": "Red Skin",
+        "x": 0.1913,
+        "y": 0.4665,
+        "w": 0.1738,
+        "h": 0.0957
+      },
+      {
+        "id": "region_1772575174314",
+        "point_id": "ntp-4",
+        "label": "Vulture Crown",
+        "x": 0.1604,
+        "y": 0.1967,
+        "w": 0.1478,
+        "h": 0.1828
+      },
+      {
+        "id": "region_1772575268194",
+        "point_id": "ntp-5",
+        "label": "Cartouche",
+        "x": 0.5891,
+        "y": 0.2089,
+        "w": 0.1202,
+        "h": 0.2994
+      },
+      {
+        "id": "region_1772575281547",
+        "point_id": "ntp-6",
+        "label": "White Pleated Dress",
+        "x": 0.1945,
+        "y": 0.571,
+        "w": 0.3719,
+        "h": 0.2925
+      },
+      {
+        "id": "region_1772575300691",
+        "point_id": "ntp-7",
+        "label": "Senet Board",
+        "x": 0.4673,
+        "y": 0.5275,
+        "w": 0.4222,
+        "h": 0.3725
+      },
+      {
+        "id": "region_1772575316802",
+        "point_id": "ntp-9",
+        "label": "Salt Damage",
+        "x": 0.0435,
+        "y": 0.4874,
+        "w": 0.1478,
+        "h": 0.4752
+      },
+      {
+        "id": "region_1772575344410",
+        "point_id": "ntp-8",
+        "label": "Kiosk Architecture",
+        "x": 0.0468,
+        "y": 0.0662,
+        "w": 0.911,
+        "h": 0.2785
+      },
+      {
+        "id": "region_1772575372994",
+        "point_id": "ntp-10",
+        "label": "Only Knees Survived",
+        "x": 0.0257,
+        "y": 0.0435,
+        "w": 0.9516,
+        "h": 0.9052
+      },
+      {
+        "id": "region_1772575386010",
+        "point_id": "ntp-1",
+        "label": "Sistine Chapel",
+        "x": 0.0127,
+        "y": 0.0122,
+        "w": 0.9808,
+        "h": 0.9679
+      }
+    ]
+  },
+  "odyssey-landscapes": {
+    "artwork_id": "odyssey-landscapes",
+    "title": "",
+    "date": "",
+    "era": "",
+    "image_filename": "odyssey-landscapes.jpeg",
+    "quiz_regions": [
+      {
+        "id": "region_1772581588147",
+        "point_id": "ol-1",
+        "label": "Painted Columns",
+        "x": 0.4089,
+        "y": 0.0388,
+        "w": 0.1145,
+        "h": 0.945
+      },
+      {
+        "id": "region_1772581602627",
+        "point_id": "ol-4",
+        "label": "Giants Attacking",
+        "x": 0.1722,
+        "y": 0.6412,
+        "w": 0.1164,
+        "h": 0.2079
+      },
+      {
+        "id": "region_1772581615115",
+        "point_id": "ol-3",
+        "label": "Sinking Ship",
+        "x": 0.0538,
+        "y": 0.5774,
+        "w": 0.1076,
+        "h": 0.2741
+      },
+      {
+        "id": "region_1772581791923",
+        "point_id": "ol-2",
+        "label": "Tiny Humans",
+        "x": 0.0949,
+        "y": 0.6412,
+        "w": 0.0695,
+        "h": 0.0543
+      },
+      {
+        "id": "region_1772581813275",
+        "point_id": "ol-5",
+        "label": "Loose Brushwork",
+        "x": 0.3091,
+        "y": 0.2514,
+        "w": 0.3307,
+        "h": 0.3166
+      },
+      {
+        "id": "region_1772581841267",
+        "point_id": "ol-6",
+        "label": "Atmospheric Perspective",
+        "x": 0.6809,
+        "y": 0.2845,
+        "w": 0.2338,
+        "h": 0.3638
+      },
+      {
+        "id": "region_1772581897675",
+        "point_id": "ol-7",
+        "label": "Landscape Dominates",
+        "x": 0.5302,
+        "y": 0.1994,
+        "w": 0.3903,
+        "h": 0.5174
+      },
+      {
+        "id": "region_1772581911163",
+        "point_id": "ol-8",
+        "label": "Red Ship",
+        "x": 0.2847,
+        "y": 0.5727,
+        "w": 0.0939,
+        "h": 0.1701
+      },
+      {
+        "id": "region_1772581930099",
+        "point_id": "ol-9",
+        "label": "Crack Lines",
+        "x": 0.0382,
+        "y": 0.1994,
+        "w": 0.0509,
+        "h": 0.6922
+      },
+      {
+        "id": "region_1772581951939",
+        "point_id": "ol-10",
+        "label": "Copy of a Lost Greek Original",
+        "x": 0.0098,
+        "y": 0.1215,
+        "w": 0.9147,
+        "h": 0.8742
+      }
+    ]
+  },
+  "padmapani-cave1": {
+    "artwork_id": "padmapani-cave1",
+    "title": "",
+    "date": "",
+    "era": "",
+    "image_filename": "padmapani-cave1.jpg",
+    "quiz_regions": [
+      {
+        "id": "region_1772582400204",
+        "point_id": "pc-1",
+        "label": "Half-Closed Eyes",
+        "x": 0.393,
+        "y": 0.2925,
+        "w": 0.1346,
+        "h": 0.0627
+      },
+      {
+        "id": "region_1772582412363",
+        "point_id": "pc-2",
+        "label": "Lotus in Hand",
+        "x": 0.3233,
+        "y": 0.4561,
+        "w": 0.1184,
+        "h": 0.1932
+      },
+      {
+        "id": "region_1772582427459",
+        "point_id": "pc-3",
+        "label": "Tribhanga Curve",
+        "x": 0.523,
+        "y": 0.4596,
+        "w": 0.2368,
+        "h": 0.3255
+      },
+      {
+        "id": "region_1772582448923",
+        "point_id": "pc-4",
+        "label": "Jeweled Crown",
+        "x": 0.3466,
+        "y": 0.0505,
+        "w": 0.2228,
+        "h": 0.2333
+      },
+      {
+        "id": "region_1772582466163",
+        "point_id": "pc-5",
+        "label": "White Highlight",
+        "x": 0.4255,
+        "y": 0.2959,
+        "w": 0.0557,
+        "h": 0.0749
+      },
+      {
+        "id": "region_1772582505387",
+        "point_id": "pc-6",
+        "label": "Pearl Necklace",
+        "x": 0.3187,
+        "y": 0.3638,
+        "w": 0.2043,
+        "h": 0.3499
+      },
+      {
+        "id": "region_1772582526084",
+        "point_id": "pc-7",
+        "label": "Surrounding Figures",
+        "x": 0.0332,
+        "y": 0.1201,
+        "w": 0.2043,
+        "h": 0.2315
+      },
+      {
+        "id": "region_1772582546828",
+        "point_id": "pc-8",
+        "label": "Sorrowful Expression",
+        "x": 0.3071,
+        "y": 0.2141,
+        "w": 0.2832,
+        "h": 0.2959
+      },
+      {
+        "id": "region_1772582563595",
+        "point_id": "pc-9",
+        "label": "Watches the Entrance",
+        "x": 0.2212,
+        "y": 0.3899,
+        "w": 0.7335,
+        "h": 0.5884
+      },
+      {
+        "id": "region_1772582577739",
+        "point_id": "pc-10",
+        "label": "Dry Plaster Technique",
+        "x": 0.0146,
+        "y": 0.0122,
+        "w": 0.9656,
+        "h": 0.9801
+      }
+    ]
+  },
+  "pantocrator_mosaic_daphni": {
+    "artwork_id": "pantocrator_mosaic_daphni",
+    "title": "",
+    "date": "",
+    "era": "",
+    "image_filename": "pantocrator-mosaic-daphni.jpg",
+    "quiz_regions": [
+      {
+        "id": "region_1772647408220",
+        "point_id": "pd-2",
+        "label": "Half-Length",
+        "x": 0.4841,
+        "y": 0.0755,
+        "w": 0.0417,
+        "h": 0.8489
+      },
+      {
+        "id": "region_1772647422796",
+        "point_id": "pd-3",
+        "label": "IC",
+        "x": 0.2058,
+        "y": 0.3837,
+        "w": 0.0934,
+        "h": 0.1252
+      },
+      {
+        "id": "region_1772647435635",
+        "point_id": "pd-4",
+        "label": "Closed Book",
+        "x": 0.5616,
+        "y": 0.6024,
+        "w": 0.1849,
+        "h": 0.3181
+      },
+      {
+        "id": "region_1772647457180",
+        "point_id": "pd-5",
+        "label": "Blessing Hand",
+        "x": 0.1044,
+        "y": 0.5348,
+        "w": 0.1531,
+        "h": 0.2008
+      },
+      {
+        "id": "region_1772647482276",
+        "point_id": "pd-6",
+        "label": "Two Expressions",
+        "x": 0.4046,
+        "y": 0.2545,
+        "w": 0.0795,
+        "h": 0.1769
+      },
+      {
+        "id": "region_1772647498844",
+        "point_id": "pd-7",
+        "label": "Blue Background",
+        "x": 0.7982,
+        "y": 0.2684,
+        "w": 0.1093,
+        "h": 0.2545
+      },
+      {
+        "id": "region_1772647513420",
+        "point_id": "pd-8",
+        "label": "Cross Halo",
+        "x": 0.2674,
+        "y": 0.2247,
+        "w": 0.1252,
+        "h": 0.1412
+      },
+      {
+        "id": "region_1772647536084",
+        "point_id": "pd-1",
+        "label": "Dome Center",
+        "x": 0.0765,
+        "y": 0.0557,
+        "w": 0.8708,
+        "h": 0.8549
+      },
+      {
+        "id": "region_1772647548388",
+        "point_id": "pd-9",
+        "label": "After Iconoclasm",
+        "x": 0.0348,
+        "y": 0.0199,
+        "w": 0.9404,
+        "h": 0.9583
+      },
+      {
+        "id": "region_1772647576653",
+        "point_id": "pd-10",
+        "label": "Over Apollo's Temple",
+        "x": 0.0089,
+        "y": 0.004,
+        "w": 0.9801,
+        "h": 0.9881
+      }
+    ]
+  },
+  "ravenna-justinian-mosaic": {
+    "artwork_id": "ravenna-justinian-mosaic",
+    "title": "",
+    "date": "",
+    "era": "",
+    "image_filename": "ravenna-justinian-mosaic.jpg",
+    "quiz_regions": [
+      {
+        "id": "region_1772607719793",
+        "point_id": "jm-1",
+        "label": "Frontal Gaze",
+        "x": 0.3735,
+        "y": 0.3479,
+        "w": 0.2637,
+        "h": 0.0895
+      },
+      {
+        "id": "region_1772607739281",
+        "point_id": "jm-2",
+        "label": "Golden Halo",
+        "x": 0.1233,
+        "y": 0.0199,
+        "w": 0.7615,
+        "h": 0.1451
+      },
+      {
+        "id": "region_1772607751297",
+        "point_id": "jm-3",
+        "label": "Jeweled Crown",
+        "x": 0.1959,
+        "y": 0.1431,
+        "w": 0.6135,
+        "h": 0.2127
+      },
+      {
+        "id": "region_1772607759953",
+        "point_id": "jm-4",
+        "label": "Pearl Earring",
+        "x": 0.2067,
+        "y": 0.3956,
+        "w": 0.1318,
+        "h": 0.1948
+      },
+      {
+        "id": "region_1772607771105",
+        "point_id": "jm-5",
+        "label": "Pectoral Ornament",
+        "x": 0.0695,
+        "y": 0.5905,
+        "w": 0.2798,
+        "h": 0.3618
+      },
+      {
+        "id": "region_1772607810193",
+        "point_id": "jm-6",
+        "label": "Face Modeled in Tesserae",
+        "x": 0.3305,
+        "y": 0.33,
+        "w": 0.3552,
+        "h": 0.3201
+      },
+      {
+        "id": "region_1772607821929",
+        "point_id": "jm-7",
+        "label": "Purple Robe",
+        "x": 0.1717,
+        "y": 0.6143,
+        "w": 0.7992,
+        "h": 0.3658
+      },
+      {
+        "id": "region_1772607832521",
+        "point_id": "jm-8",
+        "label": "Gold Background",
+        "x": 0.0184,
+        "y": 0.0278,
+        "w": 0.9606,
+        "h": 0.4473
+      },
+      {
+        "id": "region_1772607864841",
+        "point_id": "jm-9",
+        "label": "Individual Tesserae Visible",
+        "x": 0.2498,
+        "y": 0.2266,
+        "w": 0.5328,
+        "h": 0.3101
+      },
+      {
+        "id": "region_1772607883849",
+        "point_id": "jm-10",
+        "label": "Never Visited Ravenna",
+        "x": 0.0076,
+        "y": 0.008,
+        "w": 0.9794,
+        "h": 0.9841
+      }
+    ]
+  },
+  "samarra-painted-bowl": {
+    "artwork_id": "samarra-painted-bowl",
+    "title": "",
+    "date": "",
+    "era": "",
+    "image_filename": "samarra-painted-bowl.jpg",
+    "quiz_regions": [
+      {
+        "id": "region_1772563966931",
+        "point_id": "spb-1",
+        "label": "Spinning Birds",
+        "x": 0.1935,
+        "y": 0.2576,
+        "w": 0.623,
+        "h": 0.1062
+      },
+      {
+        "id": "region_1772563983954",
+        "point_id": "spb-2",
+        "label": "Central Bird",
+        "x": 0.3629,
+        "y": 0.4648,
+        "w": 0.2209,
+        "h": 0.2263
+      },
+      {
+        "id": "region_1772564000387",
+        "point_id": "spb-3",
+        "label": "Birds Reduced to Marks",
+        "x": 0.1537,
+        "y": 0.3969,
+        "w": 0.0987,
+        "h": 0.148
+      },
+      {
+        "id": "region_1772564018498",
+        "point_id": "spb-4",
+        "label": "Rim Band",
+        "x": 0.3717,
+        "y": 0.0731,
+        "w": 0.3873,
+        "h": 0.1375
+      },
+      {
+        "id": "region_1772564037860",
+        "point_id": "spb-5",
+        "label": "Dark on Cream",
+        "x": 0.1641,
+        "y": 0.6615,
+        "w": 0.3078,
+        "h": 0.2385
+      },
+      {
+        "id": "region_1772564071338",
+        "point_id": "spb-6",
+        "label": "Design Fits the Bowl",
+        "x": 0.7266,
+        "y": 0.3708,
+        "w": 0.2106,
+        "h": 0.195
+      },
+      {
+        "id": "region_1772564090658",
+        "point_id": "spb-7",
+        "label": "Made Before Civilization",
+        "x": 0.0403,
+        "y": 0.0348,
+        "w": 0.8866,
+        "h": 0.954
+      },
+      {
+        "id": "region_1772564101059",
+        "point_id": "spb-8",
+        "label": "Invented Irrigation",
+        "x": 0.061,
+        "y": 0.0261,
+        "w": 0.9249,
+        "h": 0.9087
+      },
+      {
+        "id": "region_1772564114434",
+        "point_id": "spb-9",
+        "label": "Traded Across the Region",
+        "x": 0.142,
+        "y": 0.0052,
+        "w": 0.838,
+        "h": 0.9731
+      },
+      {
+        "id": "region_1772564125746",
+        "point_id": "spb-10",
+        "label": "Ancestor of Everything After",
+        "x": 0.0138,
+        "y": 0.0627,
+        "w": 0.9543,
+        "h": 0.8896
+      }
+    ]
+  },
+  "simhala-avadana-cave17": {
+    "artwork_id": "simhala-avadana-cave17",
+    "title": "",
+    "date": "",
+    "era": "",
+    "image_filename": "simhala-avadana-cave17.jpg",
+    "quiz_regions": [
+      {
+        "id": "region_1772605996185",
+        "point_id": "sa-1",
+        "label": "White Horse Center",
+        "x": 0.4447,
+        "y": 0.5101,
+        "w": 0.2813,
+        "h": 0.3795
+      },
+      {
+        "id": "region_1772606007537",
+        "point_id": "sa-2",
+        "label": "Armed Soldiers",
+        "x": 0.0651,
+        "y": 0.1689,
+        "w": 0.177,
+        "h": 0.484
+      },
+      {
+        "id": "region_1772606032777",
+        "point_id": "sa-3",
+        "label": "Latticed Window",
+        "x": 0.3798,
+        "y": 0.3621,
+        "w": 0.1967,
+        "h": 0.1358
+      },
+      {
+        "id": "region_1772606041898",
+        "point_id": "sa-4",
+        "label": "Dense Crowd",
+        "x": 0.7358,
+        "y": 0.4457,
+        "w": 0.2262,
+        "h": 0.383
+      },
+      {
+        "id": "region_1772606057336",
+        "point_id": "sa-5",
+        "label": "Valaha the Horse",
+        "x": 0.3641,
+        "y": 0.5414,
+        "w": 0.3521,
+        "h": 0.3865
+      },
+      {
+        "id": "region_1772606089361",
+        "point_id": "sa-6",
+        "label": "Fallen Figures Below",
+        "x": 0.2519,
+        "y": 0.7834,
+        "w": 0.659,
+        "h": 0.1985
+      },
+      {
+        "id": "region_1772606115049",
+        "point_id": "sa-7",
+        "label": "Continuous Narrative",
+        "x": 0.0218,
+        "y": 0.0279,
+        "w": 0.8931,
+        "h": 0.9418
+      },
+      {
+        "id": "region_1772606126089",
+        "point_id": "sa-8",
+        "label": "Schlingloff's Reading",
+        "x": 0.1162,
+        "y": 0.0122,
+        "w": 0.8655,
+        "h": 0.9644
+      },
+      {
+        "id": "region_1772606138161",
+        "point_id": "sa-9",
+        "label": "Story of Delusion",
+        "x": 0.0316,
+        "y": 0.0104,
+        "w": 0.8852,
+        "h": 0.9818
+      },
+      {
+        "id": "region_1772606149705",
+        "point_id": "sa-10",
+        "label": "Black and White Photography",
+        "x": 0.0159,
+        "y": 0.0122,
+        "w": 0.9757,
+        "h": 0.9714
+      }
+    ]
+  },
+  "standard-of-ur": {
+    "artwork_id": "standard-of-ur",
+    "title": "",
+    "date": "",
+    "era": "",
+    "image_filename": "standard-of-ur.png",
+    "quiz_regions": [
+      {
+        "id": "region_1772562680179",
+        "point_id": "sou-1",
+        "label": "Three Registers",
+        "x": 0.0351,
+        "y": 0.0191,
+        "w": 0.113,
+        "h": 0.4874
+      },
+      {
+        "id": "region_1772562689026",
+        "point_id": "sou-2",
+        "label": "King Breaks Frame",
+        "x": 0.4763,
+        "y": 0.0174,
+        "w": 0.1052,
+        "h": 0.1497
+      },
+      {
+        "id": "region_1772562705186",
+        "point_id": "sou-3",
+        "label": "Onager Chariots",
+        "x": 0.7087,
+        "y": 0.329,
+        "w": 0.2496,
+        "h": 0.1393
+      },
+      {
+        "id": "region_1772562729434",
+        "point_id": "sou-4",
+        "label": "Naked Prisoners",
+        "x": 0.6333,
+        "y": 0.1898,
+        "w": 0.0691,
+        "h": 0.1445
+      },
+      {
+        "id": "region_1772562740602",
+        "point_id": "sou-5",
+        "label": "Buried Lyre",
+        "x": 0.8013,
+        "y": 0.5449,
+        "w": 0.1099,
+        "h": 0.1358
+      },
+      {
+        "id": "region_1772562755266",
+        "point_id": "sou-6",
+        "label": "Three Continents",
+        "x": 0.8531,
+        "y": 0.0017,
+        "w": 0.1397,
+        "h": 0.1427
+      },
+      {
+        "id": "region_1772562767794",
+        "point_id": "sou-7",
+        "label": "Tribute or Peace",
+        "x": 0.0445,
+        "y": 0.8408,
+        "w": 0.5166,
+        "h": 0.1288
+      },
+      {
+        "id": "region_1772562811434",
+        "point_id": "sou-10",
+        "label": "Seated Hierarchy",
+        "x": 0.0853,
+        "y": 0.5275,
+        "w": 0.3077,
+        "h": 0.148
+      },
+      {
+        "id": "region_1772562825706",
+        "point_id": "sou-8",
+        "label": "Unknown Purpose",
+        "x": 0.0194,
+        "y": 0.4979,
+        "w": 0.9531,
+        "h": 0.4857
+      },
+      {
+        "id": "region_1772562838930",
+        "point_id": "sou-9",
+        "label": "Found Crushed",
+        "x": 0.0225,
+        "y": 0.0035,
+        "w": 0.9672,
+        "h": 0.9888
+      }
+    ]
+  },
+  "tell-uqair-painted-temple": {
+    "artwork_id": "tell-uqair-painted-temple",
+    "title": "",
+    "date": "",
+    "era": "",
+    "image_filename": "tell-uqair-painted-temple.jpg",
+    "quiz_regions": [
+      {
+        "id": "region_1772563319186",
+        "point_id": "tupt-2",
+        "label": "Black Spots",
+        "x": 0.2443,
+        "y": 0.4056,
+        "w": 0.1625,
+        "h": 0.2298
+      },
+      {
+        "id": "region_1772563344458",
+        "point_id": "tupt-3",
+        "label": "Colors Vanished",
+        "x": 0.4946,
+        "y": 0.0801,
+        "w": 0.2949,
+        "h": 0.3708
+      },
+      {
+        "id": "region_1772563361786",
+        "point_id": "tupt-4",
+        "label": "Altar Guardian",
+        "x": 0.011,
+        "y": 0.0104,
+        "w": 0.2503,
+        "h": 0.9575
+      },
+      {
+        "id": "region_1772563408786",
+        "point_id": "tupt-7",
+        "label": "Walking Pose",
+        "x": 0.1132,
+        "y": 0.6006,
+        "w": 0.7641,
+        "h": 0.3656
+      },
+      {
+        "id": "region_1772563458355",
+        "point_id": "tupt-1",
+        "label": "Single Leopard",
+        "x": 0.0254,
+        "y": 0.0296,
+        "w": 0.8821,
+        "h": 0.9488
+      },
+      {
+        "id": "region_1772563573402",
+        "point_id": "tupt-5",
+        "label": "Fresco Technique",
+        "x": 0.4107,
+        "y": 0.0522,
+        "w": 0.5675,
+        "h": 0.9383
+      },
+      {
+        "id": "region_1772563604674",
+        "point_id": "tupt-6",
+        "label": "Mud Brick Wall",
+        "x": 0.0031,
+        "y": 0.4039,
+        "w": 0.2923,
+        "h": 0.3534
+      },
+      {
+        "id": "region_1772563622234",
+        "point_id": "tupt-8",
+        "label": "Beside the Altar",
+        "x": 0.0031,
+        "y": 0,
+        "w": 0.9188,
+        "h": 0.9871
+      },
+      {
+        "id": "region_1772563631947",
+        "point_id": "tupt-9",
+        "label": "Older Than Writing",
+        "x": 0.028,
+        "y": 0.0209,
+        "w": 0.945,
+        "h": 0.9679
+      },
+      {
+        "id": "region_1772563650619",
+        "point_id": "tupt-10",
+        "label": "Cone Mosaic Echo",
+        "x": 0.0241,
+        "y": 0.0122,
+        "w": 0.966,
+        "h": 0.9627
+      }
+    ]
+  },
+  "tutankhamun-tomb-paintings": {
+    "artwork_id": "tutankhamun-tomb-paintings",
+    "title": "",
+    "date": "",
+    "era": "",
+    "image_filename": "tutankhamun-tomb-paintings.jpg",
+    "quiz_regions": [
+      {
+        "id": "region_1772578077307",
+        "point_id": "ttp-2",
+        "label": "Mold Damage",
+        "x": 0.2661,
+        "y": 0.0075,
+        "w": 0.0871,
+        "h": 0.0427
+      },
+      {
+        "id": "region_1772578105507",
+        "point_id": "ttp-3",
+        "label": "Ay Crowns Himself",
+        "x": 0.0372,
+        "y": 0.0524,
+        "w": 0.1996,
+        "h": 0.7796
+      },
+      {
+        "id": "region_1772578132923",
+        "point_id": "ttp-4",
+        "label": "Three-Act Wall",
+        "x": 0.0245,
+        "y": 0.1423,
+        "w": 0.9362,
+        "h": 0.3595
+      },
+      {
+        "id": "region_1772578174548",
+        "point_id": "ttp-5",
+        "label": "The Ka Figure",
+        "x": 0.1458,
+        "y": 0.1288,
+        "w": 0.2279,
+        "h": 0.7437
+      },
+      {
+        "id": "region_1772578244379",
+        "point_id": "ttp-6",
+        "label": "Nut's Welcome",
+        "x": 0.3551,
+        "y": 0.1041,
+        "w": 0.1145,
+        "h": 0.8785
+      },
+      {
+        "id": "region_1772578281699",
+        "point_id": "ttp-7",
+        "label": "North Wall Technique",
+        "x": 0.5009,
+        "y": 0.5377,
+        "w": 0.2387,
+        "h": 0.4359
+      },
+      {
+        "id": "region_1772578305756",
+        "point_id": "ttp-8",
+        "label": "Leopard Skin Priest",
+        "x": 0.8413,
+        "y": 0.3085,
+        "w": 0.1135,
+        "h": 0.6403
+      },
+      {
+        "id": "region_1772578329211",
+        "point_id": "ttp-9",
+        "label": "Yellow Ground",
+        "x": 0.4705,
+        "y": 0.0704,
+        "w": 0.5146,
+        "h": 0.8965
+      },
+      {
+        "id": "region_1772578347155",
+        "point_id": "ttp-10",
+        "label": "Hidden Tomb Theory",
+        "x": 0.0147,
+        "y": 0.0075,
+        "w": 0.8178,
+        "h": 0.9459
+      },
+      {
+        "id": "region_1772578361691",
+        "point_id": "ttp-1",
+        "label": "Only One Room",
+        "x": 0.0215,
+        "y": 0.0254,
+        "w": 0.9636,
+        "h": 0.9594
+      }
+    ]
+  },
+  "utrecht-psalter": {
+    "artwork_id": "utrecht-psalter",
+    "title": "",
+    "date": "",
+    "era": "",
+    "image_filename": "utrecht-psalter.jpg",
+    "quiz_regions": [
+      {
+        "id": "region_1772608965114",
+        "point_id": "up-2",
+        "label": "Classical Rotunda",
+        "x": 0.094,
+        "y": 0.1511,
+        "w": 0.2589,
+        "h": 0.1451
+      },
+      {
+        "id": "region_1772608978489",
+        "point_id": "up-3",
+        "label": "Psalmist with Book",
+        "x": 0.1457,
+        "y": 0.2744,
+        "w": 0.2044,
+        "h": 0.1332
+      },
+      {
+        "id": "region_1772608997417",
+        "point_id": "up-4",
+        "label": "Rays or Arrows",
+        "x": 0.1103,
+        "y": 0.1272,
+        "w": 0.7467,
+        "h": 0.0537
+      },
+      {
+        "id": "region_1772609057041",
+        "point_id": "up-5",
+        "label": "Enemy King",
+        "x": 0.7889,
+        "y": 0.1988,
+        "w": 0.0981,
+        "h": 0.1412
+      },
+      {
+        "id": "region_1772609085473",
+        "point_id": "up-6",
+        "label": "Reclining Figure",
+        "x": 0.1267,
+        "y": 0.4712,
+        "w": 0.1853,
+        "h": 0.1272
+      },
+      {
+        "id": "region_1772609108289",
+        "point_id": "up-7",
+        "label": "Armed Warriors",
+        "x": 0.56,
+        "y": 0.4752,
+        "w": 0.1553,
+        "h": 0.1551
+      },
+      {
+        "id": "region_1772609130809",
+        "point_id": "up-8",
+        "label": "Fallen Enemies",
+        "x": 0.718,
+        "y": 0.6004,
+        "w": 0.2262,
+        "h": 0.1511
+      },
+      {
+        "id": "region_1772609161418",
+        "point_id": "up-9",
+        "label": "Continuous Landscape",
+        "x": 0.2711,
+        "y": 0.4692,
+        "w": 0.3052,
+        "h": 0.3161
+      },
+      {
+        "id": "region_1772609176970",
+        "point_id": "up-10",
+        "label": "Literal Metaphor",
+        "x": 0.0613,
+        "y": 0.0696,
+        "w": 0.8339,
+        "h": 0.8688
+      },
+      {
+        "id": "region_1772609188690",
+        "point_id": "up-1",
+        "label": "Pen, No Color",
+        "x": 0.0531,
+        "y": 0.0497,
+        "w": 0.902,
+        "h": 0.8748
+      }
+    ]
+  },
+  "vienna-genesis": {
+    "artwork_id": "vienna-genesis",
+    "title": "",
+    "date": "",
+    "era": "",
+    "image_filename": "vienna-genesis.jpg",
+    "quiz_regions": [
+      {
+        "id": "region_1772607981673",
+        "point_id": "vg-1-cn",
+        "label": "Purple Vellum",
+        "x": 0.2874,
+        "y": 0.5567,
+        "w": 0.3468,
+        "h": 0.1451
+      },
+      {
+        "id": "region_1772608004913",
+        "point_id": "vg-2",
+        "label": "Rebecca Appears Twice",
+        "x": 0.1912,
+        "y": 0.5646,
+        "w": 0.1063,
+        "h": 0.2425
+      },
+      {
+        "id": "region_1772608019425",
+        "point_id": "vg-3",
+        "label": "Nude Personification",
+        "x": 0.0672,
+        "y": 0.6998,
+        "w": 0.167,
+        "h": 0.1829
+      },
+      {
+        "id": "region_1772608055009",
+        "point_id": "vg-4",
+        "label": "Classical Body beside Christian Figure",
+        "x": 0.0419,
+        "y": 0.7038,
+        "w": 0.367,
+        "h": 0.2525
+      },
+      {
+        "id": "region_1772608093241",
+        "point_id": "vg-5",
+        "label": "Walled City",
+        "x": 0.6746,
+        "y": 0.5249,
+        "w": 0.3037,
+        "h": 0.2664
+      },
+      {
+        "id": "region_1772608104833",
+        "point_id": "vg-6",
+        "label": "Shaded Camels",
+        "x": 0.4595,
+        "y": 0.7157,
+        "w": 0.4657,
+        "h": 0.2366
+      },
+      {
+        "id": "region_1772608118986",
+        "point_id": "vg-7",
+        "label": "Text Above",
+        "x": 0.0545,
+        "y": 0.334,
+        "w": 0.8808,
+        "h": 0.165
+      },
+      {
+        "id": "region_1772608141577",
+        "point_id": "vg-9",
+        "label": "Syrian or Constantinopolitan Origin",
+        "x": 0.009,
+        "y": 0.0099,
+        "w": 0.8985,
+        "h": 0.9603
+      },
+      {
+        "id": "region_1772608152193",
+        "point_id": "vg-10",
+        "label": "Transitional Object",
+        "x": 0.0191,
+        "y": 0,
+        "w": 0.9719,
+        "h": 0.9841
+      }
+    ]
+  },
+  "villa-of-mysteries-frescoes": {
+    "artwork_id": "villa-of-mysteries-frescoes",
+    "title": "",
+    "date": "",
+    "era": "",
+    "image_filename": "villa-of-mysteries-frescoes.jpg",
+    "quiz_regions": [
+      {
+        "id": "region_1772580351916",
+        "point_id": "vm-3",
+        "label": "Boy with Scroll",
+        "x": 0.0274,
+        "y": 0.3606,
+        "w": 0.0362,
+        "h": 0.6017
+      },
+      {
+        "id": "region_1772580385924",
+        "point_id": "vm-2",
+        "label": "Pompeian Red",
+        "x": 0.0068,
+        "y": 0.0168,
+        "w": 0.3228,
+        "h": 0.3782
+      },
+      {
+        "id": "region_1772580442243",
+        "point_id": "vm-4",
+        "label": "Dionysus Reclining",
+        "x": 0.4138,
+        "y": 0.0512,
+        "w": 0.0939,
+        "h": 0.8681
+      },
+      {
+        "id": "region_1772580536987",
+        "point_id": "vm-5",
+        "label": "Winged Figure",
+        "x": 0.5204,
+        "y": 0.0684,
+        "w": 0.1115,
+        "h": 0.8595
+      },
+      {
+        "id": "region_1772580596963",
+        "point_id": "vm-6",
+        "label": "Woman Fleeing",
+        "x": 0.2788,
+        "y": 0.077,
+        "w": 0.0675,
+        "h": 0.8853
+      },
+      {
+        "id": "region_1772580651667",
+        "point_id": "vm-7",
+        "label": "Family Portraits",
+        "x": 0.9323,
+        "y": 0.0512,
+        "w": 0.0567,
+        "h": 0.9283
+      },
+      {
+        "id": "region_1772580688267",
+        "point_id": "vm-8",
+        "label": "Veiled and Ringed",
+        "x": 0.8912,
+        "y": 0.0254,
+        "w": 0.0998,
+        "h": 0.9197
+      },
+      {
+        "id": "region_1772580704715",
+        "point_id": "vm-9",
+        "label": "Wine Farm",
+        "x": 0.002,
+        "y": 0.0168,
+        "w": 0.9587,
+        "h": 0.9541
+      },
+      {
+        "id": "region_1772580715899",
+        "point_id": "vm-10",
+        "label": "Survived Everything",
+        "x": 0.1047,
+        "y": 0.077,
+        "w": 0.8902,
+        "h": 0.8853
+      },
+      {
+        "id": "region_1772580728012",
+        "point_id": "vm-1",
+        "label": "Still Debated",
+        "x": 0.0303,
+        "y": 0.034,
+        "w": 0.9636,
+        "h": 0.8939
+      }
+    ]
+  },
+  "wilton-diptych": {
+    "artwork_id": "wilton-diptych",
+    "title": "",
+    "date": "",
+    "era": "",
+    "image_filename": "wilton-diptych.jpg",
+    "quiz_regions": [
+      {
+        "id": "region_1772650838727",
+        "point_id": "wd-2",
+        "label": "King Meets Heaven",
+        "x": 0.2648,
+        "y": 0.4911,
+        "w": 0.1434,
+        "h": 0.3996
+      },
+      {
+        "id": "region_1772650871672",
+        "point_id": "wd-3",
+        "label": "Three Saints",
+        "x": 0.3079,
+        "y": 0.2406,
+        "w": 0.1305,
+        "h": 0.2883
+      },
+      {
+        "id": "region_1772650889903",
+        "point_id": "wd-4",
+        "label": "Angels Badge",
+        "x": 0.794,
+        "y": 0.3579,
+        "w": 0.1649,
+        "h": 0.1451
+      },
+      {
+        "id": "region_1772650933415",
+        "point_id": "wd-5",
+        "label": "Pennant Exchange",
+        "x": 0.5631,
+        "y": 0.0775,
+        "w": 0.119,
+        "h": 0.4453
+      },
+      {
+        "id": "region_1772650960767",
+        "point_id": "wd-6",
+        "label": "Island in the Orb",
+        "x": 0.5516,
+        "y": 0.0497,
+        "w": 0.0602,
+        "h": 0.0954
+      },
+      {
+        "id": "region_1772651011168",
+        "point_id": "wd-7",
+        "label": "Blue for Heaven",
+        "x": 0.6491,
+        "y": 0.5348,
+        "w": 0.2438,
+        "h": 0.3161
+      },
+      {
+        "id": "region_1772651031920",
+        "point_id": "wd-8",
+        "label": "Beardless Youth",
+        "x": 0.2835,
+        "y": 0.4692,
+        "w": 0.1032,
+        "h": 0.159
+      },
+      {
+        "id": "region_1772651050824",
+        "point_id": "wd-9",
+        "label": "Heraldic Exterior",
+        "x": 0.0268,
+        "y": 0.0258,
+        "w": 0.9435,
+        "h": 0.9344
+      },
+      {
+        "id": "region_1772651061208",
+        "point_id": "wd-10",
+        "label": "Artist Unknown",
+        "x": 0.0139,
+        "y": 0.0179,
+        "w": 0.7083,
+        "h": 0.9642
+      },
+      {
+        "id": "region_1772651076033",
+        "point_id": "wd-1",
+        "label": "Portable Altarpiece",
+        "x": 0.1401,
+        "y": 0.004,
+        "w": 0.8503,
+        "h": 0.9841
+      }
+    ]
+  },
+  "yangshao-fish-basin": {
+    "artwork_id": "yangshao-fish-basin",
+    "title": "",
+    "date": "",
+    "era": "",
+    "image_filename": "yangshao-fish-basin.jpeg",
+    "quiz_regions": [
+      {
+        "id": "region_1772590116894",
+        "point_id": "yf-3",
+        "label": "Two Large Fish",
+        "x": 0.2507,
+        "y": 0.3778,
+        "w": 0.0664,
+        "h": 0.2594
+      },
+      {
+        "id": "region_1772590125446",
+        "point_id": "yf-4",
+        "label": "Hatched Fish Bodies",
+        "x": 0.6456,
+        "y": 0.3673,
+        "w": 0.096,
+        "h": 0.2072
+      },
+      {
+        "id": "region_1772590154895",
+        "point_id": "yf-5",
+        "label": "Face-Triangle Motifs",
+        "x": 0.4001,
+        "y": 0.1845,
+        "w": 0.1126,
+        "h": 0.1898
+      },
+      {
+        "id": "region_1772590165216",
+        "point_id": "yf-6",
+        "label": "Fish Flanking the Face",
+        "x": 0.319,
+        "y": 0.672,
+        "w": 0.1347,
+        "h": 0.0818
+      },
+      {
+        "id": "region_1772590183056",
+        "point_id": "yf-7",
+        "label": "Zigzag Connecting Lines",
+        "x": 0.5847,
+        "y": 0.6302,
+        "w": 0.0978,
+        "h": 0.1323
+      },
+      {
+        "id": "region_1772590197880",
+        "point_id": "yf-8",
+        "label": "Black on Red",
+        "x": 0.2525,
+        "y": 0.2489,
+        "w": 0.5074,
+        "h": 0.2246
+      },
+      {
+        "id": "region_1772590213184",
+        "point_id": "yf-9",
+        "label": "Reassembled from Fragments",
+        "x": 0.5367,
+        "y": 0.3325,
+        "w": 0.2454,
+        "h": 0.484
+      },
+      {
+        "id": "region_1772590226049",
+        "point_id": "yf-10",
+        "label": "5000 BCE",
+        "x": 0.0385,
+        "y": 0.0505,
+        "w": 0.8931,
+        "h": 0.9018
+      },
+      {
+        "id": "region_1772590237417",
+        "point_id": "yf-1",
+        "label": "Burial Basin",
+        "x": 0.0108,
+        "y": 0.0836,
+        "w": 0.9743,
+        "h": 0.8443
+      },
+      {
+        "id": "region_1772590260537",
+        "point_id": "yf-2",
+        "label": "Four-Part Symmetry",
+        "x": 0.2248,
+        "y": 0.2263,
+        "w": 0.716,
+        "h": 0.7068
+      }
+    ]
+  },
+  "zidanku-lady-phoenix": {
+    "artwork_id": "zidanku-lady-phoenix",
+    "title": "",
+    "date": "",
+    "era": "",
+    "image_filename": "zidanku-lady-phoenix.jpg",
+    "quiz_regions": [
+      {
+        "id": "region_1772606342649",
+        "point_id": "zl-1",
+        "label": "Woman in Profile",
+        "x": 0.4613,
+        "y": 0.4672,
+        "w": 0.3208,
+        "h": 0.3777
+      },
+      {
+        "id": "region_1772606354825",
+        "point_id": "zl-2",
+        "label": "Patterned Robe",
+        "x": 0.3258,
+        "y": 0.5765,
+        "w": 0.5006,
+        "h": 0.1928
+      },
+      {
+        "id": "region_1772606368497",
+        "point_id": "zl-3",
+        "label": "Phoenix Dominates",
+        "x": 0.1765,
+        "y": 0.1093,
+        "w": 0.6029,
+        "h": 0.4433
+      },
+      {
+        "id": "region_1772606404969",
+        "point_id": "zl-4",
+        "label": "Smaller Dragon",
+        "x": 0.0188,
+        "y": 0.1372,
+        "w": 0.2129,
+        "h": 0.6342
+      },
+      {
+        "id": "region_1772606439457",
+        "point_id": "zl-5",
+        "label": "Motion vs Stillness",
+        "x": 0.0935,
+        "y": 0.2425,
+        "w": 0.7688,
+        "h": 0.4076
+      },
+      {
+        "id": "region_1772606458625",
+        "point_id": "zl-6",
+        "label": "Brushline Only",
+        "x": 0.2788,
+        "y": 0.0278,
+        "w": 0.5254,
+        "h": 0.1809
+      },
+      {
+        "id": "region_1772606478241",
+        "point_id": "zl-7",
+        "label": "Funeral Banner",
+        "x": 0.0188,
+        "y": 0.004,
+        "w": 0.9541,
+        "h": 0.9881
+      },
+      {
+        "id": "region_1772606490409",
+        "point_id": "zl-8",
+        "label": "The Tomb's Occupant",
+        "x": 0.0133,
+        "y": 0.0099,
+        "w": 0.979,
+        "h": 0.9026
+      },
+      {
+        "id": "region_1772606500977",
+        "point_id": "zl-9",
+        "label": "Chu Culture",
+        "x": 0.0105,
+        "y": 0.0119,
+        "w": 0.9071,
+        "h": 0.9742
+      },
+      {
+        "id": "region_1772606511769",
+        "point_id": "zl-10",
+        "label": "Silk Survival",
+        "x": 0.0492,
+        "y": 0.006,
+        "w": 0.9375,
+        "h": 0.9821
+      }
+    ]
+  },
+  "zidanku-man-dragon": {
+    "artwork_id": "zidanku-man-dragon",
+    "title": "",
+    "date": "",
+    "era": "",
+    "image_filename": "zidanku-man-dragon.jpg",
+    "quiz_regions": [
+      {
+        "id": "region_1772606654321",
+        "point_id": "md-1",
+        "label": "Standing with Reins",
+        "x": 0.4508,
+        "y": 0.2068,
+        "w": 0.2873,
+        "h": 0.505
+      },
+      {
+        "id": "region_1772606672329",
+        "point_id": "md-2",
+        "label": "Crown and Robe",
+        "x": 0.3386,
+        "y": 0.2147,
+        "w": 0.3201,
+        "h": 0.4672
+      },
+      {
+        "id": "region_1772606685201",
+        "point_id": "md-3",
+        "label": "Boat-Shaped Dragon",
+        "x": 0.0978,
+        "y": 0.676,
+        "w": 0.7113,
+        "h": 0.1889
+      },
+      {
+        "id": "region_1772606704665",
+        "point_id": "md-4",
+        "label": "Crane at the Stern",
+        "x": 0.7326,
+        "y": 0.2425,
+        "w": 0.2079,
+        "h": 0.3221
+      },
+      {
+        "id": "region_1772606716265",
+        "point_id": "md-5",
+        "label": "Carp Below",
+        "x": 0.0294,
+        "y": 0.8648,
+        "w": 0.4049,
+        "h": 0.1093
+      },
+      {
+        "id": "region_1772606730617",
+        "point_id": "md-6",
+        "label": "Canopy Above",
+        "x": 0.1225,
+        "y": 0.0755,
+        "w": 0.8399,
+        "h": 0.1093
+      },
+      {
+        "id": "region_1772606749537",
+        "point_id": "md-7",
+        "label": "Dragon's Elaborate Head",
+        "x": 0.0349,
+        "y": 0.0736,
+        "w": 0.2544,
+        "h": 0.5487
+      },
+      {
+        "id": "region_1772606759201",
+        "point_id": "md-8",
+        "label": "Funeral Banner",
+        "x": 0.0021,
+        "y": 0.0159,
+        "w": 0.9275,
+        "h": 0.9503
+      },
+      {
+        "id": "region_1772606769161",
+        "point_id": "md-9",
+        "label": "Silk Ground",
+        "x": 0.0842,
+        "y": 0.0318,
+        "w": 0.9001,
+        "h": 0.9503
+      },
+      {
+        "id": "region_1772606779145",
+        "point_id": "md-10",
+        "label": "Earliest Figure Painting",
+        "x": 0.024,
+        "y": 0.004,
+        "w": 0.963,
+        "h": 0.9841
       }
     ]
   }

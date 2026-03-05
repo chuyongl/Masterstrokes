@@ -1,0 +1,99 @@
+{
+  "artwork_id": "investiture-zimri-lim",
+  "title": "",
+  "date": "",
+  "era": "",
+  "image_filename": "investiture-zimri-lim.jpg",
+  "quiz_regions": [
+    {
+      "id": "region_1772559778682",
+      "point_id": "izl-1",
+      "label": "Rod and Ring",
+      "x": 0.3618,
+      "y": 0.4718,
+      "w": 0.0905,
+      "h": 0.1236
+    },
+    {
+      "id": "region_1772559802778",
+      "point_id": "izl-2",
+      "label": "Measuring Tools",
+      "x": 0.3885,
+      "y": 0.4909,
+      "w": 0.0812,
+      "h": 0.1462
+    },
+    {
+      "id": "region_1772559855354",
+      "point_id": "izl-3",
+      "label": "Weapons on Shoulders",
+      "x": 0.4082,
+      "y": 0.3934,
+      "w": 0.0952,
+      "h": 0.3238
+    },
+    {
+      "id": "region_1772559879490",
+      "point_id": "izl-4",
+      "label": "Hand to Mouth",
+      "x": 0.3386,
+      "y": 0.4422,
+      "w": 0.0754,
+      "h": 0.2472
+    },
+    {
+      "id": "region_1772559924306",
+      "point_id": "izl-5",
+      "label": "Lion and Dove",
+      "x": 0.1181,
+      "y": 0.4683,
+      "w": 0.1718,
+      "h": 0.3168
+    },
+    {
+      "id": "region_1772559959554",
+      "point_id": "izl-6",
+      "label": "Flowing Water",
+      "x": 0.3014,
+      "y": 0.6824,
+      "w": 0.2774,
+      "h": 0.2646
+    },
+    {
+      "id": "region_1772560069995",
+      "point_id": "izl-8",
+      "label": "Blue Added Last",
+      "x": 0.7076,
+      "y": 0.1776,
+      "w": 0.1451,
+      "h": 0.275
+    },
+    {
+      "id": "region_1772560090026",
+      "point_id": "izl-9",
+      "label": "Buried by Fire",
+      "x": 0.2179,
+      "y": 0.0627,
+      "w": 0.4631,
+      "h": 0.2611
+    },
+    {
+      "id": "region_1772560127626",
+      "point_id": "izl-10",
+      "label": "Hidden Fish",
+      "x": 0.0229,
+      "y": 0.8617,
+      "w": 0.9691,
+      "h": 0.1062
+    },
+    {
+      "id": "region_1772560193322",
+      "point_id": "izl-7",
+      "label": "Mirror Symmetry",
+      "x": 0.183,
+      "y": 0.3691,
+      "w": 0.5466,
+      "h": 0.4665
+    }
+  ]
+}

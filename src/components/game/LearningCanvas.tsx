@@ -26,6 +26,10 @@ export default function LearningCanvas({ artwork, onComplete }: LearningCanvasPr
     const [dragDistance, setDragDistance] = useState(0);
     const [imageLoaded, setImageLoaded] = useState(false);
 
+    // State for hotspot hints
+    const [hintedHotspot, setHintedHotspot] = useState<string | null>(null);
+    const hintTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
     // Initialize scale at 0 to avoid "flash of huge image"
     const [scale, setScale] = useState(0);
     const [containerSize, setContainerSize] = useState({ width: 0, height: 0 });
@@ -82,9 +86,12 @@ export default function LearningCanvas({ artwork, onComplete }: LearningCanvasPr
         }
     }, [viewMode, containerSize, imageLoaded]);
 
-    // Cleanup pan on unmount
+    // Cleanup pan and hints on unmount
     useEffect(() => {
-        return () => updatePan(0, 0);
+        return () => {
+            updatePan(0, 0);
+            if (hintTimeoutRef.current) clearTimeout(hintTimeoutRef.current);
+        };
     }, []);
 
     // Check if all hotspots found
@@ -218,9 +225,20 @@ export default function LearningCanvas({ artwork, onComplete }: LearningCanvasPr
         }
     };
 
-    // Remaining labels
+    // Remaining labels (Filter out large ones completely from the strip)
     const remainingLabels = artwork.learningPoints.filter(
-        (point) => !foundHotspots.includes(point.id)
+        (point) => {
+            if (foundHotspots.includes(point.id)) return false;
+
+            // Check if it's a large hotspot (>50% area)
+            let areaRatio = 0;
+            if (point.highlightCircle.rect) {
+                areaRatio = (point.highlightCircle.rect.w * point.highlightCircle.rect.h) / 10000;
+            } else {
+                areaRatio = (Math.PI * Math.pow(point.highlightCircle.radius, 2)) / 10000;
+            }
+            return areaRatio <= 0.5; // Only show if <= 50%
+        }
     );
 
     const slug = urlToSlug(artwork.imageUrl);
@@ -312,10 +330,13 @@ export default function LearningCanvas({ artwork, onComplete }: LearningCanvasPr
                             transition: isDragging ? 'none' : 'transform 0.3s ease-out',
                             transformOrigin: 'center center'
                         }}>
-                            {/* Yellow Highlight Circles - Graffiti Style - Only show for ACTIVE tooltip */}
-                            {activeTooltip && (() => {
-                                const hotspot = artwork.learningPoints.find((p) => p.id === activeTooltip);
+                            {/* Yellow Highlight Circles - Showing for ACTIVE tooltip AND HINTED hotspot */}
+                            {(activeTooltip || hintedHotspot) && (() => {
+                                const targetId = activeTooltip || hintedHotspot;
+                                const hotspot = artwork.learningPoints.find((p) => p.id === targetId);
                                 if (!hotspot) return null;
+
+                                const isHint = targetId === hintedHotspot && !activeTooltip;
 
                                 return (
                                     <>
@@ -323,7 +344,7 @@ export default function LearningCanvas({ artwork, onComplete }: LearningCanvasPr
                                         {hotspot.highlightCircle.rect ? (
                                             <div
                                                 key={hotspot.id}
-                                                className="absolute border-4 border-amber-400 border-dashed animate-pulse-subtle bg-amber-400/10"
+                                                className={`absolute border-4 border-amber-400 border-dashed animate-pulse-subtle bg-amber-400/10 ${isHint ? 'animate-ping-once opacity-80' : ''}`}
                                                 style={{
                                                     left: `${hotspot.highlightCircle.rect.x}%`,
                                                     top: `${hotspot.highlightCircle.rect.y}%`,
@@ -335,7 +356,7 @@ export default function LearningCanvas({ artwork, onComplete }: LearningCanvasPr
                                         ) : (
                                             <div
                                                 key={hotspot.id}
-                                                className="absolute"
+                                                className={`absolute ${isHint ? 'animate-ping-once' : ''}`}
                                                 style={{
                                                     left: `${hotspot.highlightCircle.x}%`,
                                                     top: `${hotspot.highlightCircle.y}%`,
@@ -346,37 +367,37 @@ export default function LearningCanvas({ artwork, onComplete }: LearningCanvasPr
                                                     filter: 'drop-shadow(0 0 4px rgba(255, 215, 0, 0.6))'
                                                 }}
                                             >
-                                                <svg width="100%" height="100%" viewBox="0 0 100 100" className="animate-pulse-subtle">
+                                                <svg width="100%" height="100%" viewBox="0 0 100 100" className={isHint ? '' : 'animate-pulse-subtle'}>
                                                     {/* Main thick stroke */}
                                                     <circle
                                                         cx="50"
                                                         cy="50"
-                                                        r="42"
-                                                        fill="none"
+                                                        r={isHint ? "46" : "42"} // Slightly larger for hint
+                                                        fill={isHint ? "rgba(255, 215, 0, 0.2)" : "none"} // Fill for hint to make it more obvious
                                                         stroke="#FFD700"
-                                                        strokeWidth="6"
+                                                        strokeWidth={isHint ? "8" : "6"}
                                                         strokeLinecap="round"
-                                                        strokeDasharray="85 15"
+                                                        strokeDasharray={isHint ? "none" : "85 15"}
                                                         transform="rotate(-15 50 50)"
                                                     />
                                                     {/* Secondary accent stroke for sloppy/spray look */}
-                                                    <circle
-                                                        cx="52"
-                                                        cy="48"
-                                                        r="42"
-                                                        fill="none"
-                                                        stroke="#FFA000"
-                                                        strokeWidth="2"
-                                                        strokeLinecap="round"
-                                                        strokeDasharray="40 200"
-                                                        transform="rotate(160 50 50)"
-                                                        opacity="0.7"
-                                                    />
+                                                    {!isHint && (
+                                                        <circle
+                                                            cx="52"
+                                                            cy="48"
+                                                            r="42"
+                                                            fill="none"
+                                                            stroke="#FFA000"
+                                                            strokeWidth="2"
+                                                            strokeLinecap="round"
+                                                            strokeDasharray="40 200"
+                                                            transform="rotate(160 50 50)"
+                                                            opacity="0.7"
+                                                        />
+                                                    )}
                                                 </svg>
                                             </div>
                                         )}
-
-                                        {/* Tooltip is now rendered outside the scaling container */}
                                     </>
                                 );
                             })()}
@@ -506,12 +527,25 @@ export default function LearningCanvas({ artwork, onComplete }: LearningCanvasPr
                     {!activeTooltip && remainingLabels.length > 0 && (
                         <div className="absolute bottom-0 left-0 right-0 bg-slate-800/90 p-4 flex gap-3 justify-center flex-wrap z-50 pb-8">
                             {remainingLabels.map((point) => (
-                                <div
+                                <button
                                     key={point.id}
-                                    className="px-4 py-2 bg-slate-700 text-white text-xs md:text-sm font-semibold rounded-full border border-slate-600"
+                                    onClick={() => {
+                                        // Clear existing hint first to restart animation
+                                        setHintedHotspot(null);
+                                        if (hintTimeoutRef.current) clearTimeout(hintTimeoutRef.current);
+
+                                        // Slight delay ensures state reset before applying new hint
+                                        setTimeout(() => {
+                                            setHintedHotspot(point.id);
+                                            hintTimeoutRef.current = setTimeout(() => {
+                                                setHintedHotspot(null);
+                                            }, 2000); // 2 second hint duration
+                                        }, 10);
+                                    }}
+                                    className="px-4 py-2 bg-slate-700 hover:bg-slate-600 active:scale-95 transition-all text-white text-xs md:text-sm font-semibold rounded-full border border-slate-500 shadow-md cursor-pointer"
                                 >
                                     {point.label}
-                                </div>
+                                </button>
                             ))}
                         </div>
                     )}

@@ -1,0 +1,99 @@
+{
+  "artwork_id": "standard-of-ur",
+  "title": "",
+  "date": "",
+  "era": "",
+  "image_filename": "standard-of-ur.png",
+  "quiz_regions": [
+    {
+      "id": "region_1772562680179",
+      "point_id": "sou-1",
+      "label": "Three Registers",
+      "x": 0.0351,
+      "y": 0.0191,
+      "w": 0.113,
+      "h": 0.4874
+    },
+    {
+      "id": "region_1772562689026",
+      "point_id": "sou-2",
+      "label": "King Breaks Frame",
+      "x": 0.4763,
+      "y": 0.0174,
+      "w": 0.1052,
+      "h": 0.1497
+    },
+    {
+      "id": "region_1772562705186",
+      "point_id": "sou-3",
+      "label": "Onager Chariots",
+      "x": 0.7087,
+      "y": 0.329,
+      "w": 0.2496,
+      "h": 0.1393
+    },
+    {
+      "id": "region_1772562729434",
+      "point_id": "sou-4",
+      "label": "Naked Prisoners",
+      "x": 0.6333,
+      "y": 0.1898,
+      "w": 0.0691,
+      "h": 0.1445
+    },
+    {
+      "id": "region_1772562740602",
+      "point_id": "sou-5",
+      "label": "Buried Lyre",
+      "x": 0.8013,
+      "y": 0.5449,
+      "w": 0.1099,
+      "h": 0.1358
+    },
+    {
+      "id": "region_1772562755266",
+      "point_id": "sou-6",
+      "label": "Three Continents",
+      "x": 0.8531,
+      "y": 0.0017,
+      "w": 0.1397,
+      "h": 0.1427
+    },
+    {
+      "id": "region_1772562767794",
+      "point_id": "sou-7",
+      "label": "Tribute or Peace",
+      "x": 0.0445,
+      "y": 0.8408,
+      "w": 0.5166,
+      "h": 0.1288
+    },
+    {
+      "id": "region_1772562811434",
+      "point_id": "sou-10",
+      "label": "Seated Hierarchy",
+      "x": 0.0853,
+      "y": 0.5275,
+      "w": 0.3077,
+      "h": 0.148
+    },
+    {
+      "id": "region_1772562825706",
+      "point_id": "sou-8",
+      "label": "Unknown Purpose",
+      "x": 0.0194,
+      "y": 0.4979,
+      "w": 0.9531,
+      "h": 0.4857
+    },
+    {
+      "id": "region_1772562838930",
+      "point_id": "sou-9",
+      "label": "Found Crushed",
+      "x": 0.0225,
+      "y": 0.0035,
+      "w": 0.9672,
+      "h": 0.9888
+    }
+  ]
+}

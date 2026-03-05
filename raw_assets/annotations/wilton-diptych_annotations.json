@@ -1,0 +1,99 @@
+{
+  "artwork_id": "wilton-diptych",
+  "title": "",
+  "date": "",
+  "era": "",
+  "image_filename": "wilton-diptych.jpg",
+  "quiz_regions": [
+    {
+      "id": "region_1772650838727",
+      "point_id": "wd-2",
+      "label": "King Meets Heaven",
+      "x": 0.2648,
+      "y": 0.4911,
+      "w": 0.1434,
+      "h": 0.3996
+    },
+    {
+      "id": "region_1772650871672",
+      "point_id": "wd-3",
+      "label": "Three Saints",
+      "x": 0.3079,
+      "y": 0.2406,
+      "w": 0.1305,
+      "h": 0.2883
+    },
+    {
+      "id": "region_1772650889903",
+      "point_id": "wd-4",
+      "label": "Angels Badge",
+      "x": 0.794,
+      "y": 0.3579,
+      "w": 0.1649,
+      "h": 0.1451
+    },
+    {
+      "id": "region_1772650933415",
+      "point_id": "wd-5",
+      "label": "Pennant Exchange",
+      "x": 0.5631,
+      "y": 0.0775,
+      "w": 0.119,
+      "h": 0.4453
+    },
+    {
+      "id": "region_1772650960767",
+      "point_id": "wd-6",
+      "label": "Island in the Orb",
+      "x": 0.5516,
+      "y": 0.0497,
+      "w": 0.0602,
+      "h": 0.0954
+    },
+    {
+      "id": "region_1772651011168",
+      "point_id": "wd-7",
+      "label": "Blue for Heaven",
+      "x": 0.6491,
+      "y": 0.5348,
+      "w": 0.2438,
+      "h": 0.3161
+    },
+    {
+      "id": "region_1772651031920",
+      "point_id": "wd-8",
+      "label": "Beardless Youth",
+      "x": 0.2835,
+      "y": 0.4692,
+      "w": 0.1032,
+      "h": 0.159
+    },
+    {
+      "id": "region_1772651050824",
+      "point_id": "wd-9",
+      "label": "Heraldic Exterior",
+      "x": 0.0268,
+      "y": 0.0258,
+      "w": 0.9435,
+      "h": 0.9344
+    },
+    {
+      "id": "region_1772651061208",
+      "point_id": "wd-10",
+      "label": "Artist Unknown",
+      "x": 0.0139,
+      "y": 0.0179,
+      "w": 0.7083,
+      "h": 0.9642
+    },
+    {
+      "id": "region_1772651076033",
+      "point_id": "wd-1",
+      "label": "Portable Altarpiece",
+      "x": 0.1401,
+      "y": 0.004,
+      "w": 0.8503,
+      "h": 0.9841
+    }
+  ]
+}

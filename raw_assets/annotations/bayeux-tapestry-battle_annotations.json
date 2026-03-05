@@ -1,0 +1,99 @@
+{
+  "artwork_id": "bayeux-tapestry-battle",
+  "title": "",
+  "date": "",
+  "era": "",
+  "image_filename": "bayeux-tapestry-battle.jpg",
+  "quiz_regions": [
+    {
+      "id": "region_1772609408513",
+      "point_id": "bt-2",
+      "label": "Harold Rex",
+      "x": 0.1433,
+      "y": 0.169,
+      "w": 0.7845,
+      "h": 0.1074
+    },
+    {
+      "id": "region_1772609442954",
+      "point_id": "bt-3",
+      "label": "The Arrow Figure",
+      "x": 0.1987,
+      "y": 0.1829,
+      "w": 0.2147,
+      "h": 0.2962
+    },
+    {
+      "id": "region_1772609457401",
+      "point_id": "bt-4",
+      "label": "The Mounted Strike",
+      "x": 0.5433,
+      "y": 0.2962,
+      "w": 0.2338,
+      "h": 0.4811
+    },
+    {
+      "id": "region_1772609476449",
+      "point_id": "bt-5",
+      "label": "Flat Color",
+      "x": 0.3338,
+      "y": 0.4175,
+      "w": 0.1974,
+      "h": 0.2982
+    },
+    {
+      "id": "region_1772609497169",
+      "point_id": "bt-6",
+      "label": "Dead in the Border",
+      "x": 0.0116,
+      "y": 0.8032,
+      "w": 0.8711,
+      "h": 0.1869
+    },
+    {
+      "id": "region_1772609511849",
+      "point_id": "bt-7",
+      "label": "Border Animals",
+      "x": 0.0238,
+      "y": 0.0179,
+      "w": 0.8572,
+      "h": 0.165
+    },
+    {
+      "id": "region_1772609561665",
+      "point_id": "bt-8",
+      "label": "Cavalry vs Infantry",
+      "x": 0.6472,
+      "y": 0.493,
+      "w": 0.2823,
+      "h": 0.3161
+    },
+    {
+      "id": "region_1772609574193",
+      "point_id": "bt-9",
+      "label": "Made in England",
+      "x": 0.0116,
+      "y": 0.0099,
+      "w": 0.9386,
+      "h": 0.9324
+    },
+    {
+      "id": "region_1772609584850",
+      "point_id": "bt-10",
+      "label": "Propaganda",
+      "x": 0.0151,
+      "y": 0.0497,
+      "w": 0.975,
+      "h": 0.9205
+    },
+    {
+      "id": "region_1772609596026",
+      "point_id": "bt-1",
+      "label": "Embroidery",
+      "x": 0.0134,
+      "y": 0.008,
+      "w": 0.9819,
+      "h": 0.9642
+    }
+  ]
+}

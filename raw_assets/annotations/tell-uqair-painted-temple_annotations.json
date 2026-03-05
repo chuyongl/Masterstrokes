@@ -1,0 +1,99 @@
+{
+  "artwork_id": "tell-uqair-painted-temple",
+  "title": "",
+  "date": "",
+  "era": "",
+  "image_filename": "tell-uqair-painted-temple.jpg",
+  "quiz_regions": [
+    {
+      "id": "region_1772563319186",
+      "point_id": "tupt-2",
+      "label": "Black Spots",
+      "x": 0.2443,
+      "y": 0.4056,
+      "w": 0.1625,
+      "h": 0.2298
+    },
+    {
+      "id": "region_1772563344458",
+      "point_id": "tupt-3",
+      "label": "Colors Vanished",
+      "x": 0.4946,
+      "y": 0.0801,
+      "w": 0.2949,
+      "h": 0.3708
+    },
+    {
+      "id": "region_1772563361786",
+      "point_id": "tupt-4",
+      "label": "Altar Guardian",
+      "x": 0.011,
+      "y": 0.0104,
+      "w": 0.2503,
+      "h": 0.9575
+    },
+    {
+      "id": "region_1772563408786",
+      "point_id": "tupt-7",
+      "label": "Walking Pose",
+      "x": 0.1132,
+      "y": 0.6006,
+      "w": 0.7641,
+      "h": 0.3656
+    },
+    {
+      "id": "region_1772563458355",
+      "point_id": "tupt-1",
+      "label": "Single Leopard",
+      "x": 0.0254,
+      "y": 0.0296,
+      "w": 0.8821,
+      "h": 0.9488
+    },
+    {
+      "id": "region_1772563573402",
+      "point_id": "tupt-5",
+      "label": "Fresco Technique",
+      "x": 0.4107,
+      "y": 0.0522,
+      "w": 0.5675,
+      "h": 0.9383
+    },
+    {
+      "id": "region_1772563604674",
+      "point_id": "tupt-6",
+      "label": "Mud Brick Wall",
+      "x": 0.0031,
+      "y": 0.4039,
+      "w": 0.2923,
+      "h": 0.3534
+    },
+    {
+      "id": "region_1772563622234",
+      "point_id": "tupt-8",
+      "label": "Beside the Altar",
+      "x": 0.0031,
+      "y": 0,
+      "w": 0.9188,
+      "h": 0.9871
+    },
+    {
+      "id": "region_1772563631947",
+      "point_id": "tupt-9",
+      "label": "Older Than Writing",
+      "x": 0.028,
+      "y": 0.0209,
+      "w": 0.945,
+      "h": 0.9679
+    },
+    {
+      "id": "region_1772563650619",
+      "point_id": "tupt-10",
+      "label": "Cone Mosaic Echo",
+      "x": 0.0241,
+      "y": 0.0122,
+      "w": 0.966,
+      "h": 0.9627
+    }
+  ]
+}

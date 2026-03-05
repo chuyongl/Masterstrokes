@@ -1,0 +1,99 @@
+{
+  "artwork_id": "amarna-princess-fresco",
+  "title": "",
+  "date": "",
+  "era": "",
+  "image_filename": "Princess Fresco from Amarna.jpg",
+  "quiz_regions": [
+    {
+      "id": "region_1772578598507",
+      "point_id": "apf-3",
+      "label": "Chin Chuck",
+      "x": 0.3805,
+      "y": 0.4519,
+      "w": 0.1653,
+      "h": 0.2963
+    },
+    {
+      "id": "region_1772578638355",
+      "point_id": "apf-4",
+      "label": "Light and Shadow",
+      "x": 0.3571,
+      "y": 0.5534,
+      "w": 0.2035,
+      "h": 0.1741
+    },
+    {
+      "id": "region_1772578657123",
+      "point_id": "apf-5",
+      "label": "Elongated Skulls",
+      "x": 0.3668,
+      "y": 0.4146,
+      "w": 0.1389,
+      "h": 0.1015
+    },
+    {
+      "id": "region_1772578677411",
+      "point_id": "apf-6",
+      "label": "Red-Brown Skin",
+      "x": 0.358,
+      "y": 0.4021,
+      "w": 0.2152,
+      "h": 0.3668
+    },
+    {
+      "id": "region_1772578693939",
+      "point_id": "apf-7",
+      "label": "Naked Royalty",
+      "x": 0.3414,
+      "y": 0.5306,
+      "w": 0.2524,
+      "h": 0.2134
+    },
+    {
+      "id": "region_1772578718683",
+      "point_id": "apf-8",
+      "label": "Decorated Cushion",
+      "x": 0.3375,
+      "y": 0.6467,
+      "w": 0.2534,
+      "h": 0.1015
+    },
+    {
+      "id": "region_1772578756659",
+      "point_id": "apf-9",
+      "label": "Ant Survival",
+      "x": 0.0264,
+      "y": 0.1493,
+      "w": 0.808,
+      "h": 0.744
+    },
+    {
+      "id": "region_1772578767115",
+      "point_id": "apf-10",
+      "label": "Most Intimate Royal Image",
+      "x": 0.3042,
+      "y": 0.0436,
+      "w": 0.6652,
+      "h": 0.8579
+    },
+    {
+      "id": "region_1772578780755",
+      "point_id": "apf-1",
+      "label": "Fragment Only",
+      "x": 0.0098,
+      "y": 0.0229,
+      "w": 0.9714,
+      "h": 0.9346
+    },
+    {
+      "id": "region_1772578799371",
+      "point_id": "apf-2",
+      "label": "No Pharaoh Before",
+      "x": 0.5596,
+      "y": 0.0954,
+      "w": 0.4207,
+      "h": 0.8911
+    }
+  ]
+}

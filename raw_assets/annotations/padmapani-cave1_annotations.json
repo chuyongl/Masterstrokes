@@ -1,0 +1,99 @@
+{
+  "artwork_id": "padmapani-cave1",
+  "title": "",
+  "date": "",
+  "era": "",
+  "image_filename": "padmapani-cave1.jpg",
+  "quiz_regions": [
+    {
+      "id": "region_1772582400204",
+      "point_id": "pc-1",
+      "label": "Half-Closed Eyes",
+      "x": 0.393,
+      "y": 0.2925,
+      "w": 0.1346,
+      "h": 0.0627
+    },
+    {
+      "id": "region_1772582412363",
+      "point_id": "pc-2",
+      "label": "Lotus in Hand",
+      "x": 0.3233,
+      "y": 0.4561,
+      "w": 0.1184,
+      "h": 0.1932
+    },
+    {
+      "id": "region_1772582427459",
+      "point_id": "pc-3",
+      "label": "Tribhanga Curve",
+      "x": 0.523,
+      "y": 0.4596,
+      "w": 0.2368,
+      "h": 0.3255
+    },
+    {
+      "id": "region_1772582448923",
+      "point_id": "pc-4",
+      "label": "Jeweled Crown",
+      "x": 0.3466,
+      "y": 0.0505,
+      "w": 0.2228,
+      "h": 0.2333
+    },
+    {
+      "id": "region_1772582466163",
+      "point_id": "pc-5",
+      "label": "White Highlight",
+      "x": 0.4255,
+      "y": 0.2959,
+      "w": 0.0557,
+      "h": 0.0749
+    },
+    {
+      "id": "region_1772582505387",
+      "point_id": "pc-6",
+      "label": "Pearl Necklace",
+      "x": 0.3187,
+      "y": 0.3638,
+      "w": 0.2043,
+      "h": 0.3499
+    },
+    {
+      "id": "region_1772582526084",
+      "point_id": "pc-7",
+      "label": "Surrounding Figures",
+      "x": 0.0332,
+      "y": 0.1201,
+      "w": 0.2043,
+      "h": 0.2315
+    },
+    {
+      "id": "region_1772582546828",
+      "point_id": "pc-8",
+      "label": "Sorrowful Expression",
+      "x": 0.3071,
+      "y": 0.2141,
+      "w": 0.2832,
+      "h": 0.2959
+    },
+    {
+      "id": "region_1772582563595",
+      "point_id": "pc-9",
+      "label": "Watches the Entrance",
+      "x": 0.2212,
+      "y": 0.3899,
+      "w": 0.7335,
+      "h": 0.5884
+    },
+    {
+      "id": "region_1772582577739",
+      "point_id": "pc-10",
+      "label": "Dry Plaster Technique",
+      "x": 0.0146,
+      "y": 0.0122,
+      "w": 0.9656,
+      "h": 0.9801
+    }
+  ]
+}

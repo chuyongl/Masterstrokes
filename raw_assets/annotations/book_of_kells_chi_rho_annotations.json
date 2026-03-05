@@ -1,0 +1,99 @@
+{
+  "artwork_id": "book_of_kells_chi_rho",
+  "title": "",
+  "date": "",
+  "era": "",
+  "image_filename": "book-of-kells-chi-rho.jpg",
+  "quiz_regions": [
+    {
+      "id": "region_1772608454945",
+      "point_id": "ck-4",
+      "label": "Hidden Angels",
+      "x": 0.307,
+      "y": 0.326,
+      "w": 0.0952,
+      "h": 0.0775
+    },
+    {
+      "id": "region_1772608592041",
+      "point_id": "ck-5",
+      "label": "Cats and Mice",
+      "x": 0.3276,
+      "y": 0.7376,
+      "w": 0.1853,
+      "h": 0.0954
+    },
+    {
+      "id": "region_1772608608345",
+      "point_id": "ck-6",
+      "label": "h·generatio",
+      "x": 0.6055,
+      "y": 0.8012,
+      "w": 0.1982,
+      "h": 0.0696
+    },
+    {
+      "id": "region_1772608649994",
+      "point_id": "ck-7",
+      "label": "Circular Medallions",
+      "x": 0.5978,
+      "y": 0.1988,
+      "w": 0.2188,
+      "h": 0.175
+    },
+    {
+      "id": "region_1772608690578",
+      "point_id": "ck-8",
+      "label": "Insular Interlace",
+      "x": 0.554,
+      "y": 0.3758,
+      "w": 0.2136,
+      "h": 0.0815
+    },
+    {
+      "id": "region_1772608713081",
+      "point_id": "ck-3",
+      "label": "Diamond at the Crossing",
+      "x": 0.4022,
+      "y": 0.2147,
+      "w": 0.139,
+      "h": 0.169
+    },
+    {
+      "id": "region_1772608723761",
+      "point_id": "ck-2",
+      "label": "Chi Sweeps the Page",
+      "x": 0.186,
+      "y": 0.1193,
+      "w": 0.4607,
+      "h": 0.664
+    },
+    {
+      "id": "region_1772608734161",
+      "point_id": "ck-1",
+      "label": "Three Letters, Whole Page",
+      "x": 0.1577,
+      "y": 0.1113,
+      "w": 0.7206,
+      "h": 0.7674
+    },
+    {
+      "id": "region_1772608751961",
+      "point_id": "ck-9",
+      "label": "Made for Display",
+      "x": 0.0856,
+      "y": 0.0636,
+      "w": 0.8854,
+      "h": 0.8549
+    },
+    {
+      "id": "region_1772608763193",
+      "point_id": "ck-10",
+      "label": "The Goldsmith Artist",
+      "x": 0.0419,
+      "y": 0.0557,
+      "w": 0.9162,
+      "h": 0.8708
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "artwork_id": "flying-apsara-cave17",
+  "title": "",
+  "date": "",
+  "era": "",
+  "image_filename": "flying-apsara-cave17.jpg",
+  "quiz_regions": [
+    {
+      "id": "region_1772583529843",
+      "point_id": "fa-2",
+      "label": "Dark Outline",
+      "x": 0.6474,
+      "y": 0.1741,
+      "w": 0.1984,
+      "h": 0.3917
+    },
+    {
+      "id": "region_1772583542443",
+      "point_id": "fa-3",
+      "label": "White Highlights",
+      "x": 0.4398,
+      "y": 0.3516,
+      "w": 0.2468,
+      "h": 0.0766
+    },
+    {
+      "id": "region_1772583558723",
+      "point_id": "fa-4",
+      "label": "Jewelry Intact",
+      "x": 0.3175,
+      "y": 0.4091,
+      "w": 0.5444,
+      "h": 0.3725
+    },
+    {
+      "id": "region_1772583576091",
+      "point_id": "fa-5",
+      "label": "Three-Quarter Face",
+      "x": 0.4328,
+      "y": 0.2193,
+      "w": 0.3345,
+      "h": 0.3203
+    },
+    {
+      "id": "region_1772583587251",
+      "point_id": "fa-6",
+      "label": "Nearly Closed Eyes",
+      "x": 0.3982,
+      "y": 0.2994,
+      "w": 0.4222,
+      "h": 0.0801
+    },
+    {
+      "id": "region_1772583597507",
+      "point_id": "fa-7",
+      "label": "Dark Skin",
+      "x": 0.2275,
+      "y": 0.5449,
+      "w": 0.7267,
+      "h": 0.4265
+    },
+    {
+      "id": "region_1772583619043",
+      "point_id": "fa-8",
+      "label": "Elaborate Headdress",
+      "x": 0.1399,
+      "y": 0.04,
+      "w": 0.353,
+      "h": 0.3012
+    },
+    {
+      "id": "region_1772583640491",
+      "point_id": "fa-9",
+      "label": "Flaking Damage",
+      "x": 0.6243,
+      "y": 0.0226,
+      "w": 0.3714,
+      "h": 0.3168
+    },
+    {
+      "id": "region_1772583657859",
+      "point_id": "fa-10",
+      "label": "Celestial Attendant",
+      "x": 0.013,
+      "y": 0.0279,
+      "w": 0.9228,
+      "h": 0.9383
+    },
+    {
+      "id": "region_1772583669508",
+      "point_id": "fa-1",
+      "label": "Diagonal Body",
+      "x": 0.0753,
+      "y": 0.0853,
+      "w": 0.9112,
+      "h": 0.9035
+    }
+  ]
+}

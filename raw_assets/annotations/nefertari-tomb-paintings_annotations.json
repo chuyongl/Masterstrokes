@@ -1,0 +1,99 @@
+{
+  "artwork_id": "nefertari-tomb-paintings",
+  "title": "",
+  "date": "",
+  "era": "",
+  "image_filename": "nefertari-tomb-paintings.jpg",
+  "quiz_regions": [
+    {
+      "id": "region_1772575126802",
+      "point_id": "ntp-2",
+      "label": "Senet Game",
+      "x": 0.4836,
+      "y": 0.4909,
+      "w": 0.3946,
+      "h": 0.1793
+    },
+    {
+      "id": "region_1772575161994",
+      "point_id": "ntp-3",
+      "label": "Red Skin",
+      "x": 0.1913,
+      "y": 0.4665,
+      "w": 0.1738,
+      "h": 0.0957
+    },
+    {
+      "id": "region_1772575174314",
+      "point_id": "ntp-4",
+      "label": "Vulture Crown",
+      "x": 0.1604,
+      "y": 0.1967,
+      "w": 0.1478,
+      "h": 0.1828
+    },
+    {
+      "id": "region_1772575268194",
+      "point_id": "ntp-5",
+      "label": "Cartouche",
+      "x": 0.5891,
+      "y": 0.2089,
+      "w": 0.1202,
+      "h": 0.2994
+    },
+    {
+      "id": "region_1772575281547",
+      "point_id": "ntp-6",
+      "label": "White Pleated Dress",
+      "x": 0.1945,
+      "y": 0.571,
+      "w": 0.3719,
+      "h": 0.2925
+    },
+    {
+      "id": "region_1772575300691",
+      "point_id": "ntp-7",
+      "label": "Senet Board",
+      "x": 0.4673,
+      "y": 0.5275,
+      "w": 0.4222,
+      "h": 0.3725
+    },
+    {
+      "id": "region_1772575316802",
+      "point_id": "ntp-9",
+      "label": "Salt Damage",
+      "x": 0.0435,
+      "y": 0.4874,
+      "w": 0.1478,
+      "h": 0.4752
+    },
+    {
+      "id": "region_1772575344410",
+      "point_id": "ntp-8",
+      "label": "Kiosk Architecture",
+      "x": 0.0468,
+      "y": 0.0662,
+      "w": 0.911,
+      "h": 0.2785
+    },
+    {
+      "id": "region_1772575372994",
+      "point_id": "ntp-10",
+      "label": "Only Knees Survived",
+      "x": 0.0257,
+      "y": 0.0435,
+      "w": 0.9516,
+      "h": 0.9052
+    },
+    {
+      "id": "region_1772575386010",
+      "point_id": "ntp-1",
+      "label": "Sistine Chapel",
+      "x": 0.0127,
+      "y": 0.0122,
+      "w": 0.9808,
+      "h": 0.9679
+    }
+  ]
+}

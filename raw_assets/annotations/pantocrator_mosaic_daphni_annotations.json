@@ -1,0 +1,99 @@
+{
+  "artwork_id": "pantocrator_mosaic_daphni",
+  "title": "",
+  "date": "",
+  "era": "",
+  "image_filename": "pantocrator-mosaic-daphni.jpg",
+  "quiz_regions": [
+    {
+      "id": "region_1772647408220",
+      "point_id": "pd-2",
+      "label": "Half-Length",
+      "x": 0.4841,
+      "y": 0.0755,
+      "w": 0.0417,
+      "h": 0.8489
+    },
+    {
+      "id": "region_1772647422796",
+      "point_id": "pd-3",
+      "label": "IC",
+      "x": 0.2058,
+      "y": 0.3837,
+      "w": 0.0934,
+      "h": 0.1252
+    },
+    {
+      "id": "region_1772647435635",
+      "point_id": "pd-4",
+      "label": "Closed Book",
+      "x": 0.5616,
+      "y": 0.6024,
+      "w": 0.1849,
+      "h": 0.3181
+    },
+    {
+      "id": "region_1772647457180",
+      "point_id": "pd-5",
+      "label": "Blessing Hand",
+      "x": 0.1044,
+      "y": 0.5348,
+      "w": 0.1531,
+      "h": 0.2008
+    },
+    {
+      "id": "region_1772647482276",
+      "point_id": "pd-6",
+      "label": "Two Expressions",
+      "x": 0.4046,
+      "y": 0.2545,
+      "w": 0.0795,
+      "h": 0.1769
+    },
+    {
+      "id": "region_1772647498844",
+      "point_id": "pd-7",
+      "label": "Blue Background",
+      "x": 0.7982,
+      "y": 0.2684,
+      "w": 0.1093,
+      "h": 0.2545
+    },
+    {
+      "id": "region_1772647513420",
+      "point_id": "pd-8",
+      "label": "Cross Halo",
+      "x": 0.2674,
+      "y": 0.2247,
+      "w": 0.1252,
+      "h": 0.1412
+    },
+    {
+      "id": "region_1772647536084",
+      "point_id": "pd-1",
+      "label": "Dome Center",
+      "x": 0.0765,
+      "y": 0.0557,
+      "w": 0.8708,
+      "h": 0.8549
+    },
+    {
+      "id": "region_1772647548388",
+      "point_id": "pd-9",
+      "label": "After Iconoclasm",
+      "x": 0.0348,
+      "y": 0.0199,
+      "w": 0.9404,
+      "h": 0.9583
+    },
+    {
+      "id": "region_1772647576653",
+      "point_id": "pd-10",
+      "label": "Over Apollo's Temple",
+      "x": 0.0089,
+      "y": 0.004,
+      "w": 0.9801,
+      "h": 0.9881
+    }
+  ]
+}

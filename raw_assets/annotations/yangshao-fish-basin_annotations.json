@@ -1,0 +1,99 @@
+{
+  "artwork_id": "yangshao-fish-basin",
+  "title": "",
+  "date": "",
+  "era": "",
+  "image_filename": "yangshao-fish-basin.jpeg",
+  "quiz_regions": [
+    {
+      "id": "region_1772590116894",
+      "point_id": "yf-3",
+      "label": "Two Large Fish",
+      "x": 0.2507,
+      "y": 0.3778,
+      "w": 0.0664,
+      "h": 0.2594
+    },
+    {
+      "id": "region_1772590125446",
+      "point_id": "yf-4",
+      "label": "Hatched Fish Bodies",
+      "x": 0.6456,
+      "y": 0.3673,
+      "w": 0.096,
+      "h": 0.2072
+    },
+    {
+      "id": "region_1772590154895",
+      "point_id": "yf-5",
+      "label": "Face-Triangle Motifs",
+      "x": 0.4001,
+      "y": 0.1845,
+      "w": 0.1126,
+      "h": 0.1898
+    },
+    {
+      "id": "region_1772590165216",
+      "point_id": "yf-6",
+      "label": "Fish Flanking the Face",
+      "x": 0.319,
+      "y": 0.672,
+      "w": 0.1347,
+      "h": 0.0818
+    },
+    {
+      "id": "region_1772590183056",
+      "point_id": "yf-7",
+      "label": "Zigzag Connecting Lines",
+      "x": 0.5847,
+      "y": 0.6302,
+      "w": 0.0978,
+      "h": 0.1323
+    },
+    {
+      "id": "region_1772590197880",
+      "point_id": "yf-8",
+      "label": "Black on Red",
+      "x": 0.2525,
+      "y": 0.2489,
+      "w": 0.5074,
+      "h": 0.2246
+    },
+    {
+      "id": "region_1772590213184",
+      "point_id": "yf-9",
+      "label": "Reassembled from Fragments",
+      "x": 0.5367,
+      "y": 0.3325,
+      "w": 0.2454,
+      "h": 0.484
+    },
+    {
+      "id": "region_1772590226049",
+      "point_id": "yf-10",
+      "label": "5000 BCE",
+      "x": 0.0385,
+      "y": 0.0505,
+      "w": 0.8931,
+      "h": 0.9018
+    },
+    {
+      "id": "region_1772590237417",
+      "point_id": "yf-1",
+      "label": "Burial Basin",
+      "x": 0.0108,
+      "y": 0.0836,
+      "w": 0.9743,
+      "h": 0.8443
+    },
+    {
+      "id": "region_1772590260537",
+      "point_id": "yf-2",
+      "label": "Four-Part Symmetry",
+      "x": 0.2248,
+      "y": 0.2263,
+      "w": 0.716,
+      "h": 0.7068
+    }
+  ]
+}

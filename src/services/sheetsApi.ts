@@ -293,7 +293,7 @@ function shuffleOptions<T>(array: T[]): T[] {
     return arr;
 }
 
-import { MOCK_DUTCH_GOLDEN_AGE_ARTWORKS } from '../data/mockArtwork';
+import { FALLBACK_ANCIENT_ARTWORKS } from '../data/ancientArtworks';
 
 export async function getAllArtworks(): Promise<Artwork[]> {
     try {
@@ -307,12 +307,12 @@ export async function getAllArtworks(): Promise<Artwork[]> {
             )
         );
 
-        // If sheet is empty or fails to transform, return mock
-        if (transformed.length === 0) return MOCK_DUTCH_GOLDEN_AGE_ARTWORKS;
+        if (transformed.length === 0) return FALLBACK_ANCIENT_ARTWORKS;
+
         return transformed;
     } catch (error) {
-        console.warn('Failed to get artworks from sheet, using mock data:', error);
-        return MOCK_DUTCH_GOLDEN_AGE_ARTWORKS;
+        console.error('Failed to get artworks from sheet:', error);
+        return FALLBACK_ANCIENT_ARTWORKS;
     }
 }
 

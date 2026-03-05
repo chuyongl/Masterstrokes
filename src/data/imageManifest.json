@@ -691,11 +691,11 @@
   },
   "mari-sacrificial-procession": {
     "slug": "mari-sacrificial-procession",
-    "originalSize": 4498789,
-    "width": 4096,
-    "height": 2306,
-    "aspectRatio": 1.7762,
-    "blurDataURL": "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAALABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAwAB/8QAHxAAAgEDBQEAAAAAAAAAAAAAAAECERIhAzFBUWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAP/xAAXEQEBAQEAAAAAAAAAAAAAAAAAEQES/9oADAMBAAIRAxEAPwDFOjf0RvDzzgGO9TdSTUXRkrqkJd4QF8uyHRH/2Q==",
+    "originalSize": 1389987,
+    "width": 1600,
+    "height": 949,
+    "aspectRatio": 1.686,
+    "blurDataURL": "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAMABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAECBP/EABsQAQEAAwEBAQAAAAAAAAAAAAECABEhMUFx/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAEC/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A0tyOhPckpoHbpdc5lVJT08xRJNGvN/cyqorcm8MU0g/rhgf/2Q==",
     "variants": {
       "400": {
         "width": 400,
@@ -871,11 +871,11 @@
   },
   "odyssey-landscapes": {
     "slug": "odyssey-landscapes",
-    "originalSize": 141886,
-    "width": 754,
-    "height": 556,
-    "aspectRatio": 1.3561,
-    "blurDataURL": "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAPABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAMBAgT/xAAbEAEAAgIDAAAAAAAAAAAAAAABABECUUJhcf/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAMAwEAAhEDEQA/AFFFy2LfXsQI7krxJakaTG9Qi8VqEUj/2Q==",
+    "originalSize": 226276,
+    "width": 1280,
+    "height": 530,
+    "aspectRatio": 2.4151,
+    "blurDataURL": "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAIABQDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAT/xAAbEAACAwEBAQAAAAAAAAAAAAAAAQIDEhEhcf/EABYBAQEBAAAAAAAAAAAAAAAAAAABAv/EABURAQEAAAAAAAAAAAAAAAAAAABB/9oADAMBAAIRAxEAPwCOhxTWl59KK5QlvQAIjvlmzkX5wAEbf//Z",
     "variants": {
       "400": {
         "width": 400,
@@ -883,12 +883,12 @@
         "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fodyssey-landscapes%2F400.webp?alt=media"
       },
       "800": {
-        "width": 754,
+        "width": 800,
         "avif": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fodyssey-landscapes%2F800.avif?alt=media",
         "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fodyssey-landscapes%2F800.webp?alt=media"
       },
       "1200": {
-        "width": 754,
+        "width": 1200,
         "avif": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fodyssey-landscapes%2F1200.avif?alt=media",
         "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fodyssey-landscapes%2F1200.webp?alt=media"
       },
@@ -1081,11 +1081,11 @@
   },
   "simhala-avadana-cave17": {
     "slug": "simhala-avadana-cave17",
-    "originalSize": 2978194,
-    "width": 6072,
-    "height": 3956,
-    "aspectRatio": 1.5349,
-    "blurDataURL": "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAECA//EABoQAQEAAwEBAAAAAAAAAAAAAAEAAhEhIuH/xAAWAQEBAQAAAAAAAAAAAAAAAAAAAQL/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwDN6CtKC8dEsvNO92VNxF+xREH/2Q==",
+    "originalSize": 2711916,
+    "width": 4347,
+    "height": 4912,
+    "aspectRatio": 0.885,
+    "blurDataURL": "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAXABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAMCAf/EAB0QAQACAgMBAQAAAAAAAAAAAAEAEQIxEiFBA2H/xAAWAQEBAQAAAAAAAAAAAAAAAAAAAQL/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCLjiYO+V7mE7a1KrySyhanUAWplUn6V10/sRxv0iBRxMcbFt1cxk5JSxEACHsRED//2Q==",
     "variants": {
       "400": {
         "width": 400,
@@ -1111,11 +1111,11 @@
   },
   "standard-of-ur": {
     "slug": "standard-of-ur",
-    "originalSize": 2810812,
-    "width": 2202,
-    "height": 963,
-    "aspectRatio": 2.2866,
-    "blurDataURL": "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAJABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAEDAv/EACEQAAICAAUFAAAAAAAAAAAAAAABAhEDEiExgTJBYnFy/8QAFgEBAQEAAAAAAAAAAAAAAAAAAQAC/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AgsKLVqKv5eoZVtkjp4DhtwLF6eCaYcnF1Ve1QE+7AQ//2Q==",
+    "originalSize": 3540955,
+    "width": 1397,
+    "height": 1260,
+    "aspectRatio": 1.1087,
+    "blurDataURL": "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAASABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAEDBP/EACEQAAICAgIBBQAAAAAAAAAAAAABAhESMSFRMkFicYGi/8QAFQEBAQAAAAAAAAAAAAAAAAAAAQD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwDnjBOKpfnYS9MVx7SJLFVi1W7ZKTfKVd2BSblF1r6BXGPSAplGcqSydfJpGUq8nrsAErbdWABT/9k=",
     "variants": {
       "400": {
         "width": 400,
@@ -1376,36 +1376,6 @@
         "width": 120,
         "avif": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fyangshao-fish-basin%2Fthumbnail.avif?alt=media",
         "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fyangshao-fish-basin%2Fthumbnail.webp?alt=media"
-      }
-    }
-  },
-  "yangshao-stork-jar": {
-    "slug": "yangshao-stork-jar",
-    "originalSize": 199436,
-    "width": 910,
-    "height": 1240,
-    "aspectRatio": 0.7339,
-    "blurDataURL": "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAbABQDASIAAhEBAxEB/8QAGQABAQADAQAAAAAAAAAAAAAABAABAgMF/8QAHxAAAwACAgIDAAAAAAAAAAAAAAECAxEScTGBIVGh/8QAFQEBAQAAAAAAAAAAAAAAAAAAAgH/xAAYEQEAAwEAAAAAAAAAAAAAAAAAARIhEf/aAAwDAQACEQMRAD8AWo+POvRyVt5OD12JVKZfgFF8szf6DunBHEjchC45m1KfoPg08nZ67ianTlPtGJw4pe5xyn0SurbB1La2QvS+iEL/2Q==",
-    "variants": {
-      "400": {
-        "width": 400,
-        "avif": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fyangshao-stork-jar%2F400.avif?alt=media",
-        "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fyangshao-stork-jar%2F400.webp?alt=media"
-      },
-      "800": {
-        "width": 800,
-        "avif": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fyangshao-stork-jar%2F800.avif?alt=media",
-        "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fyangshao-stork-jar%2F800.webp?alt=media"
-      },
-      "1200": {
-        "width": 910,
-        "avif": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fyangshao-stork-jar%2F1200.avif?alt=media",
-        "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fyangshao-stork-jar%2F1200.webp?alt=media"
-      },
-      "thumbnail": {
-        "width": 120,
-        "avif": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fyangshao-stork-jar%2Fthumbnail.avif?alt=media",
-        "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fyangshao-stork-jar%2Fthumbnail.webp?alt=media"
       }
     }
   },

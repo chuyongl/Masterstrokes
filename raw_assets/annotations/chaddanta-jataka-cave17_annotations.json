@@ -1,0 +1,99 @@
+{
+  "artwork_id": "chaddanta-jataka-cave17",
+  "title": "",
+  "date": "",
+  "era": "",
+  "image_filename": "chaddanta-jataka-cave17.jpg",
+  "quiz_regions": [
+    {
+      "id": "region_1772583860843",
+      "point_id": "cj-1",
+      "label": "White Elephant",
+      "x": 0.6685,
+      "y": 0.3012,
+      "w": 0.3228,
+      "h": 0.6685
+    },
+    {
+      "id": "region_1772583875395",
+      "point_id": "cj-2",
+      "label": "Six Tusks",
+      "x": 0.3299,
+      "y": 0.2089,
+      "w": 0.3755,
+      "h": 0.4805
+    },
+    {
+      "id": "region_1772583888547",
+      "point_id": "cj-3",
+      "label": "Second Elephant",
+      "x": 0.4063,
+      "y": 0.524,
+      "w": 0.2121,
+      "h": 0.1758
+    },
+    {
+      "id": "region_1772583916067",
+      "point_id": "cj-4",
+      "label": "Pavilion Scene",
+      "x": 0.0479,
+      "y": 0.3308,
+      "w": 0.1858,
+      "h": 0.4909
+    },
+    {
+      "id": "region_1772583934987",
+      "point_id": "cj-5",
+      "label": "Two Human Figures",
+      "x": 0.3404,
+      "y": 0.7016,
+      "w": 0.3531,
+      "h": 0.2594
+    },
+    {
+      "id": "region_1772584007715",
+      "point_id": "cj-6",
+      "label": "Golden Border",
+      "x": 0.0137,
+      "y": 0.0435,
+      "w": 0.9829,
+      "h": 0.2611
+    },
+    {
+      "id": "region_1772584033819",
+      "point_id": "cj-9",
+      "label": "Severe Damage",
+      "x": 0.235,
+      "y": 0.2594,
+      "w": 0.7391,
+      "h": 0.6163
+    },
+    {
+      "id": "region_1772584050243",
+      "point_id": "cj-10",
+      "label": "Dense Foliage",
+      "x": 0.434,
+      "y": 0.8408,
+      "w": 0.5613,
+      "h": 0.1497
+    },
+    {
+      "id": "region_1772584061459",
+      "point_id": "cj-7",
+      "label": "Continuous Narrative",
+      "x": 0.0111,
+      "y": 0.0087,
+      "w": 0.9802,
+      "h": 0.9261
+    },
+    {
+      "id": "region_1772584075067",
+      "point_id": "cj-8",
+      "label": "Generosity Theme",
+      "x": 0.0097,
+      "y": 0.0261,
+      "w": 0.9644,
+      "h": 0.9662
+    }
+  ]
+}

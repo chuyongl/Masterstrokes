@@ -1,0 +1,99 @@
+{
+  "artwork_id": "mari-sacrificial-procession",
+  "title": "",
+  "date": "",
+  "era": "",
+  "image_filename": "mari-sacrificial-procession.jpg",
+  "quiz_regions": [
+    {
+      "id": "region_1772560932338",
+      "point_id": "msp-2",
+      "label": "Hierarchic Scale",
+      "x": 0.6403,
+      "y": 0.0296,
+      "w": 0.318,
+      "h": 0.9313
+    },
+    {
+      "id": "region_1772560964202",
+      "point_id": "msp-3",
+      "label": "Ranked Procession",
+      "x": 0.1581,
+      "y": 0.3673,
+      "w": 0.4399,
+      "h": 0.5588
+    },
+    {
+      "id": "region_1772561000107",
+      "point_id": "msp-4",
+      "label": "Adorned Bull",
+      "x": 0.0218,
+      "y": 0.4961,
+      "w": 0.1322,
+      "h": 0.2907
+    },
+    {
+      "id": "region_1772561024546",
+      "point_id": "msp-1",
+      "label": "Orange Bull",
+      "x": 0.121,
+      "y": 0.376,
+      "w": 0.192,
+      "h": 0.4404
+    },
+    {
+      "id": "region_1772561049322",
+      "point_id": "msp-6",
+      "label": "Stacked Registers",
+      "x": 0.2376,
+      "y": 0.2489,
+      "w": 0.318,
+      "h": 0.3691
+    },
+    {
+      "id": "region_1772561086834",
+      "point_id": "msp-5",
+      "label": "Five Colors Only",
+      "x": 0.3853,
+      "y": 0.4126,
+      "w": 0.2385,
+      "h": 0.4927
+    },
+    {
+      "id": "region_1772561118522",
+      "point_id": "msp-7",
+      "label": "Scored Mud Base",
+      "x": 0.3306,
+      "y": 0.0279,
+      "w": 0.2953,
+      "h": 0.3934
+    },
+    {
+      "id": "region_1772561158419",
+      "point_id": "msp-8",
+      "label": "East of the Doorway",
+      "x": 0.0125,
+      "y": 0.0157,
+      "w": 0.7414,
+      "h": 0.9679
+    },
+    {
+      "id": "region_1772561169938",
+      "point_id": "msp-9",
+      "label": "King Without Gods",
+      "x": 0.3264,
+      "y": 0.0226,
+      "w": 0.6629,
+      "h": 0.9662
+    },
+    {
+      "id": "region_1772561188714",
+      "point_id": "msp-10",
+      "label": "Reassembled Fragments",
+      "x": 0.0301,
+      "y": 0.0035,
+      "w": 0.9592,
+      "h": 0.9818
+    }
+  ]
+}

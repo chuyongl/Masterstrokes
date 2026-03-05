@@ -1,0 +1,99 @@
+{
+  "artwork_id": "simhala-avadana-cave17",
+  "title": "",
+  "date": "",
+  "era": "",
+  "image_filename": "simhala-avadana-cave17.jpg",
+  "quiz_regions": [
+    {
+      "id": "region_1772605996185",
+      "point_id": "sa-1",
+      "label": "White Horse Center",
+      "x": 0.4447,
+      "y": 0.5101,
+      "w": 0.2813,
+      "h": 0.3795
+    },
+    {
+      "id": "region_1772606007537",
+      "point_id": "sa-2",
+      "label": "Armed Soldiers",
+      "x": 0.0651,
+      "y": 0.1689,
+      "w": 0.177,
+      "h": 0.484
+    },
+    {
+      "id": "region_1772606032777",
+      "point_id": "sa-3",
+      "label": "Latticed Window",
+      "x": 0.3798,
+      "y": 0.3621,
+      "w": 0.1967,
+      "h": 0.1358
+    },
+    {
+      "id": "region_1772606041898",
+      "point_id": "sa-4",
+      "label": "Dense Crowd",
+      "x": 0.7358,
+      "y": 0.4457,
+      "w": 0.2262,
+      "h": 0.383
+    },
+    {
+      "id": "region_1772606057336",
+      "point_id": "sa-5",
+      "label": "Valaha the Horse",
+      "x": 0.3641,
+      "y": 0.5414,
+      "w": 0.3521,
+      "h": 0.3865
+    },
+    {
+      "id": "region_1772606089361",
+      "point_id": "sa-6",
+      "label": "Fallen Figures Below",
+      "x": 0.2519,
+      "y": 0.7834,
+      "w": 0.659,
+      "h": 0.1985
+    },
+    {
+      "id": "region_1772606115049",
+      "point_id": "sa-7",
+      "label": "Continuous Narrative",
+      "x": 0.0218,
+      "y": 0.0279,
+      "w": 0.8931,
+      "h": 0.9418
+    },
+    {
+      "id": "region_1772606126089",
+      "point_id": "sa-8",
+      "label": "Schlingloff's Reading",
+      "x": 0.1162,
+      "y": 0.0122,
+      "w": 0.8655,
+      "h": 0.9644
+    },
+    {
+      "id": "region_1772606138161",
+      "point_id": "sa-9",
+      "label": "Story of Delusion",
+      "x": 0.0316,
+      "y": 0.0104,
+      "w": 0.8852,
+      "h": 0.9818
+    },
+    {
+      "id": "region_1772606149705",
+      "point_id": "sa-10",
+      "label": "Black and White Photography",
+      "x": 0.0159,
+      "y": 0.0122,
+      "w": 0.9757,
+      "h": 0.9714
+    }
+  ]
+}

@@ -58,9 +58,26 @@ export async function cropImage(
  *   "bayeux-tapestry-battle" → "bayeux-tapestry-battle"
  */
 export function urlToSlug(url: string): string {
+    // Attempt to decode URL if it contains URL-encoded elements
+    try {
+        url = decodeURIComponent(url);
+    } catch {
+        // ignore decoding errors
+    }
+
     // Strip query params and hash
     const clean = url.split('?')[0].split('#')[0];
-    // Get the last path segment
+
+    // Check if it's a Manifest / Firebase Storage structure: /images/[slug]/...
+    if (clean.includes('/images/')) {
+        const parts = clean.split('/');
+        const imagesIndex = parts.lastIndexOf('images');
+        if (imagesIndex !== -1 && imagesIndex + 1 < parts.length) {
+            return parts[imagesIndex + 1];
+        }
+    }
+
+    // Standard fallback: Get the last path segment
     const filename = clean.split('/').pop() ?? '';
     // Remove extension
     const noExt = filename.replace(/\.[^.]+$/, '');

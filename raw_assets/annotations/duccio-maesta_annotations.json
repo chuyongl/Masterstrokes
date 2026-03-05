@@ -1,0 +1,99 @@
+{
+  "artwork_id": "duccio-maesta",
+  "title": "",
+  "date": "",
+  "era": "",
+  "image_filename": "duccio-maesta.jpg",
+  "quiz_regions": [
+    {
+      "id": "region_1772648352921",
+      "point_id": "dm-1",
+      "label": "Throne Base",
+      "x": 0.3659,
+      "y": 0.8655,
+      "w": 0.2716,
+      "h": 0.1314
+    },
+    {
+      "id": "region_1772648421961",
+      "point_id": "dm-3",
+      "label": "Kneeling Saints",
+      "x": 0.6795,
+      "y": 0.485,
+      "w": 0.2693,
+      "h": 0.5026
+    },
+    {
+      "id": "region_1772648443457",
+      "point_id": "dm-4",
+      "label": "Figures Turn",
+      "x": 0.5602,
+      "y": 0.0562,
+      "w": 0.1136,
+      "h": 0.1406
+    },
+    {
+      "id": "region_1772648461154",
+      "point_id": "dm-5",
+      "label": "Shaded Drapery",
+      "x": 0.4568,
+      "y": 0.5288,
+      "w": 0.0932,
+      "h": 0.2905
+    },
+    {
+      "id": "region_1772650355304",
+      "point_id": "dm-9",
+      "label": "Apostles Above",
+      "x": 0.0091,
+      "y": 0.0031,
+      "w": 0.3,
+      "h": 0.1845
+    },
+    {
+      "id": "region_1772650371668",
+      "point_id": "dm-6",
+      "label": "The Procession",
+      "x": 0.0011,
+      "y": 0.0008,
+      "w": 0.9648,
+      "h": 0.9499
+    },
+    {
+      "id": "region_1772650381692",
+      "point_id": "dm-7",
+      "label": "Sawed Apart",
+      "x": 0.017,
+      "y": 0.017,
+      "w": 0.9807,
+      "h": 0.92
+    },
+    {
+      "id": "region_1772650394237",
+      "point_id": "dm-8",
+      "label": "Duccio vs Giotto",
+      "x": 0.0909,
+      "y": 0.0054,
+      "w": 0.908,
+      "h": 0.9684
+    },
+    {
+      "id": "region_1772650410229",
+      "point_id": "dm-10",
+      "label": "Mary Won Their War",
+      "x": 0.0068,
+      "y": 0.2176,
+      "w": 0.9068,
+      "h": 0.7655
+    },
+    {
+      "id": "region_1772650440860",
+      "point_id": "dm-2",
+      "label": "Double-Sided",
+      "x": 0.017,
+      "y": 0.017,
+      "w": 0.9727,
+      "h": 0.9707
+    }
+  ]
+}

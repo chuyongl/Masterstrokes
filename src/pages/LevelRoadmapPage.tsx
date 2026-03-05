@@ -23,8 +23,35 @@ export default function LevelRoadmapPage() {
     const [isWalking, setIsWalking] = useState(false);
     const scrollTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+    const [isDragging, setIsDragging] = useState(false);
+    const dragDistanceRef = useRef(0);
+    const startXRef = useRef(0);
+    const scrollLeftRef = useRef(0);
+
+    const handlePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+        if (e.pointerType !== 'mouse') return;
+        setIsDragging(true);
+        dragDistanceRef.current = 0;
+        startXRef.current = e.pageX - (scrollRef.current?.offsetLeft || 0);
+        scrollLeftRef.current = scrollRef.current?.scrollLeft || 0;
+    };
+
+    const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+        if (!isDragging || e.pointerType !== 'mouse' || !scrollRef.current) return;
+        e.preventDefault();
+        const x = e.pageX - scrollRef.current.offsetLeft;
+        const walk = (x - startXRef.current) * 2;
+        scrollRef.current.scrollLeft = scrollLeftRef.current - walk;
+        dragDistanceRef.current = Math.abs(walk);
+    };
+
+    const handlePointerUp = (e: React.PointerEvent<HTMLDivElement>) => {
+        if (e.pointerType !== 'mouse') return;
+        setIsDragging(false);
+    };
+
     const completedLevels = useUserStore((state) => state.completedLevels);
-    
+
     const activeEraId = eraId || 'ancient-art';
     const era = ERAS.find((e) => e.id === activeEraId);
 
@@ -49,15 +76,11 @@ export default function LevelRoadmapPage() {
     }, [activeEraId]);
 
     const levelNodes: LevelNode[] = artworks.map((artwork, index) => {
-        let status: 'locked' | 'current' | 'completed' = 'locked';
+        let status: 'locked' | 'current' | 'completed' = 'current'; // Unlocked for testing
         const isCompleted = completedLevels.includes(artwork.id);
-        const prevArtwork = index > 0 ? artworks[index - 1] : null;
-        const isPrevCompleted = prevArtwork ? completedLevels.includes(prevArtwork.id) : true;
 
         if (isCompleted) {
             status = 'completed';
-        } else if (isPrevCompleted) {
-            status = 'current';
         }
         return { artwork, status };
     });
@@ -101,7 +124,7 @@ export default function LevelRoadmapPage() {
             const currentIdx = levelNodes.findIndex(node => node.status === 'current');
             const targetIdx = currentIdx !== -1 ? currentIdx : levelNodes.length - 1;
             setCurrentFrame(targetIdx);
-            
+
             // Allow a small delay for rendering before initial scroll
             setTimeout(() => {
                 const node = document.getElementById(`frame-${targetIdx}`);
@@ -122,7 +145,7 @@ export default function LevelRoadmapPage() {
                 .hide-scrollbar::-webkit-scrollbar { display: none; }
                 .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
             `}</style>
-            
+
             {/* Top Bar */}
             <div className="flex-none h-16 border-b border-black/10 flex items-center justify-between px-4 z-50 shadow-md transition-colors" style={{ backgroundColor: wallColor }}>
                 <div className="flex items-center gap-3">
@@ -138,9 +161,9 @@ export default function LevelRoadmapPage() {
                 </div>
                 <div className="flex items-center gap-2">
                     <div className="hidden md:flex gap-1 mr-2">
-                       {levelNodes.map((n, i) => (
-                           <div key={i} className={`w-2.5 h-2.5 rounded-full ${n.status === 'completed' ? 'bg-[#1A1008]' : n.status === 'current' ? 'bg-[#1A1008] ring-2 ring-[#1A1008]/40 border border-white/50' : 'bg-[#1A1008]/15'}`} />
-                       ))}
+                        {levelNodes.map((n, i) => (
+                            <div key={i} className={`w-2.5 h-2.5 rounded-full ${n.status === 'completed' ? 'bg-[#1A1008]' : n.status === 'current' ? 'bg-[#1A1008] ring-2 ring-[#1A1008]/40 border border-white/50' : 'bg-[#1A1008]/15'}`} />
+                        ))}
                     </div>
                 </div>
             </div>
@@ -159,12 +182,17 @@ export default function LevelRoadmapPage() {
                 <div
                     ref={scrollRef}
                     onScroll={handleScroll}
-                    className="absolute inset-0 overflow-x-auto overflow-y-hidden snap-x snap-mandatory flex items-center gap-16 md:gap-32 px-[50vw] hide-scrollbar select-none"
+                    onPointerDown={handlePointerDown}
+                    onPointerMove={handlePointerMove}
+                    onPointerUp={handlePointerUp}
+                    onPointerLeave={handlePointerUp}
+                    onPointerCancel={handlePointerUp}
+                    className={`absolute inset-0 overflow-x-auto overflow-y-hidden flex items-center gap-16 md:gap-32 px-[50vw] hide-scrollbar select-none cursor-grab active:cursor-grabbing touch-pan-x ${isDragging ? '' : 'snap-x snap-mandatory'}`}
                 >
                     {loading ? (
-                       <div className="flex flex-col items-center justify-center w-full min-w-[200px]">
-                           <div className="w-8 h-8 border-4 border-[#1A1008]/20 border-t-[#1A1008] rounded-full animate-spin mb-2" />
-                       </div>
+                        <div className="flex flex-col items-center justify-center w-full min-w-[200px]">
+                            <div className="w-8 h-8 border-4 border-[#1A1008]/20 border-t-[#1A1008] rounded-full animate-spin mb-2" />
+                        </div>
                     ) : levelNodes.length === 0 ? (
                         <div className="flex flex-col items-center justify-center text-center px-6 min-w-[300px] text-[#1A1008]">
                             <div className="text-6xl mb-4 animate-bounce">🎨</div>
@@ -175,10 +203,11 @@ export default function LevelRoadmapPage() {
                         levelNodes.map((node, i) => (
                             <div key={node.artwork.id} id={`frame-${i}`} className="snap-center shrink-0 relative group">
                                 <button
-                                    onClick={() => {
+                                    onPointerUp={(e) => {
+                                        // Ignore if we just dragged
+                                        if (dragDistanceRef.current > 5) return;
                                         if (node.status !== 'locked') {
-                                            if (currentFrame === i) navigate(`/play/${node.artwork.id}`);
-                                            else goToFrame(i);
+                                            navigate(`/play/${node.artwork.id}`);
                                         }
                                     }}
                                     disabled={node.status === 'locked'}
@@ -232,31 +261,6 @@ export default function LevelRoadmapPage() {
                         </div>
                     </div>
                 )}
-            </div>
-            
-            {/* Bottom Controls */}
-            <div className="flex-none bg-[#1A1008] pb-6 pt-4 px-4 border-t border-black/20 flex flex-col items-center relative z-50 shadow-[0_-4px_20px_rgba(0,0,0,0.3)]">
-                <div className="text-[10px] uppercase tracking-[0.15em] text-[#FFFEF5]/40 font-bold mb-3 text-center">
-                    Scroll the gallery or tap buttons below to move Grandma
-                </div>
-                <div className="flex gap-2 p-1 overflow-x-auto w-full max-w-2xl hide-scrollbar pb-2">
-                    {levelNodes.map((n, i) => (
-                        <button
-                            key={i}
-                            onClick={() => goToFrame(i)}
-                            className={`px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap border transition-all flex items-center gap-2 flex-shrink-0 ${
-                                currentFrame === i 
-                                    ? 'bg-[#F5C842] text-[#1A1008] border-[#F5C842] shadow-[0_0_15px_rgba(245,200,66,0.3)] scale-105' 
-                                    : 'bg-[#FFFEF5]/5 text-[#FFFEF5]/70 border-[#FFFEF5]/10 hover:bg-[#FFFEF5]/15 hover:border-[#FFFEF5]/20'
-                            }`}
-                        >
-                            <span>{i + 1}. {n.artwork.title.split(' ')[0]}</span>
-                            {n.status === 'completed' && <span className={currentFrame === i ? "text-green-700" : "text-green-400"}>✓</span>}
-                            {n.status === 'current' && <span className={currentFrame === i ? "text-[#C8553A]" : "text-[#F5C842]"}>★</span>}
-                            {n.status === 'locked' && <Lock size={12} className="opacity-50" />}
-                        </button>
-                    ))}
-                </div>
             </div>
         </div>
     );
