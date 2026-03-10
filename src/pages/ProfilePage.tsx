@@ -1,3 +1,5 @@
+import MarieroseCharacter from '../components/ui/MarieroseCharacter';
+
 export default function ProfilePage() {
     return (
         <div className="h-full flex flex-col bg-[#1A1008] font-sans text-white overflow-hidden">
@@ -8,8 +10,10 @@ export default function ProfilePage() {
                 <div className="pt-12 pb-6 px-6 bg-gradient-to-b from-[#2A1A08] to-[#1A1008] flex flex-col items-center relative">
                     {/* Avatar */}
                     <div className="relative mb-3">
-                        <div className="w-20 h-20 rounded-full bg-[#F5C842] border-[3px] border-[#C8920A] flex items-center justify-center text-[38px] shadow-lg">
-                            👵
+                        <div className="w-20 h-20 rounded-full bg-gradient-to-b from-[#F5C842] to-[#C8920A] border-[3px] border-[#C8920A] flex items-center justify-center shadow-[0_4px_16px_rgba(245,200,66,0.3)] overflow-hidden">
+                            <div className="mt-2 w-[120px] h-[120px] flex items-center justify-center flex-shrink-0">
+                                <MarieroseCharacter width={100} height={100} />
+                            </div>
                         </div>
                         {/* Level Badge */}
                         <div className="absolute -bottom-2 -right-2 bg-[#2C3E50] border border-[#2A1A08] text-[#FFFEF5] text-[9px] font-bold px-2 py-0.5 rounded-md shadow-md">
@@ -63,10 +67,10 @@ export default function ProfilePage() {
                     <section>
                         <h2 className="text-[13px] font-bold text-white/80 mb-3 uppercase tracking-wider">This Week</h2>
                         <div className="bg-white/[0.04] border border-white/5 rounded-2xl p-4 flex justify-between items-center">
-                            {['M','T','W','T','F','S','S'].map((day, i) => {
+                            {['M', 'T', 'W', 'T', 'F', 'S', 'S'].map((day, i) => {
                                 const isPast = i < 4;
                                 const isToday = i === 4;
-                                
+
                                 let boxStyle = "bg-white/[0.04] border-white/5 text-white/30";
                                 if (isPast) boxStyle = "bg-[#F5C842] border-[#F5C842] text-[#1A1008] shadow-[0_0_10px_rgba(245,200,66,0.3)]";
                                 if (isToday) boxStyle = "bg-[#F5C842]/20 border-[#F5C842]/40 text-[#F5C842]";
@@ -94,11 +98,10 @@ export default function ProfilePage() {
                                 { icon: '🛡', name: 'Guardian', earned: false },
                             ].map((badge, i) => (
                                 <div key={i} className="flex flex-col items-center gap-2 shrink-0">
-                                    <div className={`w-[56px] h-[56px] rounded-full flex items-center justify-center text-2xl border ${
-                                        badge.earned 
-                                        ? 'border-[#C8920A] bg-[#C8920A]/15 shadow-inner' 
+                                    <div className={`w-[56px] h-[56px] rounded-full flex items-center justify-center text-2xl border ${badge.earned
+                                        ? 'border-[#C8920A] bg-[#C8920A]/15 shadow-inner'
                                         : 'border-white/5 bg-white/5 opacity-30 grayscale'
-                                    }`}>
+                                        }`}>
                                         {badge.icon}
                                     </div>
                                     <div className="text-[9px] font-bold text-white/50 tracking-wide uppercase">

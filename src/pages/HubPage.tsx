@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { ERAS } from '../config/eras';
+import MarieroseCharacter from '../components/ui/MarieroseCharacter';
 
 export default function HubPage() {
     const navigate = useNavigate();
@@ -36,7 +37,7 @@ export default function HubPage() {
                                 }}
                             >
                                 {/* Subtle background glow based on era color */}
-                                <div 
+                                <div
                                     className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity pointer-events-none"
                                     style={{ background: `radial-gradient(circle at right, ${era.color || '#F5C842'}, transparent)` }}
                                 />
@@ -55,7 +56,7 @@ export default function HubPage() {
                                         {era.period}
                                     </p>
                                 </div>
-                                
+
                                 {/* Status or arrow */}
                                 <div className="shrink-0 w-8 h-8 rounded-full border border-[#F5C842]/30 flex items-center justify-center text-[#F5C842] group-hover:bg-[#F5C842] group-hover:text-[#1A1008] transition-colors">
                                     →
@@ -65,17 +66,24 @@ export default function HubPage() {
                     </div>
 
                     {/* Mascot */}
-                    <div className="mt-14 text-center">
-                        <div className="text-5xl mb-3 animate-[idle-breathe_2.5s_ease-in-out_infinite]">
-                            👵
+                    <div className="mt-14 text-center pb-8">
+                        <div className="mb-4 flex flex-col items-center justify-center relative">
+                            {/* Ground reflection/shadow */}
+                            <div className="absolute bottom-1 w-24 h-4 bg-[#F5C842]/10 rounded-[100%] blur-[8px]" />
+
+                            <div className="relative animate-[idle-breathe_3s_ease-in-out_infinite]">
+                                <MarieroseCharacter width={110} height={110} />
+                            </div>
                         </div>
-                        <p className="text-white/40 text-xs font-bold tracking-wide uppercase">
-                            Take your time exploring each hall!
-                        </p>
+                        <div className="inline-block bg-[#1A1008] border border-[#F5C842]/20 shadow-lg px-4 py-2 rounded-xl">
+                            <p className="text-[#F5C842] text-[11px] font-bold tracking-wider uppercase">
+                                Take your time exploring!
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
-            
+
             <style>{`
                 @keyframes idle-breathe {
                     0%, 100% { transform: translateY(0); }

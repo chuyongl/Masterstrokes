@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import MarieroseCharacter from '../components/ui/MarieroseCharacter';
 
 const SLIDES = [
     {
@@ -31,16 +32,18 @@ const SLIDES = [
         title: 'Retired Professor. Amateur Detective.',
         desc: 'Help her track down the thief and recover the missing collection before it is lost forever.',
         content: (
-            <div className="w-full h-full flex flex-col items-center justify-center pt-10">
-                <div className="relative animate-[idle-breathe_3s_ease-in-out_infinite]">
+            <div className="w-full h-full flex flex-col items-center justify-center pt-16">
+                <div className="relative flex flex-col items-center animate-[idle-breathe_3s_ease-in-out_infinite]">
                     {/* Speech bubble */}
-                    <div className="absolute -top-16 left-1/2 w-48 -translate-x-1/2 bg-[#F5C842] text-[#1A1008] text-[13px] font-bold p-3 rounded-xl shadow-lg leading-snug text-center">
+                    <div className="relative z-10 w-56 bg-[#F5C842] text-[#1A1008] text-[14px] font-bold p-4 rounded-2xl shadow-xl leading-relaxed text-center mb-6">
                         "I've spent my whole life studying art. Nobody steals from MY museum."
-                        {/* Triangle */}
-                        <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-[#F5C842]" />
+                        {/* Triangle pointing down to character */}
+                        <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[10px] border-r-[10px] border-t-[12px] border-l-transparent border-r-transparent border-t-[#F5C842]" />
                     </div>
-                    {/* Avatar */}
-                    <div className="text-[80px] drop-shadow-2xl">👵</div>
+                    {/* Character */}
+                    <div className="flex items-center justify-center transform hover:scale-105 transition-transform duration-500">
+                        <MarieroseCharacter width={200} height={200} />
+                    </div>
                 </div>
             </div>
         )
@@ -61,7 +64,7 @@ const SLIDES = [
                             <path d="M0,100 L100,0 L100,100 Z" fill="currentColor" />
                         </svg>
                     </div>
-                    
+
                     {/* Thief Emoji */}
                     <div className="absolute inset-0 flex items-center justify-center">
                         <div className="text-[64px] animate-[swing_2s_ease-in-out_infinite] origin-bottom tracking-tighter">🥷</div>
@@ -94,7 +97,7 @@ export default function OnboardingPage() {
     return (
         <div className={`w-full h-dvh flex flex-col font-sans transition-colors duration-700 ${slide.theme}`}>
             <div className={`absolute top-0 left-0 right-0 h-[40vh] bg-gradient-to-b ${slide.gradient} pointer-events-none opacity-50`} />
-            
+
             <div className="flex-1 relative overflow-hidden">
                 {slide.content}
             </div>
@@ -114,8 +117,8 @@ export default function OnboardingPage() {
                     {/* Dots */}
                     <div className="flex gap-2">
                         {SLIDES.map((_, i) => (
-                            <div 
-                                key={i} 
+                            <div
+                                key={i}
                                 className={`h-1.5 rounded-full transition-all duration-300 ${i === currentSlide ? 'w-6 bg-[#F5C842]' : 'w-1.5 bg-white/20'}`}
                             />
                         ))}
@@ -124,14 +127,14 @@ export default function OnboardingPage() {
                     {/* Actions */}
                     <div className="flex items-center gap-4">
                         {currentSlide < SLIDES.length - 1 && (
-                            <button 
+                            <button
                                 onClick={finishOnboarding}
                                 className="text-white/40 text-xs font-bold uppercase tracking-wide hover:text-white/70 px-2"
                             >
                                 Skip
                             </button>
                         )}
-                        <button 
+                        <button
                             onClick={nextSlide}
                             className="bg-[#F5C842] text-[#1A1008] px-6 py-3 rounded-full text-[13px] font-bold uppercase tracking-wider shadow-[0_4px_16px_rgba(245,200,66,0.3)] hover:scale-105 active:scale-95 transition-transform"
                         >

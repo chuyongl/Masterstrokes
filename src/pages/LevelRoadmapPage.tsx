@@ -7,6 +7,7 @@ import { useUserStore } from '../store/userStore';
 import type { Artwork } from '../data/mockArtwork';
 import Picture from '../components/ui/Picture';
 import { urlToSlug } from '../utils/imageUtils';
+import MarieroseCharacter from '../components/ui/MarieroseCharacter';
 
 interface LevelNode {
     artwork: Artwork;
@@ -22,6 +23,8 @@ export default function LevelRoadmapPage() {
     const [currentFrame, setCurrentFrame] = useState(0);
     const [isWalking, setIsWalking] = useState(false);
     const scrollTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+    const bgRef = useRef<HTMLDivElement>(null);
+    const requestRef = useRef<number>(0);
 
     const [isDragging, setIsDragging] = useState(false);
     const dragDistanceRef = useRef(0);
@@ -118,6 +121,64 @@ export default function LevelRoadmapPage() {
         }, 150);
     };
 
+    const updateParallax = () => {
+        if (!scrollRef.current) return;
+
+        const container = scrollRef.current;
+        const scrollLeft = container.scrollLeft;
+        const containerWidth = container.clientWidth;
+        const maxScroll = container.scrollWidth - containerWidth;
+        const scrollProgress = maxScroll > 0 ? scrollLeft / maxScroll : 0;
+
+        if (bgRef.current) {
+            bgRef.current.style.transform = `translateX(${scrollProgress * -15}%)`;
+        }
+
+        levelNodes.forEach((_, i) => {
+            const el = document.getElementById(`frame-${i}`);
+            if (el) {
+                const rect = el.getBoundingClientRect();
+                const containerRect = container.getBoundingClientRect();
+                const elCenter = rect.left + rect.width / 2;
+                const containerCenter = containerRect.left + containerWidth / 2;
+
+                let distance = (elCenter - containerCenter) / (containerWidth / 2);
+                distance = Math.max(-1.5, Math.min(1.5, distance));
+
+                const rotateY = distance * 35;
+                const translateZ = Math.abs(distance) * -200;
+                const translateX = distance * 40;
+
+                // Active vs Inactive logic
+                const isActive = Math.abs(distance) < 0.2;
+
+                el.style.transform = `perspective(1000px) translateX(${translateX}px) translateZ(${translateZ}px) rotateY(${rotateY}deg)`;
+
+                // Style differences per user spec
+                if (isActive) {
+                    el.style.filter = 'brightness(1)';
+                    el.style.border = '3px solid #8B6914';
+                    el.style.boxShadow = '0 0 40px rgba(201,146,42,0.4)';
+                    el.style.transform += ' scale(1)'; // reset scale for active
+                } else {
+                    el.style.filter = 'brightness(0.55) blur(0.5px)';
+                    el.style.border = '2px solid #3D2800';
+                    el.style.boxShadow = 'none';
+                    el.style.transform += ' scale(0.85)';
+                }
+            }
+        });
+
+        requestRef.current = requestAnimationFrame(updateParallax);
+    };
+
+    useEffect(() => {
+        requestRef.current = requestAnimationFrame(updateParallax);
+        return () => {
+            if (requestRef.current) cancelAnimationFrame(requestRef.current);
+        };
+    }, [levelNodes.length]);
+
     // Auto-scroll to current (unlocked) level on initial load
     useEffect(() => {
         if (!loading && levelNodes.length > 0 && scrollRef.current) {
@@ -147,36 +208,46 @@ export default function LevelRoadmapPage() {
             `}</style>
 
             {/* Top Bar */}
-            <div className="flex-none h-16 border-b border-black/10 flex items-center justify-between px-4 z-50 shadow-md transition-colors" style={{ backgroundColor: wallColor }}>
+            <div className="flex-none h-16 border-b border-[#3D2800] flex items-center justify-between px-4 z-50 shadow-md transition-colors bg-[rgba(15,7,0,0.95)]">
                 <div className="flex items-center gap-3">
-                    <button onClick={() => navigate('/hub')} className="w-10 h-10 rounded-full bg-black/10 flex items-center justify-center text-[#1A1008] hover:bg-black/20 transition-colors">
+                    <button onClick={() => navigate('/hub')} className="w-10 h-10 rounded-full bg-[#1C0F00] flex items-center justify-center text-[#F5E6C8] hover:bg-[#2D1A00] transition-colors border border-[#3D2800]">
                         <ArrowLeft size={20} />
                     </button>
                     <div>
-                        <div className="font-serif text-lg md:text-xl font-bold text-[#1A1008] leading-tight flex items-center gap-2">
+                        <div className="font-serif text-lg md:text-xl font-bold text-[#F5E6C8] leading-tight flex items-center gap-2">
                             <span>{era.icon}</span> {era.name}
                         </div>
-                        <div className="text-[10px] md:text-xs text-[#1A1008]/70 font-bold uppercase tracking-wider">{era.period} &middot; {completedLevels.filter(id => levelNodes.some(n => n.artwork.id === id)).length} of {levelNodes.length} recovered</div>
+                        <div className="text-[10px] md:text-xs text-[#A89070] font-bold uppercase tracking-wider">{era.period} &middot; {completedLevels.filter(id => levelNodes.some(n => n.artwork.id === id)).length} of {levelNodes.length} recovered</div>
                     </div>
                 </div>
                 <div className="flex items-center gap-2">
                     <div className="hidden md:flex gap-1 mr-2">
                         {levelNodes.map((n, i) => (
-                            <div key={i} className={`w-2.5 h-2.5 rounded-full ${n.status === 'completed' ? 'bg-[#1A1008]' : n.status === 'current' ? 'bg-[#1A1008] ring-2 ring-[#1A1008]/40 border border-white/50' : 'bg-[#1A1008]/15'}`} />
+                            <div key={i} className={`w-2.5 h-2.5 rounded-full ${n.status === 'completed' ? 'bg-[#C9922A]' : n.status === 'current' ? 'bg-[#FFFFFF] shadow-[0_0_8px_#FFFFFF]' : 'bg-[rgba(255,255,255,0.2)]'}`} />
                         ))}
                     </div>
                 </div>
             </div>
 
             {/* Wall Container */}
-            <div className="flex-1 relative" style={{ backgroundColor: wallColor }}>
-                {/* Wall Texture */}
-                <div className="absolute inset-0 pointer-events-none opacity-20" style={{
-                    backgroundImage: `repeating-linear-gradient(90deg, rgba(26,16,8,0.05) 0px, transparent 2px, transparent 40px, rgba(26,16,8,0.05) 42px), repeating-linear-gradient(0deg, rgba(26,16,8,0.03) 0px, transparent 2px, transparent 40px, rgba(26,16,8,0.03) 42px)`
-                }} />
-
-                {/* Floor Line */}
-                <div className="absolute bottom-[44px] left-0 right-0 h-[3px] bg-[#1A1008]/10" />
+            <div className="flex-1 relative overflow-hidden bg-[#1C0F00]" style={{ perspective: '1000px' }}>
+                {/* 3D Pure CSS Background */}
+                <div
+                    ref={bgRef}
+                    className="absolute inset-0 h-full pointer-events-none"
+                    style={{
+                        width: '130%',
+                        background: `
+                            radial-gradient(ellipse at 50% 30%, rgba(180,120,40,0.12) 0%, transparent 60%),
+                            radial-gradient(ellipse at 15% 50%, rgba(255,140,0,0.06) 0%, transparent 40%),
+                            radial-gradient(ellipse at 85% 50%, rgba(255,140,0,0.06) 0%, transparent 40%),
+                            linear-gradient(180deg, #0D0700 0%, #1C0F00 40%, #150B00 100%)
+                        `
+                    }}
+                />
+                {/* Vignettes */}
+                <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.7) 0%, transparent 30%, transparent 70%, rgba(0,0,0,0.7) 100%)' }} />
+                <div className="absolute inset-x-0 top-0 h-[35%] pointer-events-none" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, transparent 100%)' }} />
 
                 {/* Scroll Area */}
                 <div
@@ -214,54 +285,67 @@ export default function LevelRoadmapPage() {
                                     className={`relative flex flex-col items-center transition-transform duration-300 hover:-translate-y-2 focus:outline-none ${node.status === 'locked' ? 'grayscale opacity-70 cursor-not-allowed' : 'cursor-pointer'}`}
                                 >
                                     {/* Frame shadow/outer */}
-                                    <div className={`relative p-3 md:p-4 shadow-2xl ${node.status === 'current' ? 'ring-4 ring-white/50 animate-[pulse_2s_ease-in-out_infinite]' : ''} border-2 border-[#1A1008]/10 rounded-sm bg-stone-100`}>
-                                        <div className="relative border-4 border-[#1A1008] p-1 bg-white">
+                                    <div className={`relative p-3 md:p-4 bg-[#2D1A00] transition-colors duration-500`}>
+                                        <div className="relative p-1 bg-[#1C0F00]">
+                                            {/* Torn setup for locked levels */}
+                                            {node.status === 'locked' && (
+                                                <div className="absolute inset-0 z-20 pointer-events-none mix-blend-multiply" style={{ background: 'linear-gradient(135deg, transparent 40%, rgba(192,57,43,0.25) 40%)' }} />
+                                            )}
                                             <Picture
                                                 slug={urlToSlug(node.artwork.imageUrl)}
                                                 alt={node.artwork.title}
                                                 variant="400"
-                                                imgClassName="w-40 h-56 md:w-64 md:h-80 object-cover shadow-inner bg-slate-200"
+                                                imgClassName={`w-40 h-56 md:w-64 md:h-80 object-cover ${node.status === 'locked' ? 'opacity-50 grayscale' : ''}`}
                                                 draggable={false}
                                             />
                                             {/* Status overlays */}
                                             {node.status === 'locked' && (
-                                                <div className="absolute inset-0 bg-[#1A1008]/50 flex items-center justify-center">
-                                                    <Lock className="text-white drop-shadow-md" size={32} />
+                                                <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+                                                    <Lock className="text-[#C0392B] drop-shadow-md" size={32} />
                                                 </div>
                                             )}
                                             {node.status === 'current' && (
-                                                <div className="absolute -top-4 -right-4 w-10 h-10 bg-[#C8553A] shadow-md flex items-center justify-center text-white text-lg z-10" style={{ clipPath: 'polygon(100% 0, 100% 100%, 0 0)' }}>
-                                                    <div className="absolute top-1 right-2">★</div>
+                                                <div className="absolute -top-4 -right-4 w-10 h-10 bg-[#C0392B] shadow-lg flex items-center justify-center text-white text-lg z-20" style={{ clipPath: 'polygon(100% 0, 100% 100%, 0 0)' }}>
+                                                    <div className="absolute top-1 right-2 animate-pulse">!</div>
                                                 </div>
                                             )}
                                             {node.status === 'completed' && (
-                                                <div className="absolute -bottom-4 -right-4 w-10 h-10 bg-[#1A1008] border-2 border-[#F5C842] rounded-full flex items-center justify-center text-[#F5C842] z-10 font-black text-lg">✓</div>
+                                                <div className="absolute -top-3 -right-3 w-8 h-8 bg-[#2D1A00] border border-[#C9922A] rounded-full flex items-center justify-center text-[#C9922A] z-20 font-black text-sm shadow-md">✓</div>
                                             )}
                                         </div>
                                     </div>
                                     <div className="absolute -bottom-16 text-center w-64 md:w-80 whitespace-nowrap">
-                                        <div className="text-xs uppercase tracking-[0.2em] font-bold text-[#1A1008] drop-shadow-sm line-clamp-1">{node.artwork.title}</div>
-                                        <div className="text-[10px] text-[#1A1008]/60 font-bold mt-1 uppercase tracking-[0.1em]">{node.artwork.artist}</div>
+                                        <div className="text-xs uppercase tracking-[0.2em] font-bold text-[#F5E6C8] drop-shadow-sm line-clamp-1">{node.artwork.title}</div>
+                                        <div className="text-[10px] text-[#A89070] font-bold mt-1 uppercase tracking-[0.1em]">{node.artwork.artist}</div>
                                     </div>
                                 </button>
                             </div>
                         ))
                     )}
                 </div>
+            </div>
 
-                {/* Grandma character (Fixed centered) */}
-                {levelNodes.length > 0 && !loading && (
-                    <div className="absolute bottom-[47px] left-1/2 transform -translate-x-1/2 pointer-events-none flex flex-col items-center z-40 transition-all duration-300">
-                        <div className={`bg-[#1A1008] text-[#F5C842] text-[11px] font-bold px-3 py-1.5 rounded-xl mb-1 relative shadow-2xl transition-all duration-200 ease-out max-w-[150px] text-center transform ${isWalking ? 'opacity-0 translate-y-2 scale-95' : 'opacity-100 translate-y-0 scale-100'}`}>
-                            {levelNodes[currentFrame]?.artwork.title || "Let's explore"}
-                            <div className="absolute -bottom-[5px] left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[6px] border-t-[#1A1008]" />
+            {/* Bottom Nav Placeholder Area (since user said bottom nav bg changed to #C9922A, we'll assume Layout.tsx handles that, but we position the dialogue bar above it) */}
+
+            {/* Marierose Dialogue Bar (Duolingo style) */}
+            {
+                levelNodes.length > 0 && !loading && (
+                    <div className="absolute left-6 bottom-16 z-50 flex items-end gap-2">
+                        {/* Character Avatar - Larger and more interactive */}
+                        <div className={`relative flex flex-col items-center justify-end drop-shadow-2xl transition-transform duration-300 ${isWalking ? 'scale-105' : 'hover:scale-105'}`}>
+                            <MarieroseCharacter width={260} height={260} />
                         </div>
-                        <div className={`text-5xl filter drop-shadow-xl transition-all ${isWalking ? 'animate-bounce' : 'animate-none'}`} style={{ animationDuration: '0.4s' }}>
-                            👵
+
+                        {/* Dialogue Text Bubble */}
+                        <div className="relative mb-32 max-w-[280px] sm:max-w-[400px] bg-[rgba(20,10,0,0.95)] backdrop-blur-md px-5 py-4 rounded-3xl rounded-bl-sm shadow-[0_8px_32px_rgba(0,0,0,0.6)] border border-[rgba(139,105,20,0.5)]">
+                            <p className="text-[#F5E6C8] text-sm md:text-base font-bold font-serif leading-relaxed">
+                                {/* In a real scenario this comes from artwork.marieroseQuote, using placeholder as requested */}
+                                "他拿走的不是最贵的。这才是让我睡不着的地方。"
+                            </p>
                         </div>
                     </div>
-                )}
-            </div>
+                )
+            }
         </div>
     );
 }
