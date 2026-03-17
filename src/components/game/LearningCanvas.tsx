@@ -1,300 +1,344 @@
-import { useState, useRef, useEffect } from 'react';
-import type { Artwork } from '../../data/mockArtwork';
+import { useState, useRef, useEffect, useCallback } from 'react';
+import type { Artwork, Hotspot } from '../../data/mockArtwork';
 import { useGameStore } from '../../store/gameStore';
 import Picture from '../ui/Picture';
 import { urlToSlug } from '../../utils/imageUtils';
+import MarieroseCharacter from '../ui/MarieroseCharacter';
 
 interface LearningCanvasProps {
     artwork: Artwork;
     onComplete: () => void;
 }
 
-export default function LearningCanvas({ artwork, onComplete }: LearningCanvasProps) {
-    const {
-        viewMode,
-        foundHotspots,
-        activeTooltip,
-        panPosition,
-        setViewMode,
-        markHotspotFound,
-        setActiveTooltip,
-        updatePan
-    } = useGameStore();
+// ─── Spotlight SVG overlay ────────────────────────────────────────────────────
+// Darkens everything except the target region(s), which glow like a spotlight
+interface SpotlightProps {
+    imgW: number;
+    imgH: number;
+    rects: { x: number; y: number; w: number; h: number }[]; // % coords
+    visible: boolean;
+}
 
+function SpotlightOverlay({ imgW, imgH, rects, visible }: SpotlightProps) {
+    if (!visible || imgW === 0) return null;
+
+    // Convert % to px with padding
+    const PAD = 4; // px padding around each rect
+    const masks = rects.map((r, i) => {
+        const rx = (r.x / 100) * imgW - PAD;
+        const ry = (r.y / 100) * imgH - PAD;
+        const rw = (r.w / 100) * imgW + PAD * 2;
+        const rh = (r.h / 100) * imgH + PAD * 2;
+        const radius = Math.min(8, rw * 0.06, rh * 0.06);
+        return (
+            <rect
+                key={i}
+                x={rx} y={ry} width={rw} height={rh}
+                rx={radius} ry={radius}
+                fill="white"
+            />
+        );
+    });
+
+    return (
+        <svg
+            className="absolute inset-0 pointer-events-none"
+            style={{
+                width: imgW,
+                height: imgH,
+                opacity: visible ? 1 : 0,
+                transition: 'opacity 0.4s ease',
+            }}
+            viewBox={`0 0 ${imgW} ${imgH}`}
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <defs>
+                <mask id="spotlight-mask">
+                    {/* White = show image normally; black = darken */}
+                    <rect x="0" y="0" width={imgW} height={imgH} fill="black" />
+                    {masks}
+                </mask>
+                {/* Soft blur for the glow edge */}
+                <filter id="glow-filter" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur stdDeviation="6" result="blur" />
+                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                </filter>
+            </defs>
+
+            {/* Dark overlay, masked to leave the spotlight areas clear */}
+            <rect
+                x="0" y="0" width={imgW} height={imgH}
+                fill="rgba(0,0,0,0.72)"
+                mask="url(#spotlight-mask)"
+            />
+
+            {/* Glow ring around each rect */}
+            {rects.map((r, i) => {
+                const rx = (r.x / 100) * imgW - PAD;
+                const ry = (r.y / 100) * imgH - PAD;
+                const rw = (r.w / 100) * imgW + PAD * 2;
+                const rh = (r.h / 100) * imgH + PAD * 2;
+                const radius = Math.min(8, rw * 0.06, rh * 0.06);
+                return (
+                    <rect
+                        key={i}
+                        x={rx} y={ry} width={rw} height={rh}
+                        rx={radius} ry={radius}
+                        fill="none"
+                        stroke="rgba(255,220,100,0.7)"
+                        strokeWidth="2"
+                        filter="url(#glow-filter)"
+                    />
+                );
+            })}
+        </svg>
+    );
+}
+
+// ─── Marierose General Point Dialogue ─────────────────────────────────────────
+interface MarieroseDialogueProps {
+    hotspot: Hotspot;
+    onDismiss: () => void;
+}
+
+function MarieroseDialogue({ hotspot, onDismiss }: MarieroseDialogueProps) {
+    return (
+        <div className="absolute inset-0 flex items-end justify-start z-50 pointer-events-none">
+            {/* Dimming overlay */}
+            <div className="absolute inset-0 bg-black/50 pointer-events-auto" onClick={onDismiss} />
+
+            {/* Dialogue card */}
+            <div className="relative z-10 flex items-end gap-3 p-4 pb-20 w-full pointer-events-auto">
+                {/* Marierose */}
+                <div className="flex-shrink-0 drop-shadow-2xl" style={{ filter: 'drop-shadow(0 4px 16px rgba(0,0,0,0.6))' }}>
+                    <MarieroseCharacter width={90} height={90} />
+                </div>
+
+                {/* Bubble */}
+                <div
+                    className="flex-1 rounded-2xl p-4 shadow-2xl animate-pop-in"
+                    style={{
+                        background: 'rgba(10, 8, 20, 0.95)',
+                        border: '1px solid rgba(147,210,255,0.35)',
+                        backdropFilter: 'blur(12px)',
+                        borderRadius: '16px 16px 16px 4px',
+                        boxShadow: '0 8px 32px rgba(0,0,0,0.6), 0 0 0 1px rgba(147,210,255,0.15)'
+                    }}
+                >
+                    <div className="text-[#93D2FF] text-xs font-black uppercase tracking-widest mb-1">
+                        {hotspot.label}
+                    </div>
+                    <p className="text-white/90 text-sm leading-relaxed">
+                        {hotspot.tooltip.text}
+                    </p>
+                    <button
+                        onClick={onDismiss}
+                        className="mt-3 px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all active:scale-95"
+                        style={{
+                            background: 'linear-gradient(135deg, #93D2FF, #5fa8e0)',
+                            color: '#000',
+                            boxShadow: '0 2px 12px rgba(147,210,255,0.4)'
+                        }}
+                    >
+                        Got it ✓
+                    </button>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+// ─── Main LearningCanvas ──────────────────────────────────────────────────────
+export default function LearningCanvas({ artwork, onComplete }: LearningCanvasProps) {
+    const { panPosition, updatePan } = useGameStore();
+
+    const [imageLoaded, setImageLoaded] = useState(false);
+    const [scale, setScale] = useState(0);
+    const [containerSize, setContainerSize] = useState({ width: 0, height: 0 });
     const [isDragging, setIsDragging] = useState(false);
     const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
     const [dragDistance, setDragDistance] = useState(0);
-    const [imageLoaded, setImageLoaded] = useState(false);
 
-    // State for hotspot hints
-    const [hintedHotspot, setHintedHotspot] = useState<string | null>(null);
-    const hintTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-    // Initialize scale at 0 to avoid "flash of huge image"
-    const [scale, setScale] = useState(0);
-    const [containerSize, setContainerSize] = useState({ width: 0, height: 0 });
+    // Learning flow state
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [phase, setPhase] = useState<'prompt' | 'revealed' | 'general'>('prompt');
+    const [wrongFlash, setWrongFlash] = useState(false);
+    const [hintActive, setHintActive] = useState(false);
+    const hintTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
     const imageRef = useRef<HTMLImageElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
+    const ZOOM_LEVEL = 1.15;
 
-    // Initial scale factor relative to "fit screen" size
-    // 1.2 = slightly zoomed in (20%), allowing good context + detail
-    const ZOOM_LEVEL = 1.2;
+    const currentPoint = artwork.learningPoints[currentIndex] ?? null;
+    const isGeneral = currentPoint?.pointType === 'general';
+    const isSpecific = currentPoint?.pointType === 'specific';
+    const progress = currentIndex / Math.max(artwork.learningPoints.length, 1);
 
-    // Resize observer to track container size
+    // ── Container resize observer
     useEffect(() => {
         if (!containerRef.current) return;
-
-        // Initial measurement
-        const rect = containerRef.current.getBoundingClientRect();
-        if (rect.width > 0 && rect.height > 0) {
-            setContainerSize({ width: rect.width, height: rect.height });
-        }
-
-        const observer = new ResizeObserver((entries) => {
-            for (const entry of entries) {
-                setContainerSize({
-                    width: entry.contentRect.width,
-                    height: entry.contentRect.height
-                });
+        const obs = new ResizeObserver(entries => {
+            for (const e of entries) {
+                setContainerSize({ width: e.contentRect.width, height: e.contentRect.height });
             }
         });
-
-        observer.observe(containerRef.current);
-        return () => observer.disconnect();
+        obs.observe(containerRef.current);
+        const rect = containerRef.current.getBoundingClientRect();
+        if (rect.width > 0) setContainerSize({ width: rect.width, height: rect.height });
+        return () => obs.disconnect();
     }, []);
 
-    // Calculate dynamic scale when entering exploration mode
+    // ── Calculate zoom scale on image load
     useEffect(() => {
-        if (viewMode === 'exploration' && imageRef.current && containerSize.width > 0) {
-            const img = imageRef.current;
-            const naturalWidth = img.naturalWidth;
-            const naturalHeight = img.naturalHeight;
-
-            if (naturalWidth > 0 && naturalHeight > 0) {
-                // Calculate scale to fit image within container
-                const scaleX = containerSize.width / naturalWidth;
-                const scaleY = containerSize.height / naturalHeight;
-                // Use the smaller scale to ensure image fits entirely
-                const fitScale = Math.min(scaleX, scaleY);
-
-                // Apply zoom level relative to fit scale
-                const targetScale = fitScale * ZOOM_LEVEL;
-
-                setScale(targetScale);
-            }
-        }
-    }, [viewMode, containerSize, imageLoaded]);
-
-    // Cleanup pan and hints on unmount
-    useEffect(() => {
-        return () => {
-            updatePan(0, 0);
-            if (hintTimeoutRef.current) clearTimeout(hintTimeoutRef.current);
-        };
-    }, []);
-
-    // Check if all hotspots found
-    useEffect(() => {
-        if (foundHotspots.length === artwork.learningPoints.length && foundHotspots.length > 0) {
-            setTimeout(() => {
-                onComplete();
-            }, 1500);
-        }
-    }, [foundHotspots, artwork.learningPoints.length, onComplete]);
-
-    // Handle exploration mode entry
-    const handleExplore = () => {
-        setViewMode('exploration');
-    };
-
-    // Zoom handler
-    const handleWheel = (e: React.WheelEvent) => {
-
+        if (!imageLoaded || !imageRef.current || containerSize.width === 0) return;
         const img = imageRef.current;
-        if (!img) return;
+        if (img.naturalWidth === 0) return;
+        const fitScale = Math.min(
+            containerSize.width / img.naturalWidth,
+            containerSize.height / img.naturalHeight
+        );
+        setScale(fitScale * ZOOM_LEVEL);
+    }, [imageLoaded, containerSize]);
 
-        const zoomSensitivity = 0.001;
-        const delta = -e.deltaY * zoomSensitivity;
-        const newScale = Math.max(0.5, Math.min(scale + delta, 4)); // Clamp zoom 0.5x to 4x
+    // ── Reset pan on unmount / new artwork
+    useEffect(() => {
+        updatePan(0, 0);
+        return () => { updatePan(0, 0); };
+    }, [artwork.id]);
 
-        setScale(newScale);
+    // ── Start general phase immediately for general points
+    useEffect(() => {
+        if (!currentPoint) return;
+        if (currentPoint.pointType === 'general') {
+            setPhase('general');
+        } else {
+            setPhase('prompt');
+            setHintActive(false);
+        }
+    }, [currentIndex]);
+
+    // ── Advance to next point or finish
+    const advance = useCallback(() => {
+        const next = currentIndex + 1;
+        if (next >= artwork.learningPoints.length) {
+            setTimeout(onComplete, 600);
+        } else {
+            setCurrentIndex(next);
+        }
+    }, [currentIndex, artwork.learningPoints.length, onComplete]);
+
+    // ── Hotspot click detection (specific points in 'prompt' phase only)
+    const handleImageClick = (e: React.MouseEvent) => {
+        if (phase !== 'prompt' || !isSpecific || !currentPoint) return;
+        if (dragDistance > 5) return;
+
+        const rect = imageRef.current?.getBoundingClientRect();
+        if (!rect) return;
+        const clickX = ((e.clientX - rect.left) / rect.width) * 100;
+        const clickY = ((e.clientY - rect.top) / rect.height) * 100;
+
+        const hit = checkHit(currentPoint, clickX, clickY);
+        if (hit) {
+            setPhase('revealed');
+            if (hintTimer.current) clearTimeout(hintTimer.current);
+        } else {
+            // Wrong: flash red
+            setWrongFlash(true);
+            setTimeout(() => setWrongFlash(false), 500);
+        }
     };
 
-    // Pan handlers
-    const handlePointerDown = (e: React.PointerEvent) => {
-        if (viewMode !== 'exploration') return;
+    const checkHit = (hotspot: Hotspot, cx: number, cy: number): boolean => {
+        const rects = hotspot.clickArea.rects;
+        if (rects && rects.length > 0) {
+            return rects.some(r => cx >= r.x && cx <= r.x + r.w && cy >= r.y && cy <= r.y + r.h);
+        }
+        if (hotspot.clickArea.rect) {
+            const { x, y, w, h } = hotspot.clickArea.rect;
+            return cx >= x && cx <= x + w && cy >= y && cy <= y + h;
+        }
+        const d = Math.sqrt(Math.pow(cx - hotspot.clickArea.x, 2) + Math.pow(cy - hotspot.clickArea.y, 2));
+        return d <= hotspot.clickArea.radius * 2;
+    };
 
+    // ── Get rects for spotlight (% coords)
+    const getSpotlightRects = (hotspot: Hotspot) => {
+        if (hotspot.highlightCircle.rects && hotspot.highlightCircle.rects.length > 0) {
+            return hotspot.highlightCircle.rects;
+        }
+        if (hotspot.highlightCircle.rect) {
+            return [hotspot.highlightCircle.rect];
+        }
+        const r = hotspot.highlightCircle.radius;
+        const cx = hotspot.highlightCircle.x;
+        const cy = hotspot.highlightCircle.y;
+        return [{ x: cx - r, y: cy - r, w: r * 2, h: r * 2 }];
+    };
+
+    // ── Hint timer: auto-show after 8s of no interaction
+    useEffect(() => {
+        if (phase !== 'prompt' || !isSpecific) return;
+        if (hintTimer.current) clearTimeout(hintTimer.current);
+        setHintActive(false);
+        hintTimer.current = setTimeout(() => setHintActive(true), 8000);
+        return () => { if (hintTimer.current) clearTimeout(hintTimer.current); };
+    }, [currentIndex, phase]);
+
+    // ── Pan handlers
+    const handlePointerDown = (e: React.PointerEvent) => {
         setIsDragging(true);
         setDragStart({ x: e.clientX - panPosition.x, y: e.clientY - panPosition.y });
         setDragDistance(0);
-
-        // Capture pointer to ensure we keep tracking even if mouse leaves div
         (e.target as HTMLElement).setPointerCapture(e.pointerId);
     };
-
     const handlePointerMove = (e: React.PointerEvent) => {
         if (!isDragging) return;
-
         const newX = e.clientX - dragStart.x;
         const newY = e.clientY - dragStart.y;
-
-        const distance = Math.sqrt(
-            Math.pow(e.clientX - (dragStart.x + panPosition.x), 2) +
-            Math.pow(e.clientY - (dragStart.y + panPosition.y), 2)
-        );
-        setDragDistance(distance);
-
-        // Clamping logic...
-        if (imageRef.current && containerSize.width > 0 && scale > 0) {
-            const scaledWidth = imageRef.current.naturalWidth * scale;
-            const scaledHeight = imageRef.current.naturalHeight * scale;
-
-            // Allow free movement but keep image somewhat in view
-            const maxPanX = scaledWidth * 0.75;
-            const maxPanY = scaledHeight * 0.75;
-
-            const clampedX = Math.max(Math.min(newX, maxPanX), -maxPanX);
-            const clampedY = Math.max(Math.min(newY, maxPanY), -maxPanY);
-
-            updatePan(clampedX, clampedY);
+        const d = Math.sqrt(Math.pow(e.clientX - (dragStart.x + panPosition.x), 2) + Math.pow(e.clientY - (dragStart.y + panPosition.y), 2));
+        setDragDistance(d);
+        if (imageRef.current && scale > 0) {
+            const maxX = imageRef.current.naturalWidth * scale * 0.6;
+            const maxY = imageRef.current.naturalHeight * scale * 0.6;
+            updatePan(Math.max(-maxX, Math.min(maxX, newX)), Math.max(-maxY, Math.min(maxY, newY)));
         } else {
             updatePan(newX, newY);
         }
     };
-
     const handlePointerUp = (e: React.PointerEvent) => {
         setIsDragging(false);
         (e.target as HTMLElement).releasePointerCapture(e.pointerId);
     };
-
-    // Hotspot click detection
-    const handleImageClick = (e: React.MouseEvent) => {
-        if (viewMode !== 'exploration') return;
-        if (dragDistance > 5) return; // Ignore if dragging
-
-        const imageRefRect = imageRef.current?.getBoundingClientRect();
-        if (!imageRefRect) return;
-
-        // Convert click to percentage coordinates
-        const clickX = ((e.clientX - imageRefRect.left) / imageRefRect.width) * 100;
-        const clickY = ((e.clientY - imageRefRect.top) / imageRefRect.height) * 100;
-
-        console.log(`🎯 Clicked at: x=${clickX.toFixed(1)}, y=${clickY.toFixed(1)}`);
-
-        let hitFound = false;
-
-        // Check each hotspot
-        for (const hotspot of artwork.learningPoints) {
-            if (foundHotspots.includes(hotspot.id)) continue;
-
-            if (hotspot.clickArea.rect) {
-                // Rectangular check
-                const { x, y, w, h } = hotspot.clickArea.rect;
-                if (clickX >= x && clickX <= x + w && clickY >= y && clickY <= y + h) {
-                    markHotspotFound(hotspot.id);
-                    setActiveTooltip(hotspot.id);
-                    hitFound = true;
-                    break;
-                }
-            } else {
-                // Circular check
-                const distance = Math.sqrt(
-                    Math.pow(clickX - hotspot.clickArea.x, 2) +
-                    Math.pow(clickY - hotspot.clickArea.y, 2)
-                );
-
-                // 1. Larger Hit Area (2x radius) for better usability
-                const hitRadiusMultiplier = 2.0;
-
-                if (distance <= hotspot.clickArea.radius * hitRadiusMultiplier) {
-                    markHotspotFound(hotspot.id);
-                    setActiveTooltip(hotspot.id);
-                    hitFound = true;
-                    // Manual dismissal only - no timeout
-                    break;
-                }
-            }
-        }
-
-        if (hitFound) {
-            // Already handled above, it activates the tooltip
-        } else if (activeTooltip) {
-            // Clicked empty space while a tooltip was open
-            setActiveTooltip(null);
-        }
+    const handleWheel = (e: React.WheelEvent) => {
+        setScale(s => Math.max(0.5, Math.min(4, s - e.deltaY * 0.001)));
     };
 
-    // Remaining labels (Filter out large ones completely from the strip)
-    const remainingLabels = artwork.learningPoints.filter(
-        (point) => {
-            if (foundHotspots.includes(point.id)) return false;
-
-            // Check if it's a large hotspot (>50% area)
-            let areaRatio = 0;
-            if (point.highlightCircle.rect) {
-                areaRatio = (point.highlightCircle.rect.w * point.highlightCircle.rect.h) / 10000;
-            } else {
-                areaRatio = (Math.PI * Math.pow(point.highlightCircle.radius, 2)) / 10000;
-            }
-            return areaRatio <= 0.5; // Only show if <= 50%
-        }
-    );
-
     const slug = urlToSlug(artwork.imageUrl);
-
-    // Loading State
-    if (!imageLoaded && !artwork.imageUrl) {
-        return <div className="w-full h-full bg-slate-900 flex items-center justify-center text-white">Loading...</div>;
-    }
+    const imgW = imageRef.current?.naturalWidth ?? 0;
+    const imgH = imageRef.current?.naturalHeight ?? 0;
 
     return (
-        <div ref={containerRef} className="relative w-full h-full bg-slate-900 overflow-hidden select-none touch-none">
-            {/* Hidden Image Preloader to get dimensions and load state */}
+        <div ref={containerRef} className="relative w-full h-full bg-black overflow-hidden select-none touch-none">
+            {/* Hidden preloader image */}
             <Picture
-                slug={slug}
-                alt="preload"
-                className="hidden"
-                ref={imageRef}
-                onLoad={() => setImageLoaded(true)}
-                priority
+                slug={slug} alt="preload"
+                className="hidden" ref={imageRef}
+                onLoad={() => setImageLoaded(true)} priority
             />
 
+            {/* Loading spinner */}
             {!imageLoaded && (
-                <div className="absolute inset-0 flex items-center justify-center z-50 bg-slate-900">
-                    <div className="animate-spin rounded-full h-12 w-12 border-4 border-slate-700 border-t-sky-500"></div>
+                <div className="absolute inset-0 flex items-center justify-center z-50 bg-black">
+                    <div className="w-10 h-10 border-2 border-[#93D2FF]/30 border-t-[#93D2FF] rounded-full animate-spin" />
                 </div>
             )}
 
-            {/* Overview State */}
-            {viewMode === 'overview' && imageLoaded && (
-                <div className="w-full h-full flex flex-col items-center justify-center p-8 animate-fade-in">
-                    <Picture
-                        slug={slug}
-                        alt={artwork.title}
-                        imgClassName="max-w-full max-h-[70vh] object-contain rounded-lg shadow-2xl"
-                        priority
-                    />
-                    <button
-                        onClick={handleExplore}
-                        className="mt-8 px-8 py-4 bg-sky-500 text-white font-bold text-lg rounded-full
-                                   shadow-lg hover:bg-sky-600 active:scale-95 transition-all animate-bounce-subtle"
-                    >
-                        Tap to Explore
-                    </button>
-                    {/* Instructions */}
-                    <p className="mt-4 text-slate-400 text-sm">
-                        Find {artwork.learningPoints.length} hidden details
-                    </p>
-                </div>
-            )}
-
-            {/* Exploration State */}
-            {viewMode === 'exploration' && imageLoaded && (
+            {imageLoaded && (
                 <>
-                    {/* Pannable Image Container */}
+                    {/* ── Image + overlay layer ── */}
                     <div
-                        className="absolute inset-0 flex items-center justify-center cursor-grab active:cursor-grabbing touch-none"
+                        className="absolute inset-0 flex items-center justify-center cursor-crosshair touch-none"
                         onPointerDown={handlePointerDown}
                         onPointerMove={handlePointerMove}
                         onPointerUp={handlePointerUp}
@@ -302,252 +346,120 @@ export default function LearningCanvas({ artwork, onComplete }: LearningCanvasPr
                         onWheel={handleWheel}
                         onClick={handleImageClick}
                     >
-                        <Picture
-                            ref={imageRef}
-                            slug={slug}
-                            alt={artwork.title}
-                            imgClassName="max-w-none select-none pointer-events-none"
+                        {/* Image */}
+                        <div
+                            className="relative"
                             style={{
                                 transform: `translate(${panPosition.x}px, ${panPosition.y}px) scale(${scale})`,
                                 transition: isDragging ? 'none' : 'transform 0.1s ease-out',
-                                willChange: 'transform',
-                                opacity: scale > 0 ? 1 : 0
+                                transformOrigin: 'center center',
+                                opacity: scale > 0 ? 1 : 0,
                             }}
-                            priority
-                            draggable={false}
-                        />
-                    </div>
+                        >
+                            <Picture
+                                ref={imageRef}
+                                slug={slug}
+                                alt={artwork.title}
+                                imgClassName="max-w-none select-none pointer-events-none block"
+                                draggable={false}
+                                priority
+                            />
 
-                    {/* Overlay Layer - Renders ON TOP of image but strictly follows its transform */}
-                    <div
-                        className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden"
-                        style={{ opacity: scale > 0 ? 1 : 0 }} // Hide until scale is calculated
-                    >
-                        <div style={{
-                            width: imageRef.current?.naturalWidth || 0,
-                            height: imageRef.current?.naturalHeight || 0,
-                            transform: `translate(${panPosition.x}px, ${panPosition.y}px) scale(${scale})`,
-                            transition: isDragging ? 'none' : 'transform 0.3s ease-out',
-                            transformOrigin: 'center center'
-                        }}>
-                            {/* Yellow Highlight Circles - Showing for ACTIVE tooltip AND HINTED hotspot */}
-                            {(activeTooltip || hintedHotspot) && (() => {
-                                const targetId = activeTooltip || hintedHotspot;
-                                const hotspot = artwork.learningPoints.find((p) => p.id === targetId);
-                                if (!hotspot) return null;
+                            {/* Spotlight overlay: only shown in 'revealed' phase for specific points */}
+                            {phase === 'revealed' && currentPoint && isSpecific && imgW > 0 && (
+                                <SpotlightOverlay
+                                    imgW={imgW}
+                                    imgH={imgH}
+                                    rects={getSpotlightRects(currentPoint)}
+                                    visible={true}
+                                />
+                            )}
 
-                                const isHint = targetId === hintedHotspot && !activeTooltip;
-
-                                return (
-                                    <>
-                                        {/* The Highlight Circle or Box */}
-                                        {hotspot.highlightCircle.rect ? (
-                                            <div
-                                                key={hotspot.id}
-                                                className={`absolute border-4 border-amber-400 border-dashed animate-pulse-subtle bg-amber-400/10 ${isHint ? 'animate-ping-once opacity-80' : ''}`}
-                                                style={{
-                                                    left: `${hotspot.highlightCircle.rect.x}%`,
-                                                    top: `${hotspot.highlightCircle.rect.y}%`,
-                                                    width: `${hotspot.highlightCircle.rect.w}%`,
-                                                    height: `${hotspot.highlightCircle.rect.h}%`,
-                                                    filter: 'drop-shadow(0 0 6px rgba(255, 215, 0, 0.4))'
-                                                }}
-                                            />
-                                        ) : (
-                                            <div
-                                                key={hotspot.id}
-                                                className={`absolute ${isHint ? 'animate-ping-once' : ''}`}
-                                                style={{
-                                                    left: `${hotspot.highlightCircle.x}%`,
-                                                    top: `${hotspot.highlightCircle.y}%`,
-                                                    // 3. Larger visual circle (2.5x radius)
-                                                    width: `${hotspot.highlightCircle.radius * 2.5}%`,
-                                                    height: `${hotspot.highlightCircle.radius * 2.5}%`,
-                                                    transform: 'translate(-50%, -50%)',
-                                                    filter: 'drop-shadow(0 0 4px rgba(255, 215, 0, 0.6))'
-                                                }}
-                                            >
-                                                <svg width="100%" height="100%" viewBox="0 0 100 100" className={isHint ? '' : 'animate-pulse-subtle'}>
-                                                    {/* Main thick stroke */}
-                                                    <circle
-                                                        cx="50"
-                                                        cy="50"
-                                                        r={isHint ? "46" : "42"} // Slightly larger for hint
-                                                        fill={isHint ? "rgba(255, 215, 0, 0.2)" : "none"} // Fill for hint to make it more obvious
-                                                        stroke="#FFD700"
-                                                        strokeWidth={isHint ? "8" : "6"}
-                                                        strokeLinecap="round"
-                                                        strokeDasharray={isHint ? "none" : "85 15"}
-                                                        transform="rotate(-15 50 50)"
-                                                    />
-                                                    {/* Secondary accent stroke for sloppy/spray look */}
-                                                    {!isHint && (
-                                                        <circle
-                                                            cx="52"
-                                                            cy="48"
-                                                            r="42"
-                                                            fill="none"
-                                                            stroke="#FFA000"
-                                                            strokeWidth="2"
-                                                            strokeLinecap="round"
-                                                            strokeDasharray="40 200"
-                                                            transform="rotate(160 50 50)"
-                                                            opacity="0.7"
-                                                        />
-                                                    )}
-                                                </svg>
-                                            </div>
-                                        )}
-                                    </>
-                                );
-                            })()}
+                            {/* Hint spotlight (dim effect when hint is active in prompt phase) */}
+                            {phase === 'prompt' && hintActive && currentPoint && isSpecific && imgW > 0 && (
+                                <SpotlightOverlay
+                                    imgW={imgW}
+                                    imgH={imgH}
+                                    rects={getSpotlightRects(currentPoint)}
+                                    visible={true}
+                                />
+                            )}
                         </div>
                     </div>
 
+                    {/* ── Red flash on wrong tap ── */}
+                    {wrongFlash && (
+                        <div className="absolute inset-0 bg-red-500/20 pointer-events-none animate-pulse z-40" />
+                    )}
 
-                    {/* UI Overlays (Static) */}
-
-                    {/* Progress Bar */}
-                    <div className="absolute top-4 left-4 right-4 bg-slate-700/80 rounded-full h-3 overflow-hidden pointer-events-none z-50">
+                    {/* ── Progress bar ── */}
+                    <div className="absolute top-0 left-0 right-0 h-1 bg-white/10 z-50">
                         <div
-                            className="h-full bg-gradient-to-r from-sky-400 to-sky-600 transition-all duration-500"
+                            className="h-full transition-all duration-500"
                             style={{
-                                width: `${(foundHotspots.length / artwork.learningPoints.length) * 100}%`
+                                width: `${progress * 100}%`,
+                                background: 'linear-gradient(to right, #93D2FF, #5fa8e0)'
                             }}
                         />
                     </div>
 
-                    {/* Smart On-Screen HUD Tooltip */}
-                    {activeTooltip && (() => {
-                        const hotspot = artwork.learningPoints.find((p) => p.id === activeTooltip);
-                        if (!hotspot || !imageRef.current || containerSize.width === 0) return null;
+                    {/* ── Point counter ── */}
+                    <div className="absolute top-3 right-4 z-50 text-white/50 text-xs font-bold tracking-widest">
+                        {currentIndex + 1} / {artwork.learningPoints.length}
+                    </div>
 
-                        const imgW = imageRef.current.naturalWidth || 1;
-                        const imgH = imageRef.current.naturalHeight || 1;
-                        const cx = containerSize.width / 2;
-                        const cy = containerSize.height / 2;
+                    {/* ── SPECIFIC POINT: Prompt at bottom ── */}
+                    {phase === 'prompt' && isSpecific && currentPoint && (
+                        <div
+                            className="absolute bottom-0 left-0 right-0 p-4 pb-6 z-50"
+                            style={{
+                                background: 'linear-gradient(to top, rgba(0,0,0,0.95) 60%, transparent)',
+                                pointerEvents: 'none'
+                            }}
+                        >
+                            <div className="max-w-lg mx-auto text-center">
+                                <div className="text-[#93D2FF] text-[10px] font-black uppercase tracking-[0.25em] mb-1">
+                                    Find on the artwork
+                                </div>
+                                <div className="text-white font-bold text-base leading-snug">
+                                    {currentPoint.label}
+                                </div>
+                                {hintActive && (
+                                    <div className="mt-2 text-white/50 text-xs animate-pulse">
+                                        💡 Hint revealed — tap anywhere near the glowing area
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    )}
 
-                        let hx, hy, hw, hh;
-                        if (hotspot.highlightCircle.rect) {
-                            hx = hotspot.highlightCircle.rect.x;
-                            hy = hotspot.highlightCircle.rect.y;
-                            hw = hotspot.highlightCircle.rect.w;
-                            hh = hotspot.highlightCircle.rect.h;
-                        } else {
-                            const r = hotspot.highlightCircle.radius;
-                            hx = hotspot.highlightCircle.x - r;
-                            hy = hotspot.highlightCircle.y - r;
-                            hw = r * 2;
-                            hh = r * 2;
-                        }
-
-                        // Convert % to centered native pixels, then apply scale and pan
-                        const px = (hx / 100 - 0.5) * imgW;
-                        const py = (hy / 100 - 0.5) * imgH;
-                        const pw = (hw / 100) * imgW;
-                        const ph = (hh / 100) * imgH;
-
-                        const screenX = cx + px * scale + panPosition.x;
-                        const screenY = cy + py * scale + panPosition.y;
-                        const screenW = pw * scale;
-                        const screenH = ph * scale;
-
-                        // Tooltip estimated bounds
-                        const tW = 280;
-                        const tH = 180;
-                        const margin = 16;
-
-                        // Start with center above the box
-                        let finalX = screenX + screenW / 2 - tW / 2;
-                        let finalY = screenY - tH - margin;
-
-                        // Check if it fits safely above
-                        if (finalY >= margin) {
-                            // Valid
-                        }
-                        // See if it fits safely below
-                        else if (screenY + screenH + margin + tH <= containerSize.height - margin) {
-                            finalY = screenY + screenH + margin;
-                        }
-                        // Left
-                        else if (screenX - tW - margin >= margin) {
-                            finalX = screenX - tW - margin;
-                            finalY = screenY + screenH / 2 - tH / 2;
-                        }
-                        // Right
-                        else if (screenX + screenW + margin + tW <= containerSize.width - margin) {
-                            finalX = screenX + screenW + margin;
-                            finalY = screenY + screenH / 2 - tH / 2;
-                        }
-                        // Overlap inevitably
-                        else {
-                            finalX = containerSize.width / 2 - tW / 2;
-                            finalY = containerSize.height / 2 - tH / 2;
-                        }
-
-                        // Absolute limits clamping
-                        if (finalX < margin) finalX = margin;
-                        if (finalX + tW > containerSize.width - margin) finalX = containerSize.width - tW - margin;
-                        if (finalY < margin) finalY = margin;
-
-                        return (
-                            <div
-                                className="absolute z-[100] w-[280px] pointer-events-auto"
-                                style={{
-                                    left: `${finalX}px`,
-                                    top: `${finalY}px`,
-                                    transition: isDragging ? 'none' : 'all 0.15s ease-out'
-                                }}
-                            >
-                                <div className="bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-2xl border-2 border-slate-100 flex flex-col items-center gap-2 animate-pop-in">
-                                    <h4 className="text-sky-600 font-extrabold text-sm uppercase tracking-wide text-center">
-                                        {hotspot.label}
-                                    </h4>
-                                    <div className="w-8 h-0.5 bg-slate-200 rounded-full mb-1"></div>
-                                    <p className="text-sm text-slate-800 leading-relaxed font-medium text-center">
-                                        {hotspot.tooltip.text}
-                                    </p>
-                                    <button
-                                        onClick={(e) => {
-                                            e.stopPropagation();
-                                            setActiveTooltip(null);
-                                        }}
-                                        className="mt-2 w-10 h-10 flex items-center justify-center bg-green-500 hover:bg-green-600 active:scale-95 text-white rounded-full shadow-lg transition-all border-2 border-white"
-                                    >
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                                            <polyline points="20 6 9 17 4 12"></polyline>
-                                        </svg>
-                                    </button>
+                    {/* ── SPECIFIC POINT: Revealed tooltip ── */}
+                    {phase === 'revealed' && isSpecific && currentPoint && (
+                        <div
+                            className="absolute bottom-0 left-0 right-0 p-4 pb-6 z-50"
+                            style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.95) 60%, transparent)' }}
+                            onClick={() => advance()}
+                        >
+                            <div className="max-w-lg mx-auto">
+                                <div className="text-[#93D2FF] text-[10px] font-black uppercase tracking-[0.25em] mb-1">
+                                    ✓ Found
+                                </div>
+                                <div className="text-white font-bold text-sm mb-1">
+                                    {currentPoint.label}
+                                </div>
+                                <p className="text-white/75 text-sm leading-relaxed">
+                                    {currentPoint.tooltip.text}
+                                </p>
+                                <div className="mt-3 text-white/40 text-xs text-center animate-pulse">
+                                    Tap anywhere to continue →
                                 </div>
                             </div>
-                        );
-                    })()}
-
-                    {/* Bottom Label Strip (Hide when tooltip is active to avoid clutter) */}
-                    {!activeTooltip && remainingLabels.length > 0 && (
-                        <div className="absolute bottom-0 left-0 right-0 bg-slate-800/90 p-4 flex gap-3 justify-center flex-wrap z-50 pb-8">
-                            {remainingLabels.map((point) => (
-                                <button
-                                    key={point.id}
-                                    onClick={() => {
-                                        // Clear existing hint first to restart animation
-                                        setHintedHotspot(null);
-                                        if (hintTimeoutRef.current) clearTimeout(hintTimeoutRef.current);
-
-                                        // Slight delay ensures state reset before applying new hint
-                                        setTimeout(() => {
-                                            setHintedHotspot(point.id);
-                                            hintTimeoutRef.current = setTimeout(() => {
-                                                setHintedHotspot(null);
-                                            }, 2000); // 2 second hint duration
-                                        }, 10);
-                                    }}
-                                    className="px-4 py-2 bg-slate-700 hover:bg-slate-600 active:scale-95 transition-all text-white text-xs md:text-sm font-semibold rounded-full border border-slate-500 shadow-md cursor-pointer"
-                                >
-                                    {point.label}
-                                </button>
-                            ))}
                         </div>
+                    )}
+
+                    {/* ── GENERAL POINT: Marierose dialogue ── */}
+                    {phase === 'general' && currentPoint && (
+                        <MarieroseDialogue hotspot={currentPoint} onDismiss={advance} />
                     )}
                 </>
             )}

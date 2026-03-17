@@ -2,8 +2,9 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 import LoginPage from './pages/LoginPage';
 import GamePage from './pages/GamePage';
-import EraSelectionPage from './pages/EraSelectionPage'; // "Map" tab
-import LevelRoadmapPage from './pages/LevelRoadmapPage'; // "Museum" tab
+import EraSelectionPage from './pages/EraSelectionPage';
+import LevelRoadmapPage from './pages/LevelRoadmapPage';
+import ArtworkChapterPage from './pages/ArtworkChapterPage';
 import CollectionPage from './pages/CollectionPage';
 import ProfilePage from './pages/ProfilePage';
 import OnboardingPage from './pages/OnboardingPage';
@@ -35,7 +36,12 @@ function App() {
           
           {/* Specific era override (if they navigate backwards) */}
           <Route path="era/:eraId" element={<LevelRoadmapPage />} />
-          
+
+          {/* Artwork chapter map */}
+          <Route path="artwork/:artworkId" element={<ArtworkChapterPage />} />
+
+          {/* Chapter gameplay: artworkId + chapterIndex */}
+          <Route path="play/:artworkId/:chapterId" element={<GamePage />} />
           <Route path="play/:levelId" element={<GamePage />} />
           <Route path="play/tutorial" element={<GamePage />} />
           <Route path="*" element={<Navigate to="/" replace />} />

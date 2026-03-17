@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!--
+    连续叙事：同一人物从左到右重复出现3次，箭头指示时间方向
+    用简化人形（圆头+身体线）表示
+  -->
+  <!-- 人物1（最左，小/过去） -->
+  <circle cx="18" cy="48" r="5" stroke="#F5C842" stroke-width="0.8" stroke-opacity="0.6" fill="none"/>
+  <line x1="18" y1="53" x2="18" y2="70" stroke="#F5C842" stroke-width="0.8" stroke-opacity="0.6"/>
+  <line x1="18" y1="58" x2="12" y2="65" stroke="#F5C842" stroke-width="0.7" stroke-opacity="0.5"/>
+  <line x1="18" y1="58" x2="24" y2="65" stroke="#F5C842" stroke-width="0.7" stroke-opacity="0.5"/>
+  <!-- 人物2（中，标准） -->
+  <circle cx="50" cy="45" r="6" stroke="#F5C842" stroke-width="0.9" stroke-opacity="0.75" fill="none"/>
+  <line x1="50" y1="51" x2="50" y2="70" stroke="#F5C842" stroke-width="0.9" stroke-opacity="0.75"/>
+  <line x1="50" y1="57" x2="42" y2="66" stroke="#F5C842" stroke-width="0.8" stroke-opacity="0.65"/>
+  <line x1="50" y1="57" x2="58" y2="66" stroke="#F5C842" stroke-width="0.8" stroke-opacity="0.65"/>
+  <!-- 人物3（最右，强/未来） -->
+  <circle cx="82" cy="42" r="7" stroke="#F5C842" stroke-width="1" stroke-opacity="0.9" fill="none"/>
+  <line x1="82" y1="49" x2="82" y2="70" stroke="#F5C842" stroke-width="1" stroke-opacity="0.9"/>
+  <line x1="82" y1="57" x2="73" y2="66" stroke="#F5C842" stroke-width="0.9" stroke-opacity="0.8"/>
+  <line x1="82" y1="57" x2="91" y2="66" stroke="#F5C842" stroke-width="0.9" stroke-opacity="0.8"/>
+  <!-- 时间箭头 -->
+  <line x1="10" y1="85" x2="90" y2="85" stroke="#F5C842" stroke-width="0.7" stroke-opacity="0.5" stroke-dasharray="3 2"/>
+  <polygon points="90,83 94,85 90,87" fill="#F5C842" fill-opacity="0.6"/>
+</svg>

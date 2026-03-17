@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!--
+    引导线：多条线从四角/边缘汇聚到消失点（右侧中偏上）
+    经典如：道路、走廊、铁路轨道透视
+  -->
+  <!-- 消失点 -->
+  <circle cx="72" cy="42" r="2.5" fill="#F5C842" fill-opacity="0.95"/>
+  <!-- 从左下角汇聚 -->
+  <line x1="4"  y1="96" x2="72" y2="42" stroke="#F5C842" stroke-width="0.9" stroke-opacity="0.85"/>
+  <!-- 从左上角汇聚 -->
+  <line x1="4"  y1="10" x2="72" y2="42" stroke="#F5C842" stroke-width="0.9" stroke-opacity="0.85"/>
+  <!-- 从左中汇聚 -->
+  <line x1="4"  y1="53" x2="72" y2="42" stroke="#F5C842" stroke-width="0.7" stroke-opacity="0.6" stroke-dasharray="4 2"/>
+  <!-- 从底中汇聚 -->
+  <line x1="42" y1="96" x2="72" y2="42" stroke="#F5C842" stroke-width="0.7" stroke-opacity="0.55" stroke-dasharray="4 2"/>
+  <!-- 消失点光晕 -->
+  <circle cx="72" cy="42" r="6" stroke="#F5C842" stroke-width="0.5" stroke-opacity="0.3" fill="none"/>
+</svg>

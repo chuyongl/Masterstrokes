@@ -1,13 +1,14 @@
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
 import { ArrowLeft, Lock } from 'lucide-react';
 import { ERAS, ARTWORK_ERA_MAP } from '../config/eras';
-import { getAllArtworks } from '../services/sheetsApi';
+import { getAllArtworks, getEraEntryDialogues } from '../services/sheetsApi';
 import { useUserStore } from '../store/userStore';
 import type { Artwork } from '../data/mockArtwork';
 import Picture from '../components/ui/Picture';
 import { urlToSlug } from '../utils/imageUtils';
 import MarieroseCharacter from '../components/ui/MarieroseCharacter';
+
 
 interface LevelNode {
     artwork: Artwork;
@@ -17,6 +18,7 @@ interface LevelNode {
 export default function LevelRoadmapPage() {
     const { eraId } = useParams<{ eraId: string }>();
     const navigate = useNavigate();
+    const location = useLocation();
     const [artworks, setArtworks] = useState<Artwork[]>([]);
     const [loading, setLoading] = useState(true);
     const scrollRef = useRef<HTMLDivElement>(null);
@@ -25,6 +27,12 @@ export default function LevelRoadmapPage() {
     const scrollTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
     const bgRef = useRef<HTMLDivElement>(null);
     const requestRef = useRef<number>(0);
+    const [dialogueVisible, setDialogueVisible] = useState(false);
+    const [dialogueText, setDialogueText] = useState('');
+    const dialogueTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+    const dialogueIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+    const dialogueQueueRef = useRef<string[]>([]);
+    const dialogueIndexRef = useRef(0);
 
     const [isDragging, setIsDragging] = useState(false);
     const dragDistanceRef = useRef(0);
@@ -77,6 +85,71 @@ export default function LevelRoadmapPage() {
         }
         loadArtworks();
     }, [activeEraId]);
+
+    const showNextDialogueRef = useRef<(() => void) | null>(null);
+
+    // Dialogue system: load from Sheet, show first immediately, then rotate every 2 min
+    useEffect(() => {
+        if (artworks.length === 0) return;
+
+        const totalInEra = artworks.length;
+        const completedInEra = artworks.filter(a => completedLevels.includes(a.id)).length;
+        const justCompleted = (location.state as { justCompleted?: boolean } | null)?.justCompleted;
+
+        let progressState: 'first_entry' | 'in_progress' | 'post_level' | 'near_complete';
+        if (justCompleted) {
+            progressState = 'post_level';
+        } else if (completedInEra === 0) {
+            progressState = 'first_entry';
+        } else if (totalInEra > 0 && completedInEra / totalInEra >= 2 / 3) {
+            progressState = 'near_complete';
+        } else if (totalInEra > 0 && completedInEra / totalInEra >= 1 / 3) {
+            progressState = 'in_progress';
+        } else {
+            progressState = 'first_entry';
+        }
+
+        // Clear any existing timers
+        if (dialogueTimerRef.current) clearTimeout(dialogueTimerRef.current);
+        if (dialogueIntervalRef.current) clearInterval(dialogueIntervalRef.current);
+
+        const showNext = () => {
+            const q = dialogueQueueRef.current;
+            if (!q.length) return;
+            const text = q[dialogueIndexRef.current % q.length];
+            dialogueIndexRef.current++;
+            setDialogueText(text);
+            setDialogueVisible(true);
+
+            // Hide after 10s
+            if (dialogueTimerRef.current) clearTimeout(dialogueTimerRef.current);
+            dialogueTimerRef.current = setTimeout(() => setDialogueVisible(false), 10000);
+
+            // Reset the 2-min rotating timer every time we show a dialogue
+            if (dialogueIntervalRef.current) clearInterval(dialogueIntervalRef.current);
+            dialogueIntervalRef.current = setInterval(showNext, 2 * 60 * 1000);
+        };
+
+        showNextDialogueRef.current = showNext;
+
+        getEraEntryDialogues(activeEraId, progressState).then(lines => {
+            if (!lines.length) return;
+            // Shuffle
+            const shuffled = [...lines].sort(() => Math.random() - 0.5);
+            dialogueQueueRef.current = shuffled;
+            dialogueIndexRef.current = 0;
+            // Show first one immediately
+            showNext();
+        });
+
+        return () => {
+            if (dialogueTimerRef.current) clearTimeout(dialogueTimerRef.current);
+            if (dialogueIntervalRef.current) clearInterval(dialogueIntervalRef.current);
+            showNextDialogueRef.current = null;
+        };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [activeEraId, artworks, completedLevels]);
+
 
     const levelNodes: LevelNode[] = artworks.map((artwork, index) => {
         let status: 'locked' | 'current' | 'completed' = 'current'; // Unlocked for testing
@@ -278,7 +351,7 @@ export default function LevelRoadmapPage() {
                                         // Ignore if we just dragged
                                         if (dragDistanceRef.current > 5) return;
                                         if (node.status !== 'locked') {
-                                            navigate(`/play/${node.artwork.id}`);
+                                            navigate(`/artwork/${node.artwork.id}`);
                                         }
                                     }}
                                     disabled={node.status === 'locked'}
@@ -330,18 +403,46 @@ export default function LevelRoadmapPage() {
             {/* Marierose Dialogue Bar (Duolingo style) */}
             {
                 levelNodes.length > 0 && !loading && (
-                    <div className="absolute left-6 bottom-16 z-50 flex items-end gap-2">
-                        {/* Character Avatar - Larger and more interactive */}
-                        <div className={`relative flex flex-col items-center justify-end drop-shadow-2xl transition-transform duration-300 ${isWalking ? 'scale-105' : 'hover:scale-105'}`}>
-                            <MarieroseCharacter width={260} height={260} />
-                        </div>
-
-                        {/* Dialogue Text Bubble */}
-                        <div className="relative mb-32 max-w-[280px] sm:max-w-[400px] bg-[rgba(20,10,0,0.95)] backdrop-blur-md px-5 py-4 rounded-3xl rounded-bl-sm shadow-[0_8px_32px_rgba(0,0,0,0.6)] border border-[rgba(139,105,20,0.5)]">
-                            <p className="text-[#F5E6C8] text-sm md:text-base font-bold font-serif leading-relaxed">
-                                {/* In a real scenario this comes from artwork.marieroseQuote, using placeholder as requested */}
-                                "他拿走的不是最贵的。这才是让我睡不着的地方。"
+                    <div className="absolute left-4 bottom-16 z-50 flex flex-col items-start">
+                        {/* Dialogue bubble positioned above character, aligned to her head */}
+                        <div
+                            className={`relative mb-1 ml-10 max-w-[260px] transition-all duration-500 ${dialogueVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2 pointer-events-none'
+                                }`}
+                            style={{
+                                background: 'rgba(15,7,0,0.92)',
+                                backdropFilter: 'blur(8px)',
+                                border: '1px solid rgba(201,146,42,0.5)',
+                                borderRadius: '16px 16px 16px 4px',
+                                padding: '12px 16px',
+                                boxShadow: '0 4px 24px rgba(0,0,0,0.5)',
+                            }}
+                        >
+                            {/* Tail pointing down-left toward character head */}
+                            <div className="absolute -bottom-2 left-4 w-0 h-0"
+                                style={{
+                                    borderLeft: '8px solid transparent',
+                                    borderRight: '8px solid transparent',
+                                    borderTop: '8px solid rgba(201,146,42,0.5)',
+                                }} />
+                            <p className="text-[#F5E6C8] text-sm font-['Jost'] leading-relaxed">
+                                {dialogueText}
                             </p>
+                        </div>
+                        {/* Clickable Character Wrapper */}
+                        <div
+                            className="relative cursor-pointer group active:scale-[0.98] transition-transform duration-200"
+                            onClick={() => {
+                                if (showNextDialogueRef.current) {
+                                    showNextDialogueRef.current();
+                                }
+                            }}
+                        >
+                            <MarieroseCharacter width={260} height={260} />
+
+                            {/* Hover Hint */}
+                            <div className="absolute top-[40%] right-0 translate-x-[90%] opacity-0 group-hover:opacity-100 transition-opacity bg-[#1C0F00]/90 text-[#F5E6C8] font-bold text-[10px] uppercase tracking-wider px-3 py-1.5 rounded-full border border-[#3D2800] pointer-events-none drop-shadow-md whitespace-nowrap">
+                                Tap to chat
+                            </div>
                         </div>
                     </div>
                 )

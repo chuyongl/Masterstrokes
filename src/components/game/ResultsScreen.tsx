@@ -7,9 +7,10 @@ import { urlToSlug } from '../../utils/imageUtils';
 
 interface ResultsScreenProps {
     artwork: Artwork;
+    onContinue?: () => void;
 }
 
-export default function ResultsScreen({ artwork }: ResultsScreenProps) {
+export default function ResultsScreen({ artwork, onContinue }: ResultsScreenProps) {
     const navigate = useNavigate();
     const { userAnswers, overlaidImages, startTime, endTime, resetGame } = useGameStore();
 
@@ -29,13 +30,15 @@ export default function ResultsScreen({ artwork }: ResultsScreenProps) {
     const seconds = timeTaken % 60;
 
     const handleContinue = () => {
-        // Mark level as complete
         useUserStore.getState().markLevelComplete(artwork.id);
-
         resetGame();
-        // Redirect to the Era Roadmap (e.g., /era/dutch-golden-age) instead of Hub
-        navigate(`/era/${artwork.era}`);
+        if (onContinue) {
+            onContinue();
+        } else {
+            navigate(`/era/${artwork.era}`);
+        }
     };
+
 
     return (
         <div className="relative w-full h-full bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 overflow-auto">

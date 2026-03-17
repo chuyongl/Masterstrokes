@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- 三角形：顶点居中偏上，底边贴近底部 -->
+  <polygon
+    points="50,8 92,88 8,88"
+    stroke="#F5C842"
+    stroke-width="0.9"
+    stroke-opacity="0.85"
+    fill="none"
+  />
+  <!-- 顶点标记 -->
+  <circle cx="50"  cy="8"  r="1.5" fill="#F5C842" fill-opacity="0.9"/>
+  <circle cx="92"  cy="88" r="1.5" fill="#F5C842" fill-opacity="0.9"/>
+  <circle cx="8"   cy="88" r="1.5" fill="#F5C842" fill-opacity="0.9"/>
+</svg>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- 倒三角：顶边在上，顶点向下 -->
+  <polygon points="8,12 92,12 50,90" stroke="#F5C842" stroke-width="0.9" stroke-opacity="0.85" fill="none"/>
+  <circle cx="8"  cy="12" r="1.5" fill="#F5C842" fill-opacity="0.9"/>
+  <circle cx="92" cy="12" r="1.5" fill="#F5C842" fill-opacity="0.9"/>
+  <circle cx="50" cy="90" r="1.5" fill="#F5C842" fill-opacity="0.9"/>
+</svg>

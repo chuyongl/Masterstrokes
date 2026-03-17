@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!--
+    碎片化：同一轮廓从多角度碎裂，立体主义风格
+    用错位的多边形碎片表示同一主体被打散
+  -->
+  <!-- 碎片1（左上） -->
+  <polygon points="20,10 45,8 38,35 14,32" stroke="#F5C842" stroke-width="0.8" stroke-opacity="0.8" fill="#F5C842" fill-opacity="0.06"/>
+  <!-- 碎片2（右上） -->
+  <polygon points="50,5 80,12 72,38 46,30" stroke="#F5C842" stroke-width="0.8" stroke-opacity="0.8" fill="#F5C842" fill-opacity="0.08"/>
+  <!-- 碎片3（左中） -->
+  <polygon points="8,38 36,36 30,62 6,58"  stroke="#F5C842" stroke-width="0.8" stroke-opacity="0.75" fill="#F5C842" fill-opacity="0.05"/>
+  <!-- 碎片4（中） -->
+  <polygon points="40,32 68,28 74,58 42,64" stroke="#F5C842" stroke-width="0.9" stroke-opacity="0.85" fill="#F5C842" fill-opacity="0.09"/>
+  <!-- 碎片5（右中） -->
+  <polygon points="76,15 94,20 90,50 70,44" stroke="#F5C842" stroke-width="0.8" stroke-opacity="0.75" fill="#F5C842" fill-opacity="0.06"/>
+  <!-- 碎片6（左下） -->
+  <polygon points="10,62 34,60 28,86 6,82"  stroke="#F5C842" stroke-width="0.8" stroke-opacity="0.7" fill="#F5C842" fill-opacity="0.05"/>
+  <!-- 碎片7（右下） -->
+  <polygon points="48,66 80,60 86,90 44,92" stroke="#F5C842" stroke-width="0.8" stroke-opacity="0.8" fill="#F5C842" fill-opacity="0.07"/>
+  <!-- 裂缝线（碎片间隔） -->
+  <line x1="46" y1="8"  x2="38" y2="35" stroke="#F5C842" stroke-width="0.4" stroke-opacity="0.4" stroke-dasharray="1 1"/>
+  <line x1="36" y1="36" x2="42" y2="64" stroke="#F5C842" stroke-width="0.4" stroke-opacity="0.4" stroke-dasharray="1 1"/>
+  <line x1="72" y1="38" x2="74" y2="60" stroke="#F5C842" stroke-width="0.4" stroke-opacity="0.4" stroke-dasharray="1 1"/>
+</svg>

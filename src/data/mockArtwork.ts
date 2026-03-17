@@ -1,8 +1,18 @@
 export interface Hotspot {
     id: string;
     label: string;
-    clickArea: { x: number; y: number; radius: number, rect?: { x: number, y: number, w: number, h: number } }; // % coordinates
-    highlightCircle: { x: number; y: number; radius: number, rect?: { x: number, y: number, w: number, h: number } }; // % coordinates
+    pointType: 'general' | 'specific';
+    categoryTag?: string;
+    clickArea: {
+        x: number; y: number; radius: number;
+        rect?: { x: number; y: number; w: number; h: number };
+        rects?: { x: number; y: number; w: number; h: number }[];  // multi-rect support
+    };
+    highlightCircle: {
+        x: number; y: number; radius: number;
+        rect?: { x: number; y: number; w: number; h: number };
+        rects?: { x: number; y: number; w: number; h: number }[];
+    };
     tooltip: {
         text: string;
         position: 'top' | 'bottom' | 'left' | 'right';

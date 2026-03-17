@@ -1,99 +1,183 @@
 {
   "artwork_id": "book-of-dead-hunefer",
-  "title": "",
-  "date": "",
-  "era": "",
+  "title": "Book of the Dead of Hunefer",
+  "date": "c. 1310–1275 BCE",
+  "era": "ancient-art",
   "image_filename": "book-of-dead-hunefer.jpg",
   "quiz_regions": [
     {
-      "id": "region_1772572965563",
-      "point_id": "bodh-2",
-      "label": "Comic Strip",
-      "x": 0.0225,
-      "y": 0.3919,
-      "w": 0.4255,
-      "h": 0.4433
-    },
-    {
-      "id": "region_1772572985402",
+      "id": "region_1773766358489",
       "point_id": "bodh-3",
-      "label": "Heart vs Feather",
-      "x": 0.1389,
-      "y": 0.7255,
-      "w": 0.27,
-      "h": 0.1205
+      "label": "The Scale",
+      "rects": [
+        {
+          "x": 0.1511,
+          "y": 0.4613,
+          "w": 0.2682,
+          "h": 0.4174
+        }
+      ]
     },
     {
-      "id": "region_1772573018626",
+      "id": "region_1773766383985",
       "point_id": "bodh-4",
       "label": "Anubis Twice",
-      "x": 0.1017,
-      "y": 0.3704,
-      "w": 0.1624,
-      "h": 0.2625
+      "rects": [
+        {
+          "x": 0.0864,
+          "y": 0.4063,
+          "w": 0.0705,
+          "h": 0.4549
+        },
+        {
+          "x": 0.2193,
+          "y": 0.5312,
+          "w": 0.0636,
+          "h": 0.3549
+        }
+      ]
     },
     {
-      "id": "region_1772573037146",
+      "id": "region_1773766417930",
       "point_id": "bodh-5",
       "label": "Ammit",
-      "x": 0.2915,
-      "y": 0.5791,
-      "w": 0.0851,
-      "h": 0.2905
+      "rects": [
+        {
+          "x": 0.2966,
+          "y": 0.6162,
+          "w": 0.0807,
+          "h": 0.265
+        }
+      ]
     },
     {
-      "id": "region_1772573068042",
-      "point_id": "bodh-6",
-      "label": "Fixed Outcome",
-      "x": 0.7073,
-      "y": 0.2779,
-      "w": 0.2534,
-      "h": 0.5466
-    },
-    {
-      "id": "region_1772573095867",
+      "id": "region_1773766492234",
       "point_id": "bodh-7",
-      "label": "Thoth Writing",
-      "x": 0.4109,
-      "y": 0.3898,
-      "w": 0.1017,
-      "h": 0.4777
+      "label": "Thoth",
+      "rects": [
+        {
+          "x": 0.4182,
+          "y": 0.4088,
+          "w": 0.0864,
+          "h": 0.4674
+        }
+      ]
     },
     {
-      "id": "region_1772573110019",
+      "id": "region_1773766516513",
       "point_id": "bodh-8",
-      "label": "Fourteen Witnesses",
-      "x": 0.0264,
-      "y": 0.1165,
-      "w": 0.6584,
-      "h": 0.1937
+      "label": "The Witnesses",
+      "rects": [
+        {
+          "x": 0.1068,
+          "y": 0.1338,
+          "w": 0.5693,
+          "h": 0.1825
+        }
+      ]
     },
     {
-      "id": "region_1772573141546",
+      "id": "region_1773766555753",
       "point_id": "bodh-9",
-      "label": "Osiris Enthroned",
-      "x": 0.7679,
-      "y": 0.2392,
-      "w": 0.1291,
-      "h": 0.5788
+      "label": "Osiris",
+      "rects": [
+        {
+          "x": 0.7761,
+          "y": 0.3038,
+          "w": 0.1,
+          "h": 0.4674
+        }
+      ]
     },
     {
-      "id": "region_1772573157955",
+      "id": "region_1773766636610",
       "point_id": "bodh-10",
-      "label": "Hieroglyphic Band",
-      "x": 0.0372,
-      "y": 0.3037,
-      "w": 0.6486,
-      "h": 0.1721
+      "label": "The Text",
+      "rects": [
+        {
+          "x": 0.0091,
+          "y": 0.3288,
+          "w": 0.6705,
+          "h": 0.11
+        }
+      ]
     },
     {
-      "id": "region_1772573173634",
-      "point_id": "bodh-1",
-      "label": "Royal Scribe",
-      "x": 0.0127,
-      "y": 0.0111,
-      "w": 0.9675,
-      "h": 0.9597
+      "id": "region_1773766805465",
+      "point_id": "bodh-13",
+      "label": "White Platform",
+      "rects": [
+        {
+          "x": 0.6693,
+          "y": 0.7587,
+          "w": 0.3125,
+          "h": 0.12
+        }
+      ]
+    },
+    {
+      "id": "region_1773766847250",
+      "point_id": "bodh-19",
+      "label": "Horus Eye",
+      "rects": [
+        {
+          "x": 0.7023,
+          "y": 0.2838,
+          "w": 0.1159,
+          "h": 0.175
+        }
+      ]
+    },
+    {
+      "id": "region_1773766867169",
+      "point_id": "bodh-20",
+      "label": "Horus Sons",
+      "rects": [
+        {
+          "x": 0.6966,
+          "y": 0.4713,
+          "w": 0.0761,
+          "h": 0.2125
+        }
+      ]
+    },
+    {
+      "id": "region_1773766903801",
+      "point_id": "bodh-21",
+      "label": "Ankh",
+      "rects": [
+        {
+          "x": 0.0966,
+          "y": 0.1538,
+          "w": 0.0341,
+          "h": 0.0975
+        },
+        {
+          "x": 0.8034,
+          "y": 0.3988,
+          "w": 0.0852,
+          "h": 0.1425
+        },
+        {
+          "x": 0.1455,
+          "y": 0.1238,
+          "w": 0.233,
+          "h": 0.1275
+        }
+      ]
+    },
+    {
+      "id": "region_1773766996482",
+      "point_id": "bodh-22",
+      "label": "Isis",
+      "rects": [
+        {
+          "x": 0.8841,
+          "y": 0.3163,
+          "w": 0.0625,
+          "h": 0.5049
+        }
+      ]
     }
   ]
 }

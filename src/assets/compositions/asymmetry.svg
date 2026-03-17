@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!--
+    非对称平衡：左侧大重量块，右侧小但偏远的配重
+    用矩形示意视觉重量
+  -->
+  <!-- 左侧大块（视觉重） -->
+  <rect x="8" y="28" width="38" height="48" stroke="#F5C842" stroke-width="0.9" stroke-opacity="0.85" fill="#F5C842" fill-opacity="0.1"/>
+  <!-- 右侧小块（视觉轻但位置远） -->
+  <rect x="68" y="45" width="22" height="28" stroke="#F5C842" stroke-width="0.9" stroke-opacity="0.85" fill="#F5C842" fill-opacity="0.07"/>
+  <!-- 中心轴（虚线，平衡基准） -->
+  <line x1="50" y1="10" x2="50" y2="90" stroke="#F5C842" stroke-width="0.6" stroke-opacity="0.45" stroke-dasharray="3 2"/>
+  <!-- 视觉重量标注箭头 -->
+  <line x1="27" y1="20" x2="27" y2="26" stroke="#F5C842" stroke-width="0.7" stroke-opacity="0.6"/>
+  <text x="18" y="18" font-family="sans-serif" font-size="6" fill="#F5C842" fill-opacity="0.6">heavy</text>
+  <line x1="79" y1="38" x2="79" y2="43" stroke="#F5C842" stroke-width="0.7" stroke-opacity="0.6"/>
+  <text x="70" y="37" font-family="sans-serif" font-size="6" fill="#F5C842" fill-opacity="0.6">light</text>
+</svg>

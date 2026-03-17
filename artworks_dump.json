@@ -1,0 +1,452 @@
+[
+  {
+    "artwork_id": "chauvet-panel-lions",
+    "title": "Panel of the Lions",
+    "artist": "Unknown",
+    "museum": "In situ, Chauvet-Pont d'Arc Cave",
+    "museum_location": "Ardèche, France",
+    "sub-era": "Prehistoric",
+    "year": "c. 32,000–30,000 BCE",
+    "era": "ancient-art"
+  },
+  {
+    "artwork_id": "chauvet-panel-horses",
+    "title": "Panel of the Horses",
+    "artist": "Unknown",
+    "museum": "In situ, Chauvet-Pont d'Arc Cave",
+    "museum_location": "Ardèche, France",
+    "sub-era": "Prehistoric",
+    "year": "c. 32,000–30,000 BCE",
+    "era": "ancient-art"
+  },
+  {
+    "artwork_id": "lascaux-hall-bulls",
+    "title": "Hall of the Bulls",
+    "artist": "Unknown",
+    "museum": "In situ, Lascaux Cave",
+    "museum_location": "Dordogne, France",
+    "sub-era": "Prehistoric",
+    "year": "c. 17,000–15,000 BCE",
+    "era": "ancient-art"
+  },
+  {
+    "artwork_id": "lascaux-shaft-scene",
+    "title": "The Shaft Scene (Bird-Headed Man)",
+    "artist": "Unknown",
+    "museum": "In situ, Lascaux Cave",
+    "museum_location": "Dordogne, France",
+    "sub-era": "Prehistoric",
+    "year": "c. 17,000–15,000 BCE",
+    "era": "ancient-art"
+  },
+  {
+    "artwork_id": "altamira-ceiling",
+    "title": "Polychrome Ceiling",
+    "artist": "Unknown",
+    "museum": "In situ, Cave of Altamira",
+    "museum_location": "Cantabria, Spain",
+    "sub-era": "Prehistoric",
+    "year": "c. 14,000 BCE",
+    "era": "ancient-art"
+  },
+  {
+    "artwork_id": "el-castillo-hands",
+    "title": "Panel of Hands and Red Disks",
+    "artist": "Unknown",
+    "museum": "In situ, Cave of El Castillo",
+    "museum_location": "Cantabria, Spain",
+    "sub-era": "Prehistoric",
+    "year": "c. 39,000–35,000 BCE",
+    "era": "ancient-art"
+  },
+  {
+    "artwork_id": "investiture-zimri-lim",
+    "title": "Investiture of Zimri-Lim",
+    "artist": "Unknown",
+    "museum": "Musée du Louvre",
+    "museum_location": "Paris, France",
+    "sub-era": "Mesopotamian",
+    "year": "c. 1775 BCE",
+    "era": "ancient-art"
+  },
+  {
+    "artwork_id": "mari-sacrificial-procession",
+    "title": "Sacrificial Procession Fresco",
+    "artist": "Unknown",
+    "museum": "Musée du Louvre",
+    "museum_location": "Paris, France",
+    "sub-era": "Mesopotamian",
+    "year": "c. 1775 BCE",
+    "era": "ancient-art"
+  },
+  {
+    "artwork_id": "standard-of-ur",
+    "title": "Standard of Ur",
+    "artist": "Unknown",
+    "museum": "The British Museum",
+    "museum_location": "London, United Kingdom",
+    "sub-era": "Mesopotamian",
+    "year": "c. 2600–2400 BCE",
+    "era": "ancient-art"
+  },
+  {
+    "artwork_id": "tell-uqair-painted-temple",
+    "title": "Tell Uqair Painted Temple Frescoes",
+    "artist": "Unknown",
+    "museum": "Iraq Museum",
+    "museum_location": "Baghdad, Iraq",
+    "sub-era": "Mesopotamian",
+    "year": "c. 3000 BCE",
+    "era": "ancient-art"
+  },
+  {
+    "artwork_id": "samarra-painted-bowl",
+    "title": "Samarra Period Painted Bowl",
+    "artist": "Unknown",
+    "museum": "Vorderasiatisches Museum",
+    "museum_location": "Berlin, Germany",
+    "sub-era": "Mesopotamian",
+    "year": "c. 5500–4800 BCE",
+    "era": "ancient-art"
+  },
+  {
+    "artwork_id": "narmer-palette",
+    "title": "Narmer Palette",
+    "artist": "Unknown",
+    "museum": "Egyptian Museum",
+    "museum_location": "Cairo, Egypt",
+    "sub-era": "Mesopotamian",
+    "year": "c. 3100 BCE",
+    "era": "ancient-art"
+  },
+  {
+    "artwork_id": "nebamun-tomb-paintings",
+    "title": "Tomb Paintings of Nebamun",
+    "artist": "Unknown",
+    "museum": "The British Museum",
+    "museum_location": "London, United Kingdom",
+    "sub-era": "Ancient-Egyptian",
+    "year": "c. 1350 BCE",
+    "era": "ancient-art"
+  },
+  {
+    "artwork_id": "book-of-dead-hunefer",
+    "title": "Book of the Dead of Hunefer",
+    "artist": "Unknown",
+    "museum": "The British Museum",
+    "museum_location": "London, United Kingdom",
+    "sub-era": "Ancient-Egyptian",
+    "year": "c. 1310–1275 BCE",
+    "era": "ancient-art"
+  },
+  {
+    "artwork_id": "book-of-dead-ani",
+    "title": "Book of the Dead of Ani",
+    "artist": "Unknown",
+    "museum": "The British Museum",
+    "museum_location": "London, United Kingdom",
+    "sub-era": "Ancient-Egyptian",
+    "year": "c. 1250 BCE",
+    "era": "ancient-art"
+  },
+  {
+    "artwork_id": "nefertari-tomb-paintings",
+    "title": "Tomb Paintings of Nefertari (QV66)",
+    "artist": "Unknown",
+    "museum": "In situ, Valley of the Queens",
+    "museum_location": "Luxor, Egypt",
+    "sub-era": "Ancient-Egyptian",
+    "year": "c. 1255 BCE",
+    "era": "ancient-art"
+  },
+  {
+    "artwork_id": "tutankhamun-tomb-paintings",
+    "title": "Tomb Paintings of Tutankhamun (KV62)",
+    "artist": "Unknown",
+    "museum": "In situ, Valley of the Kings",
+    "museum_location": "Luxor, Egypt",
+    "sub-era": "Ancient-Egyptian",
+    "year": "c. 1323 BCE",
+    "era": "ancient-art"
+  },
+  {
+    "artwork_id": "amarna-princess-fresco",
+    "title": "Princess Fresco from Amarna",
+    "artist": "Unknown",
+    "museum": "Ashmolean Museum",
+    "museum_location": "Oxford, United Kingdom",
+    "sub-era": "Ancient-Egyptian",
+    "year": "c. 1353–1336 BCE",
+    "era": "ancient-art"
+  },
+  {
+    "artwork_id": "exekias-dionysus-cup",
+    "title": "Dionysus Cup",
+    "artist": "Exekias",
+    "museum": "Staatliche Antikensammlungen",
+    "museum_location": "Munich, Germany",
+    "sub-era": "Ancient-Greco-Roman",
+    "year": "c. 530 BCE",
+    "era": "ancient-art"
+  },
+  {
+    "artwork_id": "achilles-painter-lekythos",
+    "title": "White-Ground Lekythos with Warrior Farewell",
+    "artist": "Achilles Painter",
+    "museum": "The British Museum",
+    "museum_location": "London, United Kingdom",
+    "sub-era": "Ancient-Greco-Roman",
+    "year": "c. 440 BCE",
+    "era": "ancient-art"
+  },
+  {
+    "artwork_id": "alexander-mosaic",
+    "title": "Alexander Mosaic",
+    "artist": "Unknown (after Philoxenus of Eretria)",
+    "museum": "Museo Archeologico Nazionale di Napoli",
+    "museum_location": "Naples, Italy",
+    "sub-era": "Ancient-Greco-Roman",
+    "year": "c. 100 BCE",
+    "era": "ancient-art"
+  },
+  {
+    "artwork_id": "villa-of-mysteries-frescoes",
+    "title": "Villa of the Mysteries Frescoes",
+    "artist": "Unknown",
+    "museum": "In situ, Villa of the Mysteries",
+    "museum_location": "Pompeii, Italy",
+    "sub-era": "Ancient-Greco-Roman",
+    "year": "c. 60–70 BCE",
+    "era": "ancient-art"
+  },
+  {
+    "artwork_id": "livia-garden-fresco",
+    "title": "Garden Room Fresco from the Villa of Livia",
+    "artist": "Unknown",
+    "museum": "Palazzo Massimo alle Terme",
+    "museum_location": "Rome, Italy",
+    "sub-era": "Ancient-Greco-Roman",
+    "year": "c. 30–20 BCE",
+    "era": "ancient-art"
+  },
+  {
+    "artwork_id": "odyssey-landscapes",
+    "title": "Odyssey Landscapes",
+    "artist": "Unknown",
+    "museum": "Biblioteca Apostolica Vaticana",
+    "museum_location": "Vatican City",
+    "sub-era": "Ancient-Greco-Roman",
+    "year": "c. 50–40 BCE",
+    "era": "ancient-art"
+  },
+  {
+    "artwork_id": "fayum-mummy-portraits",
+    "title": "Fayum Mummy Portraits",
+    "artist": "Various",
+    "museum": "Multiple museums (British Museum, Metropolitan Museum of Art, Louvre)",
+    "museum_location": "London, UK / New York, USA / Paris, France",
+    "sub-era": "Ancient-Greco-Roman",
+    "year": "c. 50–250 CE",
+    "era": "ancient-art"
+  },
+  {
+    "artwork_id": "padmapani-cave1",
+    "title": "Bodhisattva Padmapani",
+    "artist": "Unknown",
+    "museum": "In situ, Ajanta Cave 1",
+    "museum_location": "Aurangabad, Maharashtra, India",
+    "sub-era": "Ancient-Indian",
+    "year": "c. 475–500 CE",
+    "era": "ancient-art"
+  },
+  {
+    "artwork_id": "adoration-buddha-cave17",
+    "title": "The Adoration of the Buddha Albert",
+    "artist": "Unknown",
+    "museum": "In situ, Ajanta Cave 17",
+    "museum_location": "Aurangabad, Maharashtra, India",
+    "sub-era": "Ancient-Indian",
+    "year": "c. 460–480 CE",
+    "era": "ancient-art"
+  },
+  {
+    "artwork_id": "flying-apsara-cave17",
+    "title": "Flying Apsara",
+    "artist": "Unknown",
+    "museum": "In situ, Ajanta Cave 17",
+    "museum_location": "Aurangabad, Maharashtra, India",
+    "sub-era": "Ancient-Indian",
+    "year": "c. 475–500 CE",
+    "era": "ancient-art"
+  },
+  {
+    "artwork_id": "chaddanta-jataka-cave17",
+    "title": "Chaddanta Jataka (The Six-Tusked Elephant)",
+    "artist": "Unknown",
+    "museum": "In situ, Ajanta Cave 17",
+    "museum_location": "Aurangabad, Maharashtra, India",
+    "sub-era": "Ancient-Indian",
+    "year": "c. 475–500 CE",
+    "era": "ancient-art"
+  },
+  {
+    "artwork_id": "simhala-avadana-cave17",
+    "title": "Simhala Avadana (The Ship Mural)",
+    "artist": "Unknown",
+    "museum": "In situ, Ajanta Cave 17",
+    "museum_location": "Aurangabad, Maharashtra, India",
+    "sub-era": "Ancient-Indian",
+    "year": "c. 475–500 CE",
+    "era": "ancient-art"
+  },
+  {
+    "artwork_id": "yangshao-fish-basin",
+    "title": "Painted Pottery Basin with Human Face and Fish",
+    "artist": "Unknown",
+    "museum": "National Museum of China",
+    "museum_location": "Beijing, China",
+    "sub-era": "Ancient-Chinese",
+    "year": "c. 4500–3500 BCE",
+    "era": "ancient-art"
+  },
+  {
+    "artwork_id": "zidanku-lady-phoenix",
+    "title": "Silk Painting of a Lady with Phoenix and Dragon",
+    "artist": "Unknown",
+    "museum": "Hunan Provincial Museum",
+    "museum_location": "Changsha, Hunan, China",
+    "sub-era": "Ancient-Chinese",
+    "year": "c. 4th–3rd century BCE",
+    "era": "ancient-art"
+  },
+  {
+    "artwork_id": "zidanku-man-dragon",
+    "title": "Silk Painting of a Man Riding a Dragon",
+    "artist": "Unknown",
+    "museum": "Hunan Provincial Museum",
+    "museum_location": "Changsha, Hunan, China",
+    "sub-era": "Ancient-Chinese",
+    "year": "c. 4th–3rd century BCE",
+    "era": "ancient-art"
+  },
+  {
+    "artwork_id": "mawangdui-banner-t1",
+    "title": "Funeral Banner of Lady Dai (T-shaped Silk Painting)",
+    "artist": "Unknown",
+    "museum": "Hunan Provincial Museum",
+    "museum_location": "Changsha, Hunan, China",
+    "sub-era": "Ancient-Chinese",
+    "year": "c. 168 BCE",
+    "era": "ancient-art"
+  },
+  {
+    "artwork_id": "mawangdui-red-coffin",
+    "title": "Painted Red Inner Coffin of Lady Dai",
+    "artist": "Unknown",
+    "museum": "Hunan Provincial Museum",
+    "museum_location": "Changsha, Hunan, China",
+    "sub-era": "Ancient-Chinese",
+    "year": "c. 168 BCE",
+    "era": "ancient-art"
+  },
+  {
+    "artwork_id": "ravenna-justinian-mosaic",
+    "title": "Emperor Justinian and His Court",
+    "artist": "Unknown",
+    "museum": "Basilica of San Vitale",
+    "museum_location": "Ravenna, Italy",
+    "sub-era": "Medieval",
+    "year": "c. 547 CE",
+    "era": "ancient-art"
+  },
+  {
+    "artwork_id": "vienna-genesis",
+    "title": "Vienna Genesis (Rebecca at the Well)",
+    "artist": "Unknown",
+    "museum": "Österreichische Nationalbibliothek",
+    "museum_location": "Vienna, Austria",
+    "sub-era": "Medieval",
+    "year": "c. 500–550 CE",
+    "era": "ancient-art"
+  },
+  {
+    "artwork_id": "book-of-kells-chi-rho",
+    "title": "Book of Kells — Chi Rho Page",
+    "artist": "Unknown",
+    "museum": "Trinity College Library",
+    "museum_location": "Dublin, Ireland",
+    "sub-era": "Medieval",
+    "year": "c. 800 CE",
+    "era": "ancient-art"
+  },
+  {
+    "artwork_id": "utrecht-psalter",
+    "title": "Utrecht Psalter — Psalm 1 Illustration",
+    "artist": "Unknown",
+    "museum": "Utrecht University Library",
+    "museum_location": "Utrecht, Netherlands",
+    "sub-era": "Medieval",
+    "year": "c. 820–835 CE",
+    "era": "ancient-art"
+  },
+  {
+    "artwork_id": "bayeux-tapestry-battle",
+    "title": "Bayeux Tapestry — Battle of Hastings Scene",
+    "artist": "Unknown",
+    "museum": "Musée de la Tapisserie de Bayeux",
+    "museum_location": "Bayeux, France",
+    "sub-era": "Medieval",
+    "year": "c. 1070–1080 CE",
+    "era": "ancient-art"
+  },
+  {
+    "artwork_id": "hildegard-visions",
+    "title": "Hildegard von Bingen's Visions — Scivias Illumination",
+    "artist": "Hildegard von Bingen (supervised)",
+    "museum": "Formerly Hessische Landesbibliothek",
+    "museum_location": "Wiesbaden, Germany",
+    "sub-era": "Medieval",
+    "year": "c. 1165 CE",
+    "era": "ancient-art"
+  },
+  {
+    "artwork_id": "pantocrator-mosaic-daphni",
+    "title": "Christ Pantocrator Mosaic",
+    "artist": "Unknown",
+    "museum": "Daphni Monastery",
+    "museum_location": "Athens, Greece",
+    "sub-era": "Medieval",
+    "year": "c. 1100 CE",
+    "era": "ancient-art"
+  },
+  {
+    "artwork_id": "giotto-lamentation",
+    "title": "Lamentation of Christ (The Mourning of Christ)",
+    "artist": "Giotto di Bondone",
+    "museum": "Scrovegni Chapel",
+    "museum_location": "Padua, Italy",
+    "sub-era": "Medieval",
+    "year": "c. 1304–1306 CE",
+    "era": "ancient-art"
+  },
+  {
+    "artwork_id": "duccio-maesta",
+    "title": "Maestà (Madonna Enthroned)",
+    "artist": "Duccio di Buoninsegna",
+    "museum": "Museo dell'Opera del Duomo",
+    "museum_location": "Siena, Italy",
+    "sub-era": "Medieval",
+    "year": "c. 1308–1311 CE",
+    "era": "ancient-art"
+  },
+  {
+    "artwork_id": "wilton-diptych",
+    "title": "Wilton Diptych",
+    "artist": "Unknown",
+    "museum": "The National Gallery",
+    "museum_location": "London, United Kingdom",
+    "sub-era": "Medieval",
+    "year": "c. 1395–1399 CE",
+    "era": "ancient-art"
+  }
+]

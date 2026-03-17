@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- 金字塔三角，宽稳定底边 + 2条内部水平层次线 -->
+  <polygon points="50,8 92,90 8,90" stroke="#F5C842" stroke-width="0.9" stroke-opacity="0.85" fill="none"/>
+  <!-- 层次线1（1/3高处） -->
+  <line x1="22" y1="63" x2="78" y2="63" stroke="#F5C842" stroke-width="0.6" stroke-opacity="0.55" stroke-dasharray="3 2"/>
+  <!-- 层次线2（2/3高处） -->
+  <line x1="36" y1="36" x2="64" y2="36" stroke="#F5C842" stroke-width="0.5" stroke-opacity="0.45" stroke-dasharray="3 2"/>
+  <!-- 底边强调 -->
+  <line x1="8" y1="90" x2="92" y2="90" stroke="#F5C842" stroke-width="1.2" stroke-opacity="0.9"/>
+  <circle cx="50" cy="8"  r="1.5" fill="#F5C842" fill-opacity="0.9"/>
+</svg>
