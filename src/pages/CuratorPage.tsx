@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getAllArtworks } from '../services/sheetsApi';
-import type { Artwork } from '../data/mockArtwork';
+import type { Artwork } from '../data/gameTypes';
 import { ArrowLeft, Copy, Check } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import Picture from '../components/ui/Picture';

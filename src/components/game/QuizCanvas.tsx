@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { cropImage } from '../../utils/imageUtils';
-import type { Artwork } from '../../data/mockArtwork';
+import type { Artwork } from '../../data/gameTypes';
 import { useGameStore } from '../../store/gameStore';
 import Picture from '../ui/Picture';
 import { urlToSlug } from '../../utils/imageUtils';
@@ -22,6 +22,7 @@ export default function QuizCanvas({ artwork, onComplete }: QuizCanvasProps) {
     const isLastQuestion = currentQuestionIndex === artwork.quizQuestions.length - 1;
 
     const [selectedOption, setSelectedOption] = useState<string | null>(null);
+    const [answerStatus, setAnswerStatus] = useState<'idle' | 'correct' | 'incorrect'>('idle');
     const [croppedOptions, setCroppedOptions] = useState<Record<string, string>>({});
 
     // Generate crops when question changes
@@ -67,29 +68,47 @@ export default function QuizCanvas({ artwork, onComplete }: QuizCanvasProps) {
 
 
     const handleOptionSelect = (optionId: string) => {
+        if (answerStatus !== 'idle') return;
+
         const selectedOpt = currentQuestion.options.find((opt) => opt.id === optionId);
         if (!selectedOpt) return;
 
         setSelectedOption(optionId);
 
-        // Submit answer and overlay image
-        submitAnswer(
-            currentQuestion.id,
-            optionId,
-            selectedOpt.imageUrl,
-            selectedOpt.crop,
-            currentQuestion.overlayPosition
-        );
+        if (selectedOpt.isCorrect) {
+            setAnswerStatus('correct');
+            
+            // Wait for success animation
+            setTimeout(() => {
+                // Submit answer and overlay image
+                submitAnswer(
+                    currentQuestion.id,
+                    optionId,
+                    selectedOpt.imageUrl,
+                    selectedOpt.crop,
+                    currentQuestion.overlayPosition
+                );
 
-        // Move to next question or complete
-        setTimeout(() => {
-            if (isLastQuestion) {
-                onComplete();
-            } else {
-                nextQuestion();
+                // Move to next question or complete
+                setTimeout(() => {
+                    if (isLastQuestion) {
+                        onComplete();
+                    } else {
+                        nextQuestion();
+                        setSelectedOption(null);
+                        setAnswerStatus('idle');
+                    }
+                }, 800);
+            }, 600);
+        } else {
+            setAnswerStatus('incorrect');
+            
+            // Shake and reset
+            setTimeout(() => {
                 setSelectedOption(null);
-            }
-        }, 800);
+                setAnswerStatus('idle');
+            }, 600);
+        }
     };
 
     return (
@@ -181,7 +200,11 @@ export default function QuizCanvas({ artwork, onComplete }: QuizCanvasProps) {
                             className={`
                                 relative aspect-square rounded-xl overflow-hidden border-4 transition-all
                                 ${selectedOption === option.id
-                                    ? 'border-sky-500 scale-95'
+                                    ? answerStatus === 'correct'
+                                        ? 'border-green-500 shadow-[0_0_15px_rgba(34,197,94,0.6)] animate-success-pop'
+                                        : answerStatus === 'incorrect'
+                                            ? 'border-red-500 animate-shake'
+                                            : 'border-sky-500 scale-95'
                                     : 'border-slate-600 hover:border-slate-400 active:scale-95'
                                 }
                                 ${selectedOption && selectedOption !== option.id ? 'opacity-50' : ''}

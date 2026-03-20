@@ -29,7 +29,7 @@ interface GameStore {
     regionAnswers: Map<string, string>; // regionId -> optionId
 
     // Game phase
-    gamePhase: 'learning' | 'image-swap-quiz' | 'quiz' | 'results';
+    gamePhase: 'learning' | 'hotspot-quiz' | 'composition-quiz' | 'truefalse-quiz' | 'image-swap-quiz' | 'quiz' | 'results';
     startTime: number | null;
     endTime: number | null;
 
@@ -51,7 +51,7 @@ interface GameStore {
     submitRegionAnswer: (regionId: string, optionId: string) => void;
     nextRegion: () => void;
 
-    setGamePhase: (phase: 'learning' | 'image-swap-quiz' | 'quiz' | 'results') => void;
+    setGamePhase: (phase: 'learning' | 'hotspot-quiz' | 'composition-quiz' | 'truefalse-quiz' | 'image-swap-quiz' | 'quiz' | 'results') => void;
     startGame: () => void;
     resetGame: () => void;
 }

@@ -4,7 +4,7 @@ import { ArrowLeft, Lock } from 'lucide-react';
 import { ERAS, ARTWORK_ERA_MAP } from '../config/eras';
 import { getAllArtworks, getEraEntryDialogues } from '../services/sheetsApi';
 import { useUserStore } from '../store/userStore';
-import type { Artwork } from '../data/mockArtwork';
+import type { Artwork } from '../data/gameTypes';
 import Picture from '../components/ui/Picture';
 import { urlToSlug } from '../utils/imageUtils';
 import MarieroseCharacter from '../components/ui/MarieroseCharacter';

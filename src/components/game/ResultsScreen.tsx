@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import type { Artwork } from '../../data/mockArtwork';
+import type { Artwork } from '../../data/gameTypes';
 import { useGameStore } from '../../store/gameStore';
 import { useUserStore } from '../../store/userStore';
 import Picture from '../ui/Picture';

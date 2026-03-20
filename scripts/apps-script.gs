@@ -28,13 +28,14 @@ function doGet() {
 
     // Q1 Hotspot — point_id = correct region; decoy_point_ids = comma-separated wrong regions
     q1Hotspot: readSheet(ss, 'Q1_Hotspot', [
-      'artwork_id', 'question_id', 'question_text', 'point_id', 'decoy_point_ids', 'era'
+      'artwork_id', 'question_id', 'question_text', 'point_id', 'decoy_point_ids', 'rect_index', 'era'
     ]),
 
     // Q2 Composition — not point-gated
     q2Composition: readSheet(ss, 'Q2_Composition', [
       'artwork_id', 'question_id', 'question_text',
-      'correct_composition', 'wrong_compositions', 'explanation', 'era'
+      'correct_composition', 'wrong_compositions', 'explanation', 'era',
+      'region_x', 'region_y', 'region_w', 'region_h'
     ]),
 
     // Q3 True/False — point_id may be comma-separated (question spans multiple LPs)

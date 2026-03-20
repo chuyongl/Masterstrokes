@@ -1,4 +1,4 @@
-import type { Artwork } from './mockArtwork';
+import type { Artwork } from './gameTypes';
 
 export const FALLBACK_ANCIENT_ARTWORKS: Artwork[] = [
     {

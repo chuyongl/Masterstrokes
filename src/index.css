@@ -187,4 +187,258 @@
   .animate-ping-once {
     animation: ping-once 1s cubic-bezier(0, 0, 0.2, 1) forwards;
   }
+
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); }
+    20%, 40%, 60%, 80% { transform: translateX(4px); }
+  }
+
+  .animate-shake {
+    animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+  }
+
+  @keyframes success-pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+
+  .animate-success-pop {
+    animation: success-pop 0.4s ease-out forwards;
+  }
+
+  /* ── Hotspot Quiz Juice Animations ─────────────────────────── */
+
+  /* Marker idle breathing pulse */
+  @keyframes marker-breathe {
+    0%, 100% { box-shadow: 0 2px 10px rgba(0,0,0,0.5), 0 0 8px rgba(147,210,255,0.3); transform: translate(-50%, -50%) scale(1); }
+    50% { box-shadow: 0 2px 14px rgba(0,0,0,0.5), 0 0 18px rgba(147,210,255,0.5); transform: translate(-50%, -50%) scale(1.05); }
+  }
+  .animate-marker-breathe {
+    animation: marker-breathe 2.4s ease-in-out infinite;
+  }
+
+  /* Correct answer bouncy pop */
+  @keyframes correct-bounce {
+    0% { transform: translate(-50%, -50%) scale(1); }
+    20% { transform: translate(-50%, -50%) scale(1.6); }
+    40% { transform: translate(-50%, -50%) scale(0.9); }
+    60% { transform: translate(-50%, -50%) scale(1.3); }
+    80% { transform: translate(-50%, -50%) scale(1.05); }
+    100% { transform: translate(-50%, -50%) scale(1.2); }
+  }
+  .animate-correct-bounce {
+    animation: correct-bounce 0.6s cubic-bezier(.36,1.1,.2,1) forwards;
+  }
+
+  /* Combo counter pop-in */
+  @keyframes combo-pop {
+    0% { opacity: 0; transform: scale(0.3) translateY(10px); }
+    50% { opacity: 1; transform: scale(1.2) translateY(-5px); }
+    100% { opacity: 1; transform: scale(1) translateY(0); }
+  }
+  .animate-combo-pop {
+    animation: combo-pop 0.4s cubic-bezier(.36,1.1,.2,1) forwards;
+  }
+
+  /* XP float up and fade */
+  @keyframes xp-float {
+    0% { opacity: 1; transform: translateY(0) scale(1); }
+    60% { opacity: 1; transform: translateY(-40px) scale(1.1); }
+    100% { opacity: 0; transform: translateY(-70px) scale(0.8); }
+  }
+  .animate-xp-float {
+    animation: xp-float 1.2s ease-out forwards;
+  }
+
+  /* Score counter bump */
+  @keyframes score-bump {
+    0% { transform: scale(1); }
+    30% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+  }
+  .animate-score-bump {
+    animation: score-bump 0.3s ease-out;
+  }
+
+  /* Particle burst – single particle */
+  @keyframes particle-fly {
+    0% { opacity: 1; transform: translate(0, 0) scale(1); }
+    100% { opacity: 0; transform: translate(var(--px, 0px), var(--py, 0px)) scale(0); }
+  }
+  .quiz-particle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: particle-fly 0.8s cubic-bezier(.15,.8,.3,1) forwards;
+    z-index: 100;
+  }
+
+  /* Ring burst on correct answer */
+  @keyframes ring-burst {
+    0% { transform: translate(-50%, -50%) scale(0.5); opacity: 1; border-width: 4px; }
+    100% { transform: translate(-50%, -50%) scale(3); opacity: 0; border-width: 1px; }
+  }
+  .animate-ring-burst {
+    animation: ring-burst 0.7s ease-out forwards;
+  }
+
+  /* Wrong answer red flash on whole image */
+  @keyframes flash-red {
+    0% { opacity: 0; }
+    15% { opacity: 0.3; }
+    100% { opacity: 0; }
+  }
+  .animate-flash-red {
+    animation: flash-red 0.5s ease-out forwards;
+  }
+
+  /* Streak fire glow */
+  @keyframes fire-glow {
+    0%, 100% { text-shadow: 0 0 8px rgba(255,160,0,0.6), 0 0 20px rgba(255,80,0,0.3); }
+    50% { text-shadow: 0 0 16px rgba(255,160,0,0.9), 0 0 40px rgba(255,80,0,0.5); }
+  }
+  .animate-fire-glow {
+    animation: fire-glow 1.2s ease-in-out infinite;
+  }
+
+  /* Timer bar drain */
+  @keyframes timer-drain {
+    from { width: 100%; }
+    to { width: 0%; }
+  }
+
+  /* Question slide up entrance */
+  @keyframes question-slide-up {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  .animate-question-slide-up {
+    animation: question-slide-up 0.4s cubic-bezier(.25,.8,.25,1) forwards;
+  }
+
+  /* Correct answer hint flash (after wrong answer) */
+  @keyframes hint-flash {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(74,222,128,0); }
+    25%, 75% { box-shadow: 0 0 20px 6px rgba(74,222,128,0.7); }
+  }
+  .animate-hint-flash {
+    animation: hint-flash 1.2s ease-in-out 2;
+  }
+
+  /* Image area entrance */
+  @keyframes image-enter {
+    0% { opacity: 0; transform: scale(0.95); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+  .animate-image-enter {
+    animation: image-enter 0.5s ease-out forwards;
+  }
+
+  /* Marker staggered entrance */
+  @keyframes marker-pop-in {
+    0% { opacity: 0; transform: translate(-50%, -50%) scale(0); }
+    60% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
+    100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  }
+  .animate-marker-pop-in {
+    animation: marker-pop-in 0.4s cubic-bezier(.36,1.1,.2,1) forwards;
+    opacity: 0;
+  }
+
+  /* Zoom to detail transition */
+  @keyframes zoom-detail {
+    0% { transform: scale(1); }
+    100% { transform-origin: var(--zoom-x, 50%) var(--zoom-y, 50%); transform: scale(1.8); }
+  }
+  .animate-zoom-detail {
+    animation: zoom-detail 1.2s cubic-bezier(.25,.8,.25,1) forwards;
+  }
+
+  /* Answer history dot */
+  .answer-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+  }
+  .answer-dot-correct { background: #4ade80; box-shadow: 0 0 6px rgba(74,222,128,0.5); }
+  .answer-dot-wrong { background: #f87171; box-shadow: 0 0 6px rgba(248,113,113,0.5); }
+  .answer-dot-current { background: #93D2FF; box-shadow: 0 0 8px rgba(147,210,255,0.6); transform: scale(1.3); }
+  .answer-dot-pending { background: rgba(255,255,255,0.2); }
+
+  /* Camera shake – applied to the whole quiz container */
+  @keyframes camera-shake {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    10% { transform: translate(-3px, -2px) rotate(-0.5deg); }
+    20% { transform: translate(3px, 1px) rotate(0.3deg); }
+    30% { transform: translate(-2px, 3px) rotate(0.5deg); }
+    40% { transform: translate(2px, -1px) rotate(-0.3deg); }
+    50% { transform: translate(-1px, 2px) rotate(0.2deg); }
+    60% { transform: translate(1px, -2px) rotate(-0.2deg); }
+    70% { transform: translate(-2px, 1px) rotate(0.3deg); }
+    80% { transform: translate(2px, -1px) rotate(-0.1deg); }
+    90% { transform: translate(-1px, 1px) rotate(0.1deg); }
+  }
+  .animate-camera-shake {
+    animation: camera-shake 0.5s ease-out;
+  }
+
+  /* Speed praise text pop */
+  @keyframes speed-pop {
+    0% { opacity: 0; transform: translate(-50%, 0) scale(0.5); }
+    30% { opacity: 1; transform: translate(-50%, -10px) scale(1.3); }
+    60% { opacity: 1; transform: translate(-50%, -15px) scale(1); }
+    100% { opacity: 0; transform: translate(-50%, -30px) scale(0.8); }
+  }
+  .animate-speed-pop {
+    animation: speed-pop 1s ease-out forwards;
+  }
+
+  /* Marker outer pulse ring */
+  @keyframes marker-outer-pulse {
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+    100% { transform: translate(-50%, -50%) scale(2.2); opacity: 0; }
+  }
+  .marker-pulse-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 2px solid rgba(147,210,255,0.5);
+    pointer-events: none;
+    animation: marker-outer-pulse 2s ease-out infinite;
+  }
+
+  /* Shake (wrong answer marker / card) */
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-6px); }
+    40% { transform: translateX(5px); }
+    60% { transform: translateX(-4px); }
+    80% { transform: translateX(3px); }
+  }
+  .animate-shake {
+    animation: shake 0.45s ease-out;
+  }
+
+  /* Generic fade in */
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  .animate-fade-in {
+    animation: fade-in 0.4s ease-out forwards;
+  }
+
+  /* Success pop for correct option cards */
+  @keyframes success-pop {
+    0% { transform: scale(1); }
+    40% { transform: scale(1.06); }
+    100% { transform: scale(1); }
+  }
+  .animate-success-pop {
+    animation: success-pop 0.4s ease-out;
+  }
 }

@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
-import type { Artwork, Hotspot } from '../../data/mockArtwork';
+import type { Artwork, Hotspot } from '../../data/gameTypes';
 import { useGameStore } from '../../store/gameStore';
 import Picture from '../ui/Picture';
 import { urlToSlug } from '../../utils/imageUtils';
@@ -35,7 +35,7 @@ function SpotlightOverlay({ imgW, imgH, rects, visible }: SpotlightProps) {
                 key={i}
                 x={rx} y={ry} width={rw} height={rh}
                 rx={radius} ry={radius}
-                fill="white"
+                fill="black"
             />
         );
     });
@@ -54,8 +54,8 @@ function SpotlightOverlay({ imgW, imgH, rects, visible }: SpotlightProps) {
         >
             <defs>
                 <mask id="spotlight-mask">
-                    {/* White = show image normally; black = darken */}
-                    <rect x="0" y="0" width={imgW} height={imgH} fill="black" />
+                    {/* White = dark overlay visible; black = hole for spotlight */}
+                    <rect x="0" y="0" width={imgW} height={imgH} fill="white" />
                     {masks}
                 </mask>
                 {/* Soft blur for the glow edge */}
@@ -225,8 +225,17 @@ export default function LearningCanvas({ artwork, onComplete }: LearningCanvasPr
             setTimeout(onComplete, 600);
         } else {
             setCurrentIndex(next);
+            // Reset view to original state smoothly
+            if (imageRef.current && containerSize.width > 0) {
+                const fitScale = Math.min(
+                    containerSize.width / imageRef.current.naturalWidth,
+                    containerSize.height / imageRef.current.naturalHeight
+                );
+                setScale(fitScale * ZOOM_LEVEL);
+                updatePan(0, 0);
+            }
         }
-    }, [currentIndex, artwork.learningPoints.length, onComplete]);
+    }, [currentIndex, artwork.learningPoints.length, onComplete, containerSize, updatePan]);
 
     // ── Hotspot click detection (specific points in 'prompt' phase only)
     const handleImageClick = (e: React.MouseEvent) => {
@@ -242,6 +251,30 @@ export default function LearningCanvas({ artwork, onComplete }: LearningCanvasPr
         if (hit) {
             setPhase('revealed');
             if (hintTimer.current) clearTimeout(hintTimer.current);
+            
+            // Zoom and pan to center
+            if (imageRef.current && containerSize.width > 0) {
+                const img = imageRef.current;
+                const rects = getSpotlightRects(currentPoint);
+                if (rects.length > 0) {
+                    const r = rects[0];
+                    const centerXPercent = r.x + (r.w / 2);
+                    const centerYPercent = r.y + (r.h / 2);
+                    
+                    const fitScale = Math.min(
+                        containerSize.width / img.naturalWidth,
+                        containerSize.height / img.naturalHeight
+                    );
+                    const focusScale = fitScale * 1.4; 
+                    
+                    const targetPanX = -((centerXPercent / 100) - 0.5) * img.naturalWidth * focusScale;
+                    // Offset Y up by 10% of screen height to avoid being hidden behind the bottom tooltip
+                    const targetPanY = -((centerYPercent / 100) - 0.5) * img.naturalHeight * focusScale - (containerSize.height * 0.1);
+                    
+                    setScale(focusScale);
+                    updatePan(targetPanX, targetPanY);
+                }
+            }
         } else {
             // Wrong: flash red
             setWrongFlash(true);
@@ -351,7 +384,7 @@ export default function LearningCanvas({ artwork, onComplete }: LearningCanvasPr
                             className="relative"
                             style={{
                                 transform: `translate(${panPosition.x}px, ${panPosition.y}px) scale(${scale})`,
-                                transition: isDragging ? 'none' : 'transform 0.1s ease-out',
+                                transition: isDragging ? 'none' : 'transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1)',
                                 transformOrigin: 'center center',
                                 opacity: scale > 0 ? 1 : 0,
                             }}

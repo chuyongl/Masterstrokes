@@ -1,4 +1,4 @@
-import type { Artwork, QuizRegion } from '../data/mockArtwork';
+import type { Artwork, QuizRegion } from '../data/gameTypes';
 import annotationsData from '../data/annotations.json';
 
 // ─── Sheet Row Interfaces ────────────────────────────────────────────────────
@@ -37,6 +37,7 @@ export interface SheetQ1Hotspot {
     question_text: string;
     point_id: string;          // correct annotation region
     decoy_point_ids: string;   // comma-separated decoy point_ids
+    rect_index: string;        // which rect (0-indexed) of the target point to use, default "0"
     era: string;
 }
 
@@ -49,6 +50,11 @@ export interface SheetQ2Composition {
     wrong_compositions: string;    // comma-separated
     explanation: string;
     era: string;
+    // Optional focus region (0-1 normalised coords). If present, overlay is positioned here.
+    region_x?: string;
+    region_y?: string;
+    region_w?: string;
+    region_h?: string;
 }
 
 // Q3 True/False

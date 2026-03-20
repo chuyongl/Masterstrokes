@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import type { Artwork } from '../../data/mockArtwork';
+import type { Artwork } from '../../data/gameTypes';
 import { useGameStore } from '../../store/gameStore';
 import { getAllArtworks } from '../../services/sheetsApi';
 import Picture from '../ui/Picture';
@@ -33,6 +33,7 @@ export default function ImageSwapCanvas({ artwork, onComplete }: ImageSwapCanvas
     const [options, setOptions] = useState<TileOption[]>([]);
     const [selectedOptionId, setSelectedOptionId] = useState<string | null>(null);
     const [animatingOptionId, setAnimatingOptionId] = useState<string | null>(null);
+    const [answerStatus, setAnswerStatus] = useState<'idle' | 'correct' | 'incorrect'>('idle');
 
     // Generate options when current region changes
     useEffect(() => {
@@ -107,21 +108,39 @@ export default function ImageSwapCanvas({ artwork, onComplete }: ImageSwapCanvas
     if (!currentRegion) return null;
 
     const handleOptionSelect = (optionId: string) => {
+        if (answerStatus !== 'idle') return;
+
         setSelectedOptionId(optionId);
-        setAnimatingOptionId(optionId);
+        
+        const opt = options.find(o => o.id === optionId);
+        if (!opt) return;
 
-        // Wait for animation
-        setTimeout(() => {
-            submitRegionAnswer(currentRegion.id, optionId);
-            setAnimatingOptionId(null);
-            setSelectedOptionId(null);
+        if (opt.isCorrect) {
+            setAnswerStatus('correct');
+            setAnimatingOptionId(optionId);
 
-            if (isLastRegion) {
-                onComplete();
-            } else {
-                nextRegion();
-            }
-        }, 800);
+            // Wait for animation
+            setTimeout(() => {
+                submitRegionAnswer(currentRegion.id, optionId);
+                setAnimatingOptionId(null);
+                setSelectedOptionId(null);
+                setAnswerStatus('idle');
+
+                if (isLastRegion) {
+                    onComplete();
+                } else {
+                    nextRegion();
+                }
+            }, 800);
+        } else {
+            setAnswerStatus('incorrect');
+            
+            // Shake and reset
+            setTimeout(() => {
+                setSelectedOptionId(null);
+                setAnswerStatus('idle');
+            }, 600);
+        }
     };
 
     return (
@@ -229,7 +248,11 @@ export default function ImageSwapCanvas({ artwork, onComplete }: ImageSwapCanvas
                             className={`
                                 relative aspect-square rounded-xl overflow-hidden border-4 transition-all
                                 ${selectedOptionId === option.id
-                                    ? 'border-sky-500 scale-95 opacity-0' // Fade out the source button as it flies
+                                    ? answerStatus === 'correct'
+                                        ? 'border-green-500 shadow-[0_0_15px_rgba(34,197,94,0.6)] scale-95 opacity-0'
+                                        : answerStatus === 'incorrect'
+                                            ? 'border-red-500 animate-shake'
+                                            : 'border-sky-500 scale-95 opacity-0'
                                     : 'border-slate-600 hover:border-slate-400 active:scale-95'
                                 }
                                 ${selectedOptionId && selectedOptionId !== option.id ? 'opacity-30' : ''}
