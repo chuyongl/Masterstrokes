@@ -12,7 +12,7 @@ interface HotspotQuizCanvasProps {
 }
 
 const LETTERS = ['A', 'B', 'C', 'D', 'E', 'F'];
-const TIMER_DURATION = 12;
+
 
 const PARTICLE_COLORS = [
     '#4ade80', '#93D2FF', '#fbbf24', '#f472b6',
@@ -51,7 +51,7 @@ function spawnParticles(count: number): { px: string; py: string; color: string;
     });
 }
 
-type AnswerResult = 'correct' | 'wrong' | 'timeout';
+type AnswerResult = 'correct' | 'wrong';
 
 export default function HotspotQuizCanvas({ artwork, questions, onComplete }: HotspotQuizCanvasProps) {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -71,8 +71,7 @@ export default function HotspotQuizCanvas({ artwork, questions, onComplete }: Ho
     const [showHintFlash, setShowHintFlash] = useState(false);
     const [zoomToDetail, setZoomToDetail] = useState(false);
     const [answerHistory, setAnswerHistory] = useState<AnswerResult[]>([]);
-    const [timerRunning, setTimerRunning] = useState(false);
-    const [timerKey, setTimerKey] = useState(0);
+
     const [markersReady, setMarkersReady] = useState(false);
     const [cameraShake, setCameraShake] = useState(false);
     const [speedPraise, setSpeedPraise] = useState<{ text: string; color: string } | null>(null);
@@ -123,8 +122,7 @@ export default function HotspotQuizCanvas({ artwork, questions, onComplete }: Ho
         setShowHintFlash(false);
         setZoomToDetail(false);
         setQuestionKey(prev => prev + 1);
-        setTimerRunning(true);
-        setTimerKey(prev => prev + 1);
+
         setMarkersReady(false);
         setCameraShake(false);
         setSpeedPraise(null);
@@ -134,28 +132,7 @@ export default function HotspotQuizCanvas({ artwork, questions, onComplete }: Ho
         return () => clearTimeout(t);
     }, [currentIndex]);
 
-    // Timer timeout
-    useEffect(() => {
-        if (!timerRunning || answerStatus !== 'idle') return;
-        const timeout = setTimeout(() => {
-            setStreak(0);
-            setAnswerStatus('wrong');
-            setShowHintFlash(true);
-            setCameraShake(true);
-            setTimeout(() => setCameraShake(false), 500);
-            setAnswerHistory(prev => [...prev, 'timeout']);
-            setTimeout(() => {
-                setShowHintFlash(false);
-                const next = currentIndex + 1;
-                if (next >= questions.length) {
-                    setTimeout(onComplete, 300);
-                } else {
-                    setCurrentIndex(next);
-                }
-            }, 2500);
-        }, TIMER_DURATION * 1000);
-        return () => clearTimeout(timeout);
-    }, [timerRunning, answerStatus, currentIndex, questions.length, onComplete]);
+
 
     const advance = useCallback(() => {
         const next = currentIndex + 1;
@@ -169,7 +146,7 @@ export default function HotspotQuizCanvas({ artwork, questions, onComplete }: Ho
     const handleSelect = (letter: string, isCorrect: boolean, centerX: number, centerY: number) => {
         if (answerStatus !== 'idle') return;
         setSelectedLetter(letter);
-        setTimerRunning(false);
+
 
         if (isCorrect) {
             const newStreak = streak + 1;
@@ -218,8 +195,7 @@ export default function HotspotQuizCanvas({ artwork, questions, onComplete }: Ho
                 setShowHintFlash(false);
                 setSelectedLetter(null);
                 setAnswerStatus('idle');
-                setTimerRunning(true);
-                setTimerKey(prev => prev + 1);
+
                 questionStartRef.current = Date.now();
                 setMarkersReady(false);
                 setTimeout(() => setMarkersReady(true), 200);
@@ -235,7 +211,7 @@ export default function HotspotQuizCanvas({ artwork, questions, onComplete }: Ho
     const correctCenter = correctOption ? getCenters(correctOption.hotspot)[0] : null;
     const isPerfect = answerHistory.length === questions.length && answerHistory.every(r => r === 'correct');
 
-    const timerGradient = 'linear-gradient(to right, #4ade80, #93D2FF, #fbbf24, #f87171)';
+
 
     // Build flat marker list for stagger index
     const allMarkers: {
@@ -253,7 +229,7 @@ export default function HotspotQuizCanvas({ artwork, questions, onComplete }: Ho
     }
 
     return (
-        <div className={`relative w-full h-full bg-black overflow-hidden select-none flex flex-col ${cameraShake ? 'animate-camera-shake' : ''}`}>
+        <div className={`relative w-full h-full bg-white overflow-hidden select-none flex flex-col ${cameraShake ? 'animate-camera-shake' : ''}`}>
             {/* Progress bar */}
             <div className="absolute top-0 left-0 right-0 h-1.5 bg-white/10 z-50">
                 <div
@@ -270,20 +246,7 @@ export default function HotspotQuizCanvas({ artwork, questions, onComplete }: Ho
                 />
             </div>
 
-            {/* Timer bar */}
-            <div className="absolute top-1.5 left-0 right-0 h-1 bg-white/5 z-50">
-                {answerStatus === 'idle' && (
-                    <div
-                        key={timerKey}
-                        className="h-full rounded-full"
-                        style={{
-                            background: timerGradient,
-                            animation: `timer-drain ${TIMER_DURATION}s linear forwards`,
-                            boxShadow: '0 0 8px rgba(251,191,36,0.4)',
-                        }}
-                    />
-                )}
-            </div>
+
 
             {/* Top HUD */}
             <div className="absolute top-4 left-0 right-0 z-50 flex items-center justify-between px-4">

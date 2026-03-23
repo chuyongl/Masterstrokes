@@ -101,24 +101,6 @@ export interface SheetQ5FillBlank {
 }
 
 
-// Q6 Coloring: not point-gated
-export interface SheetQ6Coloring {
-    artwork_id: string;
-    question_id: string;
-    question_text: string;
-    target_point_id: string;
-    correct_color: string;
-    wrong_colors: string;         // comma-separated
-    era: string;
-}
-
-// Q7 Jigsaw: last chapter, not point-gated
-export interface SheetQ7Jigsaw {
-    artwork_id: string;
-    difficulty_levels: string;    // e.g. "20,100,225"
-    era: string;
-}
-
 // ─── Aggregated SheetData ────────────────────────────────────────────────────
 
 export interface SheetData {
@@ -130,8 +112,6 @@ export interface SheetData {
     q3TrueFalse: SheetQ3TrueFalse[];
     q4Match: SheetQ4MatchRow[];
     q5FillBlank: SheetQ5FillBlank[];
-    q6Coloring: SheetQ6Coloring[];
-    q7Jigsaw: SheetQ7Jigsaw[];
 }
 
 // ─── Annotation region types ─────────────────────────────────────────────────
@@ -327,28 +307,16 @@ export function shuffleOptions<T>(array: T[]): T[] {
 
 /**
  * Split an artwork's learning points into evenly-sized chapters (target 5–7 per chapter).
- * Algorithm:
- *   1. numChapters = max(1, round(total / 6))  → aims for ~6 per chapter
- *   2. Distribute: first (total % numChapters) chapters get ceil(total/numChapters),
- *      the rest get floor(total/numChapters)
- * Examples:
- *   24 points → 4 chapters of 6
- *   22 points → 4 chapters: 6+6+5+5
- *   21 points → 3 chapters of 7
- *   14 points → 2 chapters of 7
- *   10 points → 2 chapters of 5
- *
- * Always appends a Q7 Jigsaw chapter at the end.
  */
 export function buildChapters(pointIds: string[]): ChapterDef[] {
     const total = pointIds.length;
     if (total === 0) {
-        return [{ chapterIndex: 0, type: 'jigsaw', pointIds: [] }];
+        return [{ chapterIndex: 0, type: 'learning', pointIds: [] }];
     }
 
     const numChapters = Math.max(1, Math.round(total / 6));
     const baseSize = Math.floor(total / numChapters);
-    const remainder = total % numChapters; // first `remainder` chapters get baseSize+1
+    const remainder = total % numChapters;
 
     const chapters: ChapterDef[] = [];
     let offset = 0;
@@ -362,15 +330,13 @@ export function buildChapters(pointIds: string[]): ChapterDef[] {
         offset += size;
     }
 
-    // Always append Jigsaw as final chapter
-    chapters.push({ chapterIndex: chapters.length, type: 'jigsaw', pointIds: [] });
     return chapters;
 }
 
 
 export interface ChapterDef {
     chapterIndex: number;
-    type: 'learning' | 'jigsaw';
+    type: 'learning';
     pointIds: string[];
 }
 
@@ -524,17 +490,7 @@ export async function getQ5FillBlank(
     return rows;
 }
 
-/** Q6 is not point-gated */
-export async function getQ6Coloring(artworkId: string): Promise<SheetQ6Coloring[]> {
-    const data = await fetchSheetData();
-    return (data.q6Coloring || []).filter(q => q.artwork_id === artworkId);
-}
 
-/** Q7 is the jigsaw — one entry per artwork */
-export async function getQ7Jigsaw(artworkId: string): Promise<SheetQ7Jigsaw | null> {
-    const data = await fetchSheetData();
-    return (data.q7Jigsaw || []).find(q => q.artwork_id === artworkId) || null;
-}
 
 // ─── Q5 Distractor lookup (category-based cross-artwork) ─────────────────────
 

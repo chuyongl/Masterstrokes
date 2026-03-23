@@ -87,3 +87,17 @@ export function urlToSlug(url: string): string {
         .replace(/[^a-z0-9]+/g, '-')
         .replace(/^-|-$/g, '');
 }
+
+/**
+ * Resolve a slug (or raw URL) to a real image URL from the manifest.
+ * Prefers webp 800 variant. Returns the slug/url as-is if not in manifest.
+ */
+import manifest from '../data/imageManifest.json';
+const typedManifest = manifest as Record<string, any>;
+
+export function getManifestImageUrl(slugOrUrl: string, variant: '400' | '800' | '1200' = '800'): string {
+    const slug = urlToSlug(slugOrUrl);
+    const entry = typedManifest[slug];
+    if (entry?.variants?.[variant]?.webp) return entry.variants[variant].webp;
+    return slugOrUrl;
+}

@@ -403,28 +403,28 @@ export default function LevelRoadmapPage() {
             {/* Marierose Dialogue Bar (Duolingo style) */}
             {
                 levelNodes.length > 0 && !loading && (
-                    <div className="absolute left-4 bottom-16 z-50 flex flex-col items-start">
-                        {/* Dialogue bubble positioned above character, aligned to her head */}
+                    <div className="absolute right-2 bottom-16 z-50 flex flex-col items-end">
+                        {/* Dialogue bubble positioned above character */}
                         <div
-                            className={`relative mb-1 ml-10 max-w-[260px] transition-all duration-500 ${dialogueVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2 pointer-events-none'
+                            className={`relative mb-1 mr-2 max-w-[220px] transition-all duration-500 ${dialogueVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2 pointer-events-none'
                                 }`}
                             style={{
                                 background: 'rgba(15,7,0,0.92)',
                                 backdropFilter: 'blur(8px)',
                                 border: '1px solid rgba(201,146,42,0.5)',
-                                borderRadius: '16px 16px 16px 4px',
-                                padding: '12px 16px',
+                                borderRadius: '16px 16px 4px 16px',
+                                padding: '10px 14px',
                                 boxShadow: '0 4px 24px rgba(0,0,0,0.5)',
                             }}
                         >
-                            {/* Tail pointing down-left toward character head */}
-                            <div className="absolute -bottom-2 left-4 w-0 h-0"
+                            {/* Tail pointing down-right toward character head */}
+                            <div className="absolute -bottom-2 right-4 w-0 h-0"
                                 style={{
                                     borderLeft: '8px solid transparent',
                                     borderRight: '8px solid transparent',
                                     borderTop: '8px solid rgba(201,146,42,0.5)',
                                 }} />
-                            <p className="text-[#F5E6C8] text-sm font-['Jost'] leading-relaxed">
+                            <p className="text-[#F5E6C8] text-xs font-['Jost'] leading-relaxed">
                                 {dialogueText}
                             </p>
                         </div>
@@ -437,10 +437,10 @@ export default function LevelRoadmapPage() {
                                 }
                             }}
                         >
-                            <MarieroseCharacter width={260} height={260} />
+                            <MarieroseCharacter width={140} height={140} />
 
                             {/* Hover Hint */}
-                            <div className="absolute top-[40%] right-0 translate-x-[90%] opacity-0 group-hover:opacity-100 transition-opacity bg-[#1C0F00]/90 text-[#F5E6C8] font-bold text-[10px] uppercase tracking-wider px-3 py-1.5 rounded-full border border-[#3D2800] pointer-events-none drop-shadow-md whitespace-nowrap">
+                            <div className="absolute top-[40%] left-0 -translate-x-[90%] opacity-0 group-hover:opacity-100 transition-opacity bg-[#1C0F00]/90 text-[#F5E6C8] font-bold text-[10px] uppercase tracking-wider px-3 py-1.5 rounded-full border border-[#3D2800] pointer-events-none drop-shadow-md whitespace-nowrap">
                                 Tap to chat
                             </div>
                         </div>

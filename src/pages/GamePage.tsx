@@ -1,19 +1,17 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useGameStore } from '../store/gameStore';
-import { getAllArtworks, buildChapters, getQ1Hotspot, getQ2Composition, getQ3TrueFalse, shuffleOptions } from '../services/sheetsApi';
-import type { SheetQ1Hotspot, SheetQ2Composition, SheetQ3TrueFalse } from '../services/sheetsApi';
+import { getAllArtworks, buildChapters, getQ1Hotspot, getQ2Composition, getQ3TrueFalse, getQ4Match, shuffleOptions } from '../services/sheetsApi';
+import { getManifestImageUrl } from '../utils/imageUtils';
+import type { SheetQ1Hotspot, SheetQ2Composition, SheetQ3TrueFalse, Q4MatchQuestion } from '../services/sheetsApi';
 import type { Artwork } from '../data/gameTypes';
 import LearningCanvas from '../components/game/LearningCanvas';
-import HotspotQuizCanvas from '../components/game/HotspotQuizCanvas';
-import CompositionQuizCanvas from '../components/game/CompositionQuizCanvas';
-import TrueFalseQuizCanvas from '../components/game/TrueFalseQuizCanvas';
+import MixedQuizFlow from '../components/game/MixedQuizFlow';
+import type { MixedQuizItem } from '../components/game/MixedQuizFlow';
 import QuizCanvas from '../components/game/QuizCanvas';
-import ImageSwapCanvas from '../components/game/ImageSwapCanvas';
 import ResultsScreen from '../components/game/ResultsScreen';
 
 export default function GamePage() {
-    // Support both /play/:artworkId/:chapterId (new) and /play/:levelId (legacy)
     const { artworkId, chapterId, levelId } = useParams<{
         artworkId?: string;
         chapterId?: string;
@@ -27,6 +25,8 @@ export default function GamePage() {
     const [q1Questions, setQ1Questions] = useState<SheetQ1Hotspot[]>([]);
     const [q2Questions, setQ2Questions] = useState<SheetQ2Composition[]>([]);
     const [q3Questions, setQ3Questions] = useState<SheetQ3TrueFalse[]>([]);
+    const [q4Questions, setQ4Questions] = useState<Q4MatchQuestion[]>([]);
+    const [distractorUrls, setDistractorUrls] = useState<string[]>([]);
     const [loading, setLoading] = useState(true);
 
     const effectiveArtworkId = artworkId || levelId;
@@ -40,7 +40,6 @@ export default function GamePage() {
 
         setLoading(true);
 
-        // Build learned point IDs for chapter gating
         const buildLearnedPointIds = (_allPointIds: string[], chapters: ReturnType<typeof buildChapters>, idx: number): string[] => {
             const learned: string[] = [];
             for (let i = 0; i <= idx; i++) {
@@ -56,7 +55,8 @@ export default function GamePage() {
             getQ1Hotspot(effectiveArtworkId),
             getQ2Composition(effectiveArtworkId),
             getQ3TrueFalse(effectiveArtworkId),
-        ]).then(([artworks, q1Rows, q2Rows, q3Rows]) => {
+            getQ4Match(effectiveArtworkId),
+        ]).then(([artworks, q1Rows, q2Rows, q3Rows, q4Rows]) => {
             const found = artworks.find(a => a.id === effectiveArtworkId) ?? null;
 
             if (found && chapterIndex !== undefined && !isNaN(chapterIndex)) {
@@ -69,56 +69,55 @@ export default function GamePage() {
                     const learnedPointIds = buildLearnedPointIds(allPointIds, chapters, chapterIndex);
                     const learnedPointSet = new Set(learnedPointIds);
 
-                    // Filter Q1 by learned points, shuffle
-                    const filteredQ1 = shuffleOptions(
-                        q1Rows.filter(q => learnedPointSet.has(q.point_id))
-                    );
-                    setQ1Questions(filteredQ1);
+                    setQ1Questions(shuffleOptions(q1Rows.filter(q => learnedPointSet.has(q.point_id))));
                     setQ2Questions(shuffleOptions(q2Rows));
-                    // Q3 filtered by learned points
-                    const learnedQ3 = q3Rows.filter(q => {
+                    setQ3Questions(shuffleOptions(q3Rows.filter(q => {
                         const pids = q.point_id.split(',').map(s => s.trim());
                         return pids.some(pid => learnedPointSet.has(pid));
-                    });
-                    setQ3Questions(shuffleOptions(learnedQ3));
+                    })));
+                    setQ4Questions(shuffleOptions(q4Rows.filter(q => {
+                        const pids = q.point_id.split(',').map(s => s.trim());
+                        return pids.some(pid => learnedPointSet.has(pid));
+                    })));
                     setFullArtwork(found);
 
-                    // Legacy quiz questions & swap regions
                     let allowedQuizQuestions = found.quizQuestions.filter(q => learnedPointSet.has(q.learningPointId));
                     allowedQuizQuestions = allowedQuizQuestions.sort(() => Math.random() - 0.5);
-
                     let allowedQuizRegions = (found.quizRegions ?? []).filter(r => learnedPointSet.has(r.point_id));
                     allowedQuizRegions = allowedQuizRegions.sort(() => Math.random() - 0.5);
 
-                    const filteredArtwork: Artwork = {
+                    setChapterArtwork({
                         ...found,
                         learningPoints: found.learningPoints.filter(lp => chapterPointSet.has(lp.id)),
                         quizQuestions: allowedQuizQuestions,
                         quizRegions: allowedQuizRegions
-                    };
-                    setChapterArtwork(filteredArtwork);
-                } else if (chapter?.type === 'jigsaw') {
-                    setChapterArtwork(found);
-                    setQ1Questions([]);
-                    setQ2Questions([]);
-                    setQ3Questions([]);
+                    });
                 } else {
                     setChapterArtwork(found);
                     setQ1Questions(shuffleOptions(q1Rows));
                     setQ2Questions(shuffleOptions(q2Rows));
                     setQ3Questions(shuffleOptions(q3Rows));
+                    setQ4Questions(shuffleOptions(q4Rows));
                 }
             } else if (found) {
-                // Legacy mode
-                const filteredArtwork: Artwork = {
+                setChapterArtwork({
                     ...found,
                     quizQuestions: [...found.quizQuestions].sort(() => Math.random() - 0.5),
                     quizRegions: [...(found.quizRegions ?? [])].sort(() => Math.random() - 0.5)
-                };
-                setChapterArtwork(filteredArtwork);
+                });
                 setQ1Questions(shuffleOptions(q1Rows));
                 setQ2Questions(shuffleOptions(q2Rows));
                 setQ3Questions(shuffleOptions(q3Rows));
+                setQ4Questions(shuffleOptions(q4Rows));
+            }
+
+            // Pre-compute Q5 distractor URLs from same-era artworks (already fetched)
+            if (found) {
+                const sameEra = artworks.filter(a => a.era === found.era && a.id !== found.id);
+                const urls = sameEra
+                    .map(a => getManifestImageUrl(a.imageUrl, '800'))
+                    .filter(Boolean);
+                setDistractorUrls(urls.length > 0 ? urls : []);
             }
 
             setLoading(false);
@@ -129,66 +128,62 @@ export default function GamePage() {
         if (chapterArtwork) startGame();
     }, [chapterArtwork, startGame]);
 
+    // ── Build mixed quiz items (shuffled Q1-Q5) ──────────────────────────────
+    const mixedQuizItems: MixedQuizItem[] = useMemo(() => {
+        if (!chapterArtwork) return [];
+
+        const items: MixedQuizItem[] = [];
+
+        // Q1 Hotspot
+        q1Questions.forEach(q => items.push({ type: 'hotspot', data: q }));
+
+        // Q2 Composition
+        q2Questions.forEach(q => items.push({ type: 'composition', data: q }));
+
+        // Q3 True/False
+        q3Questions.forEach(q => items.push({ type: 'truefalse', data: q }));
+
+        // Q4 Match
+        q4Questions.forEach(q => items.push({ type: 'match', data: q }));
+
+        // Q5 Fill-blank (from annotation regions)
+        const fillRegions = (chapterArtwork.quizRegions ?? []).filter(r => r.point_id).slice(0, 3);
+        fillRegions.forEach(r => items.push({
+            type: 'fillblank',
+            data: {
+                artwork: chapterArtwork,
+                region: { point_id: r.point_id, label: r.label },
+                distractorUrls,
+            }
+        }));
+
+        // Shuffle all items together
+        return items.sort(() => Math.random() - 0.5);
+    }, [chapterArtwork, q1Questions, q2Questions, q3Questions, q4Questions, distractorUrls]);
+
     // ── Phase transitions ────────────────────────────────────────────────────
-    // Flow: learning → Q1 → Q2 → Q3 → quiz (legacy) → image-swap-quiz → results
+    // Flow: learning → mixed-quiz (all Q1-Q5 shuffled) → quiz (legacy) → results
+
     const handleLearningComplete = () => {
-        if (q1Questions.length > 0) {
-            setGamePhase('hotspot-quiz');
-        } else if (q2Questions.length > 0) {
-            setGamePhase('composition-quiz');
-        } else if (q3Questions.length > 0) {
-            setGamePhase('truefalse-quiz');
+        if (mixedQuizItems.length > 0) {
+            setGamePhase('mixed-quiz');
         } else if (chapterArtwork && chapterArtwork.quizQuestions.length > 0) {
             setGamePhase('quiz');
-        } else if (chapterArtwork && chapterArtwork.quizRegions && chapterArtwork.quizRegions.length > 0) {
-            setGamePhase('image-swap-quiz');
         } else {
             goToResults();
         }
     };
 
-    const handleHotspotQuizComplete = () => {
-        if (q2Questions.length > 0) {
-            setGamePhase('composition-quiz');
-        } else if (q3Questions.length > 0) {
-            setGamePhase('truefalse-quiz');
-        } else if (chapterArtwork && chapterArtwork.quizQuestions.length > 0) {
-            setGamePhase('quiz');
-        } else if (chapterArtwork && chapterArtwork.quizRegions && chapterArtwork.quizRegions.length > 0) {
-            setGamePhase('image-swap-quiz');
-        } else {
-            goToResults();
-        }
-    };
-
-    const handleCompositionQuizComplete = () => {
-        if (q3Questions.length > 0) {
-            setGamePhase('truefalse-quiz');
-        } else if (chapterArtwork && chapterArtwork.quizQuestions.length > 0) {
-            setGamePhase('quiz');
-        } else if (chapterArtwork && chapterArtwork.quizRegions && chapterArtwork.quizRegions.length > 0) {
-            setGamePhase('image-swap-quiz');
-        } else {
-            goToResults();
-        }
-    };
-
-    const handleTrueFalseQuizComplete = () => {
+    const handleMixedQuizComplete = () => {
         if (chapterArtwork && chapterArtwork.quizQuestions.length > 0) {
             setGamePhase('quiz');
-        } else if (chapterArtwork && chapterArtwork.quizRegions && chapterArtwork.quizRegions.length > 0) {
-            setGamePhase('image-swap-quiz');
         } else {
             goToResults();
         }
     };
 
     const handleQuizComplete = () => {
-        if (gamePhase === 'quiz' && chapterArtwork && chapterArtwork.quizRegions && chapterArtwork.quizRegions.length > 0) {
-            setGamePhase('image-swap-quiz');
-        } else {
-            goToResults();
-        }
+        goToResults();
     };
 
     const goToResults = () => {
@@ -199,7 +194,7 @@ export default function GamePage() {
     // ── Render ────────────────────────────────────────────────────────────────
     if (loading) {
         return (
-            <div className="h-full w-full flex items-center justify-center bg-black">
+            <div className="h-full w-full flex items-center justify-center bg-white">
                 <div className="w-10 h-10 border-2 border-[#93D2FF]/30 border-t-[#93D2FF] rounded-full animate-spin" />
             </div>
         );
@@ -207,7 +202,7 @@ export default function GamePage() {
 
     if (!chapterArtwork) {
         return (
-            <div className="h-full w-full flex items-center justify-center bg-black text-white">
+            <div className="h-full w-full flex items-center justify-center bg-white text-gray-800">
                 Artwork not found
             </div>
         );
@@ -222,37 +217,14 @@ export default function GamePage() {
         );
     }
 
-    if (gamePhase === 'hotspot-quiz') {
+    if (gamePhase === 'mixed-quiz') {
         return (
             <div className="h-full w-full">
-                <HotspotQuizCanvas
-                    artwork={fullArtwork || chapterArtwork}
-                    questions={q1Questions}
-                    onComplete={handleHotspotQuizComplete}
-                />
-            </div>
-        );
-    }
-
-    if (gamePhase === 'composition-quiz') {
-        return (
-            <div className="h-full w-full">
-                <CompositionQuizCanvas
-                    artwork={fullArtwork || chapterArtwork}
-                    questions={q2Questions}
-                    onComplete={handleCompositionQuizComplete}
-                />
-            </div>
-        );
-    }
-
-    if (gamePhase === 'truefalse-quiz') {
-        return (
-            <div className="h-full w-full">
-                <TrueFalseQuizCanvas
-                    artwork={fullArtwork || chapterArtwork}
-                    questions={q3Questions}
-                    onComplete={handleTrueFalseQuizComplete}
+                <MixedQuizFlow
+                    artwork={chapterArtwork}
+                    fullArtwork={fullArtwork}
+                    items={mixedQuizItems}
+                    onComplete={handleMixedQuizComplete}
                 />
             </div>
         );
@@ -262,17 +234,6 @@ export default function GamePage() {
         return (
             <div className="h-full w-full">
                 <QuizCanvas
-                    artwork={chapterArtwork}
-                    onComplete={handleQuizComplete}
-                />
-            </div>
-        );
-    }
-
-    if (gamePhase === 'image-swap-quiz') {
-        return (
-            <div className="h-full w-full">
-                <ImageSwapCanvas
                     artwork={chapterArtwork}
                     onComplete={handleQuizComplete}
                 />

@@ -105,7 +105,7 @@ function MarieroseDialogue({ hotspot, onDismiss }: MarieroseDialogueProps) {
     return (
         <div className="absolute inset-0 flex items-end justify-start z-50 pointer-events-none">
             {/* Dimming overlay */}
-            <div className="absolute inset-0 bg-black/50 pointer-events-auto" onClick={onDismiss} />
+            <div className="absolute inset-0 bg-black/30 pointer-events-auto" onClick={onDismiss} />
 
             {/* Dialogue card */}
             <div className="relative z-10 flex items-end gap-3 p-4 pb-20 w-full pointer-events-auto">
@@ -158,6 +158,11 @@ export default function LearningCanvas({ artwork, onComplete }: LearningCanvasPr
     const [isDragging, setIsDragging] = useState(false);
     const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
     const [dragDistance, setDragDistance] = useState(0);
+
+    // Pinch-to-zoom state
+    const activeTouches = useRef<Map<number, { x: number; y: number }>>(new Map());
+    const lastPinchDist = useRef<number | null>(null);
+    const isPinching = useRef(false);
 
     // Learning flow state
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -318,14 +323,44 @@ export default function LearningCanvas({ artwork, onComplete }: LearningCanvasPr
         return () => { if (hintTimer.current) clearTimeout(hintTimer.current); };
     }, [currentIndex, phase]);
 
-    // ── Pan handlers
-    const handlePointerDown = (e: React.PointerEvent) => {
-        setIsDragging(true);
-        setDragStart({ x: e.clientX - panPosition.x, y: e.clientY - panPosition.y });
-        setDragDistance(0);
-        (e.target as HTMLElement).setPointerCapture(e.pointerId);
+    // ── Pinch distance helper
+    const getPinchDist = (): number | null => {
+        const pts = Array.from(activeTouches.current.values());
+        if (pts.length < 2) return null;
+        return Math.hypot(pts[1].x - pts[0].x, pts[1].y - pts[0].y);
     };
+
+    // ── Pan + Pinch handlers
+    const handlePointerDown = (e: React.PointerEvent) => {
+        activeTouches.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
+        (e.target as HTMLElement).setPointerCapture(e.pointerId);
+
+        if (activeTouches.current.size >= 2) {
+            // Start pinch
+            isPinching.current = true;
+            lastPinchDist.current = getPinchDist();
+            setIsDragging(false);
+        } else {
+            // Single finger drag
+            setIsDragging(true);
+            setDragStart({ x: e.clientX - panPosition.x, y: e.clientY - panPosition.y });
+            setDragDistance(0);
+        }
+    };
+
     const handlePointerMove = (e: React.PointerEvent) => {
+        activeTouches.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
+
+        if (isPinching.current && activeTouches.current.size >= 2) {
+            const dist = getPinchDist();
+            if (dist !== null && lastPinchDist.current !== null) {
+                const delta = dist - lastPinchDist.current;
+                setScale(s => Math.max(0.3, Math.min(5, s + delta * 0.002)));
+                lastPinchDist.current = dist;
+            }
+            return;
+        }
+
         if (!isDragging) return;
         const newX = e.clientX - dragStart.x;
         const newY = e.clientY - dragStart.y;
@@ -339,12 +374,21 @@ export default function LearningCanvas({ artwork, onComplete }: LearningCanvasPr
             updatePan(newX, newY);
         }
     };
+
     const handlePointerUp = (e: React.PointerEvent) => {
-        setIsDragging(false);
-        (e.target as HTMLElement).releasePointerCapture(e.pointerId);
+        activeTouches.current.delete(e.pointerId);
+        try { (e.target as HTMLElement).releasePointerCapture(e.pointerId); } catch (_) {}
+        if (activeTouches.current.size < 2) {
+            isPinching.current = false;
+            lastPinchDist.current = null;
+        }
+        if (activeTouches.current.size === 0) {
+            setIsDragging(false);
+        }
     };
+
     const handleWheel = (e: React.WheelEvent) => {
-        setScale(s => Math.max(0.5, Math.min(4, s - e.deltaY * 0.001)));
+        setScale(s => Math.max(0.3, Math.min(5, s - e.deltaY * 0.001)));
     };
 
     const slug = urlToSlug(artwork.imageUrl);
@@ -352,7 +396,7 @@ export default function LearningCanvas({ artwork, onComplete }: LearningCanvasPr
     const imgH = imageRef.current?.naturalHeight ?? 0;
 
     return (
-        <div ref={containerRef} className="relative w-full h-full bg-black overflow-hidden select-none touch-none">
+        <div ref={containerRef} className="relative w-full h-full bg-white overflow-hidden select-none touch-none">
             {/* Hidden preloader image */}
             <Picture
                 slug={slug} alt="preload"
@@ -362,7 +406,7 @@ export default function LearningCanvas({ artwork, onComplete }: LearningCanvasPr
 
             {/* Loading spinner */}
             {!imageLoaded && (
-                <div className="absolute inset-0 flex items-center justify-center z-50 bg-black">
+                <div className="absolute inset-0 flex items-center justify-center z-50 bg-white">
                     <div className="w-10 h-10 border-2 border-[#93D2FF]/30 border-t-[#93D2FF] rounded-full animate-spin" />
                 </div>
             )}
@@ -446,7 +490,7 @@ export default function LearningCanvas({ artwork, onComplete }: LearningCanvasPr
                         <div
                             className="absolute bottom-0 left-0 right-0 p-4 pb-6 z-50"
                             style={{
-                                background: 'linear-gradient(to top, rgba(0,0,0,0.95) 60%, transparent)',
+                                background: 'linear-gradient(to top, rgba(0,0,0,0.85) 60%, transparent)',
                                 pointerEvents: 'none'
                             }}
                         >
@@ -470,7 +514,7 @@ export default function LearningCanvas({ artwork, onComplete }: LearningCanvasPr
                     {phase === 'revealed' && isSpecific && currentPoint && (
                         <div
                             className="absolute bottom-0 left-0 right-0 p-4 pb-6 z-50"
-                            style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.95) 60%, transparent)' }}
+                            style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.85) 60%, transparent)' }}
                             onClick={() => advance()}
                         >
                             <div className="max-w-lg mx-auto">

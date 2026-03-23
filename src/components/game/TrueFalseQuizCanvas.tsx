@@ -35,8 +35,7 @@ function spawnParticles(count: number): { px: string; py: string; color: string;
     });
 }
 
-type AnswerResult = 'correct' | 'wrong' | 'timeout';
-const TIMER_DURATION = 15;
+type AnswerResult = 'correct' | 'wrong';
 
 export default function TrueFalseQuizCanvas({ artwork, questions, onComplete }: TrueFalseQuizCanvasProps) {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -51,8 +50,7 @@ export default function TrueFalseQuizCanvas({ artwork, questions, onComplete }: 
     const [comboKey, setComboKey] = useState(0);
     const [questionKey, setQuestionKey] = useState(0);
     const [answerHistory, setAnswerHistory] = useState<AnswerResult[]>([]);
-    const [timerRunning, setTimerRunning] = useState(false);
-    const [timerKey, setTimerKey] = useState(0);
+
     const [cameraShake, setCameraShake] = useState(false);
     const [speedPraise, setSpeedPraise] = useState<{ text: string; color: string } | null>(null);
     const [speedPraiseKey, setSpeedPraiseKey] = useState(0);
@@ -74,34 +72,13 @@ export default function TrueFalseQuizCanvas({ artwork, questions, onComplete }: 
         setShowXpFloat(false);
         setShowFlashRed(false);
         setQuestionKey(prev => prev + 1);
-        setTimerRunning(true);
-        setTimerKey(prev => prev + 1);
+
         setCameraShake(false);
         setSpeedPraise(null);
         questionStartRef.current = Date.now();
     }, [currentIndex]);
 
-    // Timer timeout
-    useEffect(() => {
-        if (!timerRunning || answerStatus !== 'idle') return;
-        const timeout = setTimeout(() => {
-            setStreak(0);
-            setAnswerStatus('wrong');
-            setCameraShake(true);
-            setTimeout(() => setCameraShake(false), 500);
-            setAnswerHistory(prev => [...prev, 'timeout']);
-            // Auto-advance after timeout
-            setTimeout(() => {
-                const next = currentIndex + 1;
-                if (next >= questions.length) {
-                    setTimeout(onComplete, 300);
-                } else {
-                    setCurrentIndex(next);
-                }
-            }, 3000);
-        }, TIMER_DURATION * 1000);
-        return () => clearTimeout(timeout);
-    }, [timerRunning, answerStatus, currentIndex, questions.length, onComplete]);
+
 
     const advance = useCallback(() => {
         const next = currentIndex + 1;
@@ -115,7 +92,6 @@ export default function TrueFalseQuizCanvas({ artwork, questions, onComplete }: 
     const handleSelect = (answer: 'TRUE' | 'FALSE') => {
         if (answerStatus !== 'idle') return;
         setSelectedAnswer(answer);
-        setTimerRunning(false);
 
         const isCorrect = answer === correctAnswer;
 
@@ -156,8 +132,6 @@ export default function TrueFalseQuizCanvas({ artwork, questions, onComplete }: 
             setTimeout(() => {
                 setSelectedAnswer(null);
                 setAnswerStatus('idle');
-                setTimerRunning(true);
-                setTimerKey(prev => prev + 1);
                 questionStartRef.current = Date.now();
             }, 3500);
         }
@@ -168,13 +142,13 @@ export default function TrueFalseQuizCanvas({ artwork, questions, onComplete }: 
     const slug = urlToSlug(artwork.imageUrl);
     const progress = questions.length > 0 ? (currentIndex + (answerStatus === 'correct' ? 1 : 0)) / questions.length : 0;
     const isPerfect = answerHistory.length === questions.length && answerHistory.every(r => r === 'correct');
-    const timerGradient = 'linear-gradient(to right, #60a5fa, #93D2FF, #fbbf24, #f87171)';
+
 
     // Theme color for Q3
     const themeColor = '#60a5fa'; // blue
 
     return (
-        <div className={`relative w-full h-full bg-black overflow-hidden select-none flex flex-col ${cameraShake ? 'animate-camera-shake' : ''}`}>
+        <div className={`relative w-full h-full bg-white overflow-hidden select-none flex flex-col ${cameraShake ? 'animate-camera-shake' : ''}`}>
             {/* Progress bar */}
             <div className="absolute top-0 left-0 right-0 h-1.5 bg-white/10 z-50">
                 <div
@@ -191,20 +165,7 @@ export default function TrueFalseQuizCanvas({ artwork, questions, onComplete }: 
                 />
             </div>
 
-            {/* Timer bar */}
-            <div className="absolute top-1.5 left-0 right-0 h-1 bg-white/5 z-50">
-                {answerStatus === 'idle' && (
-                    <div
-                        key={timerKey}
-                        className="h-full rounded-full"
-                        style={{
-                            background: timerGradient,
-                            animation: `timer-drain ${TIMER_DURATION}s linear forwards`,
-                            boxShadow: `0 0 8px ${themeColor}60`,
-                        }}
-                    />
-                )}
-            </div>
+
 
             {/* Top HUD */}
             <div className="absolute top-4 left-0 right-0 z-50 flex items-center justify-between px-4">

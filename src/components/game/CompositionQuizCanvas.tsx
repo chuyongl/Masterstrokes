@@ -54,7 +54,7 @@ interface CompositionOption {
     isCorrect: boolean;
 }
 
-const TIMER_DURATION = 15; // slightly longer for composition (more thinking)
+
 
 export default function CompositionQuizCanvas({ artwork, questions, onComplete }: CompositionQuizCanvasProps) {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -69,8 +69,7 @@ export default function CompositionQuizCanvas({ artwork, questions, onComplete }
     const [comboKey, setComboKey] = useState(0);
     const [questionKey, setQuestionKey] = useState(0);
     const [answerHistory, setAnswerHistory] = useState<AnswerResult[]>([]);
-    const [timerRunning, setTimerRunning] = useState(false);
-    const [timerKey, setTimerKey] = useState(0);
+
     const [cameraShake, setCameraShake] = useState(false);
     const [speedPraise, setSpeedPraise] = useState<{ text: string; color: string } | null>(null);
     const [speedPraiseKey, setSpeedPraiseKey] = useState(0);
@@ -121,35 +120,13 @@ export default function CompositionQuizCanvas({ artwork, questions, onComplete }
         setOverlayKey(null);
         setShowFlashRed(false);
         setQuestionKey(prev => prev + 1);
-        setTimerRunning(true);
-        setTimerKey(prev => prev + 1);
+
         setCameraShake(false);
         setSpeedPraise(null);
         questionStartRef.current = Date.now();
     }, [currentIndex]);
 
-    // Timer timeout
-    useEffect(() => {
-        if (!timerRunning || answerStatus !== 'idle') return;
-        const timeout = setTimeout(() => {
-            setStreak(0);
-            setAnswerStatus('wrong');
-            setCameraShake(true);
-            setTimeout(() => setCameraShake(false), 500);
-            // Show correct overlay
-            if (currentQuestion) setOverlayKey(currentQuestion.correct_composition);
-            setAnswerHistory(prev => [...prev, 'wrong']);
-            setTimeout(() => {
-                const next = currentIndex + 1;
-                if (next >= questions.length) {
-                    setTimeout(onComplete, 300);
-                } else {
-                    setCurrentIndex(next);
-                }
-            }, 3000);
-        }, TIMER_DURATION * 1000);
-        return () => clearTimeout(timeout);
-    }, [timerRunning, answerStatus, currentIndex, questions.length, onComplete, currentQuestion]);
+
 
     const advance = useCallback(() => {
         const next = currentIndex + 1;
@@ -163,7 +140,6 @@ export default function CompositionQuizCanvas({ artwork, questions, onComplete }
     const handleSelect = (option: CompositionOption) => {
         if (answerStatus !== 'idle') return;
         setSelectedKey(option.key);
-        setTimerRunning(false);
         setOverlayKey(option.key); // Show selected SVG on image
 
         if (option.isCorrect) {
@@ -208,8 +184,7 @@ export default function CompositionQuizCanvas({ artwork, questions, onComplete }
                 setSelectedKey(null);
                 setOverlayKey(null);
                 setAnswerStatus('idle');
-                setTimerRunning(true);
-                setTimerKey(prev => prev + 1);
+
                 questionStartRef.current = Date.now();
             }, 3500);
         }
@@ -220,7 +195,7 @@ export default function CompositionQuizCanvas({ artwork, questions, onComplete }
     const slug = urlToSlug(artwork.imageUrl);
     const progress = questions.length > 0 ? (currentIndex + (answerStatus === 'correct' ? 1 : 0)) / questions.length : 0;
     const isPerfect = answerHistory.length === questions.length && answerHistory.every(r => r === 'correct');
-    const timerGradient = 'linear-gradient(to right, #a78bfa, #93D2FF, #fbbf24, #f87171)';
+
 
     // Resolve the overlay SVG URL
     const overlaySvgUrl = overlayKey
@@ -238,7 +213,7 @@ export default function CompositionQuizCanvas({ artwork, questions, onComplete }
         : null;
 
     return (
-        <div className={`relative w-full h-full bg-black overflow-hidden select-none flex flex-col ${cameraShake ? 'animate-camera-shake' : ''}`}>
+        <div className={`relative w-full h-full bg-white overflow-hidden select-none flex flex-col ${cameraShake ? 'animate-camera-shake' : ''}`}>
             {/* Progress bar */}
             <div className="absolute top-0 left-0 right-0 h-1.5 bg-white/10 z-50">
                 <div
@@ -255,20 +230,7 @@ export default function CompositionQuizCanvas({ artwork, questions, onComplete }
                 />
             </div>
 
-            {/* Timer bar */}
-            <div className="absolute top-1.5 left-0 right-0 h-1 bg-white/5 z-50">
-                {answerStatus === 'idle' && (
-                    <div
-                        key={timerKey}
-                        className="h-full rounded-full"
-                        style={{
-                            background: timerGradient,
-                            animation: `timer-drain ${TIMER_DURATION}s linear forwards`,
-                            boxShadow: '0 0 8px rgba(167,139,250,0.4)',
-                        }}
-                    />
-                )}
-            </div>
+
 
             {/* Top HUD */}
             <div className="absolute top-4 left-0 right-0 z-50 flex items-center justify-between px-4">
