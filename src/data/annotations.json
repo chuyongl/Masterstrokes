@@ -304,94 +304,88 @@
     "image_filename": "altamira-ceiling.jpg",
     "quiz_regions": [
       {
-        "id": "region_1772558309642",
-        "point_id": "ac-1",
-        "label": "The Prehistoric Sistine Chapel",
-        "x": 0.0149,
-        "y": 0.006,
-        "w": 0.9642,
-        "h": 0.1392
-      },
-      {
-        "id": "region_1772558336402",
-        "point_id": "ac-2",
-        "label": "Natural Contours as Sculpture",
-        "x": 0.5298,
-        "y": 0.5109,
-        "w": 0.2783,
-        "h": 0.2724
-      },
-      {
-        "id": "region_1772558366179",
-        "point_id": "ac-6",
-        "label": "The Sophistication of Bison Shading",
-        "x": 0.331,
-        "y": 0.2326,
-        "w": 0.2505,
-        "h": 0.161
-      },
-      {
-        "id": "region_1772558389218",
+        "id": "region_1774647454254",
         "point_id": "ac-3",
-        "label": "Refused, Then Accepted",
-        "x": 0.2535,
-        "y": 0.4891,
-        "w": 0.2306,
-        "h": 0.3022
+        "label": "Rock as Body",
+        "rects": [
+          {
+            "x": 0.7048,
+            "y": 0.7018,
+            "w": 0.2465,
+            "h": 0.2962,
+            "r": 0
+          }
+        ]
       },
       {
-        "id": "region_1772558413474",
+        "id": "region_1774647513509",
         "point_id": "ac-5",
-        "label": "A Girl Named Maria",
-        "x": 0.6968,
-        "y": 0.4274,
-        "w": 0.2922,
-        "h": 0.2803
+        "label": "Four Colors",
+        "rects": [
+          {
+            "x": 0.341,
+            "y": 0.2326,
+            "w": 0.2863,
+            "h": 0.5447,
+            "r": 0
+          }
+        ]
       },
       {
-        "id": "region_1772558476186",
-        "point_id": "ac-4",
-        "label": "Painted Over Millennia",
-        "x": 0.0527,
-        "y": 0.6779,
-        "w": 0.2724,
-        "h": 0.2306
+        "id": "region_1774647538613",
+        "point_id": "ac-6",
+        "label": "Different Poses",
+        "rects": [
+          {
+            "x": 0.6928,
+            "y": 0.4175,
+            "w": 0.2783,
+            "h": 0.2465,
+            "r": 0
+          }
+        ]
       },
       {
-        "id": "region_1772558510602",
+        "id": "region_1774647569837",
         "point_id": "ac-7",
-        "label": "Every Bison in a Different Pose",
-        "x": 0.6869,
-        "y": 0.7276,
-        "w": 0.2644,
-        "h": 0.2525
+        "label": "Curled Bison",
+        "rects": [
+          {
+            "x": 0.3072,
+            "y": 0.2406,
+            "w": 0.3241,
+            "h": 0.5089,
+            "r": 0
+          }
+        ]
       },
       {
-        "id": "region_1772558735954",
+        "id": "region_1774647587925",
         "point_id": "ac-8",
-        "label": "No ground line",
-        "x": 0.1938,
-        "y": 0.2565,
-        "w": 0.6262,
-        "h": 0.5567
+        "label": "The Great Hind",
+        "rects": [
+          {
+            "x": 0.0149,
+            "y": 0.2048,
+            "w": 0.167,
+            "h": 0.3877,
+            "r": 0
+          }
+        ]
       },
       {
-        "id": "region_1772558893810",
+        "id": "region_1774647634349",
         "point_id": "ac-9",
-        "label": "Engraved first",
-        "x": 0.0089,
-        "y": 0.2306,
-        "w": 0.161,
-        "h": 0.3479
-      },
-      {
-        "id": "region_1772558908138",
-        "point_id": "ac-10",
-        "label": "Closed to Protect the Art",
-        "x": 0.005,
-        "y": 0.0159,
-        "w": 0.9781,
-        "h": 0.9662
+        "label": "No Ground Line",
+        "rects": [
+          {
+            "x": 0.0268,
+            "y": 0.8767,
+            "w": 0.9583,
+            "h": 0.0974,
+            "r": 0
+          }
+        ]
       }
     ]
   },
@@ -875,8 +869,8 @@
       }
     ]
   },
-  "book_of_kells_chi_rho": {
-    "artwork_id": "book_of_kells_chi_rho",
+  "book-of-kells-chi-rho": {
+    "artwork_id": "book-of-kells-chi-rho",
     "title": "",
     "date": "",
     "era": "",
@@ -1073,116 +1067,108 @@
       }
     ]
   },
-  "chauvet_panel_horses": {
-    "artwork_id": "chauvet_panel_horses",
+  "chauvet-panel-horses": {
+    "artwork_id": "chauvet-panel-horses",
     "title": "",
     "date": "",
     "era": "",
     "image_filename": "chauvet-panel-horses.jpg",
     "quiz_regions": [
       {
-        "id": "region_1772241887613",
+        "id": "region_1774642685501",
         "point_id": "cph-1",
-        "label": "Four Heads, One Movement",
-        "x": 0.3686,
-        "y": 0.1278,
-        "w": 0.4808,
-        "h": 0.4423
+        "label": "Four Horse Heads",
+        "rects": [
+          {
+            "x": 0.3335,
+            "y": 0.1153,
+            "w": 0.4573,
+            "h": 0.4493
+          }
+        ]
       },
       {
-        "id": "region_1772241939493",
+        "id": "region_1774642714260",
         "point_id": "cph-2",
-        "label": "Using the Cave Wall as Anatomy",
-        "x": 0.8247,
-        "y": 0.3047,
-        "w": 0.1462,
-        "h": 0.2285
+        "label": "Rock as Body",
+        "rects": [
+          {
+            "x": 0.8048,
+            "y": 0.3201,
+            "w": 0.1925,
+            "h": 0.2445
+          }
+        ]
       },
       {
-        "id": "region_1772241958333",
+        "id": "region_1774642739972",
         "point_id": "cph-3",
-        "label": "Aurochs Among the Horses",
-        "x": 0.0117,
-        "y": 0.1867,
-        "w": 0.2999,
-        "h": 0.398
+        "label": "Facing Rhinos",
+        "rects": [
+          {
+            "x": 0.4639,
+            "y": 0.6223,
+            "w": 0.5335,
+            "h": 0.2704
+          }
+        ]
       },
       {
-        "id": "region_1772241983534",
+        "id": "region_1774642757659",
         "point_id": "cph-4",
-        "label": "Negative Space and Economy of Line",
-        "x": 0.8792,
-        "y": 0.6413,
-        "w": 0.1066,
-        "h": 0.2039
+        "label": "Three Aurochs",
+        "rects": [
+          {
+            "x": 0.0046,
+            "y": 0.1451,
+            "w": 0.2948,
+            "h": 0.6422
+          }
+        ]
       },
       {
-        "id": "region_1772242003445",
+        "id": "region_1774642783003",
         "point_id": "cph-5",
-        "label": "The Whinnying Horse",
-        "x": 0.6078,
-        "y": 0.3649,
-        "w": 0.2132,
-        "h": 0.2924
+        "label": "Shaded Heads",
+        "rects": [
+          {
+            "x": 0.6083,
+            "y": 0.3797,
+            "w": 0.2587,
+            "h": 0.1948
+          }
+        ]
       },
       {
-        "id": "region_1772242039677",
-        "point_id": "cph-6",
-        "label": "Two Rhinos Locking Horns",
-        "x": 0.5632,
-        "y": 0.602,
-        "w": 0.4238,
-        "h": 0.3194
-      },
-      {
-        "id": "region_1772242072974",
-        "point_id": "cph-7",
-        "label": "A Stampede from Right to Left",
-        "x": 0.0278,
-        "y": 0.1253,
-        "w": 0.7188,
-        "h": 0.7297
-      },
-      {
-        "id": "region_1772242093941",
-        "point_id": "cph-8",
-        "label": "Stump Drawing on Horse Heads",
-        "x": 0.3823,
-        "y": 0.0933,
-        "w": 0.3024,
-        "h": 0.2334
-      },
-      {
-        "id": "region_1772242130941",
-        "point_id": "cph-9",
-        "label": "Animals Grouped by Species",
-        "x": 0.2782,
-        "y": 0.4717,
-        "w": 0.7039,
-        "h": 0.4767
-      },
-      {
-        "id": "region_1772242170621",
+        "id": "region_1774642900923",
         "point_id": "cph-10",
-        "label": "Pablo Picasso's Remark",
-        "x": 0.0278,
-        "y": 0.5553,
-        "w": 0.5106,
-        "h": 0.4128
+        "label": "Contour Line",
+        "rects": [
+          {
+            "x": 0.486,
+            "y": 0.0815,
+            "w": 0.3931,
+            "h": 0.171
+          }
+        ]
       },
       {
-        "id": "region_1772242190349",
-        "point_id": "cph-10",
-        "label": "Pablo Picasso's Remark",
-        "x": 0.0179,
-        "y": 0.0123,
-        "w": 0.9617,
-        "h": 0.973
+        "id": "region_1774642926139",
+        "point_id": "cph-11",
+        "label": "Perspective Attempt",
+        "rects": [
+          {
+            "x": 0.3576,
+            "y": 0.0915,
+            "w": 0.6217,
+            "h": 0.5268
+          }
+        ]
       }
     ]
   },
-  "chauvet_panel_lions": {
-    "artwork_id": "chauvet_panel_lions",
+  "chauvet-panel-lions": {
+    "artwork_id": "chauvet-panel-lions",
     "title": "",
     "date": "",
     "era": "",
@@ -1192,91 +1178,131 @@
         "id": "region_1772242475174",
         "point_id": "cpl-3",
         "label": "Stumping and Shading",
-        "x": 0.5318,
-        "y": 0.388,
-        "w": 0.1091,
-        "h": 0.1856
+        "rects": [
+          {
+            "x": 0.5318,
+            "y": 0.388,
+            "w": 0.1091,
+            "h": 0.1856
+          }
+        ]
       },
       {
         "id": "region_1772242500085",
         "point_id": "cpl-4",
         "label": "Ears Back = Aggression",
-        "x": 0.8125,
-        "y": 0.2174,
-        "w": 0.117,
-        "h": 0.1088
+        "rects": [
+          {
+            "x": 0.8125,
+            "y": 0.2174,
+            "w": 0.117,
+            "h": 0.1088
+          }
+        ]
       },
       {
         "id": "region_1772242683709",
         "point_id": "cpl-5",
         "label": "The Mother and Cub",
-        "x": 0.3955,
-        "y": 0.3411,
-        "w": 0.1114,
-        "h": 0.1515
+        "rects": [
+          {
+            "x": 0.3955,
+            "y": 0.3411,
+            "w": 0.1114,
+            "h": 0.1515
+          }
+        ]
       },
       {
         "id": "region_1772242751517",
         "point_id": "cpl-2",
         "label": "Two Rows, One Hunt",
-        "x": 0.4273,
-        "y": 0.1299,
-        "w": 0.5375,
-        "h": 0.5439
+        "rects": [
+          {
+            "x": 0.4273,
+            "y": 0.1299,
+            "w": 0.5375,
+            "h": 0.5439
+          }
+        ]
       },
       {
         "id": "region_1772242843662",
         "point_id": "cpl-10",
         "label": "Proto-Cinema on a Cave Wall",
-        "x": 0.1352,
-        "y": 0.4157,
-        "w": 0.1977,
-        "h": 0.4096
+        "rects": [
+          {
+            "x": 0.1352,
+            "y": 0.4157,
+            "w": 0.1977,
+            "h": 0.4096
+          }
+        ]
       },
       {
         "id": "region_1772242947573",
         "point_id": "cpl-6",
         "label": "No Manes, A Scientific Clue",
-        "x": 0.4057,
-        "y": 0.1192,
-        "w": 0.5864,
-        "h": 0.6229
+        "rects": [
+          {
+            "x": 0.4057,
+            "y": 0.1192,
+            "w": 0.5864,
+            "h": 0.6229
+          }
+        ]
       },
       {
         "id": "region_1772242963045",
         "point_id": "cpl-7",
         "label": "Painted in Pitch Darkness",
-        "x": 0.0068,
-        "y": 0.4328,
-        "w": 0.2034,
-        "h": 0.5503
+        "rects": [
+          {
+            "x": 0.0068,
+            "y": 0.4328,
+            "w": 0.2034,
+            "h": 0.5503
+          }
+        ]
       },
       {
         "id": "region_1772242987165",
         "point_id": "cpl-8",
         "label": "Overprinting Across Millennia",
-        "x": 0.2375,
-        "y": 0.4413,
-        "w": 0.4216,
-        "h": 0.3904
+        "rects": [
+          {
+            "x": 0.2375,
+            "y": 0.4413,
+            "w": 0.4216,
+            "h": 0.3904
+          }
+        ]
       },
       {
         "id": "region_1772243009590",
         "point_id": "cpl-9",
         "label": "The Cave That Cannot Be Visited",
-        "x": 0.0227,
-        "y": 0.0488,
-        "w": 0.9591,
-        "h": 0.9023
+        "rects": [
+          {
+            "x": 0.0227,
+            "y": 0.0488,
+            "w": 0.9591,
+            "h": 0.9023
+          }
+        ]
       },
       {
         "id": "region_1772243022885",
         "point_id": "cpl-1",
         "label": "The World's Oldest Narrative",
-        "x": 0.0102,
-        "y": 0.0147,
-        "w": 0.9795,
-        "h": 0.9663
+        "rects": [
+          {
+            "x": 0.0102,
+            "y": 0.0147,
+            "w": 0.9795,
+            "h": 0.9663
+          }
+        ]
       }
     ]
   },
@@ -1387,85 +1413,46 @@
     "image_filename": "el-castillo-hands.jpg",
     "quiz_regions": [
       {
-        "id": "region_1772559161426",
+        "id": "region_1774648768940",
         "point_id": "ech-1",
-        "label": "Red Disc",
-        "x": 0.7737,
-        "y": 0.0159,
-        "w": 0.2175,
-        "h": 0.332
+        "label": "Stencil Method",
+        "rects": [
+          {
+            "x": 0.67,
+            "y": 0.4036,
+            "w": 0.1714,
+            "h": 0.3718,
+            "r": 0
+          }
+        ]
       },
       {
-        "id": "region_1772559208011",
+        "id": "region_1774648781315",
         "point_id": "ech-2",
-        "label": "Hand Stencil",
-        "x": 0.2033,
-        "y": 0.5885,
-        "w": 0.1483,
-        "h": 0.2763
-      },
-      {
-        "id": "region_1772559226162",
-        "point_id": "ech-3",
-        "label": "Finger Proportions",
-        "x": 0.6916,
-        "y": 0.4314,
-        "w": 0.1368,
-        "h": 0.2346
-      },
-      {
-        "id": "region_1772559246995",
-        "point_id": "ech-9",
-        "label": "Pale Hand",
-        "x": 0.8673,
-        "y": 0.5527,
-        "w": 0.1152,
-        "h": 0.2545
-      },
-      {
-        "id": "region_1772559269042",
-        "point_id": "ech-5",
-        "label": "Rock Cracks",
-        "x": 0.6844,
-        "y": 0.2227,
-        "w": 0.3068,
-        "h": 0.2127
-      },
-      {
-        "id": "region_1772559280282",
-        "point_id": "ech-6",
         "label": "Yellow Bison",
-        "x": 0.1644,
-        "y": 0.0736,
-        "w": 0.4522,
-        "h": 0.4215
+        "rects": [
+          {
+            "x": 0.019,
+            "y": 0.0915,
+            "w": 0.5991,
+            "h": 0.6422,
+            "r": 0
+          }
+        ]
       },
       {
-        "id": "region_1772559301634",
-        "point_id": "ech-7",
-        "label": "Dot Cluster",
-        "x": 0.5778,
-        "y": 0.6342,
-        "w": 0.0677,
-        "h": 0.1471
-      },
-      {
-        "id": "region_1772559402026",
-        "point_id": "ech-4",
-        "label": "Layered Hands",
-        "x": 0.4266,
-        "y": 0.3718,
-        "w": 0.2276,
-        "h": 0.2803
-      },
-      {
-        "id": "region_1772559497299",
-        "point_id": "ech-8",
-        "label": "Bison Template",
-        "x": 0.0218,
-        "y": 0.1292,
-        "w": 0.4551,
-        "h": 0.5865
+        "id": "region_1774648810549",
+        "point_id": "ech-3",
+        "label": "Hand by Fissure",
+        "rects": [
+          {
+            "x": 0.1543,
+            "y": 0.3439,
+            "w": 0.8181,
+            "h": 0.4752,
+            "r": 0
+          }
+        ]
       }
     ]
   },
@@ -1963,94 +1950,88 @@
     "image_filename": "investiture-zimri-lim.jpg",
     "quiz_regions": [
       {
-        "id": "region_1772559778682",
+        "id": "region_1774649281179",
         "point_id": "izl-1",
-        "label": "Rod and Ring",
-        "x": 0.3618,
-        "y": 0.4718,
-        "w": 0.0905,
-        "h": 0.1236
+        "label": "Central Scene",
+        "rects": [
+          {
+            "x": 0.3118,
+            "y": 0.4533,
+            "w": 0.2558,
+            "h": 0.2227,
+            "r": 0
+          }
+        ]
       },
       {
-        "id": "region_1772559802778",
+        "id": "region_1774649654651",
         "point_id": "izl-2",
-        "label": "Measuring Tools",
-        "x": 0.3885,
-        "y": 0.4909,
-        "w": 0.0812,
-        "h": 0.1462
+        "label": "Lama Goddesses",
+        "rects": [
+          {
+            "x": 0.0229,
+            "y": 0.5527,
+            "w": 0.0795,
+            "h": 0.3618,
+            "r": 0
+          }
+        ]
       },
       {
-        "id": "region_1772559855354",
+        "id": "region_1774649758778",
         "point_id": "izl-3",
-        "label": "Weapons on Shoulders",
-        "x": 0.4082,
-        "y": 0.3934,
-        "w": 0.0952,
-        "h": 0.3238
+        "label": "Lion",
+        "rects": [
+          {
+            "x": 0.1183,
+            "y": 0.7594,
+            "w": 0.1312,
+            "h": 0.1372,
+            "r": 0
+          }
+        ]
       },
       {
-        "id": "region_1772559879490",
+        "id": "region_1774649779466",
         "point_id": "izl-4",
-        "label": "Hand to Mouth",
-        "x": 0.3386,
-        "y": 0.4422,
-        "w": 0.0754,
-        "h": 0.2472
+        "label": "Winged Figure",
+        "rects": [
+          {
+            "x": 0.1196,
+            "y": 0.6143,
+            "w": 0.1339,
+            "h": 0.1412,
+            "r": 0
+          }
+        ]
       },
       {
-        "id": "region_1772559924306",
+        "id": "region_1774649824818",
         "point_id": "izl-5",
-        "label": "Lion and Dove",
-        "x": 0.1181,
-        "y": 0.4683,
-        "w": 0.1718,
-        "h": 0.3168
+        "label": "Palm Tree",
+        "rects": [
+          {
+            "x": 0.6789,
+            "y": 0.169,
+            "w": 0.1803,
+            "h": 0.7435,
+            "r": 0
+          }
+        ]
       },
       {
-        "id": "region_1772559959554",
+        "id": "region_1774649954674",
         "point_id": "izl-6",
-        "label": "Flowing Water",
-        "x": 0.3014,
-        "y": 0.6824,
-        "w": 0.2774,
-        "h": 0.2646
-      },
-      {
-        "id": "region_1772560069995",
-        "point_id": "izl-8",
-        "label": "Blue Added Last",
-        "x": 0.7076,
-        "y": 0.1776,
-        "w": 0.1451,
-        "h": 0.275
-      },
-      {
-        "id": "region_1772560090026",
-        "point_id": "izl-9",
-        "label": "Buried by Fire",
-        "x": 0.2179,
-        "y": 0.0627,
-        "w": 0.4631,
-        "h": 0.2611
-      },
-      {
-        "id": "region_1772560127626",
-        "point_id": "izl-10",
-        "label": "Hidden Fish",
-        "x": 0.0229,
-        "y": 0.8617,
-        "w": 0.9691,
-        "h": 0.1062
-      },
-      {
-        "id": "region_1772560193322",
-        "point_id": "izl-7",
-        "label": "Mirror Symmetry",
-        "x": 0.183,
-        "y": 0.3691,
-        "w": 0.5466,
-        "h": 0.4665
+        "label": "Scale Border",
+        "rects": [
+          {
+            "x": 0.0149,
+            "y": 0.9225,
+            "w": 0.782,
+            "h": 0.0616,
+            "r": 0
+          }
+        ]
       }
     ]
   },
@@ -2062,94 +2043,95 @@
     "image_filename": "lascaux-hall-bulls.jpg",
     "quiz_regions": [
       {
-        "id": "region_1772660490160",
-        "point_id": "lhb-2",
-        "label": "Scale Contrast",
-        "x": 0.3431,
-        "y": 0.6028,
-        "w": 0.1986,
-        "h": 0.2542
-      },
-      {
-        "id": "region_1772660508184",
-        "point_id": "lhb-3",
-        "label": "Twisted Perspective",
-        "x": 0.5736,
-        "y": 0.0837,
-        "w": 0.2292,
-        "h": 0.2479
-      },
-      {
-        "id": "region_1772660532832",
-        "point_id": "lhb-4",
-        "label": "Rock Wall as Volume",
-        "x": 0.6389,
-        "y": 0.7447,
-        "w": 0.0917,
-        "h": 0.1208
-      },
-      {
-        "id": "region_1772660550688",
-        "point_id": "lhb-5",
-        "label": "Overlapping Figures",
-        "x": 0.1139,
-        "y": 0.6303,
-        "w": 0.2292,
-        "h": 0.2797
-      },
-      {
-        "id": "region_1772660561329",
-        "point_id": "lhb-6",
-        "label": "Spots on the Bull",
-        "x": 0.8778,
-        "y": 0.4629,
-        "w": 0.1181,
-        "h": 0.1928
-      },
-      {
-        "id": "region_1772660582497",
-        "point_id": "lhb-7",
-        "label": "Abstract Red Marks",
-        "x": 0.2861,
-        "y": 0.3761,
-        "w": 0.1208,
-        "h": 0.1483
-      },
-      {
-        "id": "region_1772660637042",
+        "id": "region_1774644268795",
         "point_id": "lhb-1",
         "label": "Largest Animal",
-        "x": 0.5542,
-        "y": 0.0456,
-        "w": 0.4389,
-        "h": 0.9089
+        "rects": [
+          {
+            "x": 0.6625,
+            "y": 0.1155,
+            "w": 0.3319,
+            "h": 0.8623
+          }
+        ]
       },
       {
-        "id": "region_1772660654003",
-        "point_id": "lhb-8",
-        "label": "Mineral Pigments",
-        "x": 0.0111,
-        "y": 0.0201,
-        "w": 0.9639,
-        "h": 0.9513
+        "id": "region_1774644330426",
+        "point_id": "lhb-3",
+        "label": "Twisted Perspective",
+        "rects": [
+          {
+            "x": 0.5847,
+            "y": 0.0752,
+            "w": 0.2458,
+            "h": 0.2754
+          }
+        ]
       },
       {
-        "id": "region_1772660664722",
-        "point_id": "lhb-9",
-        "label": "Discovered in 1940",
-        "x": 0.0139,
-        "y": 0.0053,
-        "w": 0.9528,
-        "h": 0.9153
+        "id": "region_1774644361177",
+        "point_id": "lhb-4",
+        "label": "Rock as Volume",
+        "rects": [
+          {
+            "x": 0.8528,
+            "y": 0.0773,
+            "w": 0.1417,
+            "h": 0.2733
+          }
+        ]
       },
       {
-        "id": "region_1772660675610",
-        "point_id": "lhb-10",
-        "label": "Sealed in 1963",
-        "x": 0.0056,
-        "y": 0.0138,
-        "w": 0.9764,
-        "h": 0.9703
+        "id": "region_1774644426570",
+        "point_id": "lhb-5",
+        "label": "Overlapping Figures",
+        "rects": [
+          {
+            "x": 0.0125,
+            "y": 0.6494,
+            "w": 0.3972,
+            "h": 0.2797
+          }
+        ]
+      },
+      {
+        "id": "region_1774644448729",
+        "point_id": "lhb-6",
+        "label": "Spotted Bull",
+        "rects": [
+          {
+            "x": 0.0014,
+            "y": 0.3252,
+            "w": 0.375,
+            "h": 0.2966
+          }
+        ]
+      },
+      {
+        "id": "region_1774644493129",
+        "point_id": "lhb-7",
+        "label": "Abstract Signs",
+        "rects": [
+          {
+            "x": 0.2708,
+            "y": 0.3655,
+            "w": 0.1167,
+            "h": 0.1398
+          }
+        ]
+      },
+      {
+        "id": "region_1774644544889",
+        "point_id": "lhb-2",
+        "label": "Scale Contrast",
+        "rects": [
+          {
+            "x": 0.0375,
+            "y": 0.1833,
+            "w": 0.5403,
+            "h": 0.7797
+          }
+        ]
       }
     ]
   },
@@ -2158,97 +2140,111 @@
     "title": "",
     "date": "",
     "era": "",
-    "image_filename": "lascaux-shaft-scene.jpg",
+    "image_filename": "lascaux-shaft-scene.png",
     "quiz_regions": [
       {
-        "id": "region_1772557299890",
-        "point_id": "lss-1",
-        "label": "The Only Human in Lascaux",
-        "x": 0.0587,
-        "y": 0.4069,
-        "w": 0.3175,
-        "h": 0.2035
-      },
-      {
-        "id": "region_1772557316994",
+        "id": "region_1774645504928",
         "point_id": "lss-2",
-        "label": "Why a Bird Head?",
-        "x": 0.0968,
-        "y": 0.2165,
-        "w": 0.1556,
-        "h": 0.1861
+        "label": "Bird Head",
+        "rects": [
+          {
+            "x": 0.3046,
+            "y": 0.33,
+            "w": 0.0479,
+            "h": 0.1074
+          }
+        ]
       },
       {
-        "id": "region_1772557351562",
+        "id": "region_1774645516591",
         "point_id": "lss-3",
-        "label": "A Story Frozen Mid-Action",
-        "x": 0.5921,
-        "y": 0.4026,
-        "w": 0.2413,
-        "h": 0.4156
+        "label": "Falling Man",
+        "rects": [
+          {
+            "x": 0.3019,
+            "y": 0.3062,
+            "w": 0.1595,
+            "h": 0.2624
+          }
+        ]
       },
       {
-        "id": "region_1772557377931",
+        "id": "region_1774645528584",
         "point_id": "lss-4",
-        "label": "The Bison Fights Back",
-        "x": 0.2016,
-        "y": 0.0563,
-        "w": 0.3778,
-        "h": 0.3636
+        "label": "Wounded Bison",
+        "rects": [
+          {
+            "x": 0.4309,
+            "y": 0.1968,
+            "w": 0.5024,
+            "h": 0.4791
+          }
+        ]
       },
       {
-        "id": "region_1772557398203",
-        "point_id": "lss-5",
-        "label": "The Bird on a Stick",
-        "x": 0.1159,
-        "y": 0.5671,
-        "w": 0.0889,
-        "h": 0.3939
-      },
-      {
-        "id": "region_1772557459850",
+        "id": "region_1774645551855",
         "point_id": "lss-6",
-        "label": "Hidden at the Bottom of the Cave",
-        "x": 0.0079,
-        "y": 0.8182,
-        "w": 0.9841,
-        "h": 0.1515
+        "label": "Bird on Stick",
+        "rects": [
+          {
+            "x": 0.3724,
+            "y": 0.5606,
+            "w": 0.0798,
+            "h": 0.2644
+          }
+        ]
       },
       {
-        "id": "region_1772557489939",
+        "id": "region_1774645561832",
         "point_id": "lss-7",
-        "label": "The Rhino Walks Away",
-        "x": 0.0206,
-        "y": 0.0087,
-        "w": 0.2794,
-        "h": 0.9567
+        "label": "Rhino Walks Away",
+        "rects": [
+          {
+            "x": 0.0148,
+            "y": 0.503,
+            "w": 0.2805,
+            "h": 0.3897
+          }
+        ]
       },
       {
-        "id": "region_1772557509746",
+        "id": "region_1774645576087",
         "point_id": "lss-8",
-        "label": "A Possible Sky Map",
-        "x": 0.0714,
-        "y": 0.0433,
-        "w": 0.5778,
-        "h": 0.9004
+        "label": "Six Dots",
+        "rects": [
+          {
+            "x": 0.2209,
+            "y": 0.5388,
+            "w": 0.1289,
+            "h": 0.1173
+          }
+        ]
       },
       {
-        "id": "region_1772557528229",
+        "id": "region_1774645627639",
         "point_id": "lss-9",
-        "label": "A Lamp Was Found Right Below It",
-        "x": 0.0302,
-        "y": 0.5584,
-        "w": 0.9302,
-        "h": 0.4069
+        "label": "Barbed Sign",
+        "rects": [
+          {
+            "x": 0.4747,
+            "y": 0.6561,
+            "w": 0.1289,
+            "h": 0.1173
+          }
+        ]
       },
       {
-        "id": "region_1772557547058",
-        "point_id": "lss-10",
-        "label": "The Most Debated Image in Prehistory",
-        "x": 0.3603,
-        "y": 0.0216,
-        "w": 0.6127,
-        "h": 0.9697
+        "id": "region_1774646355888",
+        "point_id": "lss-5",
+        "label": "Spear and Thrower",
+        "rects": [
+          {
+            "x": 0.6196,
+            "y": 0.2565,
+            "w": 0.3695,
+            "h": 0.4791
+          }
+        ]
       }
     ]
   },
@@ -2359,94 +2355,74 @@
     "image_filename": "mari-sacrificial-procession.jpg",
     "quiz_regions": [
       {
-        "id": "region_1772560932338",
-        "point_id": "msp-2",
-        "label": "Hierarchic Scale",
-        "x": 0.6403,
-        "y": 0.0296,
-        "w": 0.318,
-        "h": 0.9313
-      },
-      {
-        "id": "region_1772560964202",
-        "point_id": "msp-3",
-        "label": "Ranked Procession",
-        "x": 0.1581,
-        "y": 0.3673,
-        "w": 0.4399,
-        "h": 0.5588
-      },
-      {
-        "id": "region_1772561000107",
-        "point_id": "msp-4",
-        "label": "Adorned Bull",
-        "x": 0.0218,
-        "y": 0.4961,
-        "w": 0.1322,
-        "h": 0.2907
-      },
-      {
-        "id": "region_1772561024546",
+        "id": "region_1774650541001",
         "point_id": "msp-1",
-        "label": "Orange Bull",
-        "x": 0.121,
-        "y": 0.376,
-        "w": 0.192,
-        "h": 0.4404
+        "label": "Sacrificial Bull",
+        "rects": [
+          {
+            "x": 0.0307,
+            "y": 0.3559,
+            "w": 0.2783,
+            "h": 0.5308,
+            "r": 0
+          }
+        ]
       },
       {
-        "id": "region_1772561049322",
-        "point_id": "msp-6",
-        "label": "Stacked Registers",
-        "x": 0.2376,
-        "y": 0.2489,
-        "w": 0.318,
-        "h": 0.3691
+        "id": "region_1774650554561",
+        "point_id": "msp-2",
+        "label": "Bearded Assistant",
+        "rects": [
+          {
+            "x": 0.2441,
+            "y": 0.334,
+            "w": 0.1226,
+            "h": 0.2763,
+            "r": 0
+          }
+        ]
       },
       {
-        "id": "region_1772561086834",
+        "id": "region_1774650584362",
+        "point_id": "msp-3",
+        "label": "The Sacrificer",
+        "rects": [
+          {
+            "x": 0.4092,
+            "y": 0.4016,
+            "w": 0.1297,
+            "h": 0.3459,
+            "r": 0
+          }
+        ]
+      },
+      {
+        "id": "region_1774650595073",
+        "point_id": "msp-4",
+        "label": "King's Robe",
+        "rects": [
+          {
+            "x": 0.6156,
+            "y": 0.0318,
+            "w": 0.3608,
+            "h": 0.9046,
+            "r": 0
+          }
+        ]
+      },
+      {
+        "id": "region_1774650616505",
         "point_id": "msp-5",
-        "label": "Five Colors Only",
-        "x": 0.3853,
-        "y": 0.4126,
-        "w": 0.2385,
-        "h": 0.4927
-      },
-      {
-        "id": "region_1772561118522",
-        "point_id": "msp-7",
-        "label": "Scored Mud Base",
-        "x": 0.3306,
-        "y": 0.0279,
-        "w": 0.2953,
-        "h": 0.3934
-      },
-      {
-        "id": "region_1772561158419",
-        "point_id": "msp-8",
-        "label": "East of the Doorway",
-        "x": 0.0125,
-        "y": 0.0157,
-        "w": 0.7414,
-        "h": 0.9679
-      },
-      {
-        "id": "region_1772561169938",
-        "point_id": "msp-9",
-        "label": "King Without Gods",
-        "x": 0.3264,
-        "y": 0.0226,
-        "w": 0.6629,
-        "h": 0.9662
-      },
-      {
-        "id": "region_1772561188714",
-        "point_id": "msp-10",
-        "label": "Reassembled Fragments",
-        "x": 0.0301,
-        "y": 0.0035,
-        "w": 0.9592,
-        "h": 0.9818
+        "label": "Upper Register Legs",
+        "rects": [
+          {
+            "x": 0.1132,
+            "y": 0.0477,
+            "w": 0.5212,
+            "h": 0.3519,
+            "r": 0
+          }
+        ]
       }
     ]
   },
@@ -3143,8 +3119,8 @@
       }
     ]
   },
-  "pantocrator_mosaic_daphni": {
-    "artwork_id": "pantocrator_mosaic_daphni",
+  "pantocrator-mosaic-daphni": {
+    "artwork_id": "pantocrator-mosaic-daphni",
     "title": "",
     "date": "",
     "era": "",
@@ -3349,94 +3325,74 @@
     "image_filename": "samarra-painted-bowl.jpg",
     "quiz_regions": [
       {
-        "id": "region_1772563966931",
+        "id": "region_1774652321456",
         "point_id": "spb-1",
-        "label": "Spinning Birds",
-        "x": 0.1935,
-        "y": 0.2576,
-        "w": 0.623,
-        "h": 0.1062
+        "label": "Circling Birds",
+        "rects": [
+          {
+            "x": 0.3352,
+            "y": 0.2863,
+            "w": 0.3751,
+            "h": 0.0974,
+            "r": 0
+          }
+        ]
       },
       {
-        "id": "region_1772563983954",
+        "id": "region_1774652381271",
         "point_id": "spb-2",
         "label": "Central Bird",
-        "x": 0.3629,
-        "y": 0.4648,
-        "w": 0.2209,
-        "h": 0.2263
+        "rects": [
+          {
+            "x": 0.3184,
+            "y": 0.4056,
+            "w": 0.3179,
+            "h": 0.2962,
+            "r": 0
+          }
+        ]
       },
       {
-        "id": "region_1772564000387",
+        "id": "region_1774652401087",
         "point_id": "spb-3",
-        "label": "Birds Reduced to Marks",
-        "x": 0.1537,
-        "y": 0.3969,
-        "w": 0.0987,
-        "h": 0.148
+        "label": "Reduced to Marks",
+        "rects": [
+          {
+            "x": 0.1418,
+            "y": 0.4414,
+            "w": 0.0875,
+            "h": 0.1074,
+            "r": 0
+          }
+        ]
       },
       {
-        "id": "region_1772564018498",
+        "id": "region_1774652422623",
         "point_id": "spb-4",
         "label": "Rim Band",
-        "x": 0.3717,
-        "y": 0.0731,
-        "w": 0.3873,
-        "h": 0.1375
+        "rects": [
+          {
+            "x": 0.2561,
+            "y": 0.0636,
+            "w": 0.4642,
+            "h": 0.1093,
+            "r": 0
+          }
+        ]
       },
       {
-        "id": "region_1772564037860",
+        "id": "region_1774652456487",
         "point_id": "spb-5",
-        "label": "Dark on Cream",
-        "x": 0.1641,
-        "y": 0.6615,
-        "w": 0.3078,
-        "h": 0.2385
-      },
-      {
-        "id": "region_1772564071338",
-        "point_id": "spb-6",
-        "label": "Design Fits the Bowl",
-        "x": 0.7266,
-        "y": 0.3708,
-        "w": 0.2106,
-        "h": 0.195
-      },
-      {
-        "id": "region_1772564090658",
-        "point_id": "spb-7",
-        "label": "Made Before Civilization",
-        "x": 0.0403,
-        "y": 0.0348,
-        "w": 0.8866,
-        "h": 0.954
-      },
-      {
-        "id": "region_1772564101059",
-        "point_id": "spb-8",
-        "label": "Invented Irrigation",
-        "x": 0.061,
-        "y": 0.0261,
-        "w": 0.9249,
-        "h": 0.9087
-      },
-      {
-        "id": "region_1772564114434",
-        "point_id": "spb-9",
-        "label": "Traded Across the Region",
-        "x": 0.142,
-        "y": 0.0052,
-        "w": 0.838,
-        "h": 0.9731
-      },
-      {
-        "id": "region_1772564125746",
-        "point_id": "spb-10",
-        "label": "Ancestor of Everything After",
-        "x": 0.0138,
-        "y": 0.0627,
-        "w": 0.9543,
-        "h": 0.8896
+        "label": "Exterior Bands",
+        "rects": [
+          {
+            "x": 0.1771,
+            "y": 0.6501,
+            "w": 0.4524,
+            "h": 0.3042,
+            "r": 0
+          }
+        ]
       }
     ]
   },
@@ -3547,193 +3503,102 @@
     "image_filename": "standard-of-ur.png",
     "quiz_regions": [
       {
-        "id": "region_1772562680179",
-        "point_id": "sou-1",
-        "label": "Three Registers",
-        "x": 0.0351,
-        "y": 0.0191,
-        "w": 0.113,
-        "h": 0.4874
-      },
-      {
-        "id": "region_1772562689026",
+        "id": "region_1774651123993",
         "point_id": "sou-2",
         "label": "King Breaks Frame",
-        "x": 0.4763,
-        "y": 0.0174,
-        "w": 0.1052,
-        "h": 0.1497
+        "rects": [
+          {
+            "x": 0.4892,
+            "y": 0.0239,
+            "w": 0.0789,
+            "h": 0.1531,
+            "r": 0
+          }
+        ]
       },
       {
-        "id": "region_1772562705186",
+        "id": "region_1774651146576",
         "point_id": "sou-3",
-        "label": "Onager Chariots",
-        "x": 0.7087,
-        "y": 0.329,
-        "w": 0.2496,
-        "h": 0.1393
+        "label": "Chariot Gaits",
+        "rects": [
+          {
+            "x": 0.0481,
+            "y": 0.3439,
+            "w": 0.9145,
+            "h": 0.1173,
+            "r": 0
+          }
+        ]
       },
       {
-        "id": "region_1772562729434",
+        "id": "region_1774651173320",
         "point_id": "sou-4",
         "label": "Naked Prisoners",
-        "x": 0.6333,
-        "y": 0.1898,
-        "w": 0.0691,
-        "h": 0.1445
+        "rects": [
+          {
+            "x": 0.7241,
+            "y": 0.1928,
+            "w": 0.052,
+            "h": 0.1213,
+            "r": 0
+          }
+        ]
       },
       {
-        "id": "region_1772562740602",
+        "id": "region_1774651217265",
         "point_id": "sou-5",
-        "label": "Buried Lyre",
-        "x": 0.8013,
-        "y": 0.5449,
-        "w": 0.1099,
-        "h": 0.1358
+        "label": "Fur-Cloaked Soldiers",
+        "rects": [
+          {
+            "x": 0.0481,
+            "y": 0.1968,
+            "w": 0.3766,
+            "h": 0.1233,
+            "r": 0
+          }
+        ]
       },
       {
-        "id": "region_1772562755266",
+        "id": "region_1774651245896",
         "point_id": "sou-6",
-        "label": "Three Continents",
-        "x": 0.8531,
-        "y": 0.0017,
-        "w": 0.1397,
-        "h": 0.1427
+        "label": "Seated King",
+        "rects": [
+          {
+            "x": 0.1485,
+            "y": 0.5249,
+            "w": 0.0968,
+            "h": 0.1451,
+            "r": 0
+          }
+        ]
       },
       {
-        "id": "region_1772562767794",
+        "id": "region_1774651260320",
         "point_id": "sou-7",
-        "label": "Tribute or Peace",
-        "x": 0.0445,
-        "y": 0.8408,
-        "w": 0.5166,
-        "h": 0.1288
+        "label": "Bull-Headed Lyre",
+        "rects": [
+          {
+            "x": 0.8066,
+            "y": 0.5388,
+            "w": 0.1076,
+            "h": 0.1412,
+            "r": 0
+          }
+        ]
       },
       {
-        "id": "region_1772562811434",
-        "point_id": "sou-10",
-        "label": "Seated Hierarchy",
-        "x": 0.0853,
-        "y": 0.5275,
-        "w": 0.3077,
-        "h": 0.148
-      },
-      {
-        "id": "region_1772562825706",
+        "id": "region_1774651345153",
         "point_id": "sou-8",
-        "label": "Unknown Purpose",
-        "x": 0.0194,
-        "y": 0.4979,
-        "w": 0.9531,
-        "h": 0.4857
-      },
-      {
-        "id": "region_1772562838930",
-        "point_id": "sou-9",
-        "label": "Found Crushed",
-        "x": 0.0225,
-        "y": 0.0035,
-        "w": 0.9672,
-        "h": 0.9888
-      }
-    ]
-  },
-  "tell-uqair-painted-temple": {
-    "artwork_id": "tell-uqair-painted-temple",
-    "title": "",
-    "date": "",
-    "era": "",
-    "image_filename": "tell-uqair-painted-temple.jpg",
-    "quiz_regions": [
-      {
-        "id": "region_1772563319186",
-        "point_id": "tupt-2",
-        "label": "Black Spots",
-        "x": 0.2443,
-        "y": 0.4056,
-        "w": 0.1625,
-        "h": 0.2298
-      },
-      {
-        "id": "region_1772563344458",
-        "point_id": "tupt-3",
-        "label": "Colors Vanished",
-        "x": 0.4946,
-        "y": 0.0801,
-        "w": 0.2949,
-        "h": 0.3708
-      },
-      {
-        "id": "region_1772563361786",
-        "point_id": "tupt-4",
-        "label": "Altar Guardian",
-        "x": 0.011,
-        "y": 0.0104,
-        "w": 0.2503,
-        "h": 0.9575
-      },
-      {
-        "id": "region_1772563408786",
-        "point_id": "tupt-7",
-        "label": "Walking Pose",
-        "x": 0.1132,
-        "y": 0.6006,
-        "w": 0.7641,
-        "h": 0.3656
-      },
-      {
-        "id": "region_1772563458355",
-        "point_id": "tupt-1",
-        "label": "Single Leopard",
-        "x": 0.0254,
-        "y": 0.0296,
-        "w": 0.8821,
-        "h": 0.9488
-      },
-      {
-        "id": "region_1772563573402",
-        "point_id": "tupt-5",
-        "label": "Fresco Technique",
-        "x": 0.4107,
-        "y": 0.0522,
-        "w": 0.5675,
-        "h": 0.9383
-      },
-      {
-        "id": "region_1772563604674",
-        "point_id": "tupt-6",
-        "label": "Mud Brick Wall",
-        "x": 0.0031,
-        "y": 0.4039,
-        "w": 0.2923,
-        "h": 0.3534
-      },
-      {
-        "id": "region_1772563622234",
-        "point_id": "tupt-8",
-        "label": "Beside the Altar",
-        "x": 0.0031,
-        "y": 0,
-        "w": 0.9188,
-        "h": 0.9871
-      },
-      {
-        "id": "region_1772563631947",
-        "point_id": "tupt-9",
-        "label": "Older Than Writing",
-        "x": 0.028,
-        "y": 0.0209,
-        "w": 0.945,
-        "h": 0.9679
-      },
-      {
-        "id": "region_1772563650619",
-        "point_id": "tupt-10",
-        "label": "Cone Mosaic Echo",
-        "x": 0.0241,
-        "y": 0.0122,
-        "w": 0.966,
-        "h": 0.9627
+        "label": "Animals in Procession",
+        "rects": [
+          {
+            "x": 0.5018,
+            "y": 0.6879,
+            "w": 0.2833,
+            "h": 0.1332,
+            "r": 0
+          }
+        ]
       }
     ]
   },

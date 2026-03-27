@@ -1139,36 +1139,6 @@
       }
     }
   },
-  "tell-uqair-painted-temple": {
-    "slug": "tell-uqair-painted-temple",
-    "originalSize": 428557,
-    "width": 1024,
-    "height": 771,
-    "aspectRatio": 1.3281,
-    "blurDataURL": "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAPABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAgMA/8QAIBAAAgIBAwUAAAAAAAAAAAAAAQIAAxEEEjEhIkFR0f/EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwAIptssyEKhcDPuQRXr1C9rBScfYtNaqIwGS7eDxLV2V2AoQd3Q5JgOtU2nnmaVrB2zQP/Z",
-    "variants": {
-      "400": {
-        "width": 400,
-        "avif": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Ftell-uqair-painted-temple%2F400.avif?alt=media",
-        "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Ftell-uqair-painted-temple%2F400.webp?alt=media"
-      },
-      "800": {
-        "width": 800,
-        "avif": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Ftell-uqair-painted-temple%2F800.avif?alt=media",
-        "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Ftell-uqair-painted-temple%2F800.webp?alt=media"
-      },
-      "1200": {
-        "width": 1024,
-        "avif": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Ftell-uqair-painted-temple%2F1200.avif?alt=media",
-        "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Ftell-uqair-painted-temple%2F1200.webp?alt=media"
-      },
-      "thumbnail": {
-        "width": 120,
-        "avif": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Ftell-uqair-painted-temple%2Fthumbnail.avif?alt=media",
-        "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Ftell-uqair-painted-temple%2Fthumbnail.webp?alt=media"
-      }
-    }
-  },
   "tutankhamun-tomb-paintings": {
     "slug": "tutankhamun-tomb-paintings",
     "originalSize": 2868814,

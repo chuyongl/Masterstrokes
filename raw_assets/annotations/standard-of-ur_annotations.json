@@ -6,94 +6,102 @@
   "image_filename": "standard-of-ur.png",
   "quiz_regions": [
     {
-      "id": "region_1772562680179",
-      "point_id": "sou-1",
-      "label": "Three Registers",
-      "x": 0.0351,
-      "y": 0.0191,
-      "w": 0.113,
-      "h": 0.4874
-    },
-    {
-      "id": "region_1772562689026",
+      "id": "region_1774651123993",
       "point_id": "sou-2",
       "label": "King Breaks Frame",
-      "x": 0.4763,
-      "y": 0.0174,
-      "w": 0.1052,
-      "h": 0.1497
+      "rects": [
+        {
+          "x": 0.4892,
+          "y": 0.0239,
+          "w": 0.0789,
+          "h": 0.1531,
+          "r": 0
+        }
+      ]
     },
     {
-      "id": "region_1772562705186",
+      "id": "region_1774651146576",
       "point_id": "sou-3",
-      "label": "Onager Chariots",
-      "x": 0.7087,
-      "y": 0.329,
-      "w": 0.2496,
-      "h": 0.1393
+      "label": "Chariot Gaits",
+      "rects": [
+        {
+          "x": 0.0481,
+          "y": 0.3439,
+          "w": 0.9145,
+          "h": 0.1173,
+          "r": 0
+        }
+      ]
     },
     {
-      "id": "region_1772562729434",
+      "id": "region_1774651173320",
       "point_id": "sou-4",
       "label": "Naked Prisoners",
-      "x": 0.6333,
-      "y": 0.1898,
-      "w": 0.0691,
-      "h": 0.1445
+      "rects": [
+        {
+          "x": 0.7241,
+          "y": 0.1928,
+          "w": 0.052,
+          "h": 0.1213,
+          "r": 0
+        }
+      ]
     },
     {
-      "id": "region_1772562740602",
+      "id": "region_1774651217265",
       "point_id": "sou-5",
-      "label": "Buried Lyre",
-      "x": 0.8013,
-      "y": 0.5449,
-      "w": 0.1099,
-      "h": 0.1358
+      "label": "Fur-Cloaked Soldiers",
+      "rects": [
+        {
+          "x": 0.0481,
+          "y": 0.1968,
+          "w": 0.3766,
+          "h": 0.1233,
+          "r": 0
+        }
+      ]
     },
     {
-      "id": "region_1772562755266",
+      "id": "region_1774651245896",
       "point_id": "sou-6",
-      "label": "Three Continents",
-      "x": 0.8531,
-      "y": 0.0017,
-      "w": 0.1397,
-      "h": 0.1427
+      "label": "Seated King",
+      "rects": [
+        {
+          "x": 0.1485,
+          "y": 0.5249,
+          "w": 0.0968,
+          "h": 0.1451,
+          "r": 0
+        }
+      ]
     },
     {
-      "id": "region_1772562767794",
+      "id": "region_1774651260320",
       "point_id": "sou-7",
-      "label": "Tribute or Peace",
-      "x": 0.0445,
-      "y": 0.8408,
-      "w": 0.5166,
-      "h": 0.1288
+      "label": "Bull-Headed Lyre",
+      "rects": [
+        {
+          "x": 0.8066,
+          "y": 0.5388,
+          "w": 0.1076,
+          "h": 0.1412,
+          "r": 0
+        }
+      ]
     },
     {
-      "id": "region_1772562811434",
-      "point_id": "sou-10",
-      "label": "Seated Hierarchy",
-      "x": 0.0853,
-      "y": 0.5275,
-      "w": 0.3077,
-      "h": 0.148
-    },
-    {
-      "id": "region_1772562825706",
+      "id": "region_1774651345153",
       "point_id": "sou-8",
-      "label": "Unknown Purpose",
-      "x": 0.0194,
-      "y": 0.4979,
-      "w": 0.9531,
-      "h": 0.4857
-    },
-    {
-      "id": "region_1772562838930",
-      "point_id": "sou-9",
-      "label": "Found Crushed",
-      "x": 0.0225,
-      "y": 0.0035,
-      "w": 0.9672,
-      "h": 0.9888
+      "label": "Animals in Procession",
+      "rects": [
+        {
+          "x": 0.5018,
+          "y": 0.6879,
+          "w": 0.2833,
+          "h": 0.1332,
+          "r": 0
+        }
+      ]
     }
   ]
 }

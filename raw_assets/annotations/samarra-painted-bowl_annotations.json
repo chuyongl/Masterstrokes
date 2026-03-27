@@ -6,94 +6,74 @@
   "image_filename": "samarra-painted-bowl.jpg",
   "quiz_regions": [
     {
-      "id": "region_1772563966931",
+      "id": "region_1774652321456",
       "point_id": "spb-1",
-      "label": "Spinning Birds",
-      "x": 0.1935,
-      "y": 0.2576,
-      "w": 0.623,
-      "h": 0.1062
+      "label": "Circling Birds",
+      "rects": [
+        {
+          "x": 0.3352,
+          "y": 0.2863,
+          "w": 0.3751,
+          "h": 0.0974,
+          "r": 0
+        }
+      ]
     },
     {
-      "id": "region_1772563983954",
+      "id": "region_1774652381271",
       "point_id": "spb-2",
       "label": "Central Bird",
-      "x": 0.3629,
-      "y": 0.4648,
-      "w": 0.2209,
-      "h": 0.2263
+      "rects": [
+        {
+          "x": 0.3184,
+          "y": 0.4056,
+          "w": 0.3179,
+          "h": 0.2962,
+          "r": 0
+        }
+      ]
     },
     {
-      "id": "region_1772564000387",
+      "id": "region_1774652401087",
       "point_id": "spb-3",
-      "label": "Birds Reduced to Marks",
-      "x": 0.1537,
-      "y": 0.3969,
-      "w": 0.0987,
-      "h": 0.148
+      "label": "Reduced to Marks",
+      "rects": [
+        {
+          "x": 0.1418,
+          "y": 0.4414,
+          "w": 0.0875,
+          "h": 0.1074,
+          "r": 0
+        }
+      ]
     },
     {
-      "id": "region_1772564018498",
+      "id": "region_1774652422623",
       "point_id": "spb-4",
       "label": "Rim Band",
-      "x": 0.3717,
-      "y": 0.0731,
-      "w": 0.3873,
-      "h": 0.1375
+      "rects": [
+        {
+          "x": 0.2561,
+          "y": 0.0636,
+          "w": 0.4642,
+          "h": 0.1093,
+          "r": 0
+        }
+      ]
     },
     {
-      "id": "region_1772564037860",
+      "id": "region_1774652456487",
       "point_id": "spb-5",
-      "label": "Dark on Cream",
-      "x": 0.1641,
-      "y": 0.6615,
-      "w": 0.3078,
-      "h": 0.2385
-    },
-    {
-      "id": "region_1772564071338",
-      "point_id": "spb-6",
-      "label": "Design Fits the Bowl",
-      "x": 0.7266,
-      "y": 0.3708,
-      "w": 0.2106,
-      "h": 0.195
-    },
-    {
-      "id": "region_1772564090658",
-      "point_id": "spb-7",
-      "label": "Made Before Civilization",
-      "x": 0.0403,
-      "y": 0.0348,
-      "w": 0.8866,
-      "h": 0.954
-    },
-    {
-      "id": "region_1772564101059",
-      "point_id": "spb-8",
-      "label": "Invented Irrigation",
-      "x": 0.061,
-      "y": 0.0261,
-      "w": 0.9249,
-      "h": 0.9087
-    },
-    {
-      "id": "region_1772564114434",
-      "point_id": "spb-9",
-      "label": "Traded Across the Region",
-      "x": 0.142,
-      "y": 0.0052,
-      "w": 0.838,
-      "h": 0.9731
-    },
-    {
-      "id": "region_1772564125746",
-      "point_id": "spb-10",
-      "label": "Ancestor of Everything After",
-      "x": 0.0138,
-      "y": 0.0627,
-      "w": 0.9543,
-      "h": 0.8896
+      "label": "Exterior Bands",
+      "rects": [
+        {
+          "x": 0.1771,
+          "y": 0.6501,
+          "w": 0.4524,
+          "h": 0.3042,
+          "r": 0
+        }
+      ]
     }
   ]
 }
