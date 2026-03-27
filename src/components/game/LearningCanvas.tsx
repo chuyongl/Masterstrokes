@@ -176,7 +176,6 @@ export default function LearningCanvas({ artwork, onComplete }: LearningCanvasPr
     const ZOOM_LEVEL = 1.15;
 
     const currentPoint = artwork.learningPoints[currentIndex] ?? null;
-    const isGeneral = currentPoint?.pointType === 'general';
     const isSpecific = currentPoint?.pointType === 'specific';
     const progress = currentIndex / Math.max(artwork.learningPoints.length, 1);
 

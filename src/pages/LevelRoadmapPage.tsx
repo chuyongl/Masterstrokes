@@ -22,8 +22,8 @@ export default function LevelRoadmapPage() {
     const [artworks, setArtworks] = useState<Artwork[]>([]);
     const [loading, setLoading] = useState(true);
     const scrollRef = useRef<HTMLDivElement>(null);
-    const [currentFrame, setCurrentFrame] = useState(0);
-    const [isWalking, setIsWalking] = useState(false);
+    const [, setCurrentFrame] = useState(0);
+    const [, setIsWalking] = useState(false);
     const scrollTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
     const bgRef = useRef<HTMLDivElement>(null);
     const requestRef = useRef<number>(0);
@@ -151,7 +151,7 @@ export default function LevelRoadmapPage() {
     }, [activeEraId, artworks, completedLevels]);
 
 
-    const levelNodes: LevelNode[] = artworks.map((artwork, index) => {
+    const levelNodes: LevelNode[] = artworks.map((artwork) => {
         let status: 'locked' | 'current' | 'completed' = 'current'; // Unlocked for testing
         const isCompleted = completedLevels.includes(artwork.id);
 
@@ -161,13 +161,7 @@ export default function LevelRoadmapPage() {
         return { artwork, status };
     });
 
-    const goToFrame = (index: number) => {
-        const node = document.getElementById(`frame-${index}`);
-        if (node && scrollRef.current) {
-            node.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-            setCurrentFrame(index);
-        }
-    };
+
 
     const handleScroll = () => {
         setIsWalking(true);
@@ -271,7 +265,7 @@ export default function LevelRoadmapPage() {
 
     if (!era) return null;
 
-    const wallColor = era.color || '#F5C842';
+
 
     return (
         <div className="flex flex-col h-[100dvh] text-[#FFFEF5] font-sans overflow-hidden bg-[#1A1008]">
@@ -347,7 +341,7 @@ export default function LevelRoadmapPage() {
                         levelNodes.map((node, i) => (
                             <div key={node.artwork.id} id={`frame-${i}`} className="snap-center shrink-0 relative group">
                                 <button
-                                    onPointerUp={(e) => {
+                                    onPointerUp={() => {
                                         // Ignore if we just dragged
                                         if (dragDistanceRef.current > 5) return;
                                         if (node.status !== 'locked') {

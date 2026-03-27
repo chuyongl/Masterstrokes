@@ -20,7 +20,7 @@ function RootRedirect() {
 
 function App() {
   return (
-    <BrowserRouter basename="/Masterstrokes">
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Routes>
         <Route path="/curator" element={<CuratorPage />} />
         <Route path="/" element={<Layout />}>

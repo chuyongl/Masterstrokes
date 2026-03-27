@@ -1,7 +1,7 @@
 export interface Hotspot {
     id: string;
     label: string;
-    pointType: 'general' | 'specific';
+    pointType?: 'general' | 'specific';
     categoryTag?: string;
     clickArea: {
         x: number; y: number; radius: number;

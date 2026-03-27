@@ -6,94 +6,95 @@
   "image_filename": "lascaux-hall-bulls.jpg",
   "quiz_regions": [
     {
-      "id": "region_1772660490160",
-      "point_id": "lhb-2",
-      "label": "Scale Contrast",
-      "x": 0.3431,
-      "y": 0.6028,
-      "w": 0.1986,
-      "h": 0.2542
-    },
-    {
-      "id": "region_1772660508184",
-      "point_id": "lhb-3",
-      "label": "Twisted Perspective",
-      "x": 0.5736,
-      "y": 0.0837,
-      "w": 0.2292,
-      "h": 0.2479
-    },
-    {
-      "id": "region_1772660532832",
-      "point_id": "lhb-4",
-      "label": "Rock Wall as Volume",
-      "x": 0.6389,
-      "y": 0.7447,
-      "w": 0.0917,
-      "h": 0.1208
-    },
-    {
-      "id": "region_1772660550688",
-      "point_id": "lhb-5",
-      "label": "Overlapping Figures",
-      "x": 0.1139,
-      "y": 0.6303,
-      "w": 0.2292,
-      "h": 0.2797
-    },
-    {
-      "id": "region_1772660561329",
-      "point_id": "lhb-6",
-      "label": "Spots on the Bull",
-      "x": 0.8778,
-      "y": 0.4629,
-      "w": 0.1181,
-      "h": 0.1928
-    },
-    {
-      "id": "region_1772660582497",
-      "point_id": "lhb-7",
-      "label": "Abstract Red Marks",
-      "x": 0.2861,
-      "y": 0.3761,
-      "w": 0.1208,
-      "h": 0.1483
-    },
-    {
-      "id": "region_1772660637042",
+      "id": "region_1774644268795",
       "point_id": "lhb-1",
       "label": "Largest Animal",
-      "x": 0.5542,
-      "y": 0.0456,
-      "w": 0.4389,
-      "h": 0.9089
+      "rects": [
+        {
+          "x": 0.6625,
+          "y": 0.1155,
+          "w": 0.3319,
+          "h": 0.8623
+        }
+      ]
     },
     {
-      "id": "region_1772660654003",
-      "point_id": "lhb-8",
-      "label": "Mineral Pigments",
-      "x": 0.0111,
-      "y": 0.0201,
-      "w": 0.9639,
-      "h": 0.9513
+      "id": "region_1774644330426",
+      "point_id": "lhb-3",
+      "label": "Twisted Perspective",
+      "rects": [
+        {
+          "x": 0.5847,
+          "y": 0.0752,
+          "w": 0.2458,
+          "h": 0.2754
+        }
+      ]
     },
     {
-      "id": "region_1772660664722",
-      "point_id": "lhb-9",
-      "label": "Discovered in 1940",
-      "x": 0.0139,
-      "y": 0.0053,
-      "w": 0.9528,
-      "h": 0.9153
+      "id": "region_1774644361177",
+      "point_id": "lhb-4",
+      "label": "Rock as Volume",
+      "rects": [
+        {
+          "x": 0.8528,
+          "y": 0.0773,
+          "w": 0.1417,
+          "h": 0.2733
+        }
+      ]
     },
     {
-      "id": "region_1772660675610",
-      "point_id": "lhb-10",
-      "label": "Sealed in 1963",
-      "x": 0.0056,
-      "y": 0.0138,
-      "w": 0.9764,
-      "h": 0.9703
+      "id": "region_1774644426570",
+      "point_id": "lhb-5",
+      "label": "Overlapping Figures",
+      "rects": [
+        {
+          "x": 0.0125,
+          "y": 0.6494,
+          "w": 0.3972,
+          "h": 0.2797
+        }
+      ]
+    },
+    {
+      "id": "region_1774644448729",
+      "point_id": "lhb-6",
+      "label": "Spotted Bull",
+      "rects": [
+        {
+          "x": 0.0014,
+          "y": 0.3252,
+          "w": 0.375,
+          "h": 0.2966
+        }
+      ]
+    },
+    {
+      "id": "region_1774644493129",
+      "point_id": "lhb-7",
+      "label": "Abstract Signs",
+      "rects": [
+        {
+          "x": 0.2708,
+          "y": 0.3655,
+          "w": 0.1167,
+          "h": 0.1398
+        }
+      ]
+    },
+    {
+      "id": "region_1774644544889",
+      "point_id": "lhb-2",
+      "label": "Scale Contrast",
+      "rects": [
+        {
+          "x": 0.0375,
+          "y": 0.1833,
+          "w": 0.5403,
+          "h": 0.7797
+        }
+      ]
     }
   ]
 }

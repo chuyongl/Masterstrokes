@@ -631,24 +631,24 @@
   },
   "lascaux-shaft-scene": {
     "slug": "lascaux-shaft-scene",
-    "originalSize": 137987,
-    "width": 315,
-    "height": 231,
-    "aspectRatio": 1.3636,
-    "blurDataURL": "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAOABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAgMA/8QAHhAAAgICAwEBAAAAAAAAAAAAAREAAhIxAyFBE1H/xAAVAQEBAAAAAAAAAAAAAAAAAAACAf/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJ3quMN77I/IqBBi7HvcpQ5VB9W4DxUsTiMSDuAx+jZFmD7NJ2AZC11NIT//2Q==",
+    "originalSize": 3311875,
+    "width": 1735,
+    "height": 1160,
+    "aspectRatio": 1.4957,
+    "blurDataURL": "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEAv/EAB4QAAIBBQADAAAAAAAAAAAAAAABAgMREiExEyJR/8QAFgEBAQEAAAAAAAAAAAAAAAAAAQAC/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8ARTmm9dHef60TwWPsiiytwySJ125a4BiaWTAU/9k=",
     "variants": {
       "400": {
-        "width": 315,
+        "width": 400,
         "avif": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Flascaux-shaft-scene%2F400.avif?alt=media",
         "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Flascaux-shaft-scene%2F400.webp?alt=media"
       },
       "800": {
-        "width": 315,
+        "width": 800,
         "avif": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Flascaux-shaft-scene%2F800.avif?alt=media",
         "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Flascaux-shaft-scene%2F800.webp?alt=media"
       },
       "1200": {
-        "width": 315,
+        "width": 1200,
         "avif": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Flascaux-shaft-scene%2F1200.avif?alt=media",
         "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Flascaux-shaft-scene%2F1200.webp?alt=media"
       },
