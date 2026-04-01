@@ -212,7 +212,7 @@ export default function GamePage() {
         return (
             <ResultsScreen
                 artwork={chapterArtwork}
-                onContinue={() => navigate(artworkId ? `/artwork/${artworkId}` : '/hub')}
+                onContinue={() => navigate(artworkId ? `/artwork/${artworkId}` : '/home')}
             />
         );
     }

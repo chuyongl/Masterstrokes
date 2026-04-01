@@ -1,8 +1,9 @@
-import { Home, Compass, Image as ImageIcon, User } from 'lucide-react';
+import { Home, Search, Zap, UserSearch, User } from 'lucide-react';
 
 export const NAV_ITEMS = [
-    { id: 'hub', icon: Home, label: 'MUSEUM', path: '/hub' },
-    { id: 'map', icon: Compass, label: 'MAP', path: '/map' },
-    { id: 'collection', icon: ImageIcon, label: 'COLLECTION', path: '/collection' },
-    { id: 'profile', icon: User, label: 'PROFILE', path: '/profile' },
+    { id: 'home', icon: Home, emoji: '🏠', label: 'MUSEUM', path: '/home', dark: true },
+    { id: 'explore', icon: Search, emoji: '🔍', label: 'EXPLORE', path: '/explore', dark: false },
+    { id: 'challenge', icon: Zap, emoji: '⚡', label: 'CHALLENGE', path: '/challenge', dark: false },
+    { id: 'detective', icon: UserSearch, emoji: '🕵️', label: 'DETECTIVE', path: '/detective', dark: true },
+    { id: 'profile', icon: User, emoji: '👤', label: 'PROFILE', path: '/profile', dark: false },
 ];

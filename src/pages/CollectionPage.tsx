@@ -29,16 +29,15 @@ export default function CollectionPage() {
     };
 
     return (
-        <div className="flex flex-col h-full bg-[#FDF6EC] font-sans">
-
+        <div className="flex flex-col h-full" style={{ background: 'linear-gradient(180deg, #F5F0FF 0%, #FFFFFF 100%)' }}>
 
             {/* Top Bar */}
             <div className="pt-11 px-5 pb-4 shrink-0 flex items-end justify-between">
-                <h1 className="font-serif text-[22px] text-[#1A1008] font-bold leading-none">
+                <h1 className="text-[22px] text-gray-900 font-bold leading-none">
                     My Collection
                 </h1>
-                <div className="bg-[#2a1c10]/10 px-3 py-1.5 rounded-full flex items-center">
-                    <span className="text-[11px] font-bold text-[#C8920A]">8 / 49</span>
+                <div className="bg-[#7C3AED]/10 px-3 py-1.5 rounded-full flex items-center">
+                    <span className="text-[11px] font-bold text-[#7C3AED]">8 / 49</span>
                 </div>
             </div>
 
@@ -53,8 +52,8 @@ export default function CollectionPage() {
                                 onClick={() => setActiveTab(tab)}
                                 className={`px-4 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-wider whitespace-nowrap transition-colors ${
                                     active 
-                                    ? 'bg-[#1A1008] text-[#F5C842]' 
-                                    : 'bg-[#1A1008]/5 text-[#1A1008]/45'
+                                    ? 'bg-[#7C3AED] text-white' 
+                                    : 'bg-[#7C3AED]/5 text-gray-500'
                                 }`}
                             >
                                 {tab}
@@ -71,18 +70,17 @@ export default function CollectionPage() {
                         <button
                             key={item.id}
                             onClick={() => handlePress(item)}
-                            className="text-left bg-[#FFFEF5] rounded-[14px] shadow-[0_3px_12px_rgba(26,16,8,0.1)] flex flex-col overflow-hidden active:scale-[0.98] transition-all"
+                            className="text-left bg-white rounded-[14px] shadow-[0_3px_12px_rgba(124,58,237,0.08)] flex flex-col overflow-hidden active:scale-[0.98] transition-all"
                         >
-                            {/* Image Area height: 90px */}
-                            <div className="h-[90px] w-full bg-[#E5DCCF] relative flex items-center justify-center">
+                            {/* Image Area */}
+                            <div className="h-[90px] w-full bg-[#F3F0FF] relative flex items-center justify-center">
                                 {item.recovered ? (
                                     <>
-                                        {/* Mock image gradient for recovered artwork */}
-                                        <div className="absolute inset-0 bg-gradient-to-br from-[#1A1008]/60 to-[#1A1008]/90 mix-blend-overlay" />
-                                        <div className="absolute inset-0 bg-[#C8920A] opacity-20" />
+                                        <div className="absolute inset-0 bg-gradient-to-br from-[#7C3AED]/30 to-[#5B21B6]/50 mix-blend-overlay" />
+                                        <div className="absolute inset-0 bg-[#7C3AED] opacity-15" />
                                         
                                         {/* Era Badge */}
-                                        <div className="absolute top-2 left-2 bg-black/55 text-white text-[7px] font-bold px-1.5 py-0.5 rounded-sm uppercase tracking-wider">
+                                        <div className="absolute top-2 left-2 bg-[#3B0764]/80 text-white text-[7px] font-bold px-1.5 py-0.5 rounded-sm uppercase tracking-wider">
                                             {item.category}
                                         </div>
 
@@ -95,19 +93,18 @@ export default function CollectionPage() {
                                     </>
                                 ) : (
                                     <>
-                                        {/* Unrecovered dark gray placeholder */}
-                                        <div className="absolute inset-0 bg-[#A0988E]" />
-                                        <span className="text-4xl text-white/20 font-serif relative z-10 select-none">?</span>
+                                        <div className="absolute inset-0 bg-gray-200" />
+                                        <span className="text-4xl text-gray-400 relative z-10 select-none">?</span>
                                     </>
                                 )}
                             </div>
 
                             {/* Info Area */}
-                            <div className="pt-2 pb-2.5 px-2.5 bg-[#FFFEF5]">
-                                <h4 className="text-[10px] font-bold text-[#1A1008] truncate">
+                            <div className="pt-2 pb-2.5 px-2.5 bg-white">
+                                <h4 className="text-[10px] font-bold text-gray-900 truncate">
                                     {item.title}
                                 </h4>
-                                <p className="text-[9px] text-[#8C8C8C] mt-0.5 truncate">
+                                <p className="text-[9px] text-gray-400 mt-0.5 truncate">
                                     {item.era}
                                 </p>
                             </div>
@@ -118,7 +115,7 @@ export default function CollectionPage() {
 
             {/* Toast */}
             {toastMessage && (
-                <div className="absolute bottom-28 left-1/2 -translate-x-1/2 bg-[#1A1008] border border-[#C8553A] text-[#FFFEF5] text-xs px-4 py-2 rounded-full shadow-xl z-50 animate-in fade-in slide-in-from-bottom-4 duration-300 whitespace-nowrap">
+                <div className="absolute bottom-28 left-1/2 -translate-x-1/2 bg-white border border-[#EF4444] text-gray-900 text-xs px-4 py-2 rounded-full shadow-xl z-50 whitespace-nowrap">
                     {toastMessage}
                 </div>
             )}

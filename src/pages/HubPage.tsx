@@ -6,21 +6,20 @@ export default function HubPage() {
     const navigate = useNavigate();
 
     return (
-        <div className="h-full flex flex-col bg-[#1A1008] font-sans text-[#FFFEF5] overflow-hidden">
-
+        <div className="h-full flex flex-col overflow-hidden" style={{ background: 'linear-gradient(180deg, #F5F0FF 0%, #FAF5FF 50%, #FFFFFF 100%)' }}>
 
             {/* Scrollable Area */}
             <div className="flex-1 overflow-y-auto relative custom-scrollbar pb-24">
                 <div className="py-10 px-6 max-w-2xl mx-auto text-center flex flex-col items-center">
-                    {/* Header matching HTML motif */}
+                    {/* Header */}
                     <div className="mb-10 w-full">
-                        <div className="text-[11px] tracking-[3px] uppercase text-[#F5C842] mb-2 font-bold">
+                        <div className="text-[11px] tracking-[3px] uppercase text-[#7C3AED] mb-2 font-bold">
                             MasterStroke · Exhibits
                         </div>
-                        <h1 className="font-serif text-[28px] text-[#FFFEF5] mb-2 font-bold">
+                        <h1 className="text-[28px] text-gray-900 mb-2 font-bold">
                             Museum Halls
                         </h1>
-                        <p className="text-[13px] text-white/45">
+                        <p className="text-[13px] text-gray-400">
                             Select an era to begin exploring its masterpieces
                         </p>
                     </div>
@@ -31,34 +30,34 @@ export default function HubPage() {
                             <button
                                 key={era.id}
                                 onClick={() => navigate(`/era/${era.id}`)}
-                                className="w-full relative overflow-hidden bg-[#2a1c10] border border-[#F5C842]/20 rounded-2xl p-6 shadow-lg hover:-translate-y-1 transition-transform group text-left flex items-center gap-5"
+                                className="w-full relative overflow-hidden bg-white border border-[#7C3AED]/15 rounded-2xl p-6 shadow-sm hover:-translate-y-1 transition-transform group text-left flex items-center gap-5"
                                 style={{
-                                    borderLeft: `4px solid ${era.color || '#F5C842'}`
+                                    borderLeft: `4px solid ${era.color || '#7C3AED'}`
                                 }}
                             >
                                 {/* Subtle background glow based on era color */}
                                 <div
                                     className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity pointer-events-none"
-                                    style={{ background: `radial-gradient(circle at right, ${era.color || '#F5C842'}, transparent)` }}
+                                    style={{ background: `radial-gradient(circle at right, ${era.color || '#7C3AED'}, transparent)` }}
                                 />
 
                                 {/* Icon */}
-                                <div className="text-4xl w-16 h-16 flex items-center justify-center rounded-xl bg-[#1A1008] shadow-inner shrink-0">
+                                <div className="text-4xl w-16 h-16 flex items-center justify-center rounded-xl bg-[#7C3AED]/5 shadow-inner shrink-0">
                                     {era.icon}
                                 </div>
 
                                 {/* Content */}
                                 <div className="flex-1">
-                                    <h3 className="font-serif text-xl font-bold text-[#F5C842] mb-1 group-hover:text-[#FBE88A] transition-colors">
+                                    <h3 className="text-xl font-bold text-[#7C3AED] mb-1 group-hover:text-[#6D28D9] transition-colors">
                                         {era.name}
                                     </h3>
-                                    <p className="text-[#FFFEF5]/60 text-xs font-bold uppercase tracking-wider">
+                                    <p className="text-gray-400 text-xs font-bold uppercase tracking-wider">
                                         {era.period}
                                     </p>
                                 </div>
 
                                 {/* Status or arrow */}
-                                <div className="shrink-0 w-8 h-8 rounded-full border border-[#F5C842]/30 flex items-center justify-center text-[#F5C842] group-hover:bg-[#F5C842] group-hover:text-[#1A1008] transition-colors">
+                                <div className="shrink-0 w-8 h-8 rounded-full border border-[#7C3AED]/30 flex items-center justify-center text-[#7C3AED] group-hover:bg-[#7C3AED] group-hover:text-white transition-colors">
                                     →
                                 </div>
                             </button>
@@ -69,14 +68,14 @@ export default function HubPage() {
                     <div className="mt-14 text-center pb-8">
                         <div className="mb-4 flex flex-col items-center justify-center relative">
                             {/* Ground reflection/shadow */}
-                            <div className="absolute bottom-1 w-24 h-4 bg-[#F5C842]/10 rounded-[100%] blur-[8px]" />
+                            <div className="absolute bottom-1 w-24 h-4 bg-[#7C3AED]/10 rounded-[100%] blur-[8px]" />
 
                             <div className="relative animate-[idle-breathe_3s_ease-in-out_infinite]">
                                 <MarieroseCharacter width={110} height={110} />
                             </div>
                         </div>
-                        <div className="inline-block bg-[#1A1008] border border-[#F5C842]/20 shadow-lg px-4 py-2 rounded-xl">
-                            <p className="text-[#F5C842] text-[11px] font-bold tracking-wider uppercase">
+                        <div className="inline-block bg-white border border-[#7C3AED]/20 shadow-lg px-4 py-2 rounded-xl">
+                            <p className="text-[#7C3AED] text-[11px] font-bold tracking-wider uppercase">
                                 Take your time exploring!
                             </p>
                         </div>

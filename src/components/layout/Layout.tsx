@@ -3,25 +3,36 @@ import BottomNav from '../hub/BottomNav';
 
 export default function Layout() {
     const location = useLocation();
+    const p = location.pathname;
 
-    // Define routes where interaction/nav bars should be visible
-    const showNav = ['/hub', '/map', '/collection', '/profile', '/era'].some(path => location.pathname.startsWith(path));
+    // Pages where BottomNav is visible
+    const showNav = ['/home', '/explore', '/challenge', '/detective', '/profile', '/era'].some(
+        prefix => p === prefix || p.startsWith(prefix + '/')
+    );
+
+    // Dark pages: home, detective, era drill-down
+    const isDark = p.startsWith('/home') || p.startsWith('/detective') || p.startsWith('/era/');
 
     return (
-        <div className="min-h-screen bg-[#1A1008] text-[#FFFEF5] flex flex-row font-sans">
-            {/* Main Content Area */}
+        <div
+            className="min-h-screen flex flex-col"
+            style={{
+                background: isDark
+                    ? '#1C1B2E'
+                    : 'linear-gradient(180deg, #F5F0FF 0%, #FAF5FF 50%, #FFFFFF 100%)',
+                color: isDark ? '#fff' : '#1F2937',
+            }}
+        >
             <main className="flex-1 flex flex-col h-[100dvh] relative overflow-hidden">
-                {/* Responsive Container: Full width on all devices */}
-                <div className="flex-1 w-full bg-transparent relative flex flex-col overflow-hidden">
-                    {/* Content Scroll Area */}
-                    <div className="flex-1 overflow-y-auto custom-scrollbar relative w-full">
-                        <Outlet />
+                <div className="flex-1 w-full relative flex flex-col overflow-hidden">
+                <div className="flex-1 overflow-y-auto custom-scrollbar relative w-full flex flex-col">
+                    <Outlet />
                     </div>
-
-                    {/* Universal Bottom Nav (System 2) - Visible on all screens now */}
-                    <div className="flex-none w-full shadow-[0_-4px_20px_rgba(0,0,0,0.3)] relative z-50">
-                        {showNav && <BottomNav />}
-                    </div>
+                    {showNav && (
+                        <div className="flex-none w-full relative z-50">
+                            <BottomNav />
+                        </div>
+                    )}
                 </div>
             </main>
         </div>

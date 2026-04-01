@@ -1,4 +1,4 @@
-import { useState, forwardRef } from 'react';
+import { useState, useEffect, forwardRef } from 'react';
 import manifest from '../../data/imageManifest.json';
 
 type ManifestEntry = {
@@ -20,11 +20,8 @@ interface PictureProps {
     alt: string;
     className?: string;
     imgClassName?: string;
-    /** Responsive sizes attribute, defaults to sane breakpoint set */
     sizes?: string;
-    /** Pin a single variant; omit for full responsive srcset */
     variant?: 'thumbnail' | '400' | '800' | '1200';
-    /** Disable lazy loading for above-the-fold images */
     priority?: boolean;
     onLoad?: React.ReactEventHandler<HTMLImageElement>;
     style?: React.CSSProperties;
@@ -36,11 +33,14 @@ const typedManifest = manifest as ManifestMap;
 const DEFAULT_SIZES = '(max-width: 600px) 400px, (max-width: 1200px) 800px, 1200px';
 const RESPONSIVE_KEYS = ['400', '800', '1200'] as const;
 
-/**
- * Optimised <picture> component backed by imageManifest.json.
- * Serves AVIF with WebP fallback, responsive srcset and blur placeholder.
- * Falls back to a plain <img> if slug is not in the manifest.
- */
+// Cache buster to bypass browser-cached 403s after Firebase rules change
+const CACHE_BUST = `&_cb=${Date.now()}`;
+
+function bustUrl(url: string): string {
+    if (!url) return url;
+    return url.includes('?') ? `${url}${CACHE_BUST}` : `${url}?_cb=${Date.now()}`;
+}
+
 const Picture = forwardRef<HTMLImageElement, PictureProps>(function Picture(
     {
         slug,
@@ -57,9 +57,17 @@ const Picture = forwardRef<HTMLImageElement, PictureProps>(function Picture(
     ref
 ) {
     const [loaded, setLoaded] = useState(false);
+
+    // Safety timeout: force-show after 3s
+    useEffect(() => {
+        if (loaded) return;
+        const t = setTimeout(() => setLoaded(true), 3000);
+        return () => clearTimeout(t);
+    }, [loaded]);
+
     const entry = typedManifest[slug];
 
-    // ── Fallback: slug not in manifest (e.g. full URL passed) ──────────────
+    // ── Fallback: slug not in manifest ──────────────────────────────────
     if (!entry) {
         return (
             <img
@@ -77,7 +85,7 @@ const Picture = forwardRef<HTMLImageElement, PictureProps>(function Picture(
 
     const { blurDataURL, variants } = entry;
 
-    // ── Single-variant mode ─────────────────────────────────────────────────
+    // ── Single-variant mode ─────────────────────────────────────────────
     if (variant) {
         const v = variants[variant];
         return (
@@ -97,11 +105,11 @@ const Picture = forwardRef<HTMLImageElement, PictureProps>(function Picture(
                     />
                 )}
                 <picture>
-                    <source type="image/avif" srcSet={v.avif} />
-                    <source type="image/webp" srcSet={v.webp} />
+                    <source type="image/avif" srcSet={bustUrl(v.avif)} />
+                    <source type="image/webp" srcSet={bustUrl(v.webp)} />
                     <img
                         ref={ref}
-                        src={v.webp}
+                        src={bustUrl(v.webp)}
                         alt={alt}
                         width={v.width}
                         className={imgClassName}
@@ -111,7 +119,8 @@ const Picture = forwardRef<HTMLImageElement, PictureProps>(function Picture(
                             setLoaded(true);
                             onLoad?.(e);
                         }}
-                        style={{ display: 'block', width: '100%', transition: 'opacity 0.3s', opacity: loaded ? 1 : 0 }}
+                        onError={() => setLoaded(true)}
+                        style={{ display: 'block', width: '100%', height: '100%', objectFit: 'cover', transition: 'opacity 0.3s', opacity: loaded ? 1 : 0 }}
                         draggable={draggable}
                     />
                 </picture>
@@ -119,18 +128,17 @@ const Picture = forwardRef<HTMLImageElement, PictureProps>(function Picture(
         );
     }
 
-    // ── Responsive srcset mode ──────────────────────────────────────────────
+    // ── Responsive srcset mode ──────────────────────────────────────────
     const avifSrcset = RESPONSIVE_KEYS
         .filter((k) => variants[k])
-        .map((k) => `${variants[k].avif} ${variants[k].width}w`)
+        .map((k) => `${bustUrl(variants[k].avif)} ${variants[k].width}w`)
         .join(', ');
 
     const webpSrcset = RESPONSIVE_KEYS
         .filter((k) => variants[k])
-        .map((k) => `${variants[k].webp} ${variants[k].width}w`)
+        .map((k) => `${bustUrl(variants[k].webp)} ${variants[k].width}w`)
         .join(', ');
 
-    // Largest non-upscaled variant as default src
     const fallbackKey = RESPONSIVE_KEYS.filter((k) => variants[k]).at(-1) ?? '400';
     const fallback = variants[fallbackKey];
 
@@ -155,7 +163,7 @@ const Picture = forwardRef<HTMLImageElement, PictureProps>(function Picture(
                 <source type="image/webp" srcSet={webpSrcset} sizes={sizes} />
                 <img
                     ref={ref}
-                    src={fallback.webp}
+                    src={bustUrl(fallback.webp)}
                     alt={alt}
                     width={fallback.width}
                     className={imgClassName}
@@ -165,7 +173,8 @@ const Picture = forwardRef<HTMLImageElement, PictureProps>(function Picture(
                         setLoaded(true);
                         onLoad?.(e);
                     }}
-                    style={{ display: 'block', width: '100%', transition: 'opacity 0.3s', opacity: loaded ? 1 : 0 }}
+                    onError={() => setLoaded(true)}
+                    style={{ display: 'block', width: '100%', height: '100%', objectFit: 'cover', transition: 'opacity 0.3s', opacity: loaded ? 1 : 0 }}
                     draggable={draggable}
                 />
             </picture>

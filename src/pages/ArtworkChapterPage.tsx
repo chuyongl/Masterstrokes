@@ -47,9 +47,9 @@ export default function ArtworkChapterPage() {
     const totalLearning = chapters.filter(c => c.type === 'learning').length;
 
     return (
-        <div className="w-full min-h-[100dvh] bg-white flex flex-col">
+        <div className="w-full min-h-[100dvh] flex flex-col" style={{ background: 'linear-gradient(180deg, #F5F0FF 0%, #FFFFFF 100%)' }}>
             {/* Top bar */}
-            <div className="flex-none h-16 flex items-center px-4 gap-4 border-b border-gray-100">
+            <div className="flex-none h-16 flex items-center px-4 gap-4 border-b border-gray-200/60">
                 <button
                     onClick={() => navigate(-1)}
                     className="w-10 h-10 rounded-full flex items-center justify-center text-gray-500 hover:text-gray-800 hover:bg-gray-100 transition-all"
@@ -59,7 +59,7 @@ export default function ArtworkChapterPage() {
                 {artwork && (
                     <div className="flex-1 min-w-0">
                         <div className="text-gray-900 font-bold text-base leading-tight truncate">{artwork.title}</div>
-                        <div className="text-gray-400 text-xs font-semibold uppercase tracking-widest">
+                        <div className="text-[#7C3AED] text-xs font-semibold uppercase tracking-widest">
                             {completedCount} / {totalLearning} chapters
                         </div>
                     </div>
@@ -70,7 +70,7 @@ export default function ArtworkChapterPage() {
             {!loading && totalLearning > 0 && (
                 <div className="flex-none h-1 bg-gray-100">
                     <div
-                        className="h-full bg-blue-500 transition-all duration-500"
+                        className="h-full bg-[#7C3AED] transition-all duration-500"
                         style={{ width: `${(completedCount / totalLearning) * 100}%` }}
                     />
                 </div>
@@ -80,7 +80,7 @@ export default function ArtworkChapterPage() {
             <div className="flex-1 overflow-y-auto px-5 py-6">
                 {loading ? (
                     <div className="flex items-center justify-center h-full">
-                        <div className="w-8 h-8 border-2 border-blue-200 border-t-blue-500 rounded-full animate-spin" />
+                        <div className="w-8 h-8 border-2 border-[#7C3AED]/20 border-t-[#7C3AED] rounded-full animate-spin" />
                     </div>
                 ) : (
                     <div className="max-w-md mx-auto space-y-3">
@@ -99,7 +99,7 @@ export default function ArtworkChapterPage() {
                                     className={`
                                         w-full flex items-center gap-4 p-4 rounded-2xl text-left transition-all duration-200
                                         ${isCurrent
-                                            ? 'bg-blue-50 border-2 border-blue-400 shadow-sm'
+                                            ? 'bg-[#7C3AED]/10 border-2 border-[#7C3AED] shadow-sm'
                                             : isCompleted
                                                 ? 'bg-green-50 border-2 border-green-200'
                                                 : isLocked
@@ -112,7 +112,7 @@ export default function ArtworkChapterPage() {
                                     <div className={`
                                         flex-none w-12 h-12 rounded-xl flex items-center justify-center text-lg font-black
                                         ${isCurrent
-                                            ? 'bg-blue-500 text-white shadow-md'
+                                            ? 'bg-[#7C3AED] text-white shadow-md'
                                             : isCompleted
                                                 ? 'bg-green-500 text-white'
                                                 : isLocked
@@ -145,7 +145,7 @@ export default function ArtworkChapterPage() {
 
                                     {/* Status badge */}
                                     {isCurrent && (
-                                        <div className="flex-none px-3 py-1 rounded-full bg-blue-500 text-white text-[10px] font-bold uppercase tracking-wider">
+                                        <div className="flex-none px-3 py-1 rounded-full bg-[#7C3AED] text-white text-[10px] font-bold uppercase tracking-wider">
                                             Start
                                         </div>
                                     )}

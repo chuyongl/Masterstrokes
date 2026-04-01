@@ -6,26 +6,38 @@ export default function BottomNav() {
     const location = useLocation();
     const currentPath = location.pathname;
 
-    const tabs = NAV_ITEMS;
+    // Determine if current page is dark-themed
+    const activeTab = NAV_ITEMS.find(t => currentPath === t.path || currentPath.startsWith(t.path + '/'));
+    const isDark = activeTab?.dark ?? (currentPath.startsWith('/home') || currentPath.startsWith('/detective') || currentPath.startsWith('/era/') || currentPath.startsWith('/artwork/'));
 
     return (
-        <nav className="w-full bg-[#F5C842] border-t-2 border-[#1A1008]/10 
-                   flex justify-around items-center h-16 pb-1 z-50 relative">
-
-            {tabs.map(tab => {
-                const isActive = tab.path === currentPath && tab.id === 'hub';
+        <nav
+            className="w-full flex items-center justify-around h-14 flex-shrink-0 relative z-50"
+            style={{
+                background: isDark ? '#1C1B2E' : '#fff',
+                borderTop: isDark ? '1px solid rgba(255,255,255,0.07)' : '1px solid rgba(0,0,0,0.07)',
+            }}
+        >
+            {NAV_ITEMS.map(tab => {
+                const isActive = currentPath === tab.path
+                    || currentPath.startsWith(tab.path + '/')
+                    || (tab.id === 'home' && (currentPath.startsWith('/era/') || currentPath.startsWith('/artwork/')));
 
                 return (
-                    <button 
-                        key={tab.id} 
-                        className={`flex flex-col items-center gap-1 cursor-pointer transition-opacity ${isActive ? 'opacity-100' : 'opacity-35 hover:opacity-75'}`}
+                    <button
+                        key={tab.id}
+                        className="flex flex-col items-center gap-[3px] flex-1 py-[5px] cursor-pointer"
                         onClick={() => navigate(tab.path)}
                     >
-                        {/* We use the lucide-react icon directly */}
-                        <div className={`mb-0.5 ${isActive ? 'scale-110 text-[#1A1008]' : 'text-[#1A1008]'}`}>
-                            <tab.icon size={22} strokeWidth={isActive ? 2.5 : 2} />
-                        </div>
-                        <span className="text-[9px] font-bold text-[#1A1008] tracking-[0.5px] uppercase">
+                        <span className="text-[17px] leading-none">{tab.emoji}</span>
+                        <span
+                            className="text-[8px] font-semibold tracking-[0.04em] uppercase"
+                            style={{
+                                color: isActive
+                                    ? (isDark ? '#A78BFA' : '#7B2FF7')
+                                    : (isDark ? 'rgba(255,255,255,0.28)' : '#A1A1AA'),
+                            }}
+                        >
                             {tab.label}
                         </span>
                     </button>
