@@ -1408,5 +1408,305 @@
         "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fzidanku-man-dragon%2Fthumbnail.webp?alt=media"
       }
     }
+  },
+  "arnolfini-portrait": {
+    "slug": "arnolfini-portrait",
+    "originalSize": 68176897,
+    "width": 8283,
+    "height": 11331,
+    "aspectRatio": 0.731,
+    "blurDataURL": "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAbABQDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAgADBAH/xAAfEAACAQMFAQAAAAAAAAAAAAAAAQIDESEiMTJBcVH/xAAWAQEBAQAAAAAAAAAAAAAAAAAAAgH/xAAWEQEBAQAAAAAAAAAAAAAAAAAAETH/2gAMAwEAAhEDEQA/AOCpHMcrin6KFNSqKKayZt38sOEtKwr9slqcUnZ7rcjzk279kFhthiSsjoqRj8MEtQ1EFYITSuyDX//Z",
+    "variants": {
+      "400": {
+        "width": 400,
+        "avif": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Farnolfini-portrait%2F400.avif?alt=media",
+        "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Farnolfini-portrait%2F400.webp?alt=media"
+      },
+      "800": {
+        "width": 800,
+        "avif": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Farnolfini-portrait%2F800.avif?alt=media",
+        "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Farnolfini-portrait%2F800.webp?alt=media"
+      },
+      "1200": {
+        "width": 1200,
+        "avif": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Farnolfini-portrait%2F1200.avif?alt=media",
+        "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Farnolfini-portrait%2F1200.webp?alt=media"
+      },
+      "thumbnail": {
+        "width": 120,
+        "avif": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Farnolfini-portrait%2Fthumbnail.avif?alt=media",
+        "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Farnolfini-portrait%2Fthumbnail.webp?alt=media"
+      }
+    }
+  },
+  "girl-pearl-earring": {
+    "slug": "girl-pearl-earring",
+    "originalSize": 71086399,
+    "width": 12285,
+    "height": 14550,
+    "aspectRatio": 0.8443,
+    "blurDataURL": "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAYABQDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAQDBQL/xAAfEAACAwACAgMAAAAAAAAAAAABAgADERIxBGEhQUL/xAAWAQEBAQAAAAAAAAAAAAAAAAABAAL/xAAWEQEBAQAAAAAAAAAAAAAAAAAAATH/2gAMAwEAAhEDEQA/AOclZsdUUaWOCUP4ldalS5Nn1nUx8dxXcjHoGV3DlYlowKxGaexAueYml6cLmX3Ek81qbHVB2TLryvFc/PwIiZulHdY1lhZs30IiIh//2Q==",
+    "variants": {
+      "400": {
+        "width": 400,
+        "avif": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fgirl-pearl-earring%2F400.avif?alt=media",
+        "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fgirl-pearl-earring%2F400.webp?alt=media"
+      },
+      "800": {
+        "width": 800,
+        "avif": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fgirl-pearl-earring%2F800.avif?alt=media",
+        "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fgirl-pearl-earring%2F800.webp?alt=media"
+      },
+      "1200": {
+        "width": 1200,
+        "avif": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fgirl-pearl-earring%2F1200.avif?alt=media",
+        "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fgirl-pearl-earring%2F1200.webp?alt=media"
+      },
+      "thumbnail": {
+        "width": 120,
+        "avif": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fgirl-pearl-earring%2Fthumbnail.avif?alt=media",
+        "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fgirl-pearl-earring%2Fthumbnail.webp?alt=media"
+      }
+    }
+  },
+  "grande-jatte": {
+    "slug": "grande-jatte",
+    "originalSize": 325347055,
+    "width": 20000,
+    "height": 13313,
+    "aspectRatio": 1.5023,
+    "blurDataURL": "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEAv/EAB4QAAEEAgMBAAAAAAAAAAAAAAEAAgMREiExQVFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/xAAVEQEBAAAAAAAAAAAAAAAAAAAAEf/aAAwDAQACEQMRAD8AdJiTvZqqSXRsF642KKnlmLnkea5WGvIHv0qQUCMOaCO0JGRQg//Z",
+    "variants": {
+      "400": {
+        "width": 400,
+        "avif": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fgrande-jatte%2F400.avif?alt=media",
+        "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fgrande-jatte%2F400.webp?alt=media"
+      },
+      "800": {
+        "width": 800,
+        "avif": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fgrande-jatte%2F800.avif?alt=media",
+        "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fgrande-jatte%2F800.webp?alt=media"
+      },
+      "1200": {
+        "width": 1200,
+        "avif": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fgrande-jatte%2F1200.avif?alt=media",
+        "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fgrande-jatte%2F1200.webp?alt=media"
+      },
+      "thumbnail": {
+        "width": 120,
+        "avif": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fgrande-jatte%2Fthumbnail.avif?alt=media",
+        "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fgrande-jatte%2Fthumbnail.webp?alt=media"
+      }
+    }
+  },
+  "kahlo-self-portrait": {
+    "slug": "kahlo-self-portrait",
+    "originalSize": 186371,
+    "width": 640,
+    "height": 825,
+    "aspectRatio": 0.7758,
+    "blurDataURL": "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAaABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMEBQH/xAAiEAACAgIBBAMBAAAAAAAAAAABAgARAwQhEjFBUSIyQsH/xAAWAQEBAQAAAAAAAAAAAAAAAAACAQP/xAAbEQEAAgIDAAAAAAAAAAAAAAAAARECIRJBYf/aAAwDAQACEQMRAD8AW2eryksGZq+Mbr7LPkGNlZSVP2HqR4G69iyAADYIjd7L0hKYlvFnxM/DiNWux5gyAngmEgRrQEWLhJykTsOiceMHISWHi+BOtrrtqGJIPYGqmgneDAUwriKu1vVMsY21gMRxhyP1CWvz036/sIZxR//Z",
+    "variants": {
+      "400": {
+        "width": 400,
+        "avif": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fkahlo-self-portrait%2F400.avif?alt=media",
+        "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fkahlo-self-portrait%2F400.webp?alt=media"
+      },
+      "800": {
+        "width": 640,
+        "avif": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fkahlo-self-portrait%2F800.avif?alt=media",
+        "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fkahlo-self-portrait%2F800.webp?alt=media"
+      },
+      "1200": {
+        "width": 640,
+        "avif": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fkahlo-self-portrait%2F1200.avif?alt=media",
+        "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fkahlo-self-portrait%2F1200.webp?alt=media"
+      },
+      "thumbnail": {
+        "width": 120,
+        "avif": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fkahlo-self-portrait%2Fthumbnail.avif?alt=media",
+        "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fkahlo-self-portrait%2Fthumbnail.webp?alt=media"
+      }
+    }
+  },
+  "night-watch": {
+    "slug": "night-watch",
+    "originalSize": 37037377,
+    "width": 14168,
+    "height": 11528,
+    "aspectRatio": 1.229,
+    "blurDataURL": "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAQABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAIDAQX/xAAdEAACAgIDAQAAAAAAAAAAAAABAgAREiETQXFR/8QAFQEBAQAAAAAAAAAAAAAAAAAAAgH/xAAVEQEBAAAAAAAAAAAAAAAAAAAAEf/aAAwDAQACEQMRAD8A5WJ1NxNR0WxTDrXsffCVYW5Io/BDSiQU1CVVFVQHyvyENWP/2Q==",
+    "variants": {
+      "400": {
+        "width": 400,
+        "avif": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fnight-watch%2F400.avif?alt=media",
+        "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fnight-watch%2F400.webp?alt=media"
+      },
+      "800": {
+        "width": 800,
+        "avif": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fnight-watch%2F800.avif?alt=media",
+        "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fnight-watch%2F800.webp?alt=media"
+      },
+      "1200": {
+        "width": 1200,
+        "avif": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fnight-watch%2F1200.avif?alt=media",
+        "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fnight-watch%2F1200.webp?alt=media"
+      },
+      "thumbnail": {
+        "width": 120,
+        "avif": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fnight-watch%2Fthumbnail.avif?alt=media",
+        "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fnight-watch%2Fthumbnail.webp?alt=media"
+      }
+    }
+  },
+  "nighthawks": {
+    "slug": "nighthawks",
+    "originalSize": 96238,
+    "width": 843,
+    "height": 461,
+    "aspectRatio": 1.8286,
+    "blurDataURL": "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAALABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQFAv/EACIQAQACAQEJAQAAAAAAAAAAAAEAAhEEAxITISIxMkGBgv/EABUBAQEAAAAAAAAAAAAAAAAAAAIA/8QAGBEBAAMBAAAAAAAAAAAAAAAAAAERURL/2gAMAwEAAhEDEQA/AJwL3MTVN1sFq++fUx+1aphDDFdRsqU8a4+yGzHC0IoGf3CT4Q8zpXGP/9k=",
+    "variants": {
+      "400": {
+        "width": 400,
+        "avif": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fnighthawks%2F400.avif?alt=media",
+        "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fnighthawks%2F400.webp?alt=media"
+      },
+      "800": {
+        "width": 800,
+        "avif": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fnighthawks%2F800.avif?alt=media",
+        "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fnighthawks%2F800.webp?alt=media"
+      },
+      "1200": {
+        "width": 843,
+        "avif": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fnighthawks%2F1200.avif?alt=media",
+        "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fnighthawks%2F1200.webp?alt=media"
+      },
+      "thumbnail": {
+        "width": 120,
+        "avif": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fnighthawks%2Fthumbnail.avif?alt=media",
+        "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fnighthawks%2Fthumbnail.webp?alt=media"
+      }
+    }
+  },
+  "the-ambassadors": {
+    "slug": "the-ambassadors",
+    "originalSize": 205992,
+    "width": 1024,
+    "height": 1011,
+    "aspectRatio": 1.0129,
+    "blurDataURL": "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAUABQDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAIEAQP/xAAhEAACAgEDBQEAAAAAAAAAAAAAAQIRAxIyUQQTITFBcf/EABYBAQEBAAAAAAAAAAAAAAAAAAABAv/EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oADAMBAAIRAxEAPwDFjimtyvgSSSfojVXbqVtefwpqGmTUm+KMxXNSBNgRGmeGEZQSW50z2eCDjVOuAAqH0+NfAAB//9k=",
+    "variants": {
+      "400": {
+        "width": 400,
+        "avif": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fthe-ambassadors%2F400.avif?alt=media",
+        "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fthe-ambassadors%2F400.webp?alt=media"
+      },
+      "800": {
+        "width": 800,
+        "avif": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fthe-ambassadors%2F800.avif?alt=media",
+        "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fthe-ambassadors%2F800.webp?alt=media"
+      },
+      "1200": {
+        "width": 1024,
+        "avif": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fthe-ambassadors%2F1200.avif?alt=media",
+        "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fthe-ambassadors%2F1200.webp?alt=media"
+      },
+      "thumbnail": {
+        "width": 120,
+        "avif": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fthe-ambassadors%2Fthumbnail.avif?alt=media",
+        "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fthe-ambassadors%2Fthumbnail.webp?alt=media"
+      }
+    }
+  },
+  "washington-crossing": {
+    "slug": "washington-crossing",
+    "originalSize": 1495013,
+    "width": 1937,
+    "height": 1135,
+    "aspectRatio": 1.7066,
+    "blurDataURL": "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAMABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAwACBP/EACEQAAEDBAEFAAAAAAAAAAAAAAEAAhEDEiExBDJBUXGh/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAEC/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A008amReDnyEJqUHybSzH1E4DZzA7odkmI9LKulrgR0ypCXWwApB//9k=",
+    "variants": {
+      "400": {
+        "width": 400,
+        "avif": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fwashington-crossing%2F400.avif?alt=media",
+        "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fwashington-crossing%2F400.webp?alt=media"
+      },
+      "800": {
+        "width": 800,
+        "avif": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fwashington-crossing%2F800.avif?alt=media",
+        "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fwashington-crossing%2F800.webp?alt=media"
+      },
+      "1200": {
+        "width": 1200,
+        "avif": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fwashington-crossing%2F1200.avif?alt=media",
+        "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fwashington-crossing%2F1200.webp?alt=media"
+      },
+      "thumbnail": {
+        "width": 120,
+        "avif": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fwashington-crossing%2Fthumbnail.avif?alt=media",
+        "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fwashington-crossing%2Fthumbnail.webp?alt=media"
+      }
+    }
+  },
+  "las-meninas": {
+    "slug": "las-meninas",
+    "originalSize": 266867780,
+    "width": 4000,
+    "height": 4604,
+    "aspectRatio": 0.8688,
+    "blurDataURL": "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAXABQDASIAAhEBAxEB/8QAGQABAQADAQAAAAAAAAAAAAAAAAIBAwQF/8QAHxAAAgICAwADAAAAAAAAAAAAAAECEQMhEkFRE4Gx/8QAFgEBAQEAAAAAAAAAAAAAAAAAAQAC/8QAFhEBAQEAAAAAAAAAAAAAAAAAABEh/9oADAMBAAIRAxEAPwDy3KXbJkU9tGZQfG/uq6Aoi2lr8B0YMnxwp+gKk4oTdtJebKzRb48dNKnsALrUxpqSAA0R/9k=",
+    "variants": {
+      "400": {
+        "width": 400,
+        "avif": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Flas-meninas%2F400.avif?alt=media",
+        "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Flas-meninas%2F400.webp?alt=media"
+      },
+      "800": {
+        "width": 800,
+        "avif": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Flas-meninas%2F800.avif?alt=media",
+        "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Flas-meninas%2F800.webp?alt=media"
+      },
+      "1200": {
+        "width": 1200,
+        "avif": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Flas-meninas%2F1200.avif?alt=media",
+        "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Flas-meninas%2F1200.webp?alt=media"
+      },
+      "thumbnail": {
+        "width": 120,
+        "avif": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Flas-meninas%2Fthumbnail.avif?alt=media",
+        "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Flas-meninas%2Fthumbnail.webp?alt=media"
+      }
+    }
+  },
+  "birth-of-venus": {
+    "slug": "birth-of-venus",
+    "originalSize": 221461466,
+    "width": 4000,
+    "height": 2512,
+    "aspectRatio": 1.5924,
+    "blurDataURL": "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAANABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAMC/8QAHxABAAEEAwADAAAAAAAAAAAAAQIAAwQRITFBEmJx/8QAFgEBAQEAAAAAAAAAAAAAAAAAAgAB/8QAFhEBAQEAAAAAAAAAAAAAAAAAAAEh/9oADAMBAAIRAxEAPwC9zFG4ugd91LIs25MSQK8flZu5c43Nh149VC5lTmnAc7oaUbljxtrFET7UpJbj8pJv3R3SsT//2Q==",
+    "variants": {
+      "400": {
+        "width": 400,
+        "avif": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fbirth-of-venus%2F400.avif?alt=media",
+        "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fbirth-of-venus%2F400.webp?alt=media"
+      },
+      "800": {
+        "width": 800,
+        "avif": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fbirth-of-venus%2F800.avif?alt=media",
+        "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fbirth-of-venus%2F800.webp?alt=media"
+      },
+      "1200": {
+        "width": 1200,
+        "avif": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fbirth-of-venus%2F1200.avif?alt=media",
+        "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fbirth-of-venus%2F1200.webp?alt=media"
+      },
+      "thumbnail": {
+        "width": 120,
+        "avif": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fbirth-of-venus%2Fthumbnail.avif?alt=media",
+        "webp": "https://firebasestorage.googleapis.com/v0/b/masterstrokes-bde20.firebasestorage.app/o/images%2Fbirth-of-venus%2Fthumbnail.webp?alt=media"
+      }
+    }
   }
 }

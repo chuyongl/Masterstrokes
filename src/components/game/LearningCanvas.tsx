@@ -4,6 +4,7 @@ import { useGameStore } from '../../store/gameStore';
 import Picture from '../ui/Picture';
 import { urlToSlug } from '../../utils/imageUtils';
 import MarieroseCharacter from '../ui/MarieroseCharacter';
+import imageManifest from '../../data/imageManifest.json';
 
 interface LearningCanvasProps {
     artwork: Artwork;
@@ -153,6 +154,7 @@ export default function LearningCanvas({ artwork, onComplete }: LearningCanvasPr
     const { panPosition, updatePan } = useGameStore();
 
     const [imageLoaded, setImageLoaded] = useState(false);
+    const [visibleImageReady, setVisibleImageReady] = useState(false);
     const [scale, setScale] = useState(0);
     const [containerSize, setContainerSize] = useState({ width: 0, height: 0 });
     const [isDragging, setIsDragging] = useState(false);
@@ -171,6 +173,7 @@ export default function LearningCanvas({ artwork, onComplete }: LearningCanvasPr
     const [hintActive, setHintActive] = useState(false);
     const hintTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+    const preloaderRef = useRef<HTMLImageElement>(null);
     const imageRef = useRef<HTMLImageElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
     const ZOOM_LEVEL = 1.15;
@@ -193,17 +196,30 @@ export default function LearningCanvas({ artwork, onComplete }: LearningCanvasPr
         return () => obs.disconnect();
     }, []);
 
-    // ── Calculate zoom scale on image load
+    // ── Calculate zoom scale on image load (use manifest dimensions as fallback)
+    const slug = urlToSlug(artwork.imageUrl);
+    const manifestEntry = (imageManifest as Record<string, any>)[slug];
+
+    const getNaturalDimensions = useCallback(() => {
+        // Prefer the visible image ref, then preloader ref, then manifest
+        const visImg = imageRef.current;
+        if (visImg && visImg.naturalWidth > 0) return { w: visImg.naturalWidth, h: visImg.naturalHeight };
+        const preImg = preloaderRef.current;
+        if (preImg && preImg.naturalWidth > 0) return { w: preImg.naturalWidth, h: preImg.naturalHeight };
+        if (manifestEntry) return { w: manifestEntry.width, h: manifestEntry.height };
+        return null;
+    }, [manifestEntry]);
+
     useEffect(() => {
-        if (!imageLoaded || !imageRef.current || containerSize.width === 0) return;
-        const img = imageRef.current;
-        if (img.naturalWidth === 0) return;
+        if (!imageLoaded || containerSize.width === 0) return;
+        const dims = getNaturalDimensions();
+        if (!dims) return;
         const fitScale = Math.min(
-            containerSize.width / img.naturalWidth,
-            containerSize.height / img.naturalHeight
+            containerSize.width / dims.w,
+            containerSize.height / dims.h
         );
         setScale(fitScale * ZOOM_LEVEL);
-    }, [imageLoaded, containerSize]);
+    }, [imageLoaded, containerSize, getNaturalDimensions]);
 
     // ── Reset pan on unmount / new artwork
     useEffect(() => {
@@ -230,16 +246,17 @@ export default function LearningCanvas({ artwork, onComplete }: LearningCanvasPr
         } else {
             setCurrentIndex(next);
             // Reset view to original state smoothly
-            if (imageRef.current && containerSize.width > 0) {
+            const dims = getNaturalDimensions();
+            if (dims && containerSize.width > 0) {
                 const fitScale = Math.min(
-                    containerSize.width / imageRef.current.naturalWidth,
-                    containerSize.height / imageRef.current.naturalHeight
+                    containerSize.width / dims.w,
+                    containerSize.height / dims.h
                 );
                 setScale(fitScale * ZOOM_LEVEL);
                 updatePan(0, 0);
             }
         }
-    }, [currentIndex, artwork.learningPoints.length, onComplete, containerSize, updatePan]);
+    }, [currentIndex, artwork.learningPoints.length, onComplete, containerSize, updatePan, getNaturalDimensions]);
 
     // ── Hotspot click detection (specific points in 'prompt' phase only)
     const handleImageClick = (e: React.MouseEvent) => {
@@ -257,8 +274,8 @@ export default function LearningCanvas({ artwork, onComplete }: LearningCanvasPr
             if (hintTimer.current) clearTimeout(hintTimer.current);
             
             // Zoom and pan to center
-            if (imageRef.current && containerSize.width > 0) {
-                const img = imageRef.current;
+            const dims = getNaturalDimensions();
+            if (dims && containerSize.width > 0) {
                 const rects = getSpotlightRects(currentPoint);
                 if (rects.length > 0) {
                     const r = rects[0];
@@ -266,14 +283,14 @@ export default function LearningCanvas({ artwork, onComplete }: LearningCanvasPr
                     const centerYPercent = r.y + (r.h / 2);
                     
                     const fitScale = Math.min(
-                        containerSize.width / img.naturalWidth,
-                        containerSize.height / img.naturalHeight
+                        containerSize.width / dims.w,
+                        containerSize.height / dims.h
                     );
                     const focusScale = fitScale * 1.4; 
                     
-                    const targetPanX = -((centerXPercent / 100) - 0.5) * img.naturalWidth * focusScale;
+                    const targetPanX = -((centerXPercent / 100) - 0.5) * dims.w * focusScale;
                     // Offset Y up by 10% of screen height to avoid being hidden behind the bottom tooltip
-                    const targetPanY = -((centerYPercent / 100) - 0.5) * img.naturalHeight * focusScale - (containerSize.height * 0.1);
+                    const targetPanY = -((centerYPercent / 100) - 0.5) * dims.h * focusScale - (containerSize.height * 0.1);
                     
                     setScale(focusScale);
                     updatePan(targetPanX, targetPanY);
@@ -390,16 +407,16 @@ export default function LearningCanvas({ artwork, onComplete }: LearningCanvasPr
         setScale(s => Math.max(0.3, Math.min(5, s - e.deltaY * 0.001)));
     };
 
-    const slug = urlToSlug(artwork.imageUrl);
-    const imgW = imageRef.current?.naturalWidth ?? 0;
-    const imgH = imageRef.current?.naturalHeight ?? 0;
+    const imgDims = getNaturalDimensions();
+    const imgW = imgDims?.w ?? 0;
+    const imgH = imgDims?.h ?? 0;
 
     return (
         <div ref={containerRef} className="relative w-full h-full bg-white overflow-hidden select-none touch-none">
-            {/* Hidden preloader image */}
+            {/* Hidden preloader image (uses separate ref to avoid conflicts) */}
             <Picture
                 slug={slug} alt="preload"
-                className="hidden" ref={imageRef}
+                className="hidden" ref={preloaderRef}
                 onLoad={() => setImageLoaded(true)} priority
             />
 
@@ -439,6 +456,17 @@ export default function LearningCanvas({ artwork, onComplete }: LearningCanvasPr
                                 imgClassName="max-w-none select-none pointer-events-none block"
                                 draggable={false}
                                 priority
+                                onLoad={() => {
+                                    setVisibleImageReady(true);
+                                    // Recalculate scale now that the visible image has loaded
+                                    if (imageRef.current && containerSize.width > 0) {
+                                        const fitScale = Math.min(
+                                            containerSize.width / imageRef.current.naturalWidth,
+                                            containerSize.height / imageRef.current.naturalHeight
+                                        );
+                                        if (fitScale > 0) setScale(fitScale * ZOOM_LEVEL);
+                                    }
+                                }}
                             />
 
                             {/* Spotlight overlay: only shown in 'revealed' phase for specific points */}

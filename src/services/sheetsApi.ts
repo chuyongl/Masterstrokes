@@ -1,5 +1,6 @@
 import type { Artwork, QuizRegion } from '../data/gameTypes';
 import annotationsData from '../data/annotations.json';
+import { UNIT_CATEGORY_MAP } from '../config/eras';
 
 // ─── Sheet Row Interfaces ────────────────────────────────────────────────────
 
@@ -191,6 +192,32 @@ const ANCIENT_ERAS = [
     'Ancient-Greco-Roman', 'Ancient-Indian', 'Ancient-Chinese', 'Medieval'
 ];
 
+/** Only these units (artworks) are currently active. */
+const ACTIVE_ARTWORK_IDS = new Set([
+    // Ancient Art
+    'chauvet-panel-lions',
+    'chauvet-panel-horses',
+    'lascaux-hall-bulls',
+    'lascaux-shaft-scene',
+    'altamira-ceiling',
+    'el-castillo-hands',
+    'investiture-zimri-lim',
+    'mari-sacrificial-procession',
+    'standard-of-ur',
+    'book-of-dead-hunefer',
+    // Featured Classics
+    'girl-pearl-earring',
+    'arnolfini-portrait',
+    'las-meninas',
+    'birth-of-venus',
+    'grande-jatte',
+    'night-watch',
+    'washington-crossing',
+    'the-ambassadors',
+    'nighthawks',
+    'kahlo-self-portrait',
+]);
+
 /**
  * Get normalized annotation regions for an artwork.
  * Returns a Map<point_id, AnnotationRegion> for O(1) lookup.
@@ -278,8 +305,9 @@ export function transformSheetDataToArtwork(
         if (baseUrl !== '/') imageUrl = `${baseUrl}${imageUrl.substring(1)}`;
     }
 
-    let mappedEra = sheetArtwork.era;
-    if (ANCIENT_ERAS.includes(mappedEra)) mappedEra = 'ancient-art';
+    // Map era → category: check explicit UNIT_CATEGORY_MAP first, then ancient sub-eras
+    let mappedEra = UNIT_CATEGORY_MAP[sheetArtwork.artwork_id]
+        || (ANCIENT_ERAS.includes(sheetArtwork.era) ? 'ancient-art' : sheetArtwork.era);
 
     return {
         id: sheetArtwork.artwork_id,
@@ -355,18 +383,24 @@ export function filterByChapter<T extends { point_id: string }>(
 // ─── Public API ──────────────────────────────────────────────────────────────
 
 import { FALLBACK_ANCIENT_ARTWORKS } from '../data/ancientArtworks';
+import { FALLBACK_FEATURED_CLASSICS } from '../data/featuredClassics';
+
+const ALL_FALLBACKS = [...FALLBACK_ANCIENT_ARTWORKS, ...FALLBACK_FEATURED_CLASSICS];
 
 export async function getAllArtworks(): Promise<Artwork[]> {
     try {
         const data = await fetchSheetData();
-        const transformed = data.artworks.map((artwork) =>
+        const activeArtworks = data.artworks.filter(a => ACTIVE_ARTWORK_IDS.has(a.artwork_id));
+        const transformed = activeArtworks.map((artwork) =>
             transformSheetDataToArtwork(artwork, data.learningPoints)
         );
-        if (transformed.length === 0) return FALLBACK_ANCIENT_ARTWORKS;
-        return transformed;
+        // Merge: sheet results + fallbacks for any active IDs not yet in sheets
+        const sheetIds = new Set(transformed.map(a => a.id));
+        const missing = ALL_FALLBACKS.filter(a => ACTIVE_ARTWORK_IDS.has(a.id) && !sheetIds.has(a.id));
+        return [...transformed, ...missing];
     } catch (error) {
         console.error('Failed to get artworks from sheet:', error);
-        return FALLBACK_ANCIENT_ARTWORKS;
+        return ALL_FALLBACKS.filter(a => ACTIVE_ARTWORK_IDS.has(a.id));
     }
 }
 
@@ -383,7 +417,7 @@ export async function getArtworkById(id: string): Promise<Artwork | null> {
 export async function getArtworksByEra(era: string): Promise<Artwork[]> {
     try {
         const data = await fetchSheetData();
-        const eraArtworks = data.artworks.filter((a) => a.era === era);
+        const eraArtworks = data.artworks.filter((a) => a.era === era && ACTIVE_ARTWORK_IDS.has(a.artwork_id));
         return eraArtworks.map((artwork) =>
             transformSheetDataToArtwork(artwork, data.learningPoints)
         );
@@ -391,6 +425,18 @@ export async function getArtworksByEra(era: string): Promise<Artwork[]> {
         console.error('Failed to get artworks by era:', error);
         return [];
     }
+}
+
+/** Alias: get units by category ID */
+export async function getArtworksByCategory(categoryId: string): Promise<Artwork[]> {
+    // For categories that map from sheet era values, delegate to getArtworksByEra
+    // For categories defined purely via UNIT_CATEGORY_MAP (like featured-classics),
+    // fall back to filtering all artworks by their mapped category
+    const allArtworks = await getAllArtworks();
+    return allArtworks.filter(a => {
+        const cat = UNIT_CATEGORY_MAP[a.id] || a.era;
+        return cat === categoryId;
+    });
 }
 
 export async function getEraEntryDialogues(

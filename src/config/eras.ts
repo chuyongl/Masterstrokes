@@ -1,4 +1,13 @@
-export interface Era {
+/**
+ * Category = top-level grouping (formerly "Era").
+ * Session  = sub-grouping within a Category (e.g. "Medieval" within Ancient Art).
+ * Unit     = individual artwork.
+ *
+ * We keep `era` as an internal alias for backward compatibility
+ * (routes, sheet column names, etc.), but the canonical term is Category.
+ */
+
+export interface Category {
     id: string;
     name: string;
     period: string;
@@ -6,79 +15,56 @@ export interface Era {
     icon: string;
 }
 
-export const ERAS: Era[] = [
+/** @deprecated Use Category instead */
+export type Era = Category;
+
+export const CATEGORIES: Category[] = [
     {
         id: 'ancient-art',
         name: 'Ancient Art',
         period: 'Prehistoric - 1400 CE',
-        color: '#b45309', // Amber/Bronze
+        color: '#b45309',
         icon: '🏺'
     },
     {
-        id: 'renaissance',
-        name: 'Renaissance',
-        period: '14th-17th Century',
-        color: '#8b5cf6', // Purple
-        icon: '🎨'
+        id: 'featured-classics',
+        name: 'Featured Classics',
+        period: '15th - 20th Century',
+        color: '#D97706',
+        icon: '⭐'
     },
-    {
-        id: 'dutch-golden-age',
-        name: 'Dutch Golden Age',
-        period: '17th Century',
-        color: '#f59e0b', // Amber
-        icon: '🖼️'
-    },
-    {
-        id: 'post-impressionism',
-        name: 'Post-Impressionism',
-        period: 'Late 19th Century',
-        color: '#3b82f6', // Blue
-        icon: '🌟'
-    },
-    {
-        id: 'expressionism',
-        name: 'Expressionism',
-        period: 'Early 20th Century',
-        color: '#ef4444', // Red
-        icon: '😱'
-    },
-    {
-        id: 'ukiyo-e',
-        name: 'Ukiyo-e',
-        period: '17th-19th Century',
-        color: '#06b6d4', // Cyan
-        icon: '🌊'
-    },
-    {
-        id: 'regionalism',
-        name: 'Regionalism',
-        period: '1930s-1940s',
-        color: '#84cc16', // Lime
-        icon: '🌾'
-    },
-    {
-        id: 'surrealism',
-        name: 'Surrealism',
-        period: '1920s-1950s',
-        color: '#ec4899', // Pink
-        icon: '⏰'
-    }
 ];
 
-// Map artwork IDs to eras
-export const ARTWORK_ERA_MAP: Record<string, string> = {
-    'girl-pearl-earring': 'dutch-golden-age',
+/** @deprecated Use CATEGORIES instead */
+export const ERAS = CATEGORIES;
+
+/**
+ * Map unit (artwork) IDs → category IDs.
+ * Used when artwork.era might not match the category id directly.
+ */
+export const UNIT_CATEGORY_MAP: Record<string, string> = {
+    // ── Featured Classics ──
+    'girl-pearl-earring': 'featured-classics',
+    'arnolfini-portrait': 'featured-classics',
+    'las-meninas': 'featured-classics',
+    'birth-of-venus': 'featured-classics',
+    'grande-jatte': 'featured-classics',
+    'night-watch': 'featured-classics',
+    'washington-crossing': 'featured-classics',
+    'the-ambassadors': 'featured-classics',
+    'nighthawks': 'featured-classics',
+    'kahlo-self-portrait': 'featured-classics',
+
+    // ── Legacy era mappings ──
     'starry-night': 'post-impressionism',
     'mona-lisa': 'renaissance',
     'the-scream': 'expressionism',
-    'birth-of-venus': 'renaissance',
     'great-wave': 'ukiyo-e',
     'american-gothic': 'regionalism',
     'last-supper': 'renaissance',
     'persistence-memory': 'surrealism',
 
     // Dutch Golden Age
-    'night-watch': 'dutch-golden-age',
     'laughing-cavalier': 'dutch-golden-age',
     'the-milkmaid': 'dutch-golden-age',
     'merry-family': 'dutch-golden-age',
@@ -90,3 +76,6 @@ export const ARTWORK_ERA_MAP: Record<string, string> = {
     'vanitas-violin': 'dutch-golden-age',
     'flowers-glass-vase': 'dutch-golden-age'
 };
+
+/** @deprecated Use UNIT_CATEGORY_MAP instead */
+export const ARTWORK_ERA_MAP = UNIT_CATEGORY_MAP;

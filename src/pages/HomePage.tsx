@@ -58,8 +58,8 @@ function ChapterSwitcherSheet({ open, onClose, currentEraId, onSwitch, eraProgre
                     );
                 })}
 
-                {/* Historical Eras */}
-                <p className="text-[9px] font-bold text-white/30 tracking-[0.07em] uppercase px-4 mt-3 mb-[6px]">Historical Eras</p>
+                {/* Other Categories */}
+                <p className="text-[9px] font-bold text-white/30 tracking-[0.07em] uppercase px-4 mt-3 mb-[6px]">All Categories</p>
                 <div className="flex flex-col gap-[5px] px-4">
                     {historicalEras.filter(e => e.id !== currentEraId).map((era, idx) => {
                         const isLocked = idx > 2; // Simple lock logic
@@ -274,9 +274,37 @@ export default function HomePage() {
             </div>
 
             {/* ── Body: cards fill remaining space ─────────────────── */}
-            <div className="flex-1 bg-[#2A1F5C] px-4 pt-3 pb-2 flex flex-col gap-[10px] overflow-hidden">
+            <div className="flex-1 bg-[#2A1F5C] px-4 pt-3 pb-2 flex flex-col gap-[10px] overflow-hidden min-h-0">
                 {/* Painting cards carousel */}
-                <div ref={scrollRef} className="flex gap-3 overflow-x-auto pb-1 hide-scrollbar flex-shrink-0">
+                <div
+                    ref={scrollRef}
+                    className="flex gap-3 overflow-x-auto pb-1 hide-scrollbar select-none"
+                    style={{ flex: '1 1 0', minHeight: 0, cursor: 'grab' }}
+                    onPointerDown={(e) => {
+                        const el = scrollRef.current;
+                        if (!el) return;
+                        el.setPointerCapture(e.pointerId);
+                        el.style.cursor = 'grabbing';
+                        el.dataset.dragging = 'true';
+                        el.dataset.startX = String(e.clientX);
+                        el.dataset.scrollLeft = String(el.scrollLeft);
+                        el.dataset.dragDist = '0';
+                    }}
+                    onPointerMove={(e) => {
+                        const el = scrollRef.current;
+                        if (!el || el.dataset.dragging !== 'true') return;
+                        const dx = e.clientX - Number(el.dataset.startX);
+                        el.scrollLeft = Number(el.dataset.scrollLeft) - dx;
+                        el.dataset.dragDist = String(Math.abs(dx));
+                    }}
+                    onPointerUp={(e) => {
+                        const el = scrollRef.current;
+                        if (!el) return;
+                        el.releasePointerCapture(e.pointerId);
+                        el.style.cursor = 'grab';
+                        el.dataset.dragging = 'false';
+                    }}
+                >
                     {displayArtworks.map((artwork, i) => {
                         const isCurrent = i === currentIdx;
                         const isCompleted = completedLevels.includes(artwork.id);
@@ -284,51 +312,55 @@ export default function HomePage() {
                         const slug = urlToSlug(artwork.imageUrl);
                         const manifest = (imageManifest as Record<string, any>)[slug];
                         const aspectRatio = manifest?.aspectRatio || 0.75;
-                        // Width based on aspect ratio so all cards share same height
-                        // Card height is determined by flex-1, width = height * aspectRatio
-                        // Use CSS aspect-ratio on the image container instead
 
                         return (
-                            <button
+                            <div
                                 key={artwork.id}
-                                className="flex-shrink-0 text-left"
-                                style={{ width: Math.max(120, Math.round(200 * aspectRatio)) }}
-                                onClick={() => !isLocked && navigate(`/artwork/${artwork.id}`)}
-                                disabled={isLocked}
+                                className="flex-shrink-0 relative"
+                                style={{ width: Math.max(140, Math.round(220 * aspectRatio)), height: '100%' }}
                             >
-                                <div className={`h-[200px] rounded-[11px] overflow-hidden relative ${
-                                    isCurrent ? 'border-2 border-[#7B2FF7]' :
-                                    isCompleted ? 'border border-[#A78BFA]/30' :
-                                    'border border-white/[0.08]'
-                                }`}>
+                                {/* Image area — fills all space minus ~30px for text */}
+                                <div
+                                    className={`absolute inset-0 bottom-[30px] rounded-[11px] overflow-hidden ${
+                                        isCurrent ? 'border-2 border-[#7B2FF7]' :
+                                        isCompleted ? 'border border-[#A78BFA]/30' :
+                                        'border border-white/[0.08]'
+                                    }`}
+                                    onClick={() => {
+                                        const dist = Number(scrollRef.current?.dataset.dragDist || 0);
+                                        if (dist > 5) return;
+                                        if (!isLocked) navigate(`/artwork/${artwork.id}`);
+                                    }}
+                                    style={{ cursor: isLocked ? 'not-allowed' : 'pointer' }}
+                                >
                                     <Picture
                                         slug={slug}
                                         alt={artwork.title}
                                         variant="800"
-                                        className="absolute inset-0"
+                                        style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}
                                         imgClassName="w-full h-full object-cover"
                                         priority={i < 6}
                                     />
-                                    {/* Locked overlay */}
                                     {isLocked && (
                                         <div className="absolute inset-0 bg-black/50 backdrop-blur-[2px] flex items-center justify-center z-10">
                                             <span className="text-[20px]">🔒</span>
                                         </div>
                                     )}
-                                    {/* Completed overlay */}
                                     {isCompleted && (
                                         <div className="absolute inset-0 bg-black/25 flex items-center justify-center z-10">
                                             <span className="text-xl text-white">✓</span>
                                         </div>
                                     )}
-                                    {/* Badge */}
                                     <div className="absolute top-[5px] right-[5px] bg-[#7B2FF7] rounded-[3px] px-[5px] py-[2px] text-[9px] font-bold text-white z-20">
                                         {isCurrent ? '!' : i + 1}
                                     </div>
                                 </div>
-                                <p className={`text-[9px] font-bold uppercase tracking-[0.04em] mt-[5px] leading-[1.3] line-clamp-2 ${isLocked ? 'text-white/[0.32]' : 'text-white'}`}>{artwork.title}</p>
-                                <p className="text-[7px] text-white/[0.38]">{artwork.artist || 'Unknown'}</p>
-                            </button>
+                                {/* Text — pinned to bottom */}
+                                <div className="absolute bottom-0 left-0 right-0">
+                                    <p className={`text-[9px] font-bold uppercase tracking-[0.04em] leading-[1.3] line-clamp-1 ${isLocked ? 'text-white/[0.32]' : 'text-white'}`}>{artwork.title}</p>
+                                    <p className="text-[7px] text-white/[0.38]">{artwork.artist || 'Unknown'}</p>
+                                </div>
+                            </div>
                         );
                     })}
                 </div>
